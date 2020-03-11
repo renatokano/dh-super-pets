@@ -27,7 +27,7 @@ Unimos os dois elos da cadeia.
 ## Sprints (SCRUM Framework)
 Sprint 0 (21/02 - 28/02): Definição do projeto a ser desenvolvido.
 
-Sprint 1 (28/02 - 11/03): Desenvolver o *wireframe* de todas as páginas, funcionalidades principais da aplicação, fluxos e processos para a facilitação do desenvolvimento.
+Sprint 1 (28/02 - 11/03): Desenvolver o [*wireframe*](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-1.pdf) de todas as páginas, funcionalidades principais da aplicação, fluxos e processos para a facilitação do desenvolvimento. [[arquivos]](https://github.com/renatokano/dh-super-pets/tree/master/layout)
 
 ## Stack
 * [NodeJs](https://nodejs.org/dist/latest-v12.x/docs/api/) - JavaScript runtime built on Chrome's V8 JavaScript engine
@@ -36,10 +36,10 @@ Sprint 1 (28/02 - 11/03): Desenvolver o *wireframe* de todas as páginas, funcio
 * [ReactNative](https://facebook.github.io/react-native) - A framework for building native apps using React
 
 ## Team
-* **Adria M. de Oliveira** - [Github](https://github.com/adriamenezes)
-* **Eudes Silva** - [Github](https://github.com/EudesJS)
-* **Refael de Cerqueira** - [Github](#)
-* **Renato Kano** - [Github](https://github.com/renatokano)
+* **Adria M. de Oliveira** - [[Github]](https://github.com/adriamenezes)
+* **Eudes Silva** - [[Github]](https://github.com/EudesJS)
+* **Refael de Cerqueira** - [[Github]](#)
+* **Renato Kano** - [[Github]](https://github.com/renatokano)
 
 ## Licença
 Este projeto é licenciado sob MIT License - veja mais em [LICENSE.md](LICENSE.md).
