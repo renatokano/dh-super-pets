@@ -1,0 +1,20 @@
+{
+  "name": "dh-super-pets",
+  "version": "0.0.1",
+  "description": "SuperPets - Platform that promises to bring together the best professionals in the pet-market and pet owners.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatokano/dh-super-pets.git"
+  },
+  "keywords": ["nodejs", "reactjs", "react-native", "mongodb", "javascript", "marketplace", "pet-project"],
+  "author": "Renato Kano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renatokano/dh-super-pets/issues"
+  },
+  "homepage": "https://github.com/renatokano/dh-super-pets#readme"
+}
