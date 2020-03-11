@@ -1,6 +1,6 @@
 # SuperPets
 
-"Porque buscar os profissionais mais bem recomendados e agendar os serviços para o seu pet não precisa ser um problema."
+"Os melhores profissionais para o seu *pet* a um clique."
 
 ## Quem Somos
 A SuperPets promete unir os melhores **profissionais do mercado pet** com os **donos de pets**, permitindo buscar os profissionais mais bem avaliados e realizar agendamentos online de serviços como: adestramento, banho, tosa, hospedagem e passeio. 
