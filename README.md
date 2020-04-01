@@ -27,7 +27,12 @@ Unimos os dois elos da cadeia.
 ## Sprints (SCRUM Framework)
 Sprint 0 (21/02 - 28/02): Definição do projeto a ser desenvolvido.
 
-Sprint 1 (28/02 - 11/03): Desenvolver o [*wireframe*](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-1.pdf) de todas as páginas, funcionalidades principais da aplicação, fluxos e processos para a facilitação do desenvolvimento. [[arquivos]](https://github.com/renatokano/dh-super-pets/tree/master/layout)
+Sprint 1 (28/02 - 13/03): Desenvolver o wireframe de todas as páginas, funcionalidades principais da aplicação, fluxos e processos para a facilitação do desenvolvimento. [[arquivos]](https://github.com/renatokano/dh-super-pets/tree/master/layout) [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-1.pdf)
+
+Sprint 2 (14/03 - 27/03): Desenvolver a identidade visual e o layout mobile. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-2.pdf)
+
+Sprint 3 (30/03 - 22/04): Desenvolver o front-end da aplicação. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-3.pdf)
+
 
 ## Stack
 * [NodeJs](https://nodejs.org/dist/latest-v12.x/docs/api/) - JavaScript runtime built on Chrome's V8 JavaScript engine
