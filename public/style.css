@@ -1,0 +1,900 @@
+/* -------------------------------CSS RESET----------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ----------------------------- HTML/BODY STYLE --------------------------------- */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ################################## HOMEPAGE STYLE #################################### */
+/* ----------------------------------MAIN--------------------------------------------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "banner banner banner banner banner banner banner banner banner banner banner banner";
+  height: 100%;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
+  grid-area: header;
+  background-color: slateblue;
+}
+
+.header > * {
+  display: grid;
+  place-items: center;
+  color: #010101;
+  font-weight: 900;
+}
+
+.logo {
+  grid-area: logo;
+  background-color: lightcoral;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: lightcyan;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px;
+  grid-template-areas: ".";
+  grid-area: banner;
+  background-color: wheat;
+  place-items: center;
+  color: #010101;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container{
+    height:30%;
+  }
+
+  .header {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "logo logo logo logo logo logo logo logo logo logo logo logo" "nav nav nav nav nav nav nav nav nav nav nav nav";
+  }
+ 
+  .logo {
+    grid-template-rows: 1fr;
+  }
+
+  .nav {
+    grid-template-rows: 1fr;
+  }
+}
+
+/* ---------------------------------SEARCH BOX------------------------------- */
+.search{
+  padding:40px;
+  background-color: tomato;
+}
+
+.icons-grid-container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(1, auto);
+  background-color: thistle;
+  flex: 1;
+}
+
+.icons-grid-container>* {
+  background-color: #fff;
+  padding:20px;
+}
+
+.inputs-grid-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows:50px;
+  gap: 5px 5px;
+  grid-template-areas: "input-1 input-2 input-3 input-4";
+  background-color: turquoise;
+}
+
+.inputs-grid-container>*{
+  background-color: yellow;
+}
+
+.input-1 { grid-area: input-1; }
+
+.input-2 { grid-area: input-2; }
+
+.input-3 { grid-area: input-3; }
+
+.input-4 { grid-area: input-4; }
+
+@media only screen and (max-width: 768px){
+  .inputs-grid-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,40px);
+    grid-template-areas: "input-1" "input-2" "input-3" "input-4"; 
+  }  
+}
+
+@media only screen and (max-width: 310px){
+  .icons-grid-container{
+    grid-template-rows: repeat(3, 100px);
+  }
+  
+}
+
+@media only screen and (max-width: 285px){
+  .icons-grid-container{
+    grid-template-rows: repeat(5, 100px);
+  }
+  
+}
+
+/* --------------------------------FEATURED PROFESSIONAL---------------------- */
+.featured-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "content content content content content profile1 profile1 profile1 . profile2 profile2 profile2" "content content content content content profile3 profile3 profile3 . profile4 profile4 profile4";
+  height: 100%;
+  background-color: skyblue;
+  padding:40px;
+}
+
+.featured-grid-container>*{
+  background-color: snow;
+}
+
+.content { grid-area: content; }
+
+.profile1 { grid-area: profile1; }
+
+.profile2 { grid-area: profile2; }
+
+.profile3 { grid-area: profile3; }
+
+.profile4 { grid-area: profile4; }
+
+@media only screen and (max-width: 768px){
+  .featured-grid-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 20px 1fr 1fr 1fr 1fr;
+    grid-template-areas: "content" "profile1" "profile2" "profile3" "profile4";  
+  } 
+}
+
+
+/* ---------------------------------TESTIMONIALS-------------------------------------------- */
+.testimonial-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "testimonial user-picture";
+  height: 60%;
+  background-color: lightgray;
+}
+
+.testimonial-grid-container>*{
+  margin:20px;
+  background-color: mediumorchid;
+}
+
+.testimonial { grid-area: testimonial; }
+
+.user-picture { grid-area: user-picture; }
+
+@media only screen and (max-width: 768px){
+  .testimonial-grid-container{
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-areas: "testimonial";
+    height:30%;
+    padding: 20px; 
+  } 
+}
+
+/* -------------------------------------FAQ-------------------------------------- */
+.faq-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px 1px;
+  grid-template-areas: "section1 section1 section1 section1 section1 section1 section1 section1 section1 section1 section1 section1" "section2 section2 section2 section2 section2 section2 section2 section2 section2 section2 section2 section2" "section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3" "section4 section4 section4 section4 section4 section4 section4 section4 section4 section4 section4 section4";
+  width:100%;
+  height:100%;
+  background-color: navajowhite;
+}
+
+.faq-grid-container >*{
+  background-color: white;
+  margin:0 20px;
+}
+
+.section1 { grid-area: section1; }
+
+
+.section2 { grid-area: section2; }
+
+.section3 { grid-area: section3; }
+
+.section4 { grid-area: section4; }
+
+@media only screen and (max-width: 768px){
+  .faq-grid-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "section1" "section2" "section3" "section4";
+    height:60%;
+    padding:20px;
+  } 
+}
+
+/* ---------------------------------------FOOTER----------------------------------------- */
+.main-footer-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "footer-section1 footer-section1 footer-section2 footer-section2 footer-section3 footer-section3 footer-section4 footer-section4 footer-section4 footer-section5 footer-section5 footer-section5";
+  background-color: lightgrey;
+  height:150px;
+  padding:20px;
+}
+
+.main-footer-grid-container>*{
+  background-color:royalblue;
+}
+
+.main-footer-section1 { grid-area: footer-section1; }
+
+.main-footer-section2 { grid-area: footer-section2; }
+
+.main-footer-section3 { grid-area: footer-section3; }
+
+.main-footer-section4 { grid-area: footer-section4; }
+
+.main-footer-section5 { grid-area: footer-section5; }
+
+@media only screen and (max-width: 768px){
+  .main-footer-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section3 footer-section3  footer-section3 footer-section3 footer-section3 footer-section3" "footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section5 footer-section5  footer-section5 footer-section5 footer-section5 footer-section5" "footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4";
+    gap: 1px 1px;
+ } 
+
+}
+
+/* ########################### USER REGISTER PAGE STYLE####################################### */
+.userregister-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
+  grid-area: header;
+  background-color: slateblue;
+}
+
+.header > * {
+  display: grid;
+  justify-items: flex-start;
+  align-items: center;
+  color: #010101;
+  font-weight: 900;
+  padding-left:20px;
+}
+
+.logo {
+  grid-area: logo;
+  background-color: lightcoral;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: lightcyan;
+}
+
+@media only screen and (max-width: 768px) {
+  .userregister-grid-container{
+    height:100%;
+  }
+
+  .header {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "logo logo logo logo logo logo logo logo logo logo logo logo""nav nav nav nav nav nav nav nav nav nav nav nav";
+  }
+ 
+  .logo {
+    height:100%;
+    grid-template-rows: 1fr;
+  } 
+
+  .nav {
+    height:100%;
+    grid-template-rows: 1fr;
+  } 
+
+}
+
+/* ------------------------------------MAIN---------------------------------------- */
+.ur-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img content-info content-info content-info content-info content-info content-info" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input1 input1 input1 input1 input1 input1" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input2 input2 input2 input2 input2 input2" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input3 input3 input3 input3 input3 input3" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input4 input4 input5 input5 input5 input5" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input6 input6 input7 input7 input8 input8" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input9 input9 input9 input10 input10 input10" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input-check input-check input-check input-check input-check input-check" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img signup signup signup btn-register btn-register btn-register";
+  background-color: steelblue;
+  width:100vw;
+}
+
+.ur-main-grid-container>*{
+  background-color: whitesmoke;
+}
+
+.ur-bcg-img { grid-area: bcg-img; }
+
+.ur-content-info { grid-area: content-info; }
+
+.ur-input1 { grid-area: input1; }
+
+.ur-input2 { grid-area: input2; }
+
+.ur-input3 { grid-area: input3; }
+
+.ur-input4 { grid-area: input4; }
+
+.ur-input5 { grid-area: input5; }
+
+.ur-input6 { grid-area: input6; }
+
+.ur-input7 { grid-area: input7; }
+
+.ur-input8 { grid-area: input8; }
+
+.ur-input9 { grid-area: input9; }
+
+.ur-input10 { grid-area: input10; }
+
+.ur-input-check { grid-area: input-check; }
+
+.ur-signup { grid-area: signup; }
+
+.ur-btn-register { grid-area: btn-register; }
+
+@media only screen and (max-width: 768px) {
+  .ur-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(11,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8" "input9 input9 input9 input9 input9 input9 input10 input10 input10 input10 input10 input10" "input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check" "signup signup signup signup signup signup btn-register btn-register btn-register btn-register btn-register btn-register";
+    width:100vw;
+  }
+
+  .ur-bcg-img{
+    display:none;
+  }
+
+}
+
+/* ---------------------------------------FOOTER----------------------------------------- */
+ .footer-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "footer-section1 footer-section1 footer-section2 footer-section2 footer-section3 footer-section3 footer-section4 footer-section4 footer-section4 footer-section5 footer-section5 footer-section5";
+  background-color: lightgrey;
+  height:150px;
+  padding:20px;
+  position: absolute;
+  width:100vw;
+  bottom:0;
+}
+
+.footer-grid-container>*{
+  background-color:royalblue;
+}
+
+.footer-section1 { grid-area: footer-section1; }
+
+.footer-section2 { grid-area: footer-section2; }
+
+.footer-section3 { grid-area: footer-section3; }
+
+.footer-section4 { grid-area: footer-section4; }
+
+.footer-section5 { grid-area: footer-section5; }
+
+@media only screen and (max-width: 768px){
+  .footer-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section3 footer-section3  footer-section3 footer-section3 footer-section3 footer-section3" "footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section5 footer-section5  footer-section5 footer-section5 footer-section5 footer-section5" "footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4";
+    gap: 1px 1px;
+ } 
+
+} 
+
+/* ############################ PROFESSIONAL REGISTER PAGE STYLE #######################*/
+/* ----------------------------------MAIN--------------------------------------------- */
+.proregister-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .proregister-grid-container{
+    height:100%;
+  }
+}
+
+/* ------------------------------------MAIN---------------------------------------- */
+.pr-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img content-info content-info content-info content-info content-info content-info" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input1 input1 input1 input1 input1 input1" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input2 input2 input2 input2 input2 input2" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input3 input3 input3 input3 input3 input3" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input4 input4 input4 input4 input4 input4" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input5 input5 input5 input5 input5 input5" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input6 input6 input6 input7 input7 input7" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img input-check input-check input-check input-check input-check input-check" "bcg-img bcg-img bcg-img bcg-img bcg-img bcg-img signup signup signup btn-register btn-register btn-register";
+  background-color: steelblue;
+  width:100vw;
+}
+
+.pr-main-grid-container>*{
+  background-color: whitesmoke;
+}
+
+.pr-bcg-img { grid-area: bcg-img; }
+
+.pr-content-info { grid-area: content-info; }
+
+.pr-input1 { grid-area: input1; }
+
+.pr-input2 { grid-area: input2; }
+
+.pr-input3 { grid-area: input3; }
+
+.pr-input4 { grid-area: input4; }
+
+.pr-input5 { grid-area: input5; }
+
+.pr-input6 { grid-area: input6; }
+
+.pr-input7 { grid-area: input7; }
+
+.pr-input-check { grid-area: input-check; }
+
+.pr-signup { grid-area: signup; }
+
+.pr-btn-register { grid-area: btn-register; }
+
+@media only screen and (max-width: 768px) {
+  .pr-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(9,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info content-info" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7"  "input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check input-check" "signup signup signup signup signup signup btn-register btn-register btn-register btn-register btn-register btn-register";
+    width:100vw;
+  }
+
+  .pr-bcg-img{
+    display:none;
+  }
+
+}
+
+/* ########################### USER PUBLIC PROFILE PAGE STYLE ##################### */
+.upp-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .upp-grid-container{
+    height:100%;
+  }
+}
+
+/* -------------------------------MAIN----------------------------------------------- */
+.upp-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "public-profile-user public-profile-user public-profile-user public-profile-user name name name name name name name name" "public-profile-user public-profile-user public-profile-user public-profile-user rating rating rating rating rating rating rating rating" "public-profile-user public-profile-user public-profile-user public-profile-user img-pet img-pet img-pet img-pet thumbnail1 thumbnail1 thumbnail2 thumbnail2" "public-profile-user public-profile-user public-profile-user public-profile-user img-pet img-pet img-pet img-pet thumbnail3 thumbnail3 thumbnail4 thumbnail4" ". . . . my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets" ". . . . thumbnail5 thumbnail5 pet-info1 pet-info1 pet-info1 pet-info2 pet-info2 pet-info2";
+  width:100vw;
+  background-color: teal;
+}
+
+.upp-main-grid-container>*{
+  background-color: pink;
+}
+
+.public-profile-user { grid-area: public-profile-user; }
+
+.name { grid-area: name; }
+
+.rating { grid-area: rating; }
+
+.img-pet { grid-area: img-pet; }
+
+.thumbnail1 { grid-area: thumbnail1; }
+
+.thumbnail2 { grid-area: thumbnail2; }
+
+.thumbnail3 { grid-area: thumbnail3; }
+
+.thumbnail4 { grid-area: thumbnail4; }
+
+.my-pets { grid-area: my-pets; }
+
+.thumbnail5 { grid-area: thumbnail5; }
+
+.pet-info1 { grid-area: pet-info1; }
+
+.pet-info2 { grid-area: pet-info2; }
+
+@media only screen and (max-width: 768px){
+  .upp-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "public-profile-user public-profile-user public-profile-user public-profile-user name name name name name name name name" "public-profile-user public-profile-user public-profile-user public-profile-user rating rating rating rating rating rating rating rating" "img-pet img-pet img-pet img-pet img-pet img-pet img-pet img-pet thumbnail1 thumbnail1 thumbnail2 thumbnail2" "img-pet img-pet img-pet img-pet img-pet img-pet img-pet img-pet thumbnail3 thumbnail3 thumbnail4 thumbnail4" "my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets my-pets" "thumbnail5 thumbnail5 thumbnail5 thumbnail5 pet-info1 pet-info1 pet-info1 pet-info1 pet-info2 pet-info2 pet-info2 pet-info2";  
+  }
+}
+
+/* ######################### PROFESSIONAL PUBLIC PROFILE PAGE STYLE ##################### */
+.propublicprofile-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .propublicprofile-grid-container{
+    height:100%;
+  }
+
+}
+
+/* -------------------------------MAIN----------------------------------------------- */
+.ppp-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "profile-img profile-img profile-img profile-img name name name name name name name name" "profile-img profile-img profile-img profile-img services2 services2 services2 services2 services2 services2 services2 services2" "profile-img profile-img profile-img profile-img rating rating rating rating rating rating rating rating" "regions regions regions regions schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn" "regions regions regions regions img img img img thumbnail1 thumbnail1 thumbnail2 thumbnail2" "regions regions regions regions img img img img thumbnail3 thumbnail3 thumbnail4 thumbnail4" "services services services services . . . . . . . ." "services services services services box-info box-info box-info box-info box-info box-info box-info box-info" "services services services services . . . . . . . .";
+  width:100vw;
+  background-color: skyblue;
+}
+
+.ppp-main-grid-container>*{
+  background-color: palegoldenrod;
+}
+
+.ppp-profile-img { grid-area: profile-img; }
+
+.ppp-regions { grid-area: regions; }
+
+.ppp-services { grid-area: services; }
+
+.ppp-name { grid-area: name; }
+
+.ppp-services2 { grid-area: services2; }
+
+.ppp-rating { grid-area: rating; }
+
+.ppp-schedule-btn { grid-area: schedule-btn; }
+
+.ppp-img { grid-area: img; }
+
+.ppp-thumbnail1 { grid-area: thumbnail1; }
+
+.ppp-thumbnail2 { grid-area: thumbnail2; }
+
+.ppp-thumbnail3 { grid-area: thumbnail3; }
+
+.ppp-thumbnail4 { grid-area: thumbnail4; }
+
+.ppp-box-info { grid-area: box-info; } 
+
+@media only screen and (max-width: 768px){
+  .ppp-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(7,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "profile-img profile-img profile-img profile-img name name name name name name name name" "services2 services2 services2 services2 services2 services2 rating rating rating rating rating rating" "img img img img img img thumbnail1 thumbnail1 thumbnail1 thumbnail2 thumbnail2 thumbnail2" "img img img img img img thumbnail3 thumbnail3 thumbnail3 thumbnail4 thumbnail4 thumbnail4" "regions regions regions regions regions regions services services services services services services" "box-info box-info box-info box-info box-info box-info box-info box-info box-info box-info box-info box-info" "schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn schedule-btn" ;  
+  }
+}
+
+/* ############################ USER ADM PROFILE PAGE STYLE ######################### */
+.useradmprofile-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .useradmprofile-grid-container{
+    height:100%;
+  }
+
+}
+
+/* -------------------------------MAIN----------------------------------------------- */
+.uap-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "adm-user adm-user adm-user adm-user title title title title title title title title" "adm-user adm-user adm-user adm-user input1 input1 input1 input1 input1 input1 input1 input1" "adm-user adm-user adm-user adm-user input2 input2 input2 input2 input2 input2 input2 input2" "adm-user adm-user adm-user adm-user input3 input3 input3 input3 input3 input3 input3 input3" "link1 link1 link1 link1 input4 input4 input4 input5 input5 input5 input5 input5" "link2 link2 link2 link2 input6 input6 input6 input7 input7 input7 input8 input8" "link3 link3 link3 link3 . . . . . . . ." ". . . . btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update";
+  width: 100vw;
+  background-color: skyblue;
+}
+
+.uap-main-grid-container>*{
+  background-color: wheat;
+}
+
+.uap-title { grid-area: title; }
+
+.uap-input1 { grid-area: input1; }
+
+.uap-input2 { grid-area: input2; }
+
+.uap-input3 { grid-area: input3; }
+
+.uap-input4 { grid-area: input4; }
+
+.uap-input5 { grid-area: input5; }
+
+.uap-input6 { grid-area: input6; }
+
+.uap-input7 { grid-area: input7; }
+
+.uap-input8 { grid-area: input8; }
+
+.uap-adm-user { grid-area: adm-user; }
+
+.uap-btn-profile-view { grid-area: btn-profile-view; }
+
+.uap-btn-update { grid-area: btn-update; }
+
+.uap-link1 { grid-area: link1; }
+
+.uap-link2 { grid-area: link2; }
+
+.uap-link3 { grid-area: link3; }
+
+@media only screen and (max-width: 768px){
+  .uap-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(12,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update btn-update btn-update";
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .uap-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(13,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8"  "btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view";
+  }    
+}
+
+/* ######################## PROFESSIONAL ADM PROFILE PAGE STYLE ######################## */
+.proadmprofile-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .pap-grid-container{
+    height:100%;
+  }
+
+}
+
+/* -------------------------------MAIN----------------------------------------------- */
+.pap-main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "adm-user adm-user adm-user adm-user title title title title title title title title" "adm-user adm-user adm-user adm-user input1 input1 input1 input1 input1 input1 input1 input1" "adm-user adm-user adm-user adm-user input2 input2 input2 input2 input2 input2 input2 input2" "link1 link1 link1 link1 input3 input3 input3 input3 input3 input3 input3 input3" "link2 link2 link2 link2 input4 input4 input4 input5 input5 input5 input5 input5" "link3 link3 link3 link3 input6 input6 input6 input7 input7 input7 input8 input8" "link4 link4 link4 link4 . . . . . . . ." "link5 link5 link5 link5 btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update";
+  width: 100vw;
+  background-color: skyblue;
+}
+
+.pap-main-grid-container>*{
+  background-color: wheat;
+}
+
+.pap-title { grid-area: title; }
+
+.pap-input1 { grid-area: input1; }
+
+.pap-input2 { grid-area: input2; }
+
+.pap-input3 { grid-area: input3; }
+
+.pap-input4 { grid-area: input4; }
+
+.pap-input5 { grid-area: input5; }
+
+.pap-input6 { grid-area: input6; }
+
+.pap-input7 { grid-area: input7; }
+
+.pap-input8 { grid-area: input8; }
+
+.pap-adm-user { grid-area: adm-user; }
+
+.pap-btn-profile-view { grid-area: btn-profile-view; }
+
+.pap-btn-update { grid-area: btn-update; }
+
+.pap-link1 { grid-area: link1; }
+
+.pap-link2 { grid-area: link2; }
+
+.pap-link3 { grid-area: link3; }
+
+.pap-link4{ grid-area: link4; }
+
+.pap-link5{ grid-area: link5; }
+
+@media only screen and (max-width: 768px){
+  .pap-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(12,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link2 link2 link2 link3 link3 link3 link4 link4 link4" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update btn-update btn-update";
+  }
+  .pap-link5{
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .pap-main-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(13,1fr);
+    gap: 1px 1px;
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link2 link2 link2 link3 link3 link3 link4 link4 link4" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8"  "btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view";
+  }    
+  .pap-link5{
+    display:none;
+  }
+}
+
+/* ########################### SEARCH RESULTS PAGE STYLE ########################### */
+.search-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 150px;
+  gap: 1px 1px;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
+    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
+    height:100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-grid-container{
+    height:100%;
+  }
+}
+
+.s-main-content-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "search-box search-box search-box search-box schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1" "search-box search-box search-box search-box schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2" ". . . . schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3" ". . . . schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4";
+  width:100vw;
+  background-color: moccasin;
+}
+
+.s-main-content-grid-container>*{
+  background-color: plum;
+}
+
+.s-search-box { grid-area: search-box; }
+
+.s-schedule1 { grid-area: schedule1; }
+
+.s-schedule2 { grid-area: schedule2; }
+
+.s-schedule3 { grid-area: schedule3; }
+
+.s-schedule4 { grid-area: schedule4; }
+
+@media only screen and (max-width: 768px){
+  .s-main-content-grid-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0 auto auto auto auto;
+    gap: 1px 1px;
+    grid-template-areas: "search-box search-box search-box search-box search-box search-box search-box search-box search-box search-box search-box search-box" "schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1 schedule1" "schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2 schedule2" "schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3 schedule3" "schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4 schedule4"; 
+  }
+
+  .s-search-box{
+    display:none;
+  }
+}
+
+
+
