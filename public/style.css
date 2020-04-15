@@ -11,7 +11,7 @@ html {
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,7 +32,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 1px 1px;
   grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
   grid-area: header;
   background-color: slateblue;
@@ -47,12 +46,10 @@ body {
 
 .logo {
   grid-area: logo;
-  background-color: lightcoral;
 }
 
 .nav {
   grid-area: nav;
-  background-color: lightcyan;
 }
 
 .banner {
@@ -253,42 +250,166 @@ body {
 }
 
 /* ---------------------------------------FOOTER----------------------------------------- */
-.main-footer-grid-container {
+footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 200px;
   gap: 1px 1px;
   grid-template-areas: "footer-section1 footer-section1 footer-section2 footer-section2 footer-section3 footer-section3 footer-section4 footer-section4 footer-section4 footer-section5 footer-section5 footer-section5";
-  background-color: lightgrey;
-  height:150px;
-  padding:20px;
+  background-color:#a6adb4;
+  color:#fff;
+  align-items: center;
+  width:100%;
+  grid-area:footer;
 }
 
-.main-footer-grid-container>*{
-  background-color:royalblue;
+footer>*{
+  display:flex;
+  justify-content: center;
 }
 
-.main-footer-section1 { grid-area: footer-section1; }
+.services__link,.institutional__link,.newsletter__text{
+  text-decoration: none;
+  color:#cbd0d3;
+}
 
-.main-footer-section2 { grid-area: footer-section2; }
+.services:first-child {
+  grid-area: footer-section1;
+  justify-content:flex-end;
+  padding-right:30px;
+}
 
-.main-footer-section3 { grid-area: footer-section3; }
+.services:nth-child(2) { 
+  grid-area: footer-section2;
+}
 
-.main-footer-section4 { grid-area: footer-section4; }
+.institutional { 
+  grid-area: footer-section3; 
+}
 
-.main-footer-section5 { grid-area: footer-section5; }
+.newsletter{ 
+  grid-area: footer-section4; 
+  flex-direction:column;
+  align-items: center;
+}
+
+.newsletter__email{
+  background-image: url(./img/arrow-icon.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 30px;
+  background-color: #a6adb4;
+  border:1.5px solid #cbd0d3;
+  border-radius:5px;
+  color:#cbd0d3;
+  outline: none;
+  padding:8px;
+  width:77%;
+}
+
+.newsletter__email::placeholder{
+  color:#cbd0d3;
+  font-size: 1em;
+}
+
+.newsletter__text{
+  margin-top:10px;
+  padding-left:6px;
+  width:80%;
+}
+
+.social-media{ 
+  grid-area: footer-section5; 
+  width:100%;
+  height:100px;
+}
+
+.social-media__icons{
+  display:flex;
+  justify-content: center;
+}
+
+.social-media__icons>*{
+  margin-right:25px;
+  cursor: pointer;
+}
+
+.social-media__snapchat{
+  margin-right:0;
+}
 
 @media only screen and (max-width: 768px){
-  .main-footer-grid-container{
+  footer{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto 50px 1fr;
     grid-template-areas: "footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section1 footer-section3 footer-section3  footer-section3 footer-section3 footer-section3 footer-section3" "footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section2 footer-section5 footer-section5  footer-section5 footer-section5 footer-section5 footer-section5" "footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4 footer-section4";
     gap: 1px 1px;
- } 
+    padding:40px 0;
+    justify-items: center;
+   } 
+
+   footer>*:not(.newsletter){
+    transform:translateX(-10px);
+  }
+
+   .services:first-child {
+    justify-content:center;
+    padding-right:0;
+  }
+
+   .services:nth-child(2) { 
+    position:relative;
+    right:5px;
+  }
+
+  .institutional { 
+    position:relative;
+    left:15px; 
+  }
+
+  .newsletter__email{
+    margin-top:30px;
+  }
+
+ .newsletter__email,.newsletter__text{
+   width:66vw;
+ }
+
+ .social-media__icons{
+   align-items: center;
+   align-content: flex-end;
+ }
 
 }
 
-/* ########################### USER REGISTER PAGE STYLE####################################### */
+@media only screen and (max-width:480px){
+  footer>*:not(.newsletter){
+    transform:translateX(0px);
+  }
+
+  .newsletter__email{
+    margin-top:20px;
+  }
+
+  .newsletter__email,.newsletter__text{
+    width:76%;
+  }
+
+  .institutional__list{
+    position:relative;
+    right:15px;
+  }
+  
+  .social-media__icons>*{
+    margin-right:15px;
+  }
+  .social-media__snapchat{
+    margin:0;
+  }
+   
+}
+
+/* ########################### USER REGISTER PAGE STYLE################################## */
 .userregister-grid-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -305,10 +426,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 1px 1px;
   grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
   grid-area: header;
-  background-color: slateblue;
+  
 }
 
 .header > * {
@@ -322,12 +442,12 @@ body {
 
 .logo {
   grid-area: logo;
-  background-color: lightcoral;
+ 
 }
 
 .nav {
   grid-area: nav;
-  background-color: lightcyan;
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -665,87 +785,477 @@ body {
 }
 
 /* ############################ USER ADM PROFILE PAGE STYLE ######################### */
-.useradmprofile-grid-container {
+.user-adm-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100px auto 150px;
-  gap: 1px 1px;
+  grid-template-rows: 100px auto 200px;
   grid-template-areas:
     "header header header header header header header header header header header header"
-    "main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container main-content-grid-container"
-    "footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container footer-grid-container";
-    height:100%;
-}
+    "user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile user-adm-profile"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+    background-color: #f6f8f9;
+  }
+
+  .header{
+    background-color:#ecf1f1;
+  }
+
+  .logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:100px;
+  }
+
+  .user-thumbnail-img,.hamburger-menu{
+    display:none;
+  }
+      
+  .logo__superpets--img{
+    background-image: url(./img/pawprint.svg);
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    transform:rotate(50deg);
+    margin:0 25px 0 30px;
+    position: relative;
+    bottom: 5px;
+  }
+  
+  .logo__superpets--text{
+    color:#676767;
+    margin-right:15px;
+  }
+  
+  .header>.nav{
+    justify-items: right;
+    padding:0 13% 0 0;
+  }
+  
+  .nav__user{
+    height: 100%;
+    display:flex;
+    align-items: center;
+  }
+  
+  .nav__user .nav__user-name,.nav__user-logout>a{
+    list-style:none;
+    display: inline-block;
+    text-decoration: none;
+    color:#343638;
+    font-weight:normal;
+    margin-left:10px;
+  }
+
+  .nav__user-logout>a:hover{
+    color:#44e2be; 
+  }
+  
+  .nav__user-image{
+    background-image: url(./img/user-adm-photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    display:inline-block;
+    margin-left:30px;
+  }
+
+  #wrapper{
+    width:100vw;
+    display:flex;
+    margin-top:23px;
+  }
 
 @media only screen and (max-width: 768px) {
-  .useradmprofile-grid-container{
+  .user-adm-container {
+    grid-template-rows:100px auto auto;
     height:100%;
   }
 
 }
 
 /* -------------------------------MAIN----------------------------------------------- */
-.uap-main-grid-container {
+.user-adm-profile {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 1px 1px;
-  grid-template-areas: "adm-user adm-user adm-user adm-user title title title title title title title title" "adm-user adm-user adm-user adm-user input1 input1 input1 input1 input1 input1 input1 input1" "adm-user adm-user adm-user adm-user input2 input2 input2 input2 input2 input2 input2 input2" "adm-user adm-user adm-user adm-user input3 input3 input3 input3 input3 input3 input3 input3" "link1 link1 link1 link1 input4 input4 input4 input5 input5 input5 input5 input5" "link2 link2 link2 link2 input6 input6 input6 input7 input7 input7 input8 input8" "link3 link3 link3 link3 . . . . . . . ." ". . . . btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update";
-  width: 100vw;
-  background-color: skyblue;
+  grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto repeat(5,1fr) auto;
+  grid-template-areas: ". adm-user adm-user adm-user title title title title title title title ." ". adm-user adm-user adm-user input1 input1 input1 input1 input1 input1 input1 ." ". adm-user adm-user adm-user input2 input2 input2 input2 input2 input2 input2 ." ". adm-user adm-user adm-user input3 input3 input3 input3 input3 input3 input3 ." ". link1 link1 link1 input4 input4 input4 input5 input5 input5 input5 ." ". link2 link2 link2 input6 input6 input6 input7 input7 input7 input8 ." ". link3 link3 link3 . . . . . . . ." ". . .  . . btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update .";
+  padding:35px 0 40px 0;
+  background-color: #fff;
+  width:84.1vw;
+  margin:auto;
 }
 
-.uap-main-grid-container>*{
-  background-color: wheat;
+.user-adm-profile>*:not(.user-adm-profile__link){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.uap-title { grid-area: title; }
+.user-adm-profile__title{
+  color:#888;
+  border-bottom:2px solid #bbb;
+  margin-bottom: 20px;
+}
 
-.uap-input1 { grid-area: input1; }
+#zip-code{
+  margin-right:30px;
+}
 
-.uap-input2 { grid-area: input2; }
+#district,#city{
+  margin-right:30px;
+  border:none;
+  border:2px solid #d9dee0;
+  outline:none;
+  cursor: pointer;
+  outline:none;
+  border-radius: 3px;
+  letter-spacing: 1.1px;
+  padding:9px 5px 9px 10px;
+}
 
-.uap-input3 { grid-area: input3; }
+#state{
+  margin-right:0;
+  border:none;
+  border:2px solid #d9dee0;
+  outline:none;
+  cursor: pointer;
+  outline:none;
+  border-radius: 3px;
+  letter-spacing: 1.1px;
+  padding:9px 5px 9px 10px;
+}
 
-.uap-input4 { grid-area: input4; }
+#name:focus,#email:focus,#phone:focus,#zip-code:focus,#address:focus,#district:focus,#city:focus, #state:focus{
+  border-color:#44e2be;
+}
 
-.uap-input5 { grid-area: input5; }
 
-.uap-input6 { grid-area: input6; }
+.user-adm-profile>li>input{
+  padding:5px 5px 5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  border:2px solid #d9dee0;
+}
 
-.uap-input7 { grid-area: input7; }
+.user-adm-profile>li>input::placeholder{
+  color:#a3a3a3;
+}
 
-.uap-input8 { grid-area: input8; }
+.user-adm-profile>li>label{
+  color:#888;
+  position:relative;
+  bottom:10px;
+}
 
-.uap-adm-user { grid-area: adm-user; }
+.user-adm-profile__link{
+  list-style:none;
+  height:20px;
+}
 
-.uap-btn-profile-view { grid-area: btn-profile-view; }
+ .user-adm-profile__link>a{
+  color:#888;
+  text-decoration: none;
+  display: inline-block;
+} 
 
-.uap-btn-update { grid-area: btn-update; }
+.user-adm-profile__link>a:hover{
+  color:#888;
+  border-bottom:4px solid #44e2be;
+}
 
-.uap-link1 { grid-area: link1; }
+.user-adm-profile--adm{
+  margin-top: 40px;
+  white-space: nowrap;
+}
 
-.uap-link2 { grid-area: link2; }
+.user-adm-profile--mypets{
+  position:relative;
+  bottom:10px;
+}
 
-.uap-link3 { grid-area: link3; }
+.user-adm-profile--accdetails{
+  position:relative;
+  bottom:60px;
+}
 
-@media only screen and (max-width: 768px){
-  .uap-main-grid-container{
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(12,1fr);
-    gap: 1px 1px;
-    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update btn-update btn-update";
+.user-adm-profile__title { grid-area: title; }
+.user-adm-profile__name { grid-area: input1; }
+.user-adm-profile__email { grid-area: input2; }
+.user-adm-profile__phone { grid-area: input3; }
+.user-adm-profile__zip-code { grid-area: input4; }
+.user-adm-profile__address { grid-area: input5; }
+.user-adm-profile__district { grid-area: input6; }
+.user-adm-profile__city { grid-area: input7; }
+.user-adm-profile__state { grid-area: input8; }
+
+.user-adm-profile__photo { 
+  grid-area: adm-user; 
+  background-image: url(./img/user-adm-photo.jpg);
+  background-repeat: no-repeat;
+  background-size: 259px 259px;
+  background-position: left top;
+  height:330px;
+  position: relative;
+  top:15px;
+}
+
+.user-adm-profile__quote{
+  display: block;
+  color:#888;
+  font-style: italic;
+  padding-top:280px;
+  width:90%;
+  font-size: 0.93rem;
+}
+
+.user-adm-profile>input.btn{
+  border:none;
+  color:#fff;
+  cursor: pointer;
+  outline:none;
+  border-radius: 20px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  word-spacing: 3px;
+  justify-self: flex-end;
+  width:80%;
+  padding:20px;
+  flex-direction: row;
+  margin-top:30px;
+  text-align: center;
+}
+
+.btn--profile-view { 
+  grid-area: btn-profile-view;
+  background-color:#cbd0d3; 
+  position:relative;
+  left:50px;
+}
+
+.btn--profile-view:hover{
+  background-color:#b7babd;  
+}
+
+.btn--profile-update { 
+  grid-area: btn-update;
+  background-color: #44e2be; 
+}
+
+.btn--profile-update:hover {
+  background-color: #39b99b;  
+}
+
+@media only screen and (max-width: 1280px){
+  .user-adm-profile>input.btn{
+    width:290px;
+    left:0;
+  } 
+
+  .btn--profile-view{
+    margin-right:22%;
   }
 }
 
-@media only screen and (max-width: 480px){
-  .uap-main-grid-container{
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(13,1fr);
-    gap: 1px 1px;
-    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8"  "btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view";
-  }    
+@media only screen and (max-width: 960px){
+  .btn--profile-view{
+    margin-right:55%;
+  }
 }
+
+#username{
+  font-size: 1.2em;
+  display: none;
+  position:absolute;
+}
+
+.user-adm-profile__link { grid-area: link1; }
+.user-adm-profile--mypets { grid-area: link2; }
+.user-adm-profile--accdetails { grid-area: link3; }
+
+@media only screen and (max-width: 768px){
+  .user-adm-profile{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(12,auto);
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-update btn-update btn-update btn-update btn-update btn-update";
+    height:auto;
+    background-color: #f6f8f9;
+    border-left:10px solid #f6f8f9;
+    border-right: 10px solid #f6f8f9;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .user-thumbnail-img,.hamburger-menu{
+    display: inline-block;
+  }
+
+  .user-thumbnail-img{
+    background-image: url(./img/user-adm-photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    margin-left: auto;
+    position: relative;
+    left:0;
+  }
+
+  .hamburger-menu{
+    background-image: url(./img/hamburger-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:30px;
+    height:30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #username{
+    display:inline-block;
+    top:5px;
+    left:280px;
+  }
+
+  .user-adm-profile__title{
+    margin-top:10px;
+  }
+
+  .user-adm-profile__quote{
+    padding-top:250px;
+  }
+  .user-adm-profile__photo{
+    margin-bottom:15px;
+    background-color:#f6f8f9;
+  }
+
+  .user-adm-profile--adm{
+    background-color:#f6f8f9;
+    margin-top:0 
+  }
+
+  .user-adm-profile__link{
+    background-color:#f6f8f9;
+    position: relative;
+    bottom:0;
+  }
+
+  .user-adm-profile>li>label{
+    margin-top:20px;
+  }
+
+  #zip-code,#district,#city{
+    margin-right:0;
+  }
+
+  #wrapper{
+    height:auto;
+  }
+
+  .user-adm-profile>input.btn{
+    width:96%;
+  }
+  
+  .btn--profile-view {
+     margin-right:10px;
+   }
+}
+
+@media only screen and (max-width: 480px){
+  .user-adm-profile{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(12,fr);
+    grid-template-areas: "adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user adm-user" "link1 link1 link1 link1 link2 link2 link2 link2 link3 link3 link3 link3" "title title title title title title title title title title title title" "input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1 input1" "input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2 input2" "input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3 input3" "input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4 input4" "input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5 input5" "input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6 input6" "input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7 input7" "input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8 input8"  "btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update btn-update" "btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view btn-profile-view";
+    width:90vw;
+    height:100%;
+    padding:0 0 20px 0;
+  } 
+
+
+
+  .header,.logo{
+    height:76px;
+  }
+
+  .logo{
+    padding-left:30px;
+  }
+  
+  .logo__superpets--img{
+    border:2px solid #44e2be; 
+    border-radius: 50%;
+    padding:5px;
+    width: 50px;
+    height:50px;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    position: relative;
+    top:1px;
+    right:30px;
+  }
+
+  .logo__superpets--text{
+    position:relative;
+    font-weight: 500;
+    font-size: 1.2em;
+    top:3px;
+    right:40px;
+  }
+
+  #wrapper{
+      height:auto;
+    }
+
+    .user-adm-profile__title{
+      margin-top:0;
+    }
+
+    .user-adm-profile__photo{
+      background-size: 100px 100px;
+      height:130px;
+      width:100%;
+    }
+
+    .user-adm-profile__quote{
+      padding-top:0;
+      padding-left:120px;
+      font-weight:600;
+      font-size: 0.7rem;
+      width:100%;
+    }
+    
+    #username{
+      left:120px;
+    }
+
+    .user-adm-profile>input.btn{
+      border-radius:8px;
+      padding:10px 20px;  
+      margin-top:20px; 
+      width:100%;   
+    }
+
+    .btn--profile-view {
+      margin-right:0;
+    }
+    
+    .user-adm-profile__link{
+      font-size:0.7rem;
+      text-align:center;
+      position: relative;
+    }
+
+    .user-adm-profile--adm:hover{
+      font-size:0.6rem;
+    }
+
+  }
 
 /* ######################## PROFESSIONAL ADM PROFILE PAGE STYLE ######################## */
 .proadmprofile-grid-container {

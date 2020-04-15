@@ -1,24 +1,72 @@
 <%-include('includes/head',{title:"SuperPets-UserAdmProfile"})%>
 <body>
-  <div class="useradmprofile-grid-container">
-    <%-include('includes/header')%>
-    <div class="uap-main-grid-container">
-      <div class="uap-title">TITLE</div>
-      <div class="uap-input1">INPUT1</div>
-      <div class="uap-input2">INPUT2</div>
-      <div class="uap-input3">INPUT3</div>
-      <div class="uap-input4">INPUT4</div>
-      <div class="uap-input5">INPUT5</div>
-      <div class="uap-input6">INPUT6</div>
-      <div class="uap-input7">INPUT7</div>
-      <div class="uap-input8">INPUT8</div>
-      <div class="uap-adm-user">USER-PICTURE</div>
-      <div class="uap-btn-profile-view">BTN-PROFILE-VIEW</div>
-      <div class="uap-btn-update">BTN-UPDATE</div>
-      <div class="uap-link1">LINK1</div>
-      <div class="uap-link2">LINK2</div>
-      <div class="uap-link3">LINK3</div>
+  <div class="user-adm-container">
+    <div class="header">
+      <div class="logo">
+        <section class="logo__superpets logo__superpets--img" src="" alt=""></section>
+        <h1 class="logo__superpets logo__superpets--text">SuperPets</h1>
+        <section class="user-thumbnail-img"></section>
+        <section class="hamburger-menu"></section>
+      </div>
+      <div class="nav">
+        <ul class="nav__user">
+          <li class="nav__user-name">Olá, Isabella A. Nunes</li>
+          <li class="nav__user-logout"><a href="#">(sair)</a></li>
+          <li class="nav__user-image"></li>
+        </ul>
+      </div>
     </div>
+    <main id="wrapper">
+    <form class="user-adm-profile">
+      <h1 class="user-adm-profile__title">Perfil Administrativo</h1>
+      <li class="user-adm-profile__name">
+        <label for="fullname">Nome</label>
+        <input type="text" id="name" name="user-name" placeholder="Jane Doe" required/>
+      </li>
+      <li class="user-adm-profile__email">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="user-email" placeholder="email@superpets.com" required/>
+      </li>
+      <li class="user-adm-profile__phone">
+        <label for="text">Celular</label>
+        <input type="number" id="phone" name="user-phone" placeholder="(11) 91234-5678" required/>
+      </li>
+      <li class="user-adm-profile__zip-code">
+        <label for="zip-code">CEP</label>
+        <input type="text" id="zip-code" name="user-zip-code" placeholder="12345-678" required/>
+      </li>
+      <li class="user-adm-profile__address">
+        <label for="address">Endereço</label>
+        <input type="text" id="address" name="user-addres" placeholder="Super Pets Street, 1234" required/>
+      </li>
+      <li class="user-adm-profile__district">
+        <label for="district">Bairro</label>
+        <select type="text" id="district" name="user_district" placeholder="Pet Boulevard" required>
+          <option class="district" value="vilaolimpia" selected>Vila Olímpia</option>
+        </select>
+      </li>
+      <li class="user-adm-profile__city">
+        <label for="city">Cidade</label>
+        <select type="text" id="city" name="user_city" placeholder="Your city">
+          <option class="city" value="saopaulo" selected>São Paulo</option>
+        </select>
+      </li>
+      <li class="user-adm-profile__state">
+        <label for="state">Estado</label>
+        <select type="text" id="state" name="user-state" placeholder="Your State">
+          <option class="state" value="sp" selected>São Paulo</option>
+        </select>
+      </li>
+      <div class="user-adm-profile__photo">
+        <p id="username">Isabella A. Nunes</p>
+        <q class="user-adm-profile__quote">Paulista e apaixonada pelo Fred, meu companheiro de quatro patas.</>
+      </div>
+      <input type="submit" class="btn btn--profile-view" value="visualizar perfil">
+      <input type="submit" class="btn btn--profile-update" value="atualizar">
+      <li class="user-adm-profile__link user-adm-profile--adm"><a href="#">Perfil Administrativo</a></li>
+      <li class="user-adm-profile__link user-adm-profile--mypets"><a href="#">Meus Pets</a>    </li>
+      <li class="user-adm-profile__link user-adm-profile--accdetails"> <a href="https://facebook.com">Detalhes da Conta</a></li>
+    </form>
+    </main>
     <%-include('includes/footer')%>
-  </div>
 </body>
