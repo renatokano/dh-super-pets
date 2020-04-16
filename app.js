@@ -6,7 +6,7 @@ const PORT = 3000;
 
 // Import Routes 
 let indexRoutes = require('./routes/indexRoutes');
-let userRoutes = require('./routes/usersRoutes');
+let usersRoutes = require('./routes/usersRoutes');
 let professionalsRoutes = require('./routes/professionalsRoutes');
 let servicesRoutes = require('./routes/servicesRoutes');
 
@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:true}));
 
 // Routes
 app.use(indexRoutes);
-app.use('/users', userRoutes);
+app.use('/users', usersRoutes);
 app.use('/professionals', professionalsRoutes);
 app.use('/services', servicesRoutes);
 
