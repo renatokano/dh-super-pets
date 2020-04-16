@@ -172,13 +172,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
-  gap: 1px 1px;
-  grid-template-areas: "tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header" "tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use" "tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer";
+  gap: 0px 1px;
+  grid-template-areas: "tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header" 
+  ". tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use ." 
+  "tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer";
   height:100%;
+  background-color: #f6f8f9;
 }
-.tou-header { grid-area: tou-header; }
-.tou-footer { grid-area: tou-footer; }
-.tou-terms-of-use { grid-area: tou-terms-of-use; }
+.tou-header { 
+  grid-area: tou-header; 
+  background-color: #ecf1f1;
+}
+.tou-footer { 
+  grid-area: tou-footer; 
+  background-color: #a6adb4;
+}
+.tou__terms-of-use { 
+  font-family: Arial, Helvetica, sans-serif;
+  grid-area: tou-terms-of-use; 
+  padding: 5% 0;
+}
+#tou__title {
+  text-align: center;
+}
+
+.tou__articles {
+  text-align: justify;
+}
 
 /* faq style */
 .f-grid-container {
