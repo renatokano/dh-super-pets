@@ -37,18 +37,261 @@
 .home-faq { grid-area: home-faq; }
 .home-footer { grid-area: home-footer; }
 
-/* user register style*/
+/* user register style */
+/* mobile-first (mobile/tablets, max. 992px) */
 .ur-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 0px 0px;
-  grid-template-areas: "ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header" "ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main" "ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer";
+  grid-template-areas: "ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header" 
+  "ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
+  "ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer";
   height:100%;
+  background-color: #f6f8f9;
 }
-.ur-header { grid-area: ur-header;}
-.ur-main { grid-area: ur-main;}
-.ur-footer { grid-area: ur-footer;}
+.ur-header { 
+  grid-area: ur-header;
+  background-color: #f6f8f9;
+}
+
+.ur-footer { 
+  grid-area: ur-footer;
+  background-color: #a6adb4;
+}
+
+.ur-grid-container ::placeholder {
+  color: #d9dee0;
+}
+
+.ur-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas: ". ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title"
+  ". ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name  ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name"
+  ". ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email "
+  ". ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile"
+  ". ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode"
+  ". ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address"
+  ". ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood"
+  ". ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city"
+  ". ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password"
+  ". ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password"
+  ". ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service"
+  ". ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user"
+  ". ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit";
+  grid-area: ur-main;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ur-main__dog { 
+  grid-area: ur-main__dog; 
+  background-image: url('/img/user-signup.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+  font-size: 14px;
+}
+
+.ur-main__title { 
+  grid-area: ur-main__title; 
+  padding: 5% 0 2% 0;
+  font-size: 30px;
+}
+
+.ur-main__title--highlight {
+  color: #39b99b;
+}
+
+.ur-main__name { 
+  grid-area: ur-main__name; 
+}
+
+.ur-main__name-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__email { 
+  grid-area: ur-main__email; 
+}
+
+.ur-main__email-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__mobile { grid-area: ur-main__mobile; }
+.ur-main__mobile-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__zipcode { grid-area: ur-main__zipcode; }
+.ur-main__zipcode-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__address { grid-area: ur-main__address; }
+.ur-main__address-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__neighborhood { grid-area: ur-main__neighborhood; }
+.ur-main__neighborhood-select {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #a3a3a3;
+  height: 35px;
+}
+
+.ur-main__city { grid-area: ur-main__city; }
+.ur-main__city-select {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  height: 35px;
+}
+
+.ur-main__state { grid-area: ur-main__state; }
+.ur-main__state-select {
+  width: 100%;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__password { grid-area: ur-main__password; }
+.ur-main__password-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__confirm-password { grid-area: ur-main__confirm-password; }
+.ur-main__confirm-password-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+}
+
+.ur-main__terms-of-service { 
+  grid-area: ur-main__terms-of-service; 
+  align-self: center;
+  justify-self: left;
+}
+
+.ur-main__terms-of-service-input {
+  color: #a3a3a3;
+  border: none;
+  transform: scale(1.3);
+}
+
+.ur-main__terms-of-service-label {
+  /* color: #676767; */
+  font-size: 0.9em;
+}
+
+.ur-main__already-an-user { 
+  grid-area: ur-main__already-an-user; 
+  align-self: center;
+  justify-self: left;
+  padding-bottom: 20px;
+}
+.ur-main__already-an-user-content {
+  width: 100%;
+  /* color: #676767; */
+  font-size: 0.9em;
+}
+
+.ur-main__already-an-user-content--link {
+  color: #44e2be;
+}
+
+.ur-main__submit { 
+  grid-area: ur-main__submit; 
+  align-self: center;
+  padding-bottom: 20px;
+}
+.ur-main__submit-button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  color: white;
+  background-color: #39b99b;
+  border-color: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .ur-header { 
+    grid-area: ur-header;
+    background-color: #f0eac2;
+  }
+
+  .ur-footer { 
+    grid-area: ur-footer;
+    background-color: #a6adb4;
+  }
+
+  .ur-grid-container {
+    background-color: #f0eac2;
+  }
+
+  .ur-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas: "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__email ur-main__email ur-main__email ur-main__email ur-main__mobile ur-main__mobile"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__zipcode ur-main__zipcode ur-main__address ur-main__address ur-main__address ur-main__address"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__city ur-main__city ur-main__city"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog  ur-main__password ur-main__password ur-main__password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service"
+    "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog  ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__submit ur-main__submit ur-main__submit";
+    grid-area: ur-main;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
 
 /* professional register style*/
 .pr-grid-container {

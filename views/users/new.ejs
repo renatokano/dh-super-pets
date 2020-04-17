@@ -4,7 +4,75 @@
     <div class="ur-header">
       <%- include('../includes/header') %>
     </div>
-    <div class="ur-main">form</div>
+    <form class="ur-main">
+      <div class="ur-main__dog"></div>
+      <div class="ur-main__title">
+        Encontre os <span class="ur-main__title--highlight">melhores</span> profissionais para o seu grande companheiro
+      </div>
+      <div class="ur-main__name">
+        <label for="name">Nome</label><br/>
+        <input type="text" name="name" id="name" class="ur-main__name-input">
+      </div>
+      <div class="ur-main__email">
+        <label for="email">E-mail</label><br/>
+        <input type="email" name="email" id="email" class="ur-main__email-input">
+      </div>
+      <div class="ur-main__mobile">
+        <label for="mobile">Celular</label><br/>
+        <input type="tel" name="mobile" id="mobile" class="ur-main__mobile-input">
+      </div>
+      <div class="ur-main__zipcode">
+        <label for="zipcode">CEP</label><br/>
+        <input type="text" name="zipcode" id="zipcode" class="ur-main__zipcode-input">
+      </div>
+      <div class="ur-main__address">
+        <label for="address">Endereço</label>
+        <input type="text" name="address" id="address" class="ur-main__address-input">
+      </div>
+      <div class="ur-main__neighborhood">
+        <label for="neighborhood">Bairro</label>
+        <select name="neighborhood" id="neighborhood" class="ur-main__neighborhood-select">
+          <option disabled selected>Selecione o bairro</option>
+          <option value="Aclimação">Aclimação</option>
+          <option value="Itaim Bibi">Itaim Bibi</option>
+          <option value="Moema">Moema</option>
+          <option value="Morumbi">Morumbi</option>
+          <option value="Pinheiros">Pinheiros</option>
+          <option value="Pompeia">Pompeia</option>
+          <option value="Vila Madalena">Vila Madalena</option>
+          <option value="Vila Mariana">Vila Mariana</option>
+          <option value="Vila Olímpia">Vila Olímpia</option>
+        </select>
+      </div>
+      <div class="ur-main__city">
+        <label for="city">Cidade</label><br/>
+        <select name="city" id="city" class="ur-main__city-select">
+          <option disabled>Selecione a cidade</option>
+          <option value="São Paulo" selected>São Paulo</option>
+        </select>
+      </div>
+      <div class="ur-main__password">
+        <label for="password">Cria uma senha</label>
+        <input type="password" name="password" id="password" class="ur-main__password-input">
+      </div>
+      <div class="ur-main__confirm-password">
+        <label for="password">Confirme a senha</label>
+        <input type="password" name="password" id="password" class="ur-main__confirm-password-input">
+      </div>
+      <div class="ur-main__terms-of-service">
+        <input type="checkbox" name="agree-terms-of-service" id="agree-terms-of-service" class="ur-main__terms-of-service-input">
+        <label for="agree-terms-of-service" class="ur-main__terms-of-service-label">Eu li e concordo com os termos de uso</label>
+      </div>
+      <div class="ur-main__already-an-user">
+        <span class="ur-main__already-an-user-content">
+          Já tem cadastro? 
+          <a href="#" class="ur-main__already-an-user-content--link">Faça o login</a>
+        </span>
+      </div>
+      <div class="ur-main__submit">
+        <button type="submit"class="ur-main__submit-button">Cadastrar</button>
+      </div>
+    </form>
     <div class="ur-footer">
       <%- include('../includes/footer') %>
     </div>
