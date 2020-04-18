@@ -1,11 +1,120 @@
 <%- include('../includes/head',{title:"FAQ"}) %>
 <body>
-  <div class="f-grid-container">
-    <div class="f-header">
+  <div class="faq-grid-container">
+    <div class="faq-header">
       <%- include('../includes/header') %>
     </div>
-    <div class="f-faq">faq texto</div>
-    <div class="f-footer">
+    <div class="faq-content">
+      <div class="faq-banner">
+        <div class="faq-banner__message">
+          Olá <span class="faq-banner__message--highlight">Vinicius</span>,<br>
+          Como podemos te ajudar?
+        </div>
+        <div class="faq-banner__search">
+          <input type="text" name="question" id="faq-banner__input" placeholder="digite sua dúvida">
+        </div>
+      </div>
+      <div class="faq-questions-and-answers">
+        <div class="faq-questions-and-answers__topics">
+          <ul class="faq-questions-and-answers__topics-list">
+            <li class="faq-questions-and-answers__topics-item--selected">Área de Cobertura</li>
+            <li class="faq-questions-and-answers__topics-item">Plataforma</li>
+            <li class="faq-questions-and-answers__topics-item">Profissionais</li>
+            <li class="faq-questions-and-answers__topics-item">Serviços</li>
+            <li class="faq-questions-and-answers__topics-item">Garantia e Reembolso</li>
+            <li class="faq-questions-and-answers__topics-item">Sobre a SuperPets</li>
+          </ul>
+        </div>
+        <div class="faq-questions-and-answers__content">
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Área de Cobertura</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Como sei se o meu bairro está dentro da área de cobertura?</h2>
+              <p class="faq-questions-and-answers__answer">Nesta primeira fase, apenas alguns bairros de São Paulo serão atendidos. Esta medida foi tomada para garantir a qualidade do serviço prestado nestas regiões e por acreditarmos que, neste primeiro momento, é importante trabalharmos mais próximos aos profissionais que foram habilitados, dando-lhes o suporte necessário para que consigam executar um bom trabalho.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Meu bairro não está dentro da cobertura, como posso ser atendido?</h2>
+              <p class="faq-questions-and-answers__answer">Infelizmente, nessa primeira fase, algumas áreas não serão atendidas. Entretanto, faz parte do planejamento a expansão para outros bairros de São Paulo e o início da operação em outras capitais do Brasil.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Existe a previsão para atender outros Estados?</h2>
+              <p class="faq-questions-and-answers__answer">Sim, faz parte do planejamento a expansão para outros bairros de São Paulo e o início da operação em outras capitais do Brasil.</p>
+            </article>
+          </section>
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Plataforma</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">O que é a SuperPets?</h2>
+              <p class="faq-questions-and-answers__answer">A SuperPets é uma plataforma 100% digital que promete unir os melhores profissionais do mercado pet com os donos de pets, permitindo buscar os profissionais mais bem avaliados e realizar agendamentos online de serviços como: adestramento, banho, tosa, hospedagem e passeio. Mais que um simples buscador/agendador, trazemos informação para que o dono do pet tenha tudo que precisa para escolher o prestador de serviço mais adequado para as suas diferentes necessidades.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Como funciona a plataforma?</h2>
+              <p class="faq-questions-and-answers__answer">Tudo é muito simples. Pode ser realizado em 5 passos:
+                <ol>
+                  <li>Selecione o tipo de serviço, a sua região e clique em buscar.</li>
+                  <li>Na lista de profissionais listados, você terá acesso a toda informação e os detalhes dos nossos profissionais. Note as avaliações e os comentários que eles têm recebido. Selecione um profissional.</li>
+                  <li>Você será direcionado para uma página rápida de cadastro. Caso você já tenha cadastro conosco, apenas informe seus dados de login.</li> 
+                  <li>Você será redirecionado para a página do profissional, tendo acesso a agenda e os horários disponíveis. É só escolher o dia e horário, e confirmar o agendamento.</li> 
+                  <li>Pronto, você acaba de realizar o seu primeiro agendamento. Acompanhe todos os status pela plataforma ou pelo seu celular.</li>
+                </ol>
+              </p>
+            </article>
+          </section>
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Profissionais</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Quem são os profissionais que prestam o serviço?</h2>
+              <p class="faq-questions-and-answers__answer">Todos os profissionais cadastrados na nossa plataforma passam por um rigoroso processo de seleção. Exigimos para alguns tipos de serviço, como o adestramento e tosa, cursos específicos. Além disso, nos importamos com a sua segurança, então confirmamos todos os endereços e documentos dos profissionais, e exigimos que todos tenham empresa aberta. Para autônomos, permitimos também o registro da empresa como MEI (Microempreendedor Individual).</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Como sei se os profissionais são confiáveis e qualificados?</h2>
+              <p class="faq-questions-and-answers__answer">Todos os profissionais cadastrados na nossa plataforma passam por um rigoroso processo de seleção. A partir do perfil do profissional, é possível verificar todos os seus dados, comentários e avaliações de outros usuários. Além disso, exigimos para alguns tipos de serviço, como o adestramento e tosa, cursos específicos.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Como faço para oferecer meu serviço na plataforma?</h2>
+              <p class="faq-questions-and-answers__answer">Isso é muito simples. Acesso o nosso menu principal, e clique em PROFISSIONAL. Você será encaminhado para um formulário e poderá inserir seus dados. Pronto, agora é só aguardar a aprovação da sua conta.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Quais documentos são exigidos para oferecer meu serviço?</h2>
+              <p class="faq-questions-and-answers__answer">Pedimos apenas que os profissionais tenham empresa formalizada, e para profissionais autônomos, exigimos o MEI.</p>
+            </article>
+          </section>
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Serviços</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Quais serviços posso contratar?</h2>
+              <p class="faq-questions-and-answers__answer">Atualmente contamos com 5 serviços: Adestramento, Banho, Dog Walking, Pet Sitting e Tosa.</p>
+            </article>
+          </section>
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Garantia E Reembolso</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Qual a garantia que tenho ao contratar um serviço?</h2>
+              <p class="faq-questions-and-answers__answer">Tomamos todas as medidas possíveis para garantir a satisfação dos nossos clientes, aprimorando sempre nossos processos de seleção dos profissionais e promovendo workshops e eventos que ajudam a nossa comunidade de prestadores de serviço se manterem sempre atualizados e qualificados. Apesar disso tudo, sabemos que nem sempre as coisas ocorrem como deveriam. Nestes casos, contamos com um time de atendentes que te ajudarão a resolver o seu problema.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Consigo receber o reembolso do valor do serviço no caso de insatisfação?</h2>
+              <p class="faq-questions-and-answers__answer">Caso o pagamento tenha sido realizado pela plataforma e a má execução do serviço for confirmada, o reembolso do valor pago pode ser solicitado pela plataforma. Neste caso, um dos nossos atendentes entrará em contato com você para que entender o caso e evitar que esse problema volte a acontecer.</p>
+            </article>
+          </section>
+          <section class="faq-questions-and-answers__section">
+            <h1 class="faq-questions-and-answers__section-title">Sobre a SuperPets</h1>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Qual a relação entre vocês e os profissionais?</h2>
+              <p class="faq-questions-and-answers__answer">Formalmente, a SuperPets é um intermediário na relação entre os melhores profissionais do mercado e os donos de pet. Promovemos workshops e eventos com o objetivo de manter os profissionais da nossa comunidade atualizados. Nosso compromisso vai além de unir os dois elos da cadeia, visa fortalecer esse mercado, gerar novos empregos, democratizar o acesso a esses profissionais, garantindo eficiência, qualidade e satisfação para todo o processo e as partes envolvidas.</p>
+            </article>
+            <article>
+              <h2 class="faq-questions-and-answers__question">Quem está por trás da SuperPets?</h2>
+              <p class="faq-questions-and-answers__answer">A empresa é formada por quatro visionários e brilhantes alunos da Digital House Brasil. :)</p>
+            </article>
+          </section>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-footer">
       <%- include('../includes/footer') %>
     </div>
   </div>
