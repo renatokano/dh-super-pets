@@ -224,7 +224,6 @@
 }
 
 .ur-main__terms-of-service-label {
-  /* color: #676767; */
   font-size: 0.9em;
 }
 
@@ -294,17 +293,291 @@
 }
 
 /* professional register style*/
+/* mobile-first (mobile/tablets, max. 992px) */
 .pr-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 0px 0px;
-  grid-template-areas: "pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header" "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main" "pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer";
+  grid-template-areas: "pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header"
+  "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main"
+  "pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer";
   height:100%;
+  background-color: #f6f8f9;
 }
-.pr-header { grid-area: pr-header;}
-.pr-main { grid-area: pr-main;}
-.pr-footer { grid-area: pr-footer;}
+.pr-header {
+  grid-area: pr-header;
+  background-color: #f6f8f9;
+}
+.pr-footer {
+  grid-area: pr-footer;
+  background-color: #a6adb4;
+}
+.pr-grid-container ::placeholder {
+  color: #d9dee0;
+  font-size: 0.8em;
+}
+
+.pr-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+  ". pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
+  ". pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle"
+  ". pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name  pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
+  ". pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email "
+  ". pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
+  ". pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services"
+  ". pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
+  ". pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password"
+  ". pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
+  ". pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service"
+  ". pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user"
+  ". pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit";
+  grid-area: pr-main;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 95%;
+}
+
+.pr-main__dog { 
+  grid-area: pr-main__dog; 
+  background-image: url('/img/professionals-new.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  font-size: 14px;
+}
+
+.pr-main__title { 
+  grid-area: pr-main__title; 
+  padding: 5% 0 2% 5;
+  font-size: 30px;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__title--highlight {
+  color: #39b99b;
+}
+.pr-main__subtitle { 
+  grid-area: pr-main__subtitle; 
+  font-size: 15px;
+  color: #a3a3a3;
+}
+
+.pr-main__name { 
+  grid-area: pr-main__name;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__name-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+.pr-main__email { 
+  grid-area: pr-main__email;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__email-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+.pr-main__mobile {
+  grid-area: pr-main__mobile;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__mobile-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+.pr-main__services{
+  grid-area: pr-main__services;
+  align-self: center;
+  justify-self: left;
+  width: 100%;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__services__list {
+  display: grid;
+  grid-area: pr-main__services__list;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1px 1px;
+  grid-template-areas: "services__item1 services__item3" 
+  "services__item2 services__item5" 
+  "services__item4 .";
+  color: #a3a3a3;
+  font-weight: normal;
+}
+.services__item1{grid-area:services__item1}
+.services__item2{grid-area:services__item2}
+.services__item3{grid-area:services__item3}
+.services__item4{grid-area:services__item4}
+.services__item5{grid-area:services__item5}
+
+.pr-main__services-input {
+  color: #a3a3a3;
+  border: none;
+  transform: scale(1.3);
+}
+.pr-main__services-label {
+  font-size: 0.9em;
+}
+
+
+.pr-main__neighborhood {
+  grid-area: pr-main__neighborhood;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+
+.pr-main__neighborhood-select {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #a3a3a3;
+  height: 35px;
+  font-weight: normal;
+}
+
+.pr-main__password {
+  grid-area: pr-main__password;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__password-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+.pr-main__confirm-password {
+  grid-area: pr-main__confirm-password;
+  color: #a3a3a3;
+  font-weight: bold;
+}
+.pr-main__confirm-password-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+.pr-main__terms-of-service { 
+  grid-area: pr-main__terms-of-service; 
+  align-self: center;
+  justify-self: left;
+  color: #a3a3a3;
+}
+.pr-main__terms-of-service-input {
+  color: #a3a3a3;
+  border: none;
+  transform: scale(1.3);
+}
+.pr-main__terms-of-service-label {
+  color: #a3a3a3;
+  font-size: 0.9em;
+}
+
+.pr-main__already-an-user { 
+  grid-area: pr-main__already-an-user; 
+  align-self: center;
+  justify-self: left;
+  padding-bottom: 20px;
+  color: #a3a3a3;
+}
+.pr-main__already-an-user-content {
+  width: 100%;
+  font-size: 0.9em;
+}
+.pr-main__already-an-user-content--link {
+  /* color: #44e2be; */
+  color: #a3a3a3;
+}
+
+.pr-main__submit { 
+  grid-area: pr-main__submit; 
+  align-self: center;
+  padding-bottom: 20px;
+}
+.pr-main__submit-button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  color: white;
+  background-color: #39b99b;
+  border-color: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .pr-header { 
+    grid-area: pr-header;
+    background-color: #f0eac2;
+  }
+
+  .pr-footer { 
+    grid-area: pr-footer;
+    background-color: #a6adb4;
+  }
+
+  .pr-grid-container {
+    background-color: #f6f8f9;
+  }
+
+  .pr-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas:
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog  pr-main__password pr-main__password pr-main__password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service"
+    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog  pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__submit pr-main__submit pr-main__submit";
+    grid-area: pr-main;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+
 
 /* search results style */
 .sr-grid-container {

@@ -1,10 +1,95 @@
 <%- include('../includes/head',{title:"Cadastro de Profissional"}) %>
+
 <body>
   <div class="pr-grid-container">
     <div class="pr-header">
       <%- include('../includes/header') %>
     </div>
-    <div class="pr-main">form</div>
+    <!-- <div class="pr-main">form</div> -->
+    <form class="pr-main">
+      <div class="pr-main__dog"></div>
+      <div class="pr-main__title">
+        Consiga <span class="pr-main__title--highlight">mais clientes</span> e divulgue seu trabalho.
+      </div>
+      <div class="pr-main__subtitle">
+        Cadastre-se já e conheça todas as oportunidades que estão te esperando.
+      </div>
+      <div class="pr-main__name">
+        <label for="name">Nome</label><br/>
+        <input class="pr-main__name-input" type="text" name="name" id="name" placeholder="Digite o seu nome ou nome da empresa">
+      </div>
+      <div class="pr-main__email">
+        <label for="email">E-mail</label><br/>
+        <input class="pr-main__email-input" type="email" name="email" id="email" placeholder="Ex: nome@email.com">
+      </div>
+      <div class="pr-main__mobile">
+        <label for="mobile">Celular</label><br/>
+        <input class="pr-main__mobile-input" type="tel" name="mobile" id="mobile" placeholder="(00) 00000-0000">
+      </div>
+      <div class="pr-main__services">
+        <label for="">Serviços oferecidos</label>
+      </div>
+      <div class="pr-main__services__list">
+        <div class="services__item1">
+          <input class="pr-main__services-input" type="checkbox" id="adestramento" name="adestramento">
+          <label class="pr-main__services-label" for="adestramento">Adestramento</label>
+        </div>
+        <div class="services__item2">
+          <input class="pr-main__services-input" type="checkbox" id="banho" name="banho">
+          <label class="pr-main__services-label" for="banho">Banho</label>
+        </div>
+        <div class="services__item3">
+          <input class="pr-main__services-input" type="checkbox" id="dogsitter" name="dogsitter">
+          <label class="pr-main__services-label" for="dogsitter">Dog Sitter</label>
+        </div>
+        <div class="services__item4">
+          <input class="pr-main__services-input" type="checkbox" id="dogwalking" name="dogwalking">
+          <label class="pr-main__services-label" for="dogwalking">Dog Walking</label>
+        </div>
+        <div class="services__item5">
+          <input class="pr-main__services-input" type="checkbox" id="tosa" name="tosa">
+          <label class="pr-main__services-label" for="tosa">Tosa</label>
+        </div>
+      </div>
+      <div class="pr-main__neighborhood">
+        <label for="neighborhood">Bairro</label>
+        <select class="pr-main__neighborhood-select" name="neighborhood" id="neighborhood">
+          <option disabled selected>Selecione os bairros que deseja atender</option>
+          <option value="1">Aclimação</option>
+          <option value="2">Itaim Bibi</option>
+          <option value="3">Moema</option>
+          <option value="4">Morumbi</option>
+          <option value="5">Pinheiros</option>
+          <option value="6">Pompeia</option>
+          <option value="7">Vila Madalena</option>
+          <option value="8">Vila Mariana</option>
+          <option value="9">Vila Olímpia</option>
+        </select>
+      </div>
+      <div class="pr-main__password">
+        <label for="password">Crie uma senha</label>
+        <input class="pr-main__password-input" type="password" name="password" id="password" placeholder="****************">
+      </div>
+      <div class="pr-main__confirm-password">
+        <label for="password">Confirme a sua senha</label>
+        <input class="pr-main__confirm-password-input" type="password" name="password" id="password" placeholder="****************">
+      </div>
+      <div class="pr-main__terms-of-service">
+        <input class="pr-main__terms-of-service-input" type="checkbox" name="agree-terms-of-service"
+          id="agree-terms-of-service">
+        <label class="pr-main__terms-of-service-label" for="agree-terms-of-service">Eu li e concordo com os termos de
+          uso</label>
+      </div>
+      <div class="pr-main__already-an-user">
+        <span class="pr-main__already-an-user-content">
+          Já tem cadastro?
+          <a href="#" class="pr-main__already-an-user-content--link">Faça o login</a>
+        </span>
+      </div>
+      <div class="pr-main__submit">
+        <button class="pr-main__submit-button" type="submit">Cadastrar</button>
+      </div>
+    </form>
     <div class="pr-footer">
       <%- include('../includes/footer') %>
     </div>
