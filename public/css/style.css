@@ -322,13 +322,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px 10px;
-  grid-template-areas:
-  ". pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
+  grid-template-areas: ". pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
   ". pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle"
   ". pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name  pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
   ". pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email "
   ". pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
   ". pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services"
+  ". pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list"
   ". pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
   ". pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password"
   ". pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
@@ -337,7 +337,7 @@
   ". pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit";
   grid-area: pr-main;
   font-family: Arial, Helvetica, sans-serif;
-  width: 95%;
+  width: 100%;
 }
 
 .pr-main__dog { 
@@ -574,6 +574,7 @@
     "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog  pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__submit pr-main__submit pr-main__submit";
     grid-area: pr-main;
     font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
   }
 }
 
