@@ -949,9 +949,6 @@
 .au-footer { grid-area: au-footer; }
 .au-about { grid-area: au-about; }
 
-
-
-
 /* services style */
 /* mobile-first (mobile/tablets, max. 992px) */
 .services-grid-container {
@@ -1346,6 +1343,7 @@
     padding: 12px 20px;
     font-size: 0.8em;
     font-weight: bold;
+  }
 }
 
 /* footer style*/
