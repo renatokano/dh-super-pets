@@ -950,6 +950,404 @@
 .au-about { grid-area: au-about; }
 
 
+
+
+/* services style */
+/* mobile-first (mobile/tablets, max. 992px) */
+.services-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 110px 1fr 200px;
+  gap: 0px 0px;
+  grid-template-areas: "services-header" 
+  "services-content" 
+  "services-footer";
+  height:100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.services-header { 
+  grid-area: services-header; 
+  background-color: #fff;
+}
+
+.services-footer { 
+  grid-area: services-footer; 
+  background-color: #a6adb4;
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px 0px;
+  grid-template-areas: "services-content__banner"
+  "services-dog-walking"
+  "services-pet-training"
+  "services-pet-baths"
+  "services-pet-grooming"
+  "services-pet-sitting";
+}
+
+.services-content__banner {
+  grid-area: services-content__banner;
+  background-color: #fff;
+}
+
+.services-content__message {
+  font-size: 2em;
+  text-align: center;
+  padding: 30px 5px 20px;
+  color: #555;
+}
+
+.services-pet-training {
+  grid-area: services-pet-training;
+  position: relative;
+}
+
+.services-pet-training__title {
+  position: absolute;
+  bottom:60px;
+  right:20px;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 0 #999, 0 1px #999, 1px 0 #999, 0 1px #999;
+  text-transform: uppercase;
+}
+
+.services-pet-training__button {
+  background-color: #44e2be95;
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.services-content__pet-training--large {
+  display: none;
+}
+
+.services-pet-training__sub-title {
+  font-size: 1em;
+  width: 50%;
+  float: right;
+  text-align: right;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-right: 10%;
+  display: none;
+}
+
+.services-pet-baths {
+  grid-area: services-pet-baths;
+  position: relative;
+}
+
+.services-pet-baths__title {
+  position: absolute;
+  bottom:60px;
+  right:20px;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 0 #999, 0 1px #999, 1px 0 #999, 0 1px #999;
+  text-transform: uppercase;
+}
+
+.services-pet-baths__button {
+  background-color: #44e2be95;
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.services-pet-baths--mobile {
+  transform: scaleX(-1);
+}
+
+.services-pet-baths--large {
+  transform: scaleX(-1);
+  display: none;
+}
+
+.services-pet-baths__sub-title {
+  font-size: 1em;
+  width: 50%;
+  float: right;
+  text-align: right;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-right: 10%;
+  display: none;
+}
+
+.services-dog-walking {
+  grid-area: services-dog-walking;
+  position: relative;
+}
+
+.services-dog-walking__title {
+  position: absolute;
+  bottom:60px;
+  right:20px;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 0 #999, 0 1px #999, 1px 0 #999, 0 1px #999;
+  text-transform: uppercase;
+}
+
+.services-dog-walking__button {
+  background-color: #44e2be95;
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.services-dog-walking--mobile {
+  transform: scaleX(-1);
+}
+
+.services-dog-walking--large {
+  transform: scaleX(-1);
+  display: none;
+}
+
+.services-dog-walking__sub-title {
+  font-size: 1em;
+  width: 50%;
+  float: right;
+  text-align: right;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-right: 10%;
+  display: none;
+}
+
+.services-pet-sitting {
+  grid-area: services-pet-sitting;
+  position: relative;
+  background-color: #a6adb4;
+}
+
+.services-pet-sitting__title {
+  position: absolute;
+  bottom:60px;
+  right:20px;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 0 #999, 0 1px #999, 1px 0 #999, 0 1px #999;
+  text-transform: uppercase;
+}
+
+.services-pet-sitting__button {
+  background-color: #44e2be95;
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.services-pet-sitting--mobile {
+  transform: scaleX(-1);
+}
+
+.services-pet-sitting--large {
+  transform: scaleX(-1);
+  display: none;
+}
+
+.services-pet-sitting__sub-title {
+  font-size: 1em;
+  width: 50%;
+  float: right;
+  text-align: right;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-right: 10%;
+  display: none;
+}
+
+.services-pet-grooming {
+  grid-area: services-pet-grooming;
+  position: relative;
+}
+
+.services-pet-grooming__title {
+  position: absolute;
+  bottom:60px;
+  right:20px;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 0 #999, 0 1px #999, 1px 0 #999, 0 1px #999;
+  text-transform: uppercase;
+}
+
+.services-pet-grooming__button {
+  background-color: #44e2be95;
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.services-pet-grooming--mobile {
+  transform: scaleX(-1);
+}
+
+.services-pet-grooming--large {
+  transform: scaleX(-1);
+  display: none;
+}
+
+.services-pet-grooming__sub-title {
+  font-size: 1em;
+  width: 50%;
+  float: right;
+  text-align: right;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-right: 10%;
+  display: none;
+}
+
+/* Large devices (tablets/laptops/desktops, 992px and up) */
+@media only screen and (min-width: 768px) {
+  .services-content__pet-training--mobile {
+    display: none;
+  }
+  .services-content__pet-training--large {
+    display: inline;
+  }
+  .services-pet-training__title {
+    bottom:95px;
+    right:8%;
+    font-size: 2em;
+  }
+  
+  .services-pet-training__button {
+    bottom:40px;
+    right:8%;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .services-pet-baths--mobile {
+    display: none;
+  }
+  .services-pet-baths--large {
+    display: inline;
+  }
+  .services-pet-baths__title {
+    bottom:95px;
+    right:8%;
+    font-size: 2em;
+  }
+  
+  .services-pet-baths__button {
+    bottom:40px;
+    right:8%;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .services-dog-walking--mobile {
+    display: none;
+  }
+  .services-dog-walking--large {
+    display: inline;
+  }
+  .services-dog-walking__title {
+    bottom:95px;
+    right:8%;
+    font-size: 2em;
+  }
+  
+  .services-dog-walking__button {
+    bottom:40px;
+    right:8%;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .services-pet-sitting--mobile {
+    display: none;
+  }
+  .services-pet-sitting--large {
+    display: inline;
+  }
+  .services-pet-sitting__title {
+    bottom:95px;
+    right:8%;
+    font-size: 2em;
+  }
+  
+  .services-pet-sitting__button {
+    bottom:40px;
+    right:8%;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .services-pet-grooming--mobile {
+    display: none;
+  }
+  .services-pet-grooming--large {
+    display: inline;
+  }
+  .services-pet-grooming__title {
+    bottom:95px;
+    right:8%;
+    font-size: 2em;
+  }
+  
+  .services-pet-grooming__button {
+    bottom:40px;
+    right:8%;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
 /* footer style*/
 .footer-grid-container {
   display: grid;
