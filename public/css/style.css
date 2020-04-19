@@ -934,6 +934,7 @@
   .faq-questions-and-answers__topics-list {
     text-align: left;
   }
+}
 
 /* about us style */
 .au-grid-container {
@@ -947,6 +948,7 @@
 .au-header { grid-area: au-header; }
 .au-footer { grid-area: au-footer; }
 .au-about { grid-area: au-about; }
+
 
 /* footer style*/
 .footer-grid-container {
