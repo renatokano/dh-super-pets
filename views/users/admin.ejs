@@ -4,10 +4,78 @@
     <div class="uap-header">
       <%- include('../includes/header') %>
     </div>
-    <div class="uap-profile"></div>
-    <div class="uap-form"></div>
+    <main class="uap-main-content">
+      <div class="uap-profile">
+        <div class="uap-profile__img"></div>
+        <q class="uap-profile__quote">
+          <i>Paulista e apaixonada pelo Fred, meu companheiro de quatro patas.</i></q>
+        <a class="uap-profile__public" href="#">Perfil Público</a>
+        <a class="uap-profile__pets" href="#">Meus Pets</a>
+        <a class="uap-profile__details" href="#">Detalhes da conta</a>
+      </div>
+      <form class="uap-form">
+        <section class="uap-form__title">
+          <h1 class="uap-form__title-profile">Perfil Público</h1>
+        </section>
+        <section class="uap-form__name">
+          <label for="name">Nome</label>
+        <input class="uap-form__name-input" type="text" name="name"id="name" placeholder="Jane Doe"/>
+        </section>
+        <section class="uap-form__email">
+          <label for="email">Email</label>
+          <input class="uap-form__email-input" type="email" name="email" id="email" placeholder="email@superpets.com"/>
+        </section>
+        <section class="uap-form__phone">
+          <label for="phone">Celular</label>
+          <input class="uap-form__phone-input" type="tel" name="phone" id="phone" placeholder="(11)91234-5674"/>
+        </section>
+        <section class="uap-form__zip-code">
+          <label for="zip-code">CEP</label>
+          <input class="uap-form__zip-code-input" type="text" name="zip-code" id="zip-code" placeholder="12345-678"/>
+        </section>
+        <section class="uap-form__address">
+          <label for="address">Endereço</label>
+          <input class="uap-form__address-input" type="text" name="address" id="address" placeholder="Rua, Número, Complemento"/>
+        </section>
+        <section class="uap-form__district">
+          <label for="district">Bairro</label>
+          <select class="uap-form__district-select" name="district" id="district" class="district-dropdown">
+            <option disabled selected>Selecione o bairro</option>
+            <option value="Aclimação">Aclimação</option>
+            <option value="Itaim Bibi">Itaim Bibi</option>
+            <option value="Moema">Moema</option>
+            <option value="Morumbi">Morumbi</option>
+            <option value="Pinheiros">Pinheiros</option>
+            <option value="Pompeia">Pompeia</option>
+            <option value="Vila Madalena">Vila Madalena</option>
+            <option value="Vila Mariana">Vila Mariana</option>
+            <option value="Vila Olímpia">Vila Olímpia</option>
+          </select>
+        </section>
+        <section class="uap-form__city">
+          <label for="city">Cidade</label>
+          <select  class="uap-form__city-select" name="city" id="city">
+            <option disabled selected>Selecione a cidade</option>
+            <option value="São Paulo">São Paulo</option>
+          </select>
+        </section>
+        <section class="uap-form__state">
+          <label for="state">Estado</label>
+          <select class="uap-form__state-select" name="state" id="state">
+            <option disabled selected>Selecione o estado</option>
+            <option value="São Paulo">São Paulo</option>
+          </select>
+        </section>
+        <section class="uap-btn-profile">
+          <input class="uap-btn-profile__input uap-btn-profile__input--p" type="submit" value="Visualizar Perfil"/>
+        </section>
+        <section class="uap-btn-update">
+          <input class="uap-btn-update__input uap-btn-update__input--u" type="submit" value="Atualizar"/>
+        </section>
+      </form>
+    </main>
     <div class="uap-footer">
       <%- include('../includes/footer') %>
     </div>
-  </div> 
+  </div>
 </body>
