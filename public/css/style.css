@@ -81,6 +81,16 @@ body {
   height:67px;
 }
 
+.prof-img{
+  grid-area:user-img;
+  background-image: url(../img/prof-adm-photo.jpg);
+  background-repeat:no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+  width:67px;
+  height:67px;
+}
+
 .hamburger-menu{
   grid-area:hamburger-menu;
   display:none;
@@ -964,19 +974,269 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 0px 0px;
-  grid-template-areas: "pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header" "pap-profile pap-profile pap-profile pap-profile pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form" "pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer";
-  height:100%;
+  grid-template-areas: "pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header"
+  ". pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content ."
+  "pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer";
+  background-color: #f6f8f9;
+  height:auto;
 }
 .pap-header { grid-area: pap-header; }
 .pap-footer { grid-area: pap-footer; }
-.pap-profile { grid-area: pap-profile; }
-.pap-form { grid-area: pap-form; }
+
+.pap-main-content{
+  grid-area:pap-main-content;
+  display: grid;
+  grid-template-columns: auto 1.7fr;
+  grid-template-rows: auto auto 0.5fr;
+  gap: 0px 0px;
+  grid-template-areas: "pap-profile pap-form";
+  background-color:#f6f8f9;
+  padding-top: 25px;
+}
+
+@media only screen and (max-width: 960px){
+  .pap-main-content{
+    grid-area:pap-main-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas: "pap-profile" "pap-form";
+    background-color:#f6f8f9;
+    padding-top: 25px;
+  } 
+}
+
+.pap-profile {
+  grid-area: pap-profile;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 250px 100px 40px 40px 40px 40px 40px;
+  gap: 0px 0px;
+  grid-template-areas: "pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img pap-profile__img"
+  "pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote"
+  "pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public"
+  "pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services"
+  "pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area pap-profile__area "
+  "pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details"
+  "pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out pap-profile__sign-out";
+  background-color:#fff;
+  justify-items: center;
+  padding:45px 60px 0 60px;
+}
+.pap-grid-container ::placeholder {
+  font-size: 0.8em;
+}
+
+.pap-profile__img { grid-area: pap-profile__img;}
+.pap-profile__quote { 
+  grid-area: pap-profile__quote;
+  color:#888;
+  font-size: 0.8em;
+  letter-spacing: 0.018em;
+  padding-top:20px;
+}
+.pap-profile__public { grid-area: pap-profile__public; }
+.pap-profile__services{ grid-area: pap-profile__services;}
+.pap-profile__area{ grid-area: pap-profile__area;}
+.pap-profile__details{ grid-area: pap-profile__details;}
+.pap-profile__sign-out{ grid-area: pap-profile__sign-out;}
+
+.pap-profile__img{
+  background-image: url('../img/prof-adm-photo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:240px;
+  height:250px;
+}
+
+.pap-profile__quote,.pap-profile__public,.pap-profile__services, .pap-profile__area, .pap-profile__details, .pap-profile__sign-out{
+  width:240px; 
+  text-decoration:none;
+  color:#888;
+}
+
+.pap-profile__public:hover,.pap-profile__services:hover, .pap-profile__area:hover,.pap-profile__details:hover, .pap-profile__sign-out:hover{
+  font-weight:600;
+  cursor: pointer;
+}
+
+.pap-form {
+  grid-area: pap-form;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: auto auto auto auto auto auto auto;
+  gap: 15px 30px;
+  grid-template-areas: "pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title"
+  "pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name"
+  "pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email"
+  "pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone"
+  "pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address"
+  "pap-form__district pap-form__district pap-form__district pap-form__district pap-form__city pap-form__city pap-form__city pap-form__city pap-form__state pap-form__state pap-form__state pap-form__state"
+  ". . pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update";
+  background-color:#fff;
+  padding:35px 100px 45px 40px;
+}
+
+.pap-form__title { grid-area: pap-form__title;}
+.pap-form__name { grid-area: pap-form__name;}
+.pap-form__email { grid-area: pap-form__email;}
+.pap-form__phone{ grid-area: pap-form__phone;}
+.pap-form__zip-code{ grid-area: pap-form__zip-code;}
+.pap-form__address{ grid-area: pap-form__address;}
+.pap-form__district{grid-area: pap-form__district;}
+.pap-form__city{ grid-area: pap-form__city;}
+.pap-form__state{ grid-area: pap-form__state;}
+.pap-btn-profile{ grid-area: pap-btn-profile;padding-top: 40px;}
+.pap-btn-update{ grid-area: pap-btn-update;padding-top: 40px;}
+
+.pap-form__title-select {
+  font-size: 0.8em;
+}
+
+.pap-form__title-profile{
+  color:#888;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px;
+}
+
+.pap-form__title-input,.pap-form__name-input,.pap-form__email-input,.pap-form__phone-input,.pap-form__zip-code-input,.pap-form__address-input,.pap-form__district-select,.pap-form__city-select,.pap-form__state-select{
+  width:100%;
+  margin-top:10px;
+  border:2px solid #cbd0d3;
+  border-radius:5px;
+  padding:10px;
+  color:#010101;
+  font-size: 0.8em;
+}
+
+.pap-form__title-input:focus,.pap-form__name-input:focus,.pap-form__email-input:focus,.pap-form__phone-input:focus,.pap-form__zip-code-input:focus,.pap-form__address-input:focus,.pap-form__district-select:focus,.pap-form__city-select:focus,.pap-form__state-select:focus{
+  border-color:#44e2be;
+  color:#010101;
+}
+
+.pap-btn-profile__input,.pap-btn-update__input{
+  width:100%;
+  border:none;
+  border-radius:20px;
+  padding:15px;
+  color:#fff;
+  cursor:pointer;
+}
+
+.pap-btn-profile__input--p{
+  background-color: #b7bfc7 ;
+}
+
+.pap-btn-update__input--u{
+  background-color: #45e6c1;
+}
+
+.pap-btn-profile__input--p:hover{
+  background-color:#a4aab1;
+}
+
+.pap-btn-update__input--u:hover{
+  background-color:#3accaa;
+}
+
+.pap-name__inputs { 
+  color: #a3a3a3;
+  font-weight: bold;
+}
 
 @media only screen and (max-width: 768px){
   .pap-grid-container{
-    grid-template-rows: 110px auto 1fr 200px;
-    grid-template-areas: "pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header" "pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile pap-profile" "pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form pap-form" "pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer";
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 110px 1fr 200px;
+    gap: 0px 0px;
+    grid-template-areas: "pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header pap-header"
+    "pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content pap-main-content"
+    "pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer pap-footer";
+    background-color: #f6f8f9;
+    height:100%;
   } 
+  .user-name{
+    display:none;
+  }
+
+  .pap-main-content{
+    grid-area:pap-main-content;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    gap: 0px 0px;
+    grid-template-areas: "pap-profile" "pap-form";
+    background-color:#f6f8f9;
+    width:100vw;
+    padding:0 5% 0 5%;
+  }
+  .pap-profile {
+    grid-area: pap-profile;
+    display: grid;
+    grid-template-columns: 20% 20% 16% 20% 10%;
+    grid-template-rows: 160px 41px;
+    gap:0px 15px;
+    grid-template-areas: "pap-profile__img  pap-profile__quote pap-profile__quote pap-profile__quote pap-profile__quote"
+    "pap-profile__public pap-profile__services pap-profile__area pap-profile__details pap-profile__sign-out";
+    justify-items: left;
+    padding:0;
+    background-color: #f6f8f9;
+  }
+  .pap-profile__img{
+    transform:scale(0.4);
+    justify-self:left;
+    align-self: center;
+    position:relative;
+    right:70px;
+  }
+
+  .pap-profile__quote{
+    justify-self:left; 
+    align-self: center;
+    font-size:1rem;
+  }
+  .pap-profile__public,.pap-profile__services, .pap-profile__area,.pap-profile__details, .pap-profile__sign-out {
+    padding-bottom:10px;
+    font-size:0.8em;
+    width:100%;
+  }
+
+  .pap-profile__public:hover,.pap-profile__services:hover, .pap-profile__area:hover,.pap-profile__details:hover, .pap-profile__sign-out:hover{
+    border-bottom:4px solid #45e6c1;
+  }
+
+  .pap-form{
+    grid-area: pap-form;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+    gap: 15px 0px;
+    grid-template-areas: "pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title pap-form__title"
+    "pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name pap-form__name"
+    "pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email pap-form__email"
+    "pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone pap-form__phone"
+    "pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code pap-form__zip-code  pap-form__zip-code pap-form__zip-code"
+    "pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address pap-form__address"
+    "pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district pap-form__district"
+    "pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city pap-form__city"
+    "pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state pap-form__state"
+    "pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update pap-btn-update"
+    "pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile pap-btn-profile";
+    padding:10px 3% 20px 3%;
+    margin-bottom:20px;
+  }
+  .pap-btn-profile{
+    padding-top:10px;
+  }
+  .pap-btn-update{
+    padding-top:15px;
+  }
+  .pap-btn-profile__input,.pap-btn-update__input{
+    border-radius: 10px;
+  }
+
 }
 
 /* user public profile style */

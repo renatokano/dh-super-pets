@@ -1,11 +1,81 @@
 <%- include('../includes/head',{title:"Perfil Administrativo Profissional"}) %>
+
 <body>
   <div class="pap-grid-container">
     <div class="pap-header">
-      <%- include('../includes/header') %>
+      <%- include('../includes/header', {title:"Perfil Administrativo Profissional", username:"Luana P. Ferreira", img:"prof-img"}) %>
     </div>
-    <div class="pap-profile">perfil</div>
-    <div class="pap-form">formulário</div>
+    <main class="pap-main-content">
+      <div class="pap-profile">
+        <div class="pap-profile__img"></div>
+        <q class="pap-profile__quote"><i>Paulista e apaixonada por todos os pets.</i></q>
+        <a class="pap-profile__public" href="#">Perfil Público</a>
+        <a class="pap-profile__services" href="#">Serviços Oferecidos</a>
+        <a class="pap-profile__area" href="#">Área de Atuação</a>
+        <a class="pap-profile__details" href="#">Detalhes da conta</a>
+        <a class="pap-profile__sign-out" href="#">Sair</a>
+      </div>
+      <form class="pap-form">
+        <section class="pap-form__title">
+          <h1 class="pap-form__title-profile">Perfil Público</h1>
+        </section>
+        <section class="pap-form__name">
+          <label class="pap-name__inputs" for="name">Nome</label>
+        <input class="pap-form__name-input" type="text" name="name"id="name" value="Luana P. Ferreira"/>
+        </section>
+        <section class="pap-form__email">
+          <label class="pap-name__inputs" for="email">Email</label>
+          <input class="pap-form__email-input" type="email" name="email" id="email" value="luana.ferreira@superpets.com"/>
+        </section>
+        <section class="pap-form__phone">
+          <label class="pap-name__inputs" for="phone">Celular</label>
+          <input class="pap-form__phone-input" type="tel" name="phone" id="phone" value="(11)92222-3333"/>
+        </section>
+        <section class="pap-form__zip-code">
+          <label class="pap-name__inputs" for="zip-code">CEP</label>
+          <input class="pap-form__zip-code-input" type="text" name="zip-code" id="zip-code" value="04548-000"/>
+        </section>
+        <section class="pap-form__address">
+          <label class="pap-name__inputs" for="address">Endereço</label>
+          <input class="pap-form__address-input" type="text" name="address" id="address" value="Av. Dr. Cardoso de Melo, 90 - Sala 31"/>
+        </section>
+        <section class="pap-form__district">
+          <label class="pap-name__inputs" for="district">Bairro</label>
+          <select class="pap-form__district-select pap-form__title-select" name="district" id="district" class="district-dropdown">
+            <option disabled selected>Selecione o bairro</option>
+            <option value="Aclimação">Aclimação</option>
+            <option value="Itaim Bibi">Itaim Bibi</option>
+            <option value="Moema">Moema</option>
+            <option value="Morumbi">Morumbi</option>
+            <option value="Pinheiros">Pinheiros</option>
+            <option value="Pompeia">Pompeia</option>
+            <option value="Vila Madalena">Vila Madalena</option>
+            <option value="Vila Mariana">Vila Mariana</option>
+            <option selected value="Vila Olímpia">Vila Olímpia</option>
+          </select>
+        </section>
+        <section class="pap-form__city">
+          <label class="pap-name__inputs" for="city">Cidade</label>
+          <select class="pap-form__city-select pap-form__title-select" name="city" id="city">
+            <option disabled selected>Selecione a cidade</option>
+            <option selected value="São Paulo">São Paulo</option>
+          </select>
+        </section>
+        <section class="pap-form__state">
+          <label class="pap-name__inputs" for="state">Estado</label>
+          <select class="pap-form__state-select pap-form__title-select" name="state" id="state">
+            <option disabled selected>Selecione o estado</option>
+            <option selected value="São Paulo">São Paulo</option>
+          </select>
+        </section>
+        <section class="pap-btn-profile">
+          <input class="pap-btn-profile__input pap-btn-profile__input--p" type="submit" value="Visualizar Perfil"/>
+        </section>
+        <section class="pap-btn-update">
+          <input class="pap-btn-update__input pap-btn-update__input--u" type="submit" value="Atualizar"/>
+        </section>
+      </form>
+    </main>
     <div class="pap-footer">
       <%- include('../includes/footer') %>
     </div>
