@@ -428,8 +428,8 @@ body {
   grid-template-areas: "pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header"
   "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main"
   "pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer";
-  height:100%;
-  background-color: #f6f8f9;
+  height: auto;
+  background-color: #ecf1f1;
 }
 .pr-header {
   grid-area: pr-header;
@@ -679,7 +679,7 @@ body {
   }
 
   .pr-grid-container {
-    background-color: #f6f8f9;
+    background-color: #ecf1f1;
   }
 
   .pr-main {
