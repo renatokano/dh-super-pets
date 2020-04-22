@@ -1288,7 +1288,7 @@ body {
   grid-template-areas: "tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header" 
   ". tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use ." 
   "tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer";
-  height:100%;
+  /* height:100%; */
   background-color: #f6f8f9;
 }
 .tou-header { 
