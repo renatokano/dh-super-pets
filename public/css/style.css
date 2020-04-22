@@ -183,7 +183,7 @@ body {
   grid-template-areas: "ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header" 
   "ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
   "ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer";
-  height:100%;
+  /* height:100%; */
   background-color: #f6f8f9;
 }
 .ur-header { 
@@ -965,8 +965,6 @@ body {
     border-radius: 10px;
   }
 }
-
-
 
 /* professional adm profile style */
 .pap-grid-container {
