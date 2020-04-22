@@ -58,6 +58,11 @@ body {
   justify-items: right;
  }
 
+ .header__link {
+   text-decoration: none;
+   color:#676767;
+ }
+
  .user-name{
   grid-area:user-name;
   color:#343638; 
@@ -183,7 +188,7 @@ body {
   grid-template-areas: "ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header" 
   "ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
   "ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer";
-  height:100%;
+  /* height:100%; */
   background-color: #f6f8f9;
 }
 .ur-header { 
@@ -966,8 +971,6 @@ body {
   }
 }
 
-
-
 /* professional adm profile style */
 .pap-grid-container {
   display: grid;
@@ -1499,7 +1502,6 @@ body {
   grid-template-areas: "tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header tou-header" 
   ". tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use tou-terms-of-use ." 
   "tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer";
-  height:100%;
   background-color: #f6f8f9;
 }
 .tou-header { 
@@ -1511,7 +1513,6 @@ body {
   background-color: #a6adb4;
 }
 .tou__terms-of-use { 
-  font-family: Arial, Helvetica, sans-serif;
   grid-area: tou-terms-of-use; 
   padding: 5% 0;
 }
@@ -1521,6 +1522,7 @@ body {
 
 .tou__articles {
   text-align: justify;
+  font-size: 1.2em;
 }
 
 /* faq style */
@@ -1533,8 +1535,8 @@ body {
   grid-template-areas: "faq-header faq-header faq-header faq-header faq-header faq-header faq-header faq-header faq-header faq-header faq-header faq-header" 
   "faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content" 
   "faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer";
-  height:100%;
-  font-family: Arial, Helvetica, sans-serif;
+  /* height:100%; */
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .faq-header { 
@@ -1577,7 +1579,6 @@ body {
 
 .faq-banner__message {
   padding-top: 2.3rem;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 2.2rem;
   line-height: 2.5rem;
   grid-area: faq-banner__message;
@@ -1588,15 +1589,6 @@ body {
 .faq-banner__search {
   grid-area: faq-banner__search;
   align-self: end;
-  padding-bottom: 30px;
-}
-
-.faq-banner__message {
-  padding-top: 2.3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.2rem;
-  line-height: 2.5rem;
-  grid-area: faq-banner__message;
   padding-bottom: 30px;
 }
 
@@ -1622,7 +1614,7 @@ body {
   transition: color .8s ease;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   line-height: 2.3rem;
   letter-spacing: -.025rem;
   color: #a6adb4;
@@ -1660,12 +1652,21 @@ body {
   font-weight: bold;
 }
 
-.faq-questions-and-answers__topics-item--selected {
+.faq-questions-and-answers__links--selected { 
   padding-bottom: 5px;
-  color: #39b99b;
-  font-size: 1.4em;
   text-decoration: underline;
   font-weight: bold;
+  color:#39b99b;
+}
+
+.faq-questions-and-answers__links {
+  text-decoration: none;
+  color: #bbb;
+}
+
+.faq-questions-and-answers__links:hover {
+  text-decoration: underline;
+  color:#39b99b;
 }
 
 .faq-questions-and-answers__content {
@@ -1678,22 +1679,26 @@ body {
 }
 
 .faq-questions-and-answers__section-title {
-  font-size: 1.3em;
+  font-size: 1.4em;
   color: #39b99b;
   text-decoration: underline;
   padding-bottom: 1rem;
 }
 
 .faq-questions-and-answers__question {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #444;
 }
 
 .faq-questions-and-answers__answer {
-  font-size: 1em;
+  font-size: 1.2em;
   padding-bottom: 1rem;
   color: #555;
   text-align: justify;
+}
+
+.faq-questions-and-answers__list {
+  padding-left: 2em;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -1748,12 +1753,89 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 1px 1px;
-  grid-template-areas: "au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header" "au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about" "au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer";
+  grid-template-areas: "au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header" "about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us" "au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer";
   height:100%;
 }
 .au-header { grid-area: au-header; }
 .au-footer { grid-area: au-footer; }
-.au-about { grid-area: au-about; }
+.about-us { 
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 0px 0px;
+  grid-template-areas: "about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header" ". about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content .";
+  grid-area: about-us; 
+  color: #343638;
+}
+.about-us__header {
+  grid-area: about-us__header;
+  background-color: #eee;
+}
+
+.about-us__content {
+  grid-area: about-us__content; 
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+.about-us__image--mobile {
+
+}
+
+.about-us__image {
+  display: none;
+}
+
+.about-us__slogan {
+  font-style: italic;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 2rem;
+}
+
+.about-us__subtitle{
+  padding-top: 1.5rem;
+  color: #39b99b;
+  padding-bottom: 0.7rem;
+}
+
+.about-us__highlighted {
+  background-color: #45e6c06b;
+  font-size: 1.2em;
+}
+
+.about-us__maps-container {
+  margin: 1rem 0; 
+  padding:0px; 
+  overflow:hidden;
+}
+
+.about-us__maps {
+  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  height:400px;
+  width:100%;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+
+#gmap_canvas img {
+  max-width:none!important;
+  background:none!important
+}
+
+/* Large devices (tablets/laptops/desktops, 768 and up) */
+@media only screen and (min-width: 768px) {
+  .about-us__image--mobile {
+    display: none;
+  }
+  .about-us__image {
+    display: inline;
+  }
+}
 
 /* services style */
 /* mobile-first (mobile/tablets, max. 992px) */
@@ -1771,8 +1853,11 @@ body {
 
 .services-header { 
   grid-area: services-header; 
-  background-color: #fff;
 }
+
+.services-header * { 
+  background-color: #fff;
+} 
 
 .services-footer { 
   grid-area: services-footer; 
@@ -1783,7 +1868,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px 0px;
-  grid-template-areas: "services-content__banner"
+  grid-template-areas: /* "services-content__banner" */
   "services-dog-walking"
   "services-pet-training"
   "services-pet-baths"
@@ -1799,7 +1884,8 @@ body {
 .services-content__message {
   font-size: 2em;
   text-align: center;
-  padding: 30px 5px 20px;
+  padding: 50px 5px 20px;
+  background-color: #fff;
   color: #555;
 }
 
@@ -2044,7 +2130,7 @@ body {
   display: none;
 }
 
-/* Large devices (tablets/laptops/desktops, 992px and up) */
+/* Large devices (tablets/laptops/desktops, 768 and up) */
 @media only screen and (min-width: 768px) {
   .services-content__pet-training--mobile {
     display: none;
@@ -2164,6 +2250,7 @@ body {
   color:#fff;
   align-content: center;
   padding: 0 8.5%;
+  font-size: 1.1em;
 }
 .footer-service-links { grid-area: footer-service-links;}
 .footer-institutional-links{grid-area: footer-institutional-links;}
@@ -2190,7 +2277,7 @@ body {
 .services__item--title,.institutional__item--title{font-weight: normal;}
 
 .newsletter__input[value]{
-  color:#cbd0d3;
+  color:#dadada;
   border:none;
   background-color: transparent;
   border:2px solid rgba(255,255,255,0.3);
@@ -2201,9 +2288,10 @@ body {
 }
 
 .newsletter__text{
-  color:#cbd0d3;
+  color:#dadada;
   margin-top:15px;
   width:300px;
+  font-size: 0.9em;
 }
 
 .newsletter__register{position:relative;}
@@ -2220,7 +2308,7 @@ body {
 
 .services__link,.institutional__link{
   text-decoration: none;
-  color:#cbd0d3;
+  color:#dadada;
 }
 
 .services__link:hover,.institutional__link:hover{color:#fff;}

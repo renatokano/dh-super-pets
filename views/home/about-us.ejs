@@ -2,9 +2,37 @@
 <body>
   <div class="au-grid-container">
     <div class="au-header">
-      <%- include('../includes/header') %>
+      <%- include('../includes/header', {title:"Perfil Administrativo Profissional", username:"Luana P. Ferreira", img:"prof-img"}) %>
     </div>
-    <div class="au-about"></div>
+    <div class="about-us">
+      <div class="about-us__header">
+        <img class="about-us__image--mobile" src="/img/about-us-2-mobile.png" alt="Sobre a SuperPets">
+        <img class="about-us__image" src="/img/about-us-2.png" alt="Sobre a SuperPets">
+        <div class="about-us__slogan">
+          "Os melhores profissionais para o seu pet a um clique."
+        </div>
+      </div>
+      <div class="about-us__content">
+        <h2 class="about-us__subtitle">Quem Somos</h2>
+        Formado por 4 brilhantes alunos da Digital House Brasil, a SuperPets promete <span class="about-us__highlighted">unir os melhores profissionais do mercado pet</span> com os donos de pets, permitindo buscar os profissionais mais bem avaliados e <span class="about-us__highlighted">realizar agendamentos online</span> de serviços como: adestramento, banho, tosa, hospedagem e passeio.
+        <br/>
+        <br/>
+        Mais que um simples agendador, trazemos informação para que você tenha tudo que precisa para <span class="about-us__highlighted">tomar a melhor decisão</span> e escolher o prestador de serviço mais adequado para as suas diferentes necessidades.
+
+        <h2 class="about-us__subtitle">Onde tudo começou</h2>
+        Quando buscamos por prestadores de serviço para os nossos pets, o maior problema é que não temos uma fonte confiável de informação. Escolhemos no escuro, levamos no Pet Shop mais próximo ou confiamos na indicação de algum amigo. Escolher assim é quase sempre uma fria, mas é a única opção que temos. <br/><br/>Esses pets são como nossos filhos, se pudéssemos escolher, nunca deixaríamos nas mãos de pessoas que não confiamos.
+
+        <h2 class="about-us__subtitle">Nossa Solução</h2>
+        Entregamos uma suíte capaz de <span class="about-us__highlighted">fornecer todas as informações que precisamos</span> para contratar o melhor profissional baseado nas nossas mais distintas necessidades. Seja um adestrador especializado em cães violentos, ou uma tosa especial para pets alérgicos a maquininha, a SuperPets promete nos ajudar nessa escolha.
+
+        <h2 class="about-us__subtitle">Nosso Escritório</h2>
+        Localizado em um dos bairros mais valorizados de São Paulo, no coração da Vila Olímpia. 
+        <div class="about-us__maps-container">
+          <iframe src="https://maps.google.com/maps?hl=en&amp;q=Av. Dr. Cardoso de Melo, 90 - Vila Olímpia, São Paulo - SP, 04548-000+(SuperPets)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed" frameborder="0" class="about-us__maps">
+          </iframe>
+        </div>
+      </div>
+    </div>
     <div class="au-footer">
       <%- include('../includes/footer') %>
     </div>
