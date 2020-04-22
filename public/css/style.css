@@ -58,6 +58,11 @@ body {
   justify-items: right;
  }
 
+ .header__link {
+   text-decoration: none;
+   color:#676767;
+ }
+
  .user-name{
   grid-area:user-name;
   color:#343638; 
