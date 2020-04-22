@@ -1323,7 +1323,7 @@ body {
   "faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content faq-content" 
   "faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer faq-footer";
   /* height:100%; */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .faq-header { 
@@ -1366,7 +1366,6 @@ body {
 
 .faq-banner__message {
   padding-top: 2.3rem;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 2.2rem;
   line-height: 2.5rem;
   grid-area: faq-banner__message;
@@ -1377,15 +1376,6 @@ body {
 .faq-banner__search {
   grid-area: faq-banner__search;
   align-self: end;
-  padding-bottom: 30px;
-}
-
-.faq-banner__message {
-  padding-top: 2.3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.2rem;
-  line-height: 2.5rem;
-  grid-area: faq-banner__message;
   padding-bottom: 30px;
 }
 
@@ -1411,7 +1401,7 @@ body {
   transition: color .8s ease;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   line-height: 2.3rem;
   letter-spacing: -.025rem;
   color: #a6adb4;
@@ -1449,12 +1439,21 @@ body {
   font-weight: bold;
 }
 
-.faq-questions-and-answers__topics-item--selected {
+.faq-questions-and-answers__links--selected { 
   padding-bottom: 5px;
-  color: #39b99b;
-  font-size: 1.4em;
   text-decoration: underline;
   font-weight: bold;
+  color:#39b99b;
+}
+
+.faq-questions-and-answers__links {
+  text-decoration: none;
+  color: #bbb;
+}
+
+.faq-questions-and-answers__links:hover {
+  text-decoration: underline;
+  color:#39b99b;
 }
 
 .faq-questions-and-answers__content {
@@ -1467,22 +1466,26 @@ body {
 }
 
 .faq-questions-and-answers__section-title {
-  font-size: 1.3em;
+  font-size: 1.4em;
   color: #39b99b;
   text-decoration: underline;
   padding-bottom: 1rem;
 }
 
 .faq-questions-and-answers__question {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #444;
 }
 
 .faq-questions-and-answers__answer {
-  font-size: 1em;
+  font-size: 1.2em;
   padding-bottom: 1rem;
   color: #555;
   text-align: justify;
+}
+
+.faq-questions-and-answers__list {
+  padding-left: 2em;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
