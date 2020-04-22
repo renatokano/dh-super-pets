@@ -2,11 +2,45 @@
 <body>
   <div class="upp-grid-container">
     <div class="upp-header">
-      <%- include('../includes/header') %>
+      <%- include('../includes/header', {username:"Isabella A. Nunes", img:"user-img"}) %>
     </div>
-    <div class="upp-profile">img</div>
-    <div class="upp-info">nome/img/pet-info</div>
-    <div class="upp-footer">
+      <div class="upp-profile">
+        <div class="upp-username">Isabella A. Nunes</div>
+        <div class="upp-user-img"></div>
+        <div class="upp-quote"><q class="upp-quote__user">Paulista e apaixonada pelo Fred, meu companheiro de quatro patas.</q></div>
+        <div class="upp-rating-stars">
+          <ul class="stars">
+            <li class="star star--1"></li>
+            <li class="star star--2"></li>
+            <li class="star star--3"></li>
+            <li class="star star--4"></li>
+            <li class="star star--5"></li>
+          </ul>
+          <span class="rating-count">(159)</span>
+        </div>
+        <div class="upp-pet-imgs">
+          <div class="img-pet2"></div>
+          <div class="img-pet3"></div>
+          <div class="img-pet4"></div>
+          <div class="img-pet5"></div>
+          <div class="img-pet1"></div>
+        </div>
+        <div class="upp-user-pets"><h1 class="upp-user-pets__title">Meus Pets</h1></div>
+        <div class="upp-img-pet-profile"></div>
+        <div class="upp-pet-infos">
+          <ul class="infos">
+            <li class="info info--name"><span class="info__bold">Nome: </span>Fred</li>
+            <li class="info info--specie"><span class="info__bold">Espécie: </span>Cachorro</li>
+            <li class="info info--breed"><span class="info__bold">Raça: </span>Labrador</li>
+            <li class="info info--size"><span class="info__bold">Porte: </span>Médio</li>
+            <li class="info info--gender"><span class="info__bold">Sexo: </span>Masculino</li>
+            <li class="info info--neutered"><span class="info__bold">Castrado: </span>Sim</li>
+            <li class="info info--allergic"><span class="info__bold">Alérgico: </span>Não</li>
+            <li class="info info--note"><span class="info__bold">Observações: </span>N/A</li>
+          </ul>
+        </div>
+      </div>
+      <div class="upp-footer">
       <%- include('../includes/footer') %>
     </div>
   </div>
