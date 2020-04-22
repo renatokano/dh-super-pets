@@ -1644,8 +1644,11 @@ body {
 
 .services-header { 
   grid-area: services-header; 
-  background-color: #fff;
 }
+
+.services-header * { 
+  background-color: #fff;
+} 
 
 .services-footer { 
   grid-area: services-footer; 
