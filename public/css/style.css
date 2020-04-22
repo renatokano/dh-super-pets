@@ -1537,12 +1537,89 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 1px 1px;
-  grid-template-areas: "au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header" "au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about au-about" "au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer";
+  grid-template-areas: "au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header au-header" "about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us about-us" "au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer au-footer";
   height:100%;
 }
 .au-header { grid-area: au-header; }
 .au-footer { grid-area: au-footer; }
-.au-about { grid-area: au-about; }
+.about-us { 
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 0px 0px;
+  grid-template-areas: "about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header about-us__header" ". about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content about-us__content .";
+  grid-area: about-us; 
+  color: #343638;
+}
+.about-us__header {
+  grid-area: about-us__header;
+  background-color: #eee;
+}
+
+.about-us__content {
+  grid-area: about-us__content; 
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+.about-us__image--mobile {
+
+}
+
+.about-us__image {
+  display: none;
+}
+
+.about-us__slogan {
+  font-style: italic;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 2rem;
+}
+
+.about-us__subtitle{
+  padding-top: 1.5rem;
+  color: #39b99b;
+  padding-bottom: 0.7rem;
+}
+
+.about-us__highlighted {
+  background-color: #45e6c06b;
+  font-size: 1.2em;
+}
+
+.about-us__maps-container {
+  margin: 1rem 0; 
+  padding:0px; 
+  overflow:hidden;
+}
+
+.about-us__maps {
+  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  height:400px;
+  width:100%;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+
+#gmap_canvas img {
+  max-width:none!important;
+  background:none!important
+}
+
+/* Large devices (tablets/laptops/desktops, 768 and up) */
+@media only screen and (min-width: 768px) {
+  .about-us__image--mobile {
+    display: none;
+  }
+  .about-us__image {
+    display: inline;
+  }
+}
 
 /* services style */
 /* mobile-first (mobile/tablets, max. 992px) */
@@ -1834,7 +1911,7 @@ body {
   display: none;
 }
 
-/* Large devices (tablets/laptops/desktops, 992px and up) */
+/* Large devices (tablets/laptops/desktops, 768 and up) */
 @media only screen and (min-width: 768px) {
   .services-content__pet-training--mobile {
     display: none;
