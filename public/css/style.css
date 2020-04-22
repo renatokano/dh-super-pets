@@ -2038,6 +2038,7 @@ body {
   color:#fff;
   align-content: center;
   padding: 0 8.5%;
+  font-size: 1.1em;
 }
 .footer-service-links { grid-area: footer-service-links;}
 .footer-institutional-links{grid-area: footer-institutional-links;}
@@ -2064,7 +2065,7 @@ body {
 .services__item--title,.institutional__item--title{font-weight: normal;}
 
 .newsletter__input[value]{
-  color:#cbd0d3;
+  color:#dadada;
   border:none;
   background-color: transparent;
   border:2px solid rgba(255,255,255,0.3);
@@ -2075,9 +2076,10 @@ body {
 }
 
 .newsletter__text{
-  color:#cbd0d3;
+  color:#dadada;
   margin-top:15px;
   width:300px;
+  font-size: 0.9em;
 }
 
 .newsletter__register{position:relative;}
@@ -2094,7 +2096,7 @@ body {
 
 .services__link,.institutional__link{
   text-decoration: none;
-  color:#cbd0d3;
+  color:#dadada;
 }
 
 .services__link:hover,.institutional__link:hover{color:#fff;}
