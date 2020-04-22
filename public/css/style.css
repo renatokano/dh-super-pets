@@ -1572,7 +1572,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px 0px;
-  grid-template-areas: "services-content__banner"
+  grid-template-areas: /* "services-content__banner" */
   "services-dog-walking"
   "services-pet-training"
   "services-pet-baths"
@@ -1588,8 +1588,8 @@ body {
 .services-content__message {
   font-size: 2em;
   text-align: center;
-  padding: 30px 5px 20px;
-  background-color: #ecf1f1;
+  padding: 50px 5px 20px;
+  background-color: #fff;
   color: #555;
 }
 
