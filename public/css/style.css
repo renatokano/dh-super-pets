@@ -1264,24 +1264,331 @@ body {
 }
 
 /*professional public profile style */
+/* mobile-first max. 600px) */
+
 .ppp-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 110px 1fr 200px;
   gap: 0px 0px;
-  grid-template-areas: "ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header" "ppp-profile ppp-profile ppp-profile ppp-profile ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info" "ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer";
-  height:100%;
+  grid-template-areas: "ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header" ". ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ." "ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer";
 }
+
 .ppp-header { grid-area: ppp-header; }
 .ppp-footer { grid-area: ppp-footer; }
-.ppp-profile { grid-area: ppp-profile; }
-.ppp-form { grid-area: ppp-info; }
+.ppp__profile { 
+  gap: 0rem 0rem;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-template-areas: "ppp__photo ppp__photo ppp__photo ppp__photo" "ppp__user-name ppp__user-name ppp__user-name ppp__user-name" 
+  "ppp__custom-message ppp__custom-message ppp__custom-message ppp__custom-message" 
+  "ppp__services ppp__services ppp__services ppp__services " "ppp__stars ppp__stars ppp__stars ppp__stars"
+  "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
+  "ppp__coverage-area ppp__coverage-area ppp__coverage-area ppp__coverage-area" "ppp__pricelist ppp__pricelist ppp__pricelist ppp__pricelist"
+  "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"
+  "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"; 
+  grid-area: ppp-profile; 
+}
 
-@media only screen and (max-width: 768px){
-  .ppp-grid-container {
-    grid-template-rows: 110px auto 1fr 200px;
-    grid-template-areas: "ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header ppp-header" "ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile ppp-profile" "ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info ppp-info" "ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer ppp-footer"; 
+.ppp__photo {
+  padding-top: 2rem;
+  grid-area: ppp__photo;
+}
+
+.ppp__user-name {
+  padding: 2rem 0rem 0.1rem;
+  font-size: 1.8em;
+  color: #555;
+  text-align: center;
+  grid-area: ppp__user-name;
+}
+
+.ppp__custom-message {
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  grid-area: ppp__custom-message;
+}
+
+.ppp__coverage-area {
+  padding: 2rem;
+  border: 1px solid #555;
+  color: #555;
+  margin-bottom: 2rem;
+  grid-area: ppp__coverage-area;
+}
+
+.ppp__coverage-area-title {
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  color:#3accaa;
+}
+
+.ppp__pricelist {
+  padding: 2rem;
+  border: 1px solid #555;
+  color: #555;
+  grid-area: ppp__pricelist;
+  margin-bottom: 0rem;
+}
+
+.ppp__pricelist-title {
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  color:#3accaa;
+}
+
+.ppp__pricelist-price {
+  float: right;
+}
+
+.ppp__stars {
+  grid-area: ppp__stars;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.ppp__star {
+  color: #45e6c1!important;
+}
+
+.ppp__star-o, .ppp__stars-counter {
+  color: #888!important;
+}
+
+.ppp__stars-counter {
+  font-size: 0.8em;
+}
+
+.ppp__services {
+  padding-top: 1.2rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.2em;
+  grid-area: ppp__services;
+  border-top: 1px solid #555;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ppp__services-served {
+  color: #555;
+}
+
+.ppp__scheduling {
+  grid-area: ppp__scheduling;
+  margin-bottom: 2rem;
+}
+
+.ppp__scheduling-button {
+  width: 100%;
+  background-color: #3accaa;
+  padding: 1.1rem;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 15px;
+  border-color: none;
+  
+}
+
+.ppp__photos-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem 0.5rem;
+  grid-template: "ppp__photos-title ppp__photos-title ppp__photos-title ppp__photos-title"
+  "ppp__photos-1 ppp__photos-1 ppp__photos-1 ppp__photos-1"
+  "ppp__photos-2 ppp__photos-3 ppp__photos-4 ppp__photos-5";
+  grid-area: ppp__photos-gallery;
+  margin-bottom: 2rem;
+  align-self: start;
+  align-content: start;
+}
+
+.ppp__photos-1 {
+  grid-area: ppp__photos-1;
+  padding-top: 2rem;
+  width: 100%;
+  max-width:1000px;
+  align-self: start;
+  align-content: start;
+}
+.ppp__photos-2 {
+  grid-area: ppp__photos-2;
+  width: 100%;
+  max-width:200px;
+  max-height: 150px;
+  align-self: start;
+  align-content: start;
+}
+.ppp__photos-3 {
+  grid-area: ppp__photos-3;
+  width: 100%;
+  max-width:200px;
+  max-height: 150px;
+  align-self: start;
+  align-content: start;}
+.ppp__photos-4 {
+  grid-area: ppp__photos-4;
+  width: 100%;
+  max-width:200px;
+  max-height: 150px;
+  align-self: start;
+  align-content: start;
+}
+.ppp__photos-5 {
+  grid-area: ppp__photos-5;
+  width: 100%;
+  max-width:200px;
+  max-height: 150px;
+  align-self: start;
+  align-content: start;
+}
+
+.ppp__metrics {
+  grid-area: ppp__metrics;
+  padding: 2rem;
+  border: 1px solid #555;
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.ppp__metrics-value {
+  font-size: 1.2em;
+  color: #3accaa;
+  font-weight: bold;
+}
+
+.ppp__metrics-description {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.ppp__trophy {
+  position: absolute;
+  top: -25px;
+  right: 20px;
+  font-size: 3.9em;
+  color: #3accaa!important;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .ppp__profile { 
+    gap: 0rem 0rem;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    grid-template-areas: "ppp__photo ppp__user-name ppp__user-name ppp__user-name" 
+    "ppp__photo ppp__custom-message ppp__custom-message ppp__custom-message" 
+    "ppp__services ppp__services ppp__stars ppp__stars"
+    "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
+    "ppp__coverage-area ppp__coverage-area ppp__pricelist ppp__pricelist"
+    "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"
+    "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"; 
+    grid-area: ppp-profile; 
+  }
+
+  .ppp__user-name {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+    align-self: end;
+    align-content: end;
+  }
+
+  .ppp__custom-message {
+    padding: 1rem;
+    text-align: left;
+    align-self: start;
+    align-content: start;
+  }
+
+  .ppp__coverage-area {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .ppp__pricelist {
+    margin-left: 0.5rem;
+  }
+
+  .ppp__stars {
+    padding-top: 1.2rem;
+    border-top: 1px solid #555;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ppp__services {
+    text-align: left;
+  }
+
+  .ppp__scheduling-button {
+    margin-top: 2rem;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .ppp__profile { 
+    display: grid;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-areas: "ppp__photo . ppp__user-name" "ppp__photo . ppp__services" "ppp__photo . ppp__stars"
+    "ppp__photo . ppp__scheduling"
+    "ppp__photo . ppp__photos-gallery"
+    "ppp__custom-message . ppp__photos-gallery"
+    "ppp__pricelist . ppp__photos-gallery"
+    "ppp__coverage-area . ppp__photos-gallery"
+    "ppp__metrics . ppp__photos-gallery";
+    grid-area: ppp-profile; 
+  }
+
+  .ppp__user-name {
+    font-size: 2em;
+    margin:0;
+    border-bottom: 1px solid #555;
+  }
+
+  .ppp__custom-message {
+    padding: 1.2rem;
+  }
+
+  .ppp__coverage-area {
+    margin-right: 0px;
   } 
+
+  .ppp__pricelist {
+    margin-bottom: 2rem;
+    margin-left: 0;
+  }
+
+  .ppp__stars {
+    padding-top: 0;
+    border-top: none;
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .ppp__services {
+    padding-top: 1.2rem;
+    font-size: 1em;
+    border-top: none;
+    margin-top: 0;
+  }
+
+  .ppp__services-served {
+    font-size: 1.2em;
+  }
+
+  .ppp__scheduling {
+    margin-bottom: 0;
+  }
+
+  .ppp__scheduling-button {
+    width: 40%;
+    max-width: 300px;
+  }
 }
 
 /* terms of use style */
