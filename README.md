@@ -43,7 +43,7 @@ Sprint 3 (30/03 - 22/04): Desenvolver o front-end da aplicação. [[instruções
 ## Team
 * **Adria M. de Oliveira** - [[Github]](https://github.com/adriamenezes)
 * **Eudes Silva** - [[Github]](https://github.com/EudesJS)
-* **Refael de Cerqueira** - [[Github]](#)
+* **Refael de Cerqueira** - [[Github]](https://github.com/rafaelcerqueira)
 * **Renato Kano** - [[Github]](https://github.com/renatokano)
 
 ## Licença
