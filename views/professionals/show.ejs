@@ -2,10 +2,74 @@
 <body>
   <div class="ppp-grid-container">
     <div class="ppp-header">
-      <%- include('../includes/header') %> 
+      <%- include('../includes/header', {title:"Perfil Administrativo Profissional", username:"Luana P. Ferreira", img:"prof-img"}) %>
     </div>
-    <div class="ppp-profile">img/região de atendimento/serviços</div>
-    <div class="ppp-info">nome/avaliação/imagens</div>
+    <div class="ppp__profile">
+
+      <img class="ppp__photo" src="/img/prof-adm-photo.jpg" alt="User Photo">
+      
+      <div class="ppp__coverage-area">
+        <section>
+          <h3 class="ppp__coverage-area-title">Atendimento</h3>
+          <div class="ppp__coverage-area-name">- Aclimação</div>
+          <div class="ppp__coverage-area-name">- Moema</div>
+          <div class="ppp__coverage-area-name">- Morumbi</div>
+          <div class="ppp__coverage-area-name">- Vila Olímpia</div>
+      </div>
+      <div class="ppp__pricelist">
+        <section>
+          <h3 class="ppp__pricelist-title">Serviços</h3>
+          <span class="ppp__pricelist-name">Pet Sitting</span>
+          <span class="ppp__pricelist-price">R$120</span>
+          <br/>
+          <span class="ppp__pricelist-name">Pet Walking</span>
+          <span class="ppp__pricelist-price">R$100</span>
+        </section>
+      </div>
+      <div class="ppp__custom-message">
+        "Paulista apaixonada por pets."
+      </div>
+      <div class="ppp__user-name">
+        Luana P. Ferreira
+      </div>
+      <div class="ppp__services">
+        <span class="ppp__services-served">
+          Pet Sitting e Pet Walking
+        </span>
+      </div>
+      <div class="ppp__stars">
+        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+        <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
+        <span class="ppp__stars-counter">(159)</span>
+      </div>
+      <div class="ppp__scheduling">
+        <a href="#">
+          <button class="ppp__scheduling-button">
+            Agendar
+          </button>
+        </a>
+      </div>
+      <div class="ppp__photos-gallery">
+        <img class="ppp__photos-1" src="/img/professional-photo-gallery-1.jpg" alt="Service Photos">
+        <img class="ppp__photos-2" src="/img/professional-photo-gallery-2.jpg" alt="Service Photos">
+        <img class="ppp__photos-3" src="/img/professional-photo-gallery-3.jpg" alt="Service Photos">
+        <img class="ppp__photos-4" src="/img/professional-photo-gallery-4.jpg" alt="Service Photos">
+        <img class="ppp__photos-5" src="/img/professional-photo-gallery-5.jpg" alt="Service Photos">
+      </div>
+      <div class="ppp__metrics">
+        <i class="fa fa-trophy ppp__trophy" aria-hidden="true"></i>
+        <span class="ppp__metrics-value">
+          100%
+        </span>
+        <span class="ppp__metrics-description">
+          dos clientes receberam fotos do seu pet durante execução do serviço.
+        </span>
+      </div>
+
+    </div>
     <div class="ppp-footer">
       <%- include('../includes/footer') %> 
     </div>
