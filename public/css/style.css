@@ -163,20 +163,477 @@ body {
 }
 
 /* home style */
+/* mobile-first (mobile/tablets, max. 992px)*/
 .home-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 110px 1fr 1fr 1fr 1fr 1fr 200px;
-  gap: 1px 1px;
-  grid-template-areas: "home-header header home-header home-header home-header home-header home-header home-header home-header home-header home-header home-header" "home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner" "home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search" "home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals" "home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial" "home-faq home-faq home-faq home-faq home-faq home-faq home-faq home-faq home-faq home-faq home-faq home-faq" "home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer";
+  grid-template-rows: 110px auto auto auto auto auto 200px;
+  gap: 0px 0px;
+  grid-template-areas: "home-header home-header home-header home-header home-header home-header home-header home-header home-header home-header home-header home-header" "home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner home-banner" "home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search home-search" "home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals home-professionals" "home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial home-testimonial" "home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq home-main-faq" "home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer home-footer";
+  height:100vh;
+  background-color: #f6f8f9;
 }
-.home-header { grid-area: home-header; }
-.home-banner { grid-area: home-banner; }
-.home-search { grid-area: home-search; }
-.home-professionals { grid-area: home-professionals; }
-.home-testimonial { grid-area: home-testimonial; }
-.home-faq { grid-area: home-faq; }
-.home-footer { grid-area: home-footer; }
+.home-header { grid-area: home-header; position:absolute; top:0;width:100vw}
+.home-banner { 
+  grid-area: home-banner;
+  background-image: url(../img/main.jpg); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position-x: right;
+  width:100vw;
+  height:50vh;
+  line-height:100%;
+  display:flex;
+  box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, .2);
+  margin-top:-30px;
+}
+.home-search { 
+  grid-area: home-search;
+  background-color:#fff; 
+  width:100%;
+}
+.home-professionals { grid-area: home-professionals; height:auto;}
+.pro-card-description-mobile{
+  background-color: #f6f8f9;
+  color:#707070;
+  font-weight: normal;
+  text-align:center;
+  padding-bottom: 8px;
+  padding-top:10px;
+}
+
+hr{
+  width:90%;
+  height:2px;
+  color:rgba(0,0,0,0.2);
+}
+
+.pro-card-grid {
+  display: grid;
+  grid-template-columns: 15px 1fr 15px;
+  grid-template-rows: 5px auto 5px auto 5px auto 5px auto 5px;
+  gap: 1px 1px;
+  grid-template-areas: ". . ." 
+                       ". pro-card1 ." 
+                       ". . ."
+                       ". pro-card2 ." 
+                       ". . ."
+                       ". pro-card3 ."
+                       ". . ."
+                       ". pro-card4 ." 
+                       ". . .";
+                       
+    height:auto;
+    background-color: #f6f8f9;
+    padding-top:10px;
+}
+.pro-cards-description { grid-area: pro-cards-description;display:none;}
+.pro-card1 { grid-area: pro-card1; background-color: #fff;margin-bottom:20px;}
+.pro-card2 { grid-area: pro-card2; background-color: #fff;margin-bottom:20px;}
+.pro-card3 { grid-area: pro-card3; background-color: #fff;margin-bottom:20px;}
+.pro-card4 { grid-area: pro-card4; background-color: #fff;margin-bottom:20px;}
+
+.pro-card1__img{
+  background-image: url(../img/prof-adm-photo.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius:8px 8px 0 0;
+  width:100%;
+  height:337px;
+}
+
+.pro-card2__img{
+  background-image: url(../img/profissional1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius:8px 8px 0 0;
+  width:100%;
+  height:337px;
+}
+
+.pro-card3__img{
+  background-image: url(../img/profissional3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius:8px 8px 0 0;
+  width:100%;
+  height:337px;
+}
+
+.pro-card4__img{
+  background-image: url(../img/profissional4.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius:8px 8px 0 0;
+  width:100%;
+  height:337px;
+}
+
+.pro-card-user-info{
+  padding:20px;
+}
+
+.pro-card1__name,.pro-card2__name,.pro-card3__name,.pro-card4__name{
+  color:#202124;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin:0 auto;
+}
+
+.pro-card1__about,.pro-card2__about,.pro-card3__about,.pro-card4__about{
+  color:#a6adb4;
+  font-size: 0.9em;
+}
+
+.pro-card1__skills,.pro-card2__skills,.pro-card3__skills,.pro-card4__skills {
+  color:#cbd0d3;
+  font-size: 0.9em;
+}
+
+.home-testimonial { grid-area: home-testimonial; background-color: #fff;}
+.home-testimonial-grid {
+  display: grid;
+  grid-template-columns: 15px 1fr 15px;
+  grid-template-rows: 5px auto 5px;
+  gap: 1px 1px;
+  grid-template-areas: ". . ." 
+                       ". user-testimonial ."
+                        ". . .";
+  height:auto;
+}
+.ttmnl-user { 
+  grid-area: user-testimonial;
+  font-size:1.4em;
+ }
+
+ .ttmnl-user__quote{
+  padding:0 20px 20px 20px;
+  color:#707070;
+ }
+
+ .ttmnl-username{
+  color:#707070;
+  font-size: 0.6em;
+  text-align:center;
+ }
+
+.ttmnl-user-image {grid-area: ttmnl-user-image;}
+
+.home-main-faq { grid-area: home-main-faq;background-color: #f6f8f9;}
+.home-faq-grid {
+  display: grid;
+  grid-template-columns: 15px 1fr 15px;
+  grid-template-rows: 5px auto 5px auto 5px auto 5px auto 5px;
+  gap: 1px 1px;
+  grid-template-areas: ". . ." ". home-faq-title ." ". . ." ". home-faq-q1 ." ". . ." ". home-faq-q2 ." ". . ." ". home-faq-q3 ." ". . .";
+  padding:10px;
+}
+.home-faq-title { 
+  grid-area: home-faq-title;
+  color:#707070;
+  text-align:center;
+ }
+.home-faq-q1 { grid-area: home-faq-q1;padding-bottom:10px; }
+.home-faq-q2 { grid-area: home-faq-q2;padding-bottom:10px; }
+.home-faq-q3 { grid-area: home-faq-q3;padding-bottom:10px; }
+
+.faq-title{
+  font-weight: normal;
+  padding:10px 0;
+}
+
+.faq-question{
+  color:#707070;
+  font-weight: 700;
+}
+
+.faq-answer{
+  color:#707070;
+}
+
+.home-footer { 
+  grid-area: home-footer;
+  width:100vw;
+  height:200px;
+}
+
+.home-banner__slogan{
+  margin:auto;
+  color:rgba(255,255,255,1);
+  font-size:2em;
+  font-weight: normal;
+  margin: 10% 30px;
+  width:50%;
+  line-height: 40px;
+}
+
+.home-banner__slogan--hl{
+  color:#45e6c1;
+}
+
+.home-search-grid {
+  width:100vw;
+  display: grid;
+  grid-template-columns: 10px 1fr 5px 1fr 5px 1fr 10px;
+  grid-template-rows: 10px auto 5px 90px 5px 90px 5px auto 5px auto 5px auto 15px auto 20px;
+  gap: 1px 1px;
+  grid-template-areas: ". . . . . . ." ". home-services home-services home-services home-services home-services ." ". . . . . . ." ". home-dog-training . home-pet-shower . home-dog-sitter ." ". . . . . . ." ". home-dog-walk . home-dog-groom . . ." ". . . . . . ." ". home-neighborhood home-neighborhood home-neighborhood home-neighborhood home-neighborhood ." ". . . . . . ." ". home-date-time home-date-time home-date-time home-date-time home-date-time ." ". . . . . . ." ". home-my-pet home-my-pet home-my-pet home-my-pet home-my-pet ." ". . . . . . ." ". home-search-btn home-search-btn home-search-btn home-search-btn home-search-btn ." ". . . . . . .";
+  height:auto;
+}
+.home-dog-training {
+  grid-area: home-dog-training;
+  border:1px solid #000;
+  border-radius: 10px;
+  background-image: url(../img/dog-training.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+  display:flex;
+}
+.home-pet-shower {
+  grid-area: home-pet-shower; 
+  border:1px solid #45e6c1;
+  border-radius: 10px;
+  background-color: #45e6c1;
+  background-image: url(../img/shower-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+  display:flex;
+}
+
+.home-dog-sitter { 
+  grid-area: home-dog-sitter;
+  border:1px solid #000;
+  border-radius: 10px;
+  background-image: url(../img/dog-sitting.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+  display:flex;
+}
+.home-dog-walk { 
+  grid-area: home-dog-walk;
+  border:1px solid #000;
+  border-radius: 10px;
+  background-image: url(../img/dog-running.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+  display:flex;
+ }
+.home-dog-groom { 
+  grid-area: home-dog-groom;
+  border:1px solid #45e6c1;
+  background-color: #45e6c1;
+  border-radius: 10px;
+  background-image: url(../img/scissor-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+  display:flex;
+ }
+
+.home-search__link-btn-dg,.home-search__link-btn-sh{
+  color:#fff;
+}
+
+.home-search__link-btn-t,.home-search__link-btn-dw,.home-search__link-btn-st{
+  color:#707070;
+}
+
+.home-search__link-btn{
+  margin:auto;
+  text-decoration:none;
+  padding-top:35px;
+}
+
+.home-services__title,.home-city-regions,.home-date,.home-pet{
+  color:#888;
+  font-weight: 600;
+}
+
+.home-neighborhood,.home-date-time,.home-my-pet{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.choose-city-region, .choose-date, .choose-pet-weight{
+  border:2px solid #ebeded;
+  border-radius:5px;
+  height:45px;
+}
+
+.home-services { grid-area: home-services; margin-bottom:5px;}
+.home-neighborhood { grid-area: home-neighborhood; }
+.home-date-time { grid-area: home-date-time; }
+.home-my-pet { grid-area: home-my-pet; }
+.home-search-btn {grid-area: home-search-btn;}
+
+.home-city-regions{
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+.home-date,.home-pet{
+  margin-bottom:5px;
+}
+
+.home-search-btn-input{
+  width:100%;
+  border:none;
+  border-radius:20px;
+  color:#fff;
+  cursor:pointer;
+  background-color: #45e6c1;
+  height:50px;
+  padding:auto;
+ }
+
+/* media query for large devices(width:700px and up)*/
+@media only screen and (min-width:700px){
+.home-banner{
+  box-shadow: none;
+}
+
+.home-banner__slogan{
+    color:rgba(0,0,0,0.4);
+}
+}
+/* mobile-first (mobile/tablets, max. 992px) */
+@media only screen and (min-width:992px){
+  .home-search-grid {
+    width:80vw;
+    display: grid;
+    grid-template-columns: 10px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 10px;
+    grid-template-rows: 10px auto 5px 90px 5px auto 5px;
+    gap: 1px 1px;
+    grid-template-areas: 
+    ". . . . . . . . . . ." 
+    ". home-services home-services home-services home-services home-services home-services home-services home-services  home-services ." 
+    ". . . . . . . . . . ." 
+    ". home-dog-training . home-pet-shower . home-dog-sitter . home-dog-walk . home-dog-groom ." 
+    ". . . . . . . . . . ." 
+    ". home-neighborhood home-neighborhood home-neighborhood  . home-date-time . home-my-pet . home-search-btn ." 
+    ". . . . . . . . . . ."; 
+    height:auto;
+    background-color: #fff;
+    border:1px solid #010101;
+    border-radius:10px;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 110%);
+    padding:30px;
+  }
+
+  .home-banner {
+    height:100vh;
+  }
+  .home-banner__slogan{
+    width:30%;
+    position:absolute;
+    top:30%;
+    left:7.5%;
+    line-height:1.6em;
+    font-size: 2.5em;
+  }
+
+  .home-pet,.home-date{
+  margin-top:10px;
+}
+  .home-search-btn-input{
+  margin-top:30px;
+}
+.pro-card-description-mobile{
+  display:none;
+}
+.pro-cards-description{ display:block; color:#707070;}
+.pro-cards-description__title{font-size:2.6em;}
+.pro-cards-description__subtitle{
+  color:#9e9e9e;
+  font-weight: normal;
+  font-size: 1.8em;
+}
+.pro-card1__img,.pro-card2__img,.pro-card3__img,.pro-card4__img{
+  height:170px;
+}
+.pro-card1__img{
+  background-position: top;
+}
+.home-professionals{background-color: #f6f8f9;}
+.pro-card-grid {
+  display: grid;
+  grid-template-columns: 1px 1fr 80px 284px 80px 284px 0px;
+  grid-template-rows: 5px auto 5px auto 5px auto 5px;
+  gap: 1px 1px;
+  grid-template-areas: ". . . . . . ." 
+                       ". pro-cards-description . pro-card1 . pro-card2 ." 
+                       ". pro-cards-description . . . . ."
+                       ". pro-cards-description . pro-card3 . pro-card4 ."
+                       ". . . . . . .";                      
+                       
+    height:auto;
+    background-color: #f6f8f9;
+    padding-top:15%;
+    width:80vw;
+    margin:0 auto;
+}
+
+.home-testimonial-grid {
+  display: grid;
+  grid-template-columns: 0px auto 15px auto 0px;
+  grid-template-rows: 5px auto 5px;
+  gap: 1px 1px;
+  grid-template-areas: ". . . . ." 
+                       ". user-testimonial . ttmnl-user-image ."
+                        ". . . . .";
+  height:auto;
+  width:80vw;
+  margin:0 auto;
+  padding:20px 0;
+}
+.ttmnl-user-image{
+  grid-area: ttmnl-user-image;
+  background-image: url(../img/depoimento1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width:558px;
+  height:528px;
+}
+
+.ttmnl-user{
+  padding: 0 20% 0 0;
+}
+.ttmnl-user__quote{
+  padding-left:0;
+}
+
+.home-faq-grid{
+  width:80vw;
+  margin:0 auto;
+  padding:40px 0;
+  font-size:1.2em;
+}
+
+hr{
+  width:100%;
+}
+
+}
+
 
 /* user register style */
 /* mobile-first (mobile/tablets, max. 992px) */

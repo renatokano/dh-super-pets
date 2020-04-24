@@ -1,13 +1,118 @@
 <%- include('../includes/head',{title:"Home"}) %>
+<body>
   <div class="home-grid-container">
     <div class="home-header">
-      <%- include('../includes/header') %>
+      <%- include('../includes/header-only') %>
     </div>
-    <div class="home-banner">banner-img-bg</div>
-    <div class="home-search">area da busca position absolute ou fixed</div>
-    <div class="home-professionals">perfis profissionais mais avaliados</div>
-    <div class="home-testimonial">depoimento</div>
-    <div class="home-faq">faq</div>
+    <div class="home-banner"><h1 class="home-banner__slogan">Encontre os <span class="home-banner__slogan--hl">melhores</span> profissionais de <span class="home-banner__slogan--hl">São Paulo</span> para cuidar do seu pet.</h1></div>
+    <div class="home-search">
+      <form class="home-search-grid">
+        <div class="home-services"><label class="home-services__title" for="">Serviços</label></div>
+        <div class="home-dog-training"><a class="home-search__link-btn home-search__link-btn-t" href="">Adestramento</a></div>
+        <div class="home-pet-shower"><a class="home-search__link-btn home-search__link-btn-sh"  href="">Banho</a></div>
+        <div class="home-dog-sitter"><a class="home-search__link-btn home-search__link-btn-st" href="">Dog sitting</a></div>
+        <div class="home-dog-walk"><a class="home-search__link-btn home-search__link-btn-dw" href="">Dog Walking</a></div>
+        <div class="home-dog-groom"><a class="home-search__link-btn home-search__link-btn-dg" href="">Tosa</a></div>
+        <div class="home-neighborhood">
+          <label class="home-city-regions" for="">Bairro</label>
+          <select class="choose-city-region" name="city-region" id="home-city-regions">
+            <option value="" disabled selected>Selecione um bairro</option>
+            <option value="Vila Olimpia">Vila Olímpia</option>
+            <option value="Moema">Moema</option>
+            <option value="Vila Mariana">Vila Mariana</option>
+            <option value="Pinheiros">Pinheiros</option>
+          </select>
+        </div>
+        <div class="home-date-time">
+          <label class="home-date" for="date">Data</label>
+          <select class="choose-date" type="date" name="choose-date" id="choose-date"   required>
+            <option value="" disabled selected>16/03/2020</option>
+            <option value="">17/03/2020</option>
+            <option value="">18/03/2020</option>
+            <option value="">19/03/2020</option>
+          </select>
+        </div>
+        <div class="home-my-pet">
+          <label class="home-pet" for="pet-weight">Meu Pet</label>
+          <select class="choose-pet-weight" name="" id="">
+            <option value="">Cão até 10kg</option>
+            <option value="">Cão de 11 a 20kg</option>
+            <option value="">Cão acima de 20kg</option>
+          </select>
+        </div>
+        <div class="home-search-btn">
+          <input class="home-search-btn-input" type="button" value="BUSCAR">
+        </div>
+      </form>
+    </div>
+    <div class="home-professionals">
+      <h1 class="pro-card-description-mobile">Nossos Profissionais <hr></h1>
+      <div class="pro-card-grid">
+        <div class="pro-cards-description">
+          <h1 class="pro-cards-description__title">Profissionais em destaque por região</h1>
+          <h2 class="pro-cards-description__subtitle">Conheça os profissionais mais bem avaliados de São Paulo</h2>
+        </div>
+        <div class="pro-card1">
+          <img class="pro-card1__img" src="" alt="">
+          <section class="pro-card-user-info">
+            <h6 class="pro-card1__name">Luana Ferreira</h6>
+          <p class="pro-card1__about">Paulista e apaixonada por todos os tipos de pets.</p>
+          <p class="pro-card1__skills">Dog Sitter, Dog Walking</p>
+          </section>
+        </div>
+        <div class="pro-card2">
+          <img class="pro-card2__img" src="" alt="">
+          <section class="pro-card-user-info">
+            <h6 class="pro-card2__name">André A. Moreira</h6>
+          <p class="pro-card2__about">Carioca e pai do Thomas. +3 anos de experiência como adestrador.</p>
+          <p class="pro-card2__skills">Adestrador</p> 
+          </section>
+        </div>
+        <div class="pro-card3">
+          <img class="pro-card3__img" src="" alt="">
+          <section class="pro-card-user-info">
+            <h6 class="pro-card3__name">Paulo Guedes</h6>
+          <p class="pro-card3__about">Premiado cuidador, com experiência em banho e tosa.</p>
+          <p class="pro-card3__skills">Banho, Dog Sitter, Tosa</p> 
+          </section>
+        </div>
+        <div class="pro-card4">
+          <img class="pro-card4__img" src="" alt="">
+          <section class="pro-card-user-info">
+            <h6 class="pro-card4__name">Mariana Costa</h6>
+            <p class="pro-card4__about">Mãe de 6 pets. Experiência em cuidados com cães e idosos.</p>
+            <p class="pro-card4__skills">Dog Sitter</p> 
+          </section>
+        </div>
+      </div> 
+    </div>
+    <div class="home-testimonial">
+      <div class="home-testimonial-grid">
+        <div class="ttmnl-user"><i class="fa fa-quote-left" style="color:#000;"></i><p class="ttmnl-user__quote"></i><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptates tenetur eius eum iste placeat asperiores ipsa consequuntur. Iste quaerat, adipisci ipsa repellat pariatur natus necessitatibus atque animi fuga in?<br></p><i class="fa fa-quote-right" style="color:#000;width:100%;text-align:right;"></i>
+          <p class="ttmnl-username"><i class="fa fa-user" style="color:#010101;"> </i> Felipe Munhoz e o Thor em 07/03/2020</p>
+        </div>
+        <div class="ttmnl-user-image"></div>
+      </div>
+    </div>
+    <div class="home-main-faq">
+      <div class="home-faq-grid">
+        <div class="home-faq-title">
+          <h2 class="faq-title">FAQ's</h2><hr>
+        </div>
+        <div class="home-faq-q1">
+          <p class="faq-question">Posso confiar nos serviços da SuperPets?</p>
+          <p class="faq-answer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem aut ex doloribus possimus? Ex, quam eum! Voluptatum sed maxime pariatur obcaecati fuga, a labore accusamus animi reprehenderit velit, maiores provident!</p>
+        </div>
+        <div class="home-faq-q2">
+          <p class="faq-question">O que é Dog Sitting?</p>
+          <p class="faq-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi saepe non quidem veniam, iusto dolores molestias alias quas corrupti quos tenetur provident voluptates nesciunt. Modi dolor suscipit iusto placeat quod!</p>
+        </div>
+        <div class="home-faq-q3">
+          <p class="faq-question">Como me tornar Dog Walker?</p>
+          <p class="faq-answer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In quae animi veniam adipisci doloribus soluta quam id, necessitatibus illo placeat amet incidunt aliquam quod autem laboriosam deleniti quia voluptas impedit.</p>
+        </div>
+      </div>
+    </div>
     <div class="home-footer">
       <%- include('../includes/footer') %>
     </div>
