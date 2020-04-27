@@ -1,8 +1,9 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const path = require('path');
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Import Routes 
 let indexRoutes = require('./routes/indexRoutes');
@@ -11,7 +12,7 @@ let professionalsRoutes = require('./routes/professionalsRoutes');
 let servicesRoutes = require('./routes/servicesRoutes');
 
 // Middlewares
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine','ejs');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:true}));
