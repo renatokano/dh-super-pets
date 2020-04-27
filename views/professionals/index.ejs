@@ -2,10 +2,140 @@
 <body>
   <div class="sr-grid-container">
     <div class="sr-header">
-      <%- include('../includes/header') %>  
+      <%- include('../includes/header-only') %>  
     </div>
-    <div class="sr-search">busca</div>
-    <div class="sr-search-results">perfis profissionais buscados</div>
+    <div class="sr-search">
+      <div class="sr-search-grid">
+        <div class="services-input">
+          <label class="services-input__title" for="services">Serviços</label>
+          <select class="pet-services" name="services" id="services">
+            <option value="adestrador">Adestrador</option>
+            <option value="banhoetosa">Banho e Tosa</option>
+            <option value="dogwalker">Dog Walker</option>
+            <option value="dogsitter">Dog Sitter</option>
+          </select>
+        </div>
+        <div class="neigborhood-input">
+          <label class="neighborhood-input__title" for="neighborhood">Bairro</label>
+          <select class="neighborhood" name="neighborhood" id="neigborhood">
+            <option value="Selecione um bairro" selected disabled>Selecione um bairro</option>
+            <option value="Vila Olímpia">Vila Olímpia</option>
+            <option value="Moema">Moema</option>
+            <option value="Vila Mariana">Vila Mariana</option>
+            <option value="Pinheiros">Pinheiros</option>
+          </select>
+        </div>
+        <div class="pickdate-input">
+          <label class="pickdate-input__title" for="date">Data</label>
+          <select class="pickdate" name="date" id="date">
+            <option value="Selecione uma data" selected disabled>Selecione uma data</option>
+            <option value="16/03/2020">16/03/2020</option>
+            <option value="17/03/2020">17/03/2020</option>
+            <option value="18/03/2020">18/03/2020</option>
+          </select>
+        </div>
+        <div class="petweight-input">
+          <label class="petweight-input__title" for="pet-weight">Meu pet</label>
+          <select class="pet-weight" name="pet-weight" id="pet-weight">
+            <option value="Selecione uma categoria" selected disabled>Selecione uma categoria</option>
+            <option value="Cão até 10kg">Cão até 10kg</option>
+            <option value="Cão entre 11kg e 20kg">Cão de 11 a 20kg</option>
+            <option value="Cão acima de 20kg">Cão acima de 20kg</option>
+          </select>
+        </div>
+        <div class="search-btn-submit">
+          <input class="search-btn-submit__button" type="submit" value="BUSCAR">
+        </div>
+      </div>
+    </div>
+    <div class="sr-search-results">
+      <div class="sr-search-results-grid">
+        <div class="sr-name"><h2 class="sr-name__pro1">André A.Moreira</h2></div>
+        <div class="sr-stars">
+          <ul class="sr-stars__rating">
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+          </ul>
+        </div>
+        <div class="sr-img"><section class="sr-img__pro1"></section></div>
+        <div class="sr-pro-info">
+          <section class="sr-pro-info__pro1">
+            <p class="sr-pro-info__pro1-skills">Carioca e pai do Thomas. +3 anos de experiência como adestrador.</p>
+            <p class="sr-pro-info__pro1-pricing">A partir de <span class="sr-pro-info__pro1-value">R$300</span></p>
+          </section>
+        </div>
+        <div class="sr-service-area">
+          <section class="sr-service-area__pro1">
+          Aclimação, Vila Mariana, Liberdade, Saúde.
+          </section>
+        </div>
+        <div class="sr-btn-book"><input class="sr-btn-book__pro1" type="button" value="AGENDAR"></div>
+      </div>
+      <div class="sr-search-results-grid">
+        <div class="sr-name"><h2 class="sr-name__pro2">Paulo Cerqueira Silva</h2></div>
+        <div class="sr-stars">
+          <ul class="sr-stars__rating">
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star"></li>
+          </ul>
+        </div>
+        <div class="sr-img"><section class="sr-img__pro2"></section></div>
+        <div class="sr-pro-info">
+          <section class="sr-pro-info__pro2">
+            <p class="sr-pro-info__pro2-skills">Adestrador profissional, com cursos e certificações e +5 anos de experiência.</p>
+            <p class="sr-pro-info__pro2-pricing">A partir de <span class="sr-pro-info__pro2-value">R$250</span></p>
+          </section>
+        </div>
+        <div class="sr-service-area">
+          <section class="sr-service-area__pro2">
+            Vila Mariana, Vila Olímpia, Moema
+          </section>
+        </div>
+        <div class="sr-btn-book"><input class="sr-btn-book__pro2" type="button" value="AGENDAR"></div>
+      </div>
+      <div class="sr-search-results-grid">
+        <div class="sr-name"><h2 class="sr-name__pro3">Valéria Marques</h2></div>
+        <div class="sr-stars">
+          <ul class="sr-stars__rating">
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star sr-stars__star--active"></li>
+            <li class="sr-stars__star"></li>
+            <li class="sr-stars__star"></li>
+          </ul> 
+        </div>
+        <div class="sr-img"><section class="sr-img__pro3"></section></div>
+        <div class="sr-pro-info">
+          <section class="sr-pro-info__pro3">
+            <p class="sr-pro-info__pro3-skills">Estudante de Medicina Veterinária, com experiência no adestramento de cães de todos os portes.</p>
+            <p class="sr-pro-info__pro3-pricing">A partir de <span class="sr-pro-info__pro3-value">R$195</span></p>
+          </section>
+        </div>
+        <div class="sr-service-area">
+          <section class="sr-service-area__pro3">
+            Vila Mariana, Moema, Vila Nova Conceição
+          </section>
+        </div>
+        <div class="sr-btn-book"><input class="sr-btn-book__pro3" type="button" value="AGENDAR"></div>
+      </div>
+      <div class="sr-results-pages">
+        <ul class="pages">
+          <li class="pages__page1">01</li>
+          <li class="pages__page2">02</li>
+          <li class="pages__page3">03</li>
+          <li class="pages__page4">04</li>
+          <li class="pages__page5">05</li>
+          <li class="pages__page6">06</li>
+          <li class="pages__more"></li>
+        </ul>
+      </div>
+    </div>
     <div class="sr-footer">
       <%- include('../includes/footer') %> 
     </div>
