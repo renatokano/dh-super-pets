@@ -20,7 +20,28 @@
     "marketplace",
     "pet-project"
   ],
-  "author": "Renato Kano",
+  "authors": [
+    {
+      "name": "Adria M. de Oliveira",
+      "social": "@adriamenezes",
+      "url": "https://github.com/adriamenezes"
+    },
+    {
+      "name": "Eudes Silva",
+      "social": "@EudesJS",
+      "url": "https://github.com/EudesJS"
+    },
+    {
+      "name": "Rafael de Cerqueira",
+      "social": "@rafaelcerqueira",
+      "url": "https://github.com/rafaelcerqueira"
+    },
+    {
+      "name": "Renato Kano",
+      "social": "@renatokano",
+      "url": "https://github.com/renatokano"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/renatokano/dh-super-pets/issues"
