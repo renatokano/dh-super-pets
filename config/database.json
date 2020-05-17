@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": "docker",
+    "database": "superpets",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "production-password",
+    "database": "superpets",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
