@@ -7,8 +7,10 @@ A SuperPets promete unir os melhores **profissionais do mercado pet** com os **d
 
 Mais que um simples buscador/agendador, trazemos informação para que o dono do pet tenha tudo que precisa para escolher o prestador de serviço mais adequado para as suas diferentes necessidades.
 
-## Problemática
-Quando buscamos por prestadores de serviço para os nossos pets, o maior problema é que não temos uma fonte confiável de informação. Escolhemos no escuro, levamos no Pet Shop mais próximo, ou confiamos na indicação de algum amigo. Escolher assim é quase sempre uma fria, mas é a única opção que temos. Esses pets são como nossos filhos, se pudéssemos escolher, nunca deixaríamos nas mãos de pessoas que não confiamos. 
+## Onde tudo começou
+Quando buscamos por prestadores de serviço para os nossos pets, o maior problema é que não temos uma fonte confiável de informação. Escolhemos no escuro, levamos no Pet Shop mais próximo ou confiamos na indicação de algum amigo. Escolher assim é quase sempre uma fria, mas é a única opção que temos.  
+
+Esses pets são como nossos filhos, se pudéssemos escolher, nunca deixaríamos nas mãos de pessoas que não confiamos.
 
 ## Nossa Solução
 Entregamos uma suíte capaz de fornecer todas as informações que precisamos para contratar o melhor profissional baseado nas nossas mais distintas necessidades. Seja *um adestrador especializado em cães violentos*, ou *uma tosa especial para pets alérgicos a maquininha*, a SuperPets promete nos ajudar nessa escolha. 
