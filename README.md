@@ -33,17 +33,19 @@ Sprint 2 (14/03 - 27/03): Desenvolver a identidade visual e o layout mobile. [[i
 
 Sprint 3 (30/03 - 22/04): Desenvolver o front-end da aplicação. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-3.pdf)
 
+Sprint 4 (23/04 - 08/05): Modelagem do Banco de Dados. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-4.pdf)
 
 ## Stack
 * [NodeJs](https://nodejs.org/dist/latest-v12.x/docs/api/) - JavaScript runtime built on Chrome's V8 JavaScript engine
 * [ExpressJs](https://expressjs.com/en/4x/api.html) - Web Framework
+* [MySQL](https://dev.mysql.com/downloads/mysql/) - MySQL Community Server
 * [ReactJs](https://reactjs.org/docs/getting-started.html) - A JavaScript library for building user interfaces
 * [ReactNative](https://facebook.github.io/react-native) - A framework for building native apps using React
 
 ## Team
 * **Adria M. de Oliveira** - [[Github]](https://github.com/adriamenezes)
 * **Eudes Silva** - [[Github]](https://github.com/EudesJS)
-* **Refael de Cerqueira** - [[Github]](https://github.com/rafaelcerqueira)
+* **Rafael de Cerqueira** - [[Github]](https://github.com/rafaelcerqueira)
 * **Renato Kano** - [[Github]](https://github.com/renatokano)
 
 ## Licença
