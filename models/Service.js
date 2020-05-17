@@ -16,6 +16,15 @@ module.exports = (sequelize, Datatypes) => {
         timestamps: false,
         tableName: 'services'
       }
-    );  
+    ); 
+    
+    // Relationships
+    Service.associate = (models) => {
+      Service.belongsToMany(models.Professional, {
+          through: 'ProfessionalService',
+          foreignKey: 'service_id'
+      });
+  };
+    
     return Service;
   }
