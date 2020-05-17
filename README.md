@@ -31,9 +31,11 @@ Sprint 1 (28/02 - 13/03): Desenvolver o wireframe de todas as páginas, funciona
 
 Sprint 2 (14/03 - 27/03): Desenvolver a identidade visual e o layout mobile. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-2.pdf)
 
-Sprint 3 (30/03 - 22/04): Desenvolver o front-end da aplicação. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-3.pdf)
+Sprint 3 (30/03 - 22/04): Desenvolvimento do Front-end da aplicação. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-3.pdf)
 
-Sprint 4 (23/04 - 08/05): Modelagem do Banco de Dados. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-4.pdf)
+Sprint 4 (23/04 - 08/05): Modelagem do Banco de Dados. [[arquivos]](https://github.com/renatokano/dh-super-pets/tree/master/db-modeling) [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-4.pdf)
+
+Sprint 5 (09/05 - 05/06): Desenvolvimento do Back-end. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-5.pdf)
 
 ## Stack
 * [NodeJs](https://nodejs.org/dist/latest-v12.x/docs/api/) - JavaScript runtime built on Chrome's V8 JavaScript engine
