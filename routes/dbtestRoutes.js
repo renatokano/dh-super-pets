@@ -21,6 +21,15 @@ route.get('/neighborhoods/cities', dbtestController.select_all_neighborhoods);
 // e.g.: http://localhost:3000/dbtest/neighborhoods/all
 route.get('/:entity/all', dbtestController.select_all);
 
+// CREATE A NEW CLIENT
+route.get('/clients/generate', dbtestController.create_new_client);
+
+// CREATE A NEW PET
+route.get('/clients/:id/pet/generate', dbtestController.create_new_pet);
+
+// GET ALL PETS FROM A SPECIFIC CLIENT
+route.get('/clients/:id/pets', dbtestController.select_all_pets_from_a_client);
+
 // SELECT * FROM pet_types WHERE id=1 (raw-queries)
 // e.g.: http://localhost:3000/dbtest/pet_types/1
 route.get('/:entity/:id', dbtestController.select_from_id);
