@@ -12,7 +12,7 @@ module.exports = (sequelize, Datatypes) => {
         allowNull: false,
         unique:true
       },
-      created_at: Datatypes.DATE
+      created_at: Datatypes.DATE,
     },
     {
       timestamps: false,
