@@ -2,24 +2,17 @@ const express = require('express');
 const dbtestController = require('../controllers/dbtestController');
 const route = express.Router();
 
-/* 
-  Test Database Connection
-  e.g. http://localhost:3000/dbtest/
-*/
+/****************************************************************
+ *    DATABASE CONNECTION TEST
+ *    e.g. http://localhost:3000/dbtest/
+****************************************************************/
+
 route.get('/', dbtestController.dbconnection);
 
-/*
-  ORM [neighborhoods <-> cities <-> states] (2 inner-joins)
 
-  SELECT `Neighborhood`.`id`, `Neighborhood`.`name`, `Neighborhood`.`city_id`, `City`.`id` AS `City.id`, `City`.`name` AS `City.name`, `City`.`state_id` AS `City.state_id`, `City->State`.`id` AS `City.State.id`, `City->State`.`name` AS `City.State.name` FROM `neighborhoods` AS `Neighborhood` INNER JOIN `cities` AS `City` ON `Neighborhood`.`city_id` = `City`.`id` INNER JOIN `states` AS `City->State` ON `City`.`state_id` = `City->State`.`id` ORDER BY `Neighborhood`.`name` ASC;
-
-  e.g. http://localhost:3000/dbtest/neighborhoods/cities 
-*/
-route.get('/neighborhoods/cities', dbtestController.select_all_neighborhoods);
-
-// SELECT * FROM neighborhoods (raw-queries)
-// e.g.: http://localhost:3000/dbtest/neighborhoods/all
-route.get('/:entity/all', dbtestController.select_all);
+/****************************************************************
+ *    GENERATE NEW DATA
+****************************************************************/
 
 // CREATE A NEW CLIENT
 route.get('/clients/generate', dbtestController.create_new_client);
@@ -27,11 +20,44 @@ route.get('/clients/generate', dbtestController.create_new_client);
 // CREATE A NEW PET
 route.get('/clients/:id/pet/generate', dbtestController.create_new_pet);
 
-// GET ALL PETS FROM A SPECIFIC CLIENT
-route.get('/clients/:id/pets', dbtestController.select_all_pets_from_a_client);
+// CREATE A NEW PROFESSIONAL
+route.get('/professionals/generate', dbtestController.create_new_professional);
+
+// CREATE A NEW PROFESSIONAL AREA
+route.get('/professionals/:id/area/generate', dbtestController.create_new_area);
+
+// CREATE A NEW PROFESSIONAL SERVICE
+route.get('/professionals/:id/service/generate', dbtestController.create_new_professional_service);
+
+
+/****************************************************************
+ *    SELECT W/ JOINS
+****************************************************************/
+
+// Clients -> Neighborhoods -> Cities -> States
+// Clients -> Pets -> PetTypes
+route.get('/clients/complete', dbtestController.select_all_clients);
+
+// Professionals -> Neighborhoods -> City -> State
+// Professionals -> CoverageAreas -> Neighborhoods -> City -> State
+// Professionals -> ProfessionalServices -> Services
+route.get('/professionals/complete', dbtestController.select_all_professionals)
+
+// Clients -> Neighborhoods -> Cities -> States
+// Clients -> Pets -> PetTypes
+route.get('/clients/:id/complete', dbtestController.select_all_details_about_a_client);
+
+// Neighborhoods -> Cities -> States (raw-queries)
+// e.g. http://localhost:3000/dbtest/neighborhoods/cities 
+route.get('/neighborhoods/cities', dbtestController.select_all_neighborhoods);
+
+// SELECT * FROM neighborhoods (raw-queries)
+// e.g.: http://localhost:3000/dbtest/neighborhoods/all
+route.get('/:entity/all', dbtestController.select_all);
 
 // SELECT * FROM pet_types WHERE id=1 (raw-queries)
 // e.g.: http://localhost:3000/dbtest/pet_types/1
 route.get('/:entity/:id', dbtestController.select_from_id);
+
 
 module.exports = route;
