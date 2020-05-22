@@ -54,6 +54,11 @@ module.exports = (sequelize, Datatypes) => {
             through: 'ProfessionalService',
             foreignKey: 'professional_id'
         });
+        Professional.belongsToMany(models.Neighborhood, {
+            through: 'CoverageArea',
+            foreignKey: "professional_id",
+            as: "neighborhoods_list"
+        })
     };
 
     return Professional;
