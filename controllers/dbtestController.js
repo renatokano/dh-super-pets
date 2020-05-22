@@ -214,51 +214,6 @@ const controller = {
    *    SELECT W/ JOINS
   ****************************************************************/
 
-  // a raw-query example
-  select_all: async (req, res) => {
-    const {entity} = req.params;
-    try {
-      const result = await db.query(`SELECT * FROM ${entity}`, {
-        type: Sequelize.QueryTypes.SELECT
-      });
-      res.send(result);
-    } catch (error) {
-      res.send(`Error:`, error);
-    }
-  },
-
-  // another raw-query example
-  select_from_id: async (req, res) => {
-    const {entity, id} = req.params;
-    console.log(`SELECT * FROM ${entity} WHERE id=${id}`);
-    try {
-      const result = await db.query(`SELECT * FROM ${entity} WHERE id=${id}`, {
-        type: Sequelize.QueryTypes.SELECT
-      });
-      res.send(result);
-    } catch (error) {
-      res.send(`Error:`, error);
-    }
-  },
-  
-  // Neighborhoods -> Cities -> States (raw-queries)
-  select_all_neighborhoods: async (req, res) => {
-    const neighborhoods = await Neighborhood.findAll({
-      order: [
-        ['name', 'ASC']
-      ],
-      include: [{
-        model: City,
-        required: true,
-        include: {
-          model: State,
-          required: true
-        }
-      }]
-    });
-    return res.send(neighborhoods);
-  },
-
   // Clients -> Neighborhoods -> Cities -> States
   // Clients -> Pets -> PetTypes
   select_all_clients: async (req, res) => {
@@ -356,7 +311,56 @@ const controller = {
       }]
     });
     return res.send(professionals);
-  }
+  },
+
+  /****************************************************************
+   *    J/A SELECT W/ JOINS EXAMPLES USING RAW-QUERIES
+  ****************************************************************/
+
+  // a raw-query example
+  select_all: async (req, res) => {
+    const {entity} = req.params;
+    try {
+      const result = await db.query(`SELECT * FROM ${entity}`, {
+        type: Sequelize.QueryTypes.SELECT
+      });
+      res.send(result);
+    } catch (error) {
+      res.send(`Error:`, error);
+    }
+  },
+
+  // another raw-query example
+  select_from_id: async (req, res) => {
+    const {entity, id} = req.params;
+    console.log(`SELECT * FROM ${entity} WHERE id=${id}`);
+    try {
+      const result = await db.query(`SELECT * FROM ${entity} WHERE id=${id}`, {
+        type: Sequelize.QueryTypes.SELECT
+      });
+      res.send(result);
+    } catch (error) {
+      res.send(`Error:`, error);
+    }
+  },
+  
+  // Neighborhoods -> Cities -> States (raw-queries)
+  select_all_neighborhoods: async (req, res) => {
+    const neighborhoods = await Neighborhood.findAll({
+      order: [
+        ['name', 'ASC']
+      ],
+      include: [{
+        model: City,
+        required: true,
+        include: {
+          model: State,
+          required: true
+        }
+      }]
+    });
+    return res.send(neighborhoods);
+  },
 }
 
 module.exports = controller;

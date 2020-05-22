@@ -41,11 +41,15 @@ route.get('/clients/complete', dbtestController.select_all_clients);
 // Professionals -> Neighborhoods -> City -> State
 // Professionals -> CoverageAreas -> Neighborhoods -> City -> State
 // Professionals -> ProfessionalServices -> Services
-route.get('/professionals/complete', dbtestController.select_all_professionals)
+route.get('/professionals/complete', dbtestController.select_all_professionals);
 
 // Clients -> Neighborhoods -> Cities -> States
 // Clients -> Pets -> PetTypes
 route.get('/clients/:id/complete', dbtestController.select_all_details_about_a_client);
+
+/****************************************************************
+ *    J/A SELECT W/ JOINS EXAMPLES USING RAW-QUERIES
+****************************************************************/
 
 // Neighborhoods -> Cities -> States (raw-queries)
 // e.g. http://localhost:3000/dbtest/neighborhoods/cities 
