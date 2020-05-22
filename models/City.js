@@ -28,7 +28,7 @@ module.exports = (sequelize, Datatypes) => {
       foreignKey: "state_id"
     });
     City.hasMany(models.Neighborhood, {
-      foreignKey: "id"
+      foreignKey: "city_id"
     });
   };
 

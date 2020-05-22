@@ -50,6 +50,9 @@ module.exports = (sequelize, Datatypes) => {
         Client.belongsTo(models.Neighborhood, {
             foreignKey: "neighborhood_id"
         });
+        Client.hasMany(models.Pet, {
+            foreignKey: "client_id"
+        });
     };
 
     return Client;
