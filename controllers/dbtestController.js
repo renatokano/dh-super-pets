@@ -80,14 +80,14 @@ const controller = {
     });
 
     let weight;
-    switch(pet_type.id){
-      case 2:
+    switch(pet_type.name){
+      case 'Cãozinho (11-20kg)':
         weight = faker.random.number({min:11, max:20});    
         break;
-      case 3:
+      case 'Cãozinho (21-40kg)':
         weight = faker.random.number({min:21, max:40});
         break;
-      case 4:
+      case 'Cãozinho (+41kg)':
         weight = faker.random.number({min:41, max:100});
         break;
       default:
