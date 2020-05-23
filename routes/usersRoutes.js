@@ -20,9 +20,8 @@ route.get('/:id/edit', usersController.edit);
 // display a specific user
 route.get('/:id', usersController.show);
 
-// create a new user
-// route.post('/', (req,res)=>{
-// });
+//create a new user
+route.post('/create', usersController.create);
 
 // update a specific user
 //route.put('/:id', (req,res)=>{

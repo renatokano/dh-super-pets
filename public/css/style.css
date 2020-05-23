@@ -11,6 +11,42 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* alert message */
+
+.alert {
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  display: block;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert.danger {background-color: #f44336;}
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 /* header style */
 .header-grid-container {
   display: grid;
@@ -855,6 +891,7 @@ hr{
   border-color: none;
   text-transform: uppercase;
   border-radius: 10px;
+  cursor:pointer;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -870,12 +907,13 @@ hr{
   }
 
   .ur-grid-container {
+    grid-template-rows: 110px 630px 200px;
     background-color: #f0eac2;
   }
 
   .ur-main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: minmax(80px, 90px) minmax(80px, 90px) minmax(80px, 90px) minmax(80px, 90px) minmax(80px, 90px) minmax(80px, 90px) minmax(60px, 140px) minmax(60px, 140px) minmax(60px, 140px) minmax(60px, 140px) minmax(60px, 140px) minmax(60px, 140px);
     gap: 10px 10px;
     grid-template-areas: "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title"
     "ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__dog ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name"
@@ -1563,14 +1601,6 @@ hr{
 .uap-profile__public { grid-area: uap-profile__public; }
 .uap-profile__pets{ grid-area: uap-profile__pets;}
 .uap-profile__details{ grid-area: uap-profile__details;}
-
-.uap-profile__img{
-  background-image: url('../img/user-adm-photo.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width:240px;
-  height:250px;
-}
 
 .uap-profile__quote,.uap-profile__public,.uap-profile__pets,.uap-profile__details{
   width:240px; 
