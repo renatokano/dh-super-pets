@@ -48,8 +48,11 @@
   },
   "homepage": "https://github.com/renatokano/dh-super-pets#readme",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "cookie-parser": "^1.4.5",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "method-override": "^3.0.0",
     "multer": "^1.4.2",
     "mysql2": "^2.1.0",
