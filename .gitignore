@@ -419,4 +419,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# local image files (j/ for testing)
+public/img/clients/*
+public/img/professionals/*
+
 # End of https://www.gitignore.io/api/node,react,linux,macos,windows,reactnative
