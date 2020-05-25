@@ -37,7 +37,7 @@ module.exports = (sequelize, Datatypes) => {
             },
             photo: {
                 type: Datatypes.STRING(200),
-                defaultValue: "/img/250x250.png"
+                defaultValue: "250x250.png"
             },
             created_at: Datatypes.DATE,
             updated_at: Datatypes.DATE,
