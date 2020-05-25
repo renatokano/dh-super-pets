@@ -1,0 +1,46 @@
+<%- include('../includes/head',{title:"Login de Usuário"}) %>
+<body>
+  <% if (typeof alert !== "undefined") { %>
+    <div class="alert <%= `${alert.type}` %>">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <%= alert.msg %>
+    </div>
+  <% } %>
+  <div class="userlogin-grid-container">
+    <div class="ur-header">
+      <%- include('../includes/header-only') %>
+    </div>
+    <div class="userlogin-main">
+      <form action="/users/login" class="userlogin-main__login" method="post">
+        <section class="userlogin-main__section">
+          <h1 class="userlogin-main__title">Login</h1>
+        </section>
+        <section>
+          <label for="email">e-mail:</label><br>
+          <input class="userlogin-main__email" type="text" name="email" id="email"><br>
+        </section>  
+        <section>
+          <label for="password">senha:</label><br>
+          <input class="userlogin-main__password" type="password" name="password" id="password"><br>
+        </section>
+        <section>
+          <button class="userlogin-main__submit" type="submit">Entrar</button>
+        </section>
+        <section>
+          <a href="#" class="userlogin-main__password-recover">
+            Esqueceu sua senha?
+          </a>
+        </section>
+        <section>
+          <a href="/users/new" class="userlogin-main__new-account">
+            Crie sua conta &#8594;
+          </a>
+        </section>
+      </form>
+    </div>
+
+    <div class="ur-footer">
+      <%- include('../includes/footer') %>
+    </div>
+  </div>
+</body>
