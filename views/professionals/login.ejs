@@ -1,0 +1,48 @@
+<%- include('../includes/head',{title:"Login de Profissional"}) %>
+
+<body>
+  <div class="plp-main">
+    <form class="plp-grid-container">
+      <div class="plp-logo">
+        <div class="plp-logo__paw"></div>
+      </div>
+      <div class="plp-title">Login Profissional</div>
+      <div class="plp-email">
+        <label class="plp-email__label" for="email">email</label>
+        <input class="plp-email__input plp-email__input--icon" type="email" name="email" id="email">
+      </div>
+      <div class="plp-password">
+        <label class="plp-password__label" for="password">senha</label>
+        <input class="plp-password__input plp-password__input--icon" type="password" name="password" id="password">
+      </div>
+      <div class="plp-buttons">
+        <label class="plp-buttons__label" for="remember"><input class="plp-buttons__check" type="checkbox" name="remember" id="remember"> Lembrar senha</label>
+        <input class="plp-buttons__btn-submit" type="button" value="LOGIN">
+      </div>
+      <div class="plp-recoverlink"><a class="plp-recoverlink__pass" href="#">Esqueceu a senha?</a>
+      <input class="plp-recoverlink__reset" type="email" name="" id="">
+      <input class="plp-recoverlink__reset-btn" type="button" value="Resetar senha">
+      </div>
+      <div class="plp-registerlink">
+        <p class="plp-registerlink__text">
+          Não tem uma conta? <a class="plp-registerlink__signupnow" href="#">Cadastrar agora</a>
+        </p>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.querySelector(".plp-recoverlink__reset").style.display="none";
+    document.querySelector(".plp-recoverlink__reset-btn").style.display="none";
+
+    document.querySelector(".plp-recoverlink__pass").addEventListener('click',()=>  {
+      if(document.querySelector(".plp-recoverlink__reset").style.display==="block"&&document.querySelector(".plp-recoverlink__reset-btn").style.display==="block"){
+        document.querySelector(".plp-recoverlink__reset").style.display="none";
+        document.querySelector(".plp-recoverlink__reset-btn").style.display="none";
+      }else{
+        document.querySelector(".plp-recoverlink__reset").style.display="block";
+        document.querySelector(".plp-recoverlink__reset-btn").style.display="block";
+      }
+
+    });
+  </script>
+</body>

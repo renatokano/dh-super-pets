@@ -3457,4 +3457,409 @@ hr{
   }
 }
 
+/* --------------------- USER LOGIN PAGE STYLE--------------------------------------- */
+
+/*mobile-first layout(devices max-width 500px and smaller) / breakpoint at min-width:501px and up(medium and large screens)*/
+.ulp-main{
+  font-family: 'Ubuntu', sans-serif;
+  width:100%;
+  height:100%;
+  display: grid;
+  place-items: center;
+  background-color:#f4f7f9;
+}
+
+.ulp-grid-container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 0px 1fr 0px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 0px;
+  gap: 0px 0px;
+  grid-template-areas: ". . ." "ulp-logo ulp-logo ulp-logo" ". . ." "ulp-title ulp-title ulp-title" ". . ." ". ulp-email ." ". . ." ". ulp-password ." ". . ." ". ulp-buttons ." ". . ." ". ulp-recoverlink ." ". . ." "ulp-registerlink ulp-registerlink ulp-registerlink" ". . .";
+  background-color:#fff;
+  width:100%;
+  height:700px;
+  border-radius:5px;
+  position: relative;
+  top:-30px;
+}
+
+.ulp-logo { 
+  grid-area: ulp-logo; 
+  background-color: #f4f7f9;
+  padding:30px 0;
+}
+
+.ulp-logo__paw{
+  width:75px;
+  height:75px;
+  background-image: url('../img/pawprint.svg');
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin:0 auto;
+  transform: rotate(55deg);
+}
+
+.ulp-title {
+   grid-area: ulp-title;
+   border-bottom: 2px solid #f4f7f9;
+   color:#5c5e5f;
+   display:flex;
+   align-items: center;
+   font-size: 1.5em;
+   font-weight: 400;
+   height:70px;
+   padding-left:20px;
+}
+
+.ulp-email { grid-area: ulp-email; margin-top:10px;}
+
+.ulp-password { grid-area: ulp-password; margin-top:5px;}
+
+.ulp-email__label,.ulp-password__label{
+  color:#cdd9d6;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.ulp-email__input,.ulp-password__input,.ulp-recoverlink__reset{
+  width:100%;
+  height:40px;
+  background-color: #f4f7f9;
+  border:none;
+  border-radius:3px;
+  color:#76e2b4;
+  padding: 10px 10px 10px 35px;
+}
+
+.ulp-email__input--icon,.ulp-recoverlink__reset{
+  background-image: url("../img/icon-envelope.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+.ulp-password__input--icon{
+  background-image: url("../img/icon-cadeado.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+.ulp-buttons { 
+  grid-area: ulp-buttons;
+  border-bottom: 2px solid #f4f7f9;
+  padding:20px 0 30px 0;
+}
+
+.ulp-buttons__label{
+  color:#93989a;
+}
+
+.ulp-buttons__check{
+  cursor: pointer;
+}
+
+.ulp-buttons__btn-submit,.ulp-recoverlink__reset-btn{
+  border:none;
+  background-color:#3ad994;
+  border-radius:3px;
+  color:#fff;
+  cursor:pointer;
+  letter-spacing: 1px;
+  margin-top:20px;
+  padding:10px 40px;
+  width:100%;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.ulp-buttons__btn-submit:hover,.ulp-recoverlink__reset-btn:hover{
+  background-color:#12d37d;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.ulp-recoverlink { 
+  grid-area: ulp-recoverlink;
+  padding-top:2px;
+  padding-bottom: 30px;
+}
+
+ .ulp-recoverlink__pass{
+   text-decoration: none;
+   color:#b6bbbc;
+   transition: color 0.5s ease-in-out;
+ }
+
+ .ulp-recoverlink__pass:hover{
+  color:#5c5e5f;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+ }
+
+ .ulp-recoverlink__reset{
+   margin-top:10px;
+ }
+
+.ulp-registerlink {
+   grid-area: ulp-registerlink;
+   color:#93989a;
+   background-color: #f4f7f9;
+   width:100%;
+}
+
+.ulp-registerlink__text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.ulp-registerlink__signupnow{
+  text-decoration: none;
+  color: #3ad994;
+  font-weight: 500;
+  padding:5px;
+}
+
+.ulp-registerlink__signupnow:hover{
+  color:#12d37d;
+}
+
+/*media query (min-width:500px and up)*/
+@media only screen and (min-width: 500px){
+
+  .ulp-main{
+    background-image: url(../img/dog-img-login.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: left bottom; 
+  }
+
+  .ulp-grid-container{
+    width:500px;
+  } 
+
+  .ulp-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ulp-buttons__btn-submit{
+    width:150px;
+    margin-top:0;
+  }
+
+  .ulp-registerlink__text{
+    margin-top:0;
+  }
+}
+
+
+/* --------------------- PROFESSIONAL LOGIN PAGE STYLE--------------------------------------- */
+
+/*mobile-first layout(devices max-width 500px and smaller) / breakpoint at min-width:501px and up(medium and large screens)*/
+.plp-main{
+  font-family: 'Ubuntu', sans-serif;
+  width:100%;
+  height:100%;
+  display: grid;
+  place-items: center;
+  background-color:#f4f7f9;
+}
+
+.plp-grid-container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 0px 1fr 0px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 0px;
+  gap: 0px 0px;
+  grid-template-areas: ". . ." "plp-logo plp-logo plp-logo" ". . ." "plp-title plp-title plp-title" ". . ." ". plp-email ." ". . ." ". plp-password ." ". . ." ". plp-buttons ." ". . ." ". plp-recoverlink ." ". . ." "plp-registerlink plp-registerlink plp-registerlink" ". . .";
+  background-color:#fff;
+  width:100%;
+  height:700px;
+  border-radius:5px;
+  position: relative;
+  top:-30px;
+}
+
+.plp-logo { 
+  grid-area: plp-logo; 
+  background-color: #f4f7f9;
+  padding:30px 0;
+}
+
+.plp-logo__paw{
+  width:75px;
+  height:75px;
+  background-image: url('../img/pawprint.svg');
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin:0 auto;
+  transform: rotate(55deg);
+}
+
+.plp-title {
+   grid-area: plp-title;
+   border-bottom: 2px solid #f4f7f9;
+   color:#5c5e5f;
+   display:flex;
+   align-items: center;
+   font-size: 1.5em;
+   font-weight: 400;
+   height:70px;
+   padding-left:20px;
+}
+
+.plp-email { grid-area: plp-email; margin-top:10px;}
+
+.plp-password { grid-area: plp-password; margin-top:5px;}
+
+.plp-email__label,.plp-password__label{
+  color:#cdd9d6;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.plp-email__input,.plp-password__input,.plp-recoverlink__reset{
+  width:100%;
+  height:40px;
+  background-color: #f4f7f9;
+  border:none;
+  border-radius:3px;
+  color:#76e2b4;
+  padding: 10px 10px 10px 35px;
+}
+
+.plp-email__input--icon,.plp-recoverlink__reset{
+  background-image: url("../img/icon-envelope.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+.plp-password__input--icon{
+  background-image: url("../img/icon-cadeado.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+.plp-buttons { 
+  grid-area: plp-buttons;
+  border-bottom: 2px solid #f4f7f9;
+  padding:20px 0 30px 0;
+}
+
+.plp-buttons__label{
+  color:#93989a;
+}
+
+.plp-buttons__check{
+  cursor: pointer;
+}
+
+.plp-buttons__btn-submit,.plp-recoverlink__reset-btn{
+  border:none;
+  background-color:#3ad994;
+  border-radius:3px;
+  color:#fff;
+  cursor:pointer;
+  letter-spacing: 1px;
+  margin-top:20px;
+  padding:10px 40px;
+  width:100%;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.plp-buttons__btn-submit:hover,.plp-recoverlink__reset-btn:hover{
+  background-color:#12d37d;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.plp-recoverlink { 
+  grid-area: plp-recoverlink;
+  padding-top:2px;
+  padding-bottom: 30px;
+}
+
+ .plp-recoverlink__pass{
+   text-decoration: none;
+   color:#b6bbbc;
+   transition: color 0.5s ease-in-out;
+ }
+
+ .plp-recoverlink__pass:hover{
+  color:#5c5e5f;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+ }
+
+ .plp-recoverlink__reset{
+   margin-top:10px;
+ }
+
+.plp-registerlink {
+   grid-area: plp-registerlink;
+   color:#93989a;
+   background-color: #f4f7f9;
+   width:100%;
+}
+
+.plp-registerlink__text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.plp-registerlink__signupnow{
+  text-decoration: none;
+  color: #3ad994;
+  font-weight: 500;
+  padding:5px;
+}
+
+.plp-registerlink__signupnow:hover{
+  color:#12d37d;
+}
+
+/*media query (min-width:500px and up)*/
+@media only screen and (min-width: 500px){
+
+  .plp-main{
+    background-image: url('../img/dog-img-pro-login.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right bottom; 
+  }
+
+  .plp-grid-container{
+    width:500px;
+  } 
+
+  .plp-title{
+    border-radius: 25px 25px 0 0;
+  }
+
+  .plp-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .plp-buttons__btn-submit{
+    width:150px;
+    margin-top:0;
+  }
+
+  .plp-registerlink__text{
+    margin-top:0;
+  }
+}
+
 
