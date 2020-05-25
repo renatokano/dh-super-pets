@@ -6,7 +6,7 @@ const config = require(__dirname + '/../config/database.json')[env];
 // create a connection w/ the database
 const db = new Sequelize(config);
 // import some sequelize models
-const { Neighborhood, City, State, Client } = require('../models/index');
+const { Neighborhood, City, State, Client, Pet, PetType } = require('../models/index');
 // hash/compare passwords
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
@@ -17,7 +17,56 @@ const controller = {
   },
 
   admin: async (req,res) => {
-    return res.render('users/admin');
+    const {id: uuid} = req.params;
+    //const {id, name} = uuidUnmount(uuid);
+    const {
+      id: client_id,
+      name: client_name,
+      email: client_email,
+      uuid: client_uuid
+    } = req.session.client;
+  
+    // get state/city/neighborhood fields
+    const states = await getAllStates();
+    // get pettype field
+    const petTypes = await getAllPetTypes();
+    
+    // validation
+    const user = await Client.findByPk(client_id,{
+      include: [{
+        model: Neighborhood,
+        required: true,
+        include: {
+          model: City,
+          required: true,
+          include: {
+            model: State,
+            required: true
+          }
+        }
+      },
+      {
+        model: Pet,
+        require: false,
+        include: {
+          model: PetType,
+          require: true
+        }
+      }]
+    });
+    if (!user || client_uuid != uuid){
+      return res.render('home/index',{
+        alert: {
+          msg: "Usuário inválido",
+          type: "danger"
+        }
+      });
+    }
+    return res.render('users/admin', {
+      user,
+      states,
+      petTypes
+    });
   },
 
   new: async (req,res) => {
@@ -103,14 +152,13 @@ const controller = {
       await transaction.commit();
       
       // generate a uuid
-      const uuid = uuid_generate(client);
+      const uuid = uuidGenerate(client);
 
       // create a session
       req.session.client = {
         id: client.id,
         name: client.name,
         email: client.email,
-        username: client.username,
         uuid: uuid 
       }
       return res.redirect(`/users/${uuid}/admin`); 
@@ -130,18 +178,91 @@ const controller = {
     }
   },
 
-  edit: (req,res) => {
-    res.render('users/edit');
+  put: async (req,res) => {
+    const {...data} = req.body;
+    const {id, uuid} = req.session.client;
+    let [file] = req.files;
+
+    const client = await Client.findByPk(id);
+
+    // only change password
+    if(typeof(data.new_password) != 'undefined'){
+      // password hash
+      const new_password = await bcrypt.hash(data.new_password, saltRounds);
+      
+      // validation
+      const password_confirmation = await bcrypt.compare(data.old_password, client.password);
+      const new_password_confirmation = await bcrypt.compare(data.confirm_new_password, new_password);
+      if(!password_confirmation || !new_password_confirmation) return res.redirect(`/users/${uuid}/admin`);
+
+      let newPasswordTransaction = await db.transaction();
+      try {
+        Client.update({
+          password: new_password,
+          updated_at: new Date()
+        },{
+          where:{id},
+          newPasswordTransaction
+        });
+        await newPasswordTransaction.commit();
+        return res.redirect(`/users/${uuid}/admin`);
+      } catch (error) {
+        await newPasswordTransaction.rollback();
+        console.log("Houve um erro ao gerar o registro. Tente novamente!");
+        console.log(error);
+        res.render('home/index');
+      }
+    }
+
+    // have an image
+    if(typeof(file) == 'undefined') {
+      photo = client.photo;
+    } else {
+      photo = file.filename;
+    };
+
+    // client data update
+    let transaction = await db.transaction();
+    try {
+      await Client.update({
+        name: data.name,
+        email: data.email,
+        mobile: data.mobile,
+        zipcode: data.zipcode,
+        address: data.address,
+        neighborhood_id: data.neighborhood_id,
+        about_me: data.about_me,
+        photo,
+        updated_at: new Date()
+      },{
+        where: {
+          id
+        },
+        transaction
+      });
+      await transaction.commit();
+      return res.redirect(`/users/${uuid}/admin`);
+
+    } catch (error) {
+      await transaction.rollback();
+      console.log("Houve um erro ao gerar o registro. Tente novamente!");
+      console.log(error);
+      res.render('home/index');
+    }
+    
+    console.log(data);
+
+    res.send(data);
   }
 }
 
 // helper functions
 
-const uuid_generate = function (client) {
+const uuidGenerate = function (client) {
   return `${client.id}-${client.name.toLowerCase().replace(/\s+/g, '-')}`
 }
 
-const uuid_unmount = function (uuid){
+const uuidUnmount = function (uuid){
   let [id, ...name] = uuid.split("-");
   name = name.join(" ");
   return {
@@ -150,7 +271,7 @@ const uuid_unmount = function (uuid){
   }
 }
 
-const get_all_states = async function (){
+const getAllStates = async function (){
   return await State.findAll({
     include: {
       model: City,
@@ -161,6 +282,10 @@ const get_all_states = async function (){
       }
     }
   });
+}
+
+const getAllPetTypes = async function (){
+  return await PetType.findAll();
 }
 
 module.exports = controller;

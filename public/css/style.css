@@ -114,12 +114,12 @@ body {
 
 .user-img{
   grid-area:user-img;
-  background-image: url(../img/user-adm-photo.jpg);
   background-repeat:no-repeat;
   background-size: 100%;
   border-radius: 50%;
   width:67px;
   height:67px;
+  margin-right: 5px;
 }
 
 .prof-img{
@@ -874,7 +874,14 @@ hr{
 }
 
 .ur-main__already-an-user-content--link {
-  color: #44e2be;
+  padding-left: 5px;
+  color: #444;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.ur-main__already-an-user-content--link:hover {
+  text-decoration: underline;
 }
 
 .ur-main__submit { 
@@ -1566,6 +1573,19 @@ hr{
   padding-top: 25px;
 }
 
+.uap-my-pets--table{
+  width:100%; 
+  border:1px solid #eee;
+  text-align: center;
+  color:#888;
+}
+
+.uap-my-pets--th {
+  font-weight: bold;
+}
+
+.uap-my-pets--tr:nth-child(even) { background-color: rgb(189, 250, 246); opacity: 0.8; }
+
 @media only screen and (max-width: 960px){
   .uap-main-content{
     grid-area:uap-main-content;
@@ -1616,32 +1636,32 @@ hr{
 .uap-form {
   grid-area: uap-form;
   display: grid;
-  grid-template-columns: repeat(12,1fr);
-  grid-template-rows: auto auto auto auto auto auto auto;
   gap: 15px 30px;
-  grid-template-areas: "uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title" "uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name" "uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email" "uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone" "uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address" "uap-form__district uap-form__district uap-form__district uap-form__district uap-form__city uap-form__city uap-form__city uap-form__city uap-form__state uap-form__state uap-form__state uap-form__state" ". . uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update";
+  grid-auto-rows: auto;
   background-color:#fff;
-  padding:35px 100px 45px 40px;
+  padding:35px 100px 45px 100px;
 }
-.uap-form__title { grid-area: uap-form__title;}
-.uap-form__name { grid-area: uap-form__name;}
-.uap-form__email { grid-area: uap-form__email;}
-.uap-form__phone{ grid-area: uap-form__phone;}
-.uap-form__zip-code{ grid-area: uap-form__zip-code;}
-.uap-form__address{ grid-area: uap-form__address;}
-.uap-form__district{ grid-area: uap-form__district;}
-.uap-form__city{ grid-area: uap-form__city;}
-.uap-form__state{ grid-area: uap-form__state;}
-.uap-btn-profile{ grid-area: uap-btn-profile;padding-top: 40px;}
-.uap-btn-update{ grid-area: uap-btn-update;padding-top: 40px;}
 
-.uap-form__title-profile{
+.uap-form__title-profile, 
+.uap-form__title-advanced,
+.uap-form__mypets--title {
   color:#888;
   border-bottom: 1px solid #aaa;
   padding-bottom: 10px;
 }
 
-.uap-form__title-input,.uap-form__name-input,.uap-form__email-input,.uap-form__phone-input,.uap-form__zip-code-input,.uap-form__address-input,.uap-form__district-select,.uap-form__city-select,.uap-form__state-select{
+.uap-btn-update,
+.uap-btn-create-newpet,
+.uap-btn-password-update {
+  padding-top: 30px;
+}
+
+.uap-form__title-input,.uap-form__name-input,.uap-form__email-input,.uap-form__phone-input,.uap-form__zip-code-input,.uap-form__address-input,.uap-form__district-select,.uap-form__city-select,.uap-form__state-select, .uap-form__old-password--input, .uap-form__new-password--input, .uap-form__confirm-new-password-input, 
+.uap-form__petname-input,
+.uap-form__pet-weight--input,
+.uap-form__pet-type--select,
+.uap-form__about-me,
+.uap-form__photo {
   width:100%;
   margin-top:10px;
   border:2px solid #cbd0d3;
@@ -1650,12 +1670,20 @@ hr{
   color:#010101;
 }
 
-.uap-form__title-input:focus,.uap-form__name-input:focus,.uap-form__email-input:focus,.uap-form__phone-input:focus,.uap-form__zip-code-input:focus,.uap-form__address-input:focus,.uap-form__district-select:focus,.uap-form__city-select:focus,.uap-form__state-select:focus{
+.uap-form__title-input:focus,.uap-form__name-input:focus,.uap-form__email-input:focus,.uap-form__phone-input:focus,.uap-form__zip-code-input:focus,.uap-form__address-input:focus,.uap-form__district-select:focus,.uap-form__city-select:focus,.uap-form__state-select:focus, .uap-form__old-password--input:hover, .uap-form__new-password--input:hover, .uap-form__confirm-new-password-input:hover,
+.uap-form__petname-input:hover,
+.uap-form__pet-weight--input:hover,
+.uap-form__pet-type--select:hover,
+.uap-form__about-me:hover,
+.uap-form__photo:hover {
   border-color:#44e2be;
   color:#010101;
 }
 
-.uap-btn-profile__input,.uap-btn-update__input{
+.uap-btn-profile__input,
+.uap-btn-update__input,
+.uap-btn-password-update__input,
+.uap-btn-create-newpet__input {
   width:100%;
   border:none;
   border-radius:20px;
@@ -1668,7 +1696,9 @@ hr{
   background-color: #b7bfc7 ;
 }
 
-.uap-btn-update__input--u{
+.uap-btn-update__input--u,
+.uap-btn-password-update__input--u,
+.uap-btn-newpet__input--u{
   background-color: #45e6c1;
 }
 
@@ -1746,11 +1776,9 @@ hr{
   .uap-form{
     grid-area: uap-form;
     display: grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
     gap: 15px 0px;
-    grid-template-areas: "uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title uap-form__title" "uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name uap-form__name" "uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email uap-form__email" "uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone uap-form__phone" "uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code uap-form__zip-code  uap-form__zip-code uap-form__zip-code" "uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address uap-form__address" "uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district uap-form__district" "uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city uap-form__city" "uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state uap-form__state" "uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update uap-btn-update" "uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile uap-btn-profile";
     padding:10px 3% 20px 3%;
+    grid-auto-rows: auto;
     margin-bottom:20px;
   }
   .uap-btn-profile{
@@ -2878,10 +2906,6 @@ hr{
   font-size: 1.2rem;
 }
 
-.about-us__image--mobile {
-
-}
-
 .about-us__image {
   display: none;
 }
@@ -3471,6 +3495,100 @@ hr{
 
   .newsletter__input[value],.newsletter__text{width:100%;}
   .newsletter__email{margin-top:20px;}
+}
+
+.userlogin-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 110px 1fr 200px;
+  gap: 0px 0px;
+  grid-template-areas: "ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header ur-header" 
+  "userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main userlogin-main" 
+  "ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer ur-footer";
+  /* height:100%; */
+  background-color: #f6f8f9;
+}
+
+.userlogin-main {
+  grid-area: userlogin-main;
+}
+
+.userlogin-main__login {
+  display: grid;
+  gap: 15px 30px;
+  grid-auto-rows: auto; 
+  padding: 35px 60px 45px 60px;
+}
+
+.userlogin-main__title {
+  color: #888;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px;
+}
+
+.userlogin-main__submit {
+  margin-top: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #45e6c1;
+  margin-bottom: 10px;
+}
+
+.userlogin-main__email, .userlogin-main__password {
+  width: 100%;
+  margin-top: 10px;
+  border: 2px solid #cbd0d3;
+  border-radius: 5px;
+  padding: 10px;
+  color: #010101;
+}
+
+.userlogin-main__email:hover, .userlogin-main__password:hover {
+  border: 2px solid #45e6c1;
+}
+
+.userlogin-main__password-recover,
+.userlogin-main__new-account {
+  text-align: center;
+  color: #aaa;
+  text-decoration: none;
+  display: block;
+}
+
+.userlogin-main__password-recover:hover,
+.userlogin-main__new-account:hover {
+  font-weight: bold;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  .userlogin-main {
+    grid-area: userlogin-main;
+    justify-items: center;
+    display: grid;
+  }
+
+  .userlogin-main__section {
+    width: 400px;
+  }
+
+  .userlogin-main__login {
+    display: grid;
+    gap: 15px 30px;
+    grid-auto-rows: auto; 
+    margin: 50px 0;
+    padding: 50px 100px;
+    border: 1px solid #ddd;
+    border-radius: 0%;
+    background-color: #fff;
+    opacity: 90%;
+  }
 }
 
 
