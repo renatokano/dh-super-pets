@@ -1,76 +1,188 @@
-<%- include('../includes/head',{title:"Perfil Administrativo Usuário"}) %>
+<%- include('../includes/head',{title:"Perfil Administrativo"}) %>
 <body>
+  <% if (typeof alert !== "undefined") { %>
+    <div class="alert <%= `${alert.type}` %>">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <%= alert.msg %>
+    </div>
+  <% } %>
+
   <div class="uap-grid-container">
     <div class="uap-header">
-      <%- include('../includes/header', {username:"Isabella A. Nunes", img:"user-img"}) %>
+      <%- include('../includes/header', {username: user.name, img: user.photo}) %>
     </div>
     <main class="uap-main-content">
       <div class="uap-profile">
-        <div class="uap-profile__img"></div>
+        <div class="uap-profile__img">
+          <img src="/img/clients/<%= user.photo %>" alt="<%= user.name %>" style="max-width: 250px;max-height:250px">
+        </div>
         <q class="uap-profile__quote">
-          <i>Paulista e apaixonada pelo Fred, meu companheiro de quatro patas.</i></q>
-        <a class="uap-profile__public" href="#">Perfil Público</a>
-        <a class="uap-profile__pets" href="#">Meus Pets</a>
-        <a class="uap-profile__details" href="#">Detalhes da conta</a>
+          <i><%= user.about_me.substring(0, 91) %> </i></q>
+        <a class="uap-profile__public tabLinks" style="font-weight: bold;" onclick="openUserTabs(event, 'publicProfile')">Perfil Público</a>
+        <a class="uap-profile__pets tabLinks" onclick="openUserTabs(event, 'myPets')">Meus Pets</a>
+        <a class="uap-profile__details tabLinks" onclick="openUserTabs(event, 'accountDetails')">Alterar Senha</a>
       </div>
-      <form class="uap-form">
+
+      <form id="publicProfile" class="uap-form uap-tabs" method="POST" action="/users/<%= user_session.uuid %>?_method=PUT" enctype="multipart/form-data">
         <section class="uap-form__title">
           <h1 class="uap-form__title-profile">Perfil Público</h1>
         </section>
         <section class="uap-form__name">
           <label for="name">Nome</label>
-        <input class="uap-form__name-input" type="text" name="name"id="name" placeholder="Jane Doe"/>
+        <input class="uap-form__name-input" type="text" name="name"id="name" value="<%= user.name %>"/>
         </section>
         <section class="uap-form__email">
           <label for="email">Email</label>
-          <input class="uap-form__email-input" type="email" name="email" id="email" placeholder="email@superpets.com"/>
+          <input class="uap-form__email-input" type="email" name="email" id="email" value="<%= user.email %>"/>
         </section>
         <section class="uap-form__phone">
           <label for="phone">Celular</label>
-          <input class="uap-form__phone-input" type="tel" name="phone" id="phone" placeholder="(11)91234-5674"/>
+          <input class="uap-form__phone-input" type="tel" name="mobile" id="phone" value="<%= user.mobile %>"/>
         </section>
         <section class="uap-form__zip-code">
           <label for="zip-code">CEP</label>
-          <input class="uap-form__zip-code-input" type="text" name="zip-code" id="zip-code" placeholder="12345-678"/>
+          <input class="uap-form__zip-code-input" type="text" name="zipcode" id="zip-code" value="<%= user.zipcode %>"/>
         </section>
         <section class="uap-form__address">
           <label for="address">Endereço</label>
-          <input class="uap-form__address-input" type="text" name="address" id="address" placeholder="Rua, Número, Complemento"/>
+          <input class="uap-form__address-input" type="text" name="address" id="address" value="<%= user.address %>"/>
         </section>
         <section class="uap-form__district">
           <label for="district">Bairro</label>
-          <select class="uap-form__district-select" name="district" id="district" class="district-dropdown">
-            <option disabled selected>Selecione o bairro</option>
-            <option value="Aclimação">Aclimação</option>
-            <option value="Itaim Bibi">Itaim Bibi</option>
-            <option value="Moema">Moema</option>
-            <option value="Morumbi">Morumbi</option>
-            <option value="Pinheiros">Pinheiros</option>
-            <option value="Pompeia">Pompeia</option>
-            <option value="Vila Madalena">Vila Madalena</option>
-            <option value="Vila Mariana">Vila Mariana</option>
-            <option value="Vila Olímpia">Vila Olímpia</option>
+          <select class="uap-form__district-select" name="neighborhood_id" id="district" class="district-dropdown">
+            <option disabled>Selecione o bairro</option>
+            <% for(let i=0; i<states.length; i++){ %>
+              <% for(let j=0; j<states[i].Cities.length; j++){ %>
+                <% for(let k=0; k<states[i].Cities[j].Neighborhoods.length; k++){ %>
+                  <option 
+                    <%= states[i].Cities[j].Neighborhoods[k].id == user.neighborhood_id ? `selected` : `` %>
+                      value="<%= states[i].Cities[j].Neighborhoods[k].id %>">
+                        <%= states[i].Cities[j].Neighborhoods[k].name %>
+                    </option>
+                <% } %>
+              <% } %>
+            <% } %>
           </select>
         </section>
         <section class="uap-form__city">
           <label for="city">Cidade</label>
-          <select  class="uap-form__city-select" name="city" id="city">
-            <option disabled selected>Selecione a cidade</option>
-            <option value="São Paulo">São Paulo</option>
+          <select  class="uap-form__city-select" name="city_id" id="city">
+            <option disabled>Selecione a cidade</option>
+            <% for(let i=0; i<states.length; i++){ %>
+              <% for(let j=0; j<states[i].Cities.length; j++){ %>
+                <option 
+                  <%= states[i].Cities[j].id == user.Neighborhood.city_id ? `selected` : `` %>
+                  value="<%= states[i].Cities[j].id %>">
+                  <%= states[i].Cities[j].name %>
+                </option>
+              <% } %>
+            <% } %>
           </select>
         </section>
         <section class="uap-form__state">
           <label for="state">Estado</label>
-          <select class="uap-form__state-select" name="state" id="state">
-            <option disabled selected>Selecione o estado</option>
-            <option value="São Paulo">São Paulo</option>
+          <select class="uap-form__state-select" name="state_id" id="state">
+            <option disabled>Selecione o estado</option>
+            <% for(let i=0; i<states.length; i++){ %>
+              <option 
+                <%= states[i] == user.Neighborhood.City.state_id ? `selected` : `` %>
+                value="<%= states[i].id %>"><%= states[i].name %>
+              </option>
+            <% } %>
           </select>
         </section>
-        <section class="uap-btn-profile">
-          <input class="uap-btn-profile__input uap-btn-profile__input--p" type="submit" value="Visualizar Perfil"/>
+        <section>
+          <label for="about-me">Sobre mim</label>
+          <textarea name="about_me" class="uap-form__about-me" id="about-me" rows="2"><%= user.about_me.trim() %></textarea>
+        </section>
+        <section>
+          <label for="photo">Foto do perfil</label>
+          <input type="file" name="photo" class="uap-form__photo" id="photo" accept="image/png, image/jpeg">
         </section>
         <section class="uap-btn-update">
           <input class="uap-btn-update__input uap-btn-update__input--u" type="submit" value="Atualizar"/>
+        </section>
+
+        <section class="uap-btn-profile">
+          <a href="/users/<%= user_session.uuid %>">
+            <input class="uap-btn-profile__input uap-btn-profile__input--p" type="button" value="Visualizar Perfil"/>
+          </a> 
+        </section>
+      </form>
+
+      <form id="myPets" method="POST" action="/users/<%= user_session.uuid %>/pets" class="uap-form uap-tabs" style="display: none">
+        <% if(user.Pets.length > 0){ %>
+          <table class="uap-my-pets--table"> 
+            <tr class="uap-my-pets--th">
+                <th>Nome</th>
+                <th>Peso</th> 
+                <th>Categoria</th>
+            </tr>
+            <% for(let i=0; i<user.Pets.length; i++){ %>
+              <tr class="uap-my-pets--tr">
+                  <td><%= user.Pets[i].name %></td>
+                  <td><%= user.Pets[i].weight %></td> 
+                  <td><%= user.Pets[i].PetType.name %></td>
+              </tr>
+            <%}%>
+          </table>
+        <% } %>
+
+        <section class="uap-form__mypets">
+          <h1 class="uap-form__mypets--title">Meus Pets</h1>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="petname">Nome</label><br>
+          <input class="uap-form__petname-input" type="text" name="name" id="petname"/>
+        </section>
+
+        <section class="uap-form__pet-weight">
+          <label for="pet-weight">Peso</label><br>
+          <input class="uap-form__pet-weight--input" type="number" step="any" name="weight" id="petweight"/>
+        </section>
+
+        <section class="uap-form__pettype">
+          <label for="pet-type">Categoria</label><br>
+          <select class="uap-form__pet-type--select" name="pet_type_id" id="pet-type" >
+            <option disabled>Selecione uma categoria</option>
+            
+            <% for(let i=0; i<petTypes.length; i++){ %>
+              <option 
+                value="<%= petTypes[i].id %>"><%= petTypes[i].name %>
+              </option>
+            <% } %>
+          </select>
+        </section>
+        
+        <section class="uap-btn-create-newpet">
+          <input class="uap-btn-create-newpet__input uap-btn-newpet__input--u" type="submit" value="Cadastrar"/>
+        </section>
+      </form>
+
+      <form id="accountDetails" class="uap-form uap-tabs" style="display: none" method="POST" action="/users/<%= user_session.uuid %>?_method=PUT" enctype="multipart/form-data">
+        <section class="uap-form__title">
+          <h1 class="uap-form__title-advanced">Alterar Senha</h1>
+        </section>
+        
+
+        <section class="uap-form__old-password">
+          <label for="password">Senha atual</label>
+          <input class="uap-form__old-password--input" type="password" name="old_password" id="password"/>
+        </section>
+
+        <section class="uap-form__new-password">
+          <label for="new_password">Nova senha</label>
+          <input class="uap-form__new-password--input" type="password" name="new_password" id="new_password"/>
+        </section>
+
+        <section class="uap-form__confirm-new-password">
+          <label for="confirm_new_password">Confirme senha</label>
+          <input class="uap-form__confirm-new-password-input" type="password" name="confirm_new_password" id="confirm_new_password"/>
+        </section>
+
+        <section class="uap-btn-password-update">
+          <input class="uap-btn-password-update__input uap-btn-password-update__input--u" type="submit" value="Atualizar"/>
         </section>
       </form>
     </main>

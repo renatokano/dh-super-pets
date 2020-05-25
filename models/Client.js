@@ -31,8 +31,14 @@ module.exports = (sequelize, Datatypes) => {
                 type: Datatypes.STRING(250),
                 allowNull: false
             },
-            about_me: Datatypes.STRING(200),
-            photo: Datatypes.STRING(200),
+            about_me: {
+                type: Datatypes.STRING(200),
+                defaultValue: "Defina uma frase que melhor defina você!!!"
+            },
+            photo: {
+                type: Datatypes.STRING(200),
+                defaultValue: "250x250.png"
+            },
             created_at: Datatypes.DATE,
             updated_at: Datatypes.DATE,
             neighborhood_id: {

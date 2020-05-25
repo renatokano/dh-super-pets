@@ -18,7 +18,7 @@ module.exports = (sequelize, Datatypes) => {
       updated_at: Datatypes.DATE
     },
     {
-      timestamps: true,
+      timestamps: false,
       tableName: 'coverage_areas'
     }
   );

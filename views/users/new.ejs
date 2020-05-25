@@ -1,10 +1,16 @@
 <%- include('../includes/head',{title:"Cadastro de Usuário"}) %>
 <body>
+  <% if (typeof alert !== "undefined") { %>
+    <div class="alert <%= `${alert.type}` %>">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <%= alert.msg %>
+    </div>
+  <% } %>
   <div class="ur-grid-container">
     <div class="ur-header">
       <%- include('../includes/header-only') %>
     </div>
-    <form class="ur-main">
+    <form class="ur-main" action="/users/create" method="POST">
       <div class="ur-main__dog"></div>
       <div class="ur-main__title">
         Encontre os <span class="ur-main__title--highlight">melhores</span> profissionais para o seu grande companheiro
@@ -31,46 +37,45 @@
       </div>
       <div class="ur-main__neighborhood">
         <label for="neighborhood">Bairro</label>
-        <select name="neighborhood" id="neighborhood" class="ur-main__neighborhood-select">
+        <select name="neighborhood_id" id="neighborhood" class="ur-main__neighborhood-select">
           <option disabled selected>Selecione o bairro</option>
-          <option value="Aclimação">Aclimação</option>
-          <option value="Itaim Bibi">Itaim Bibi</option>
-          <option value="Moema">Moema</option>
-          <option value="Morumbi">Morumbi</option>
-          <option value="Pinheiros">Pinheiros</option>
-          <option value="Pompeia">Pompeia</option>
-          <option value="Vila Madalena">Vila Madalena</option>
-          <option value="Vila Mariana">Vila Mariana</option>
-          <option value="Vila Olímpia">Vila Olímpia</option>
+          <% for(let i=0; i<cities.length; i++){ %>
+            <% for(let j=0; j<cities[i].Neighborhoods.length; j++){ %>
+              <option value="<%= cities[i].Neighborhoods[j].id %>"><%= cities[i].Neighborhoods[j].name %></option>
+            <% } %>  
+          <% } %>
         </select>
       </div>
       <div class="ur-main__city">
         <label for="city">Cidade</label><br/>
-        <select name="city" id="city" class="ur-main__city-select">
+        <select name="city_id" id="city" class="ur-main__city-select">
           <option disabled>Selecione a cidade</option>
-          <option value="São Paulo" selected>São Paulo</option>
+          <% for(let i=0; i<cities.length; i++){ %>
+            <option value="<%= cities[i].id %>" selected><%= cities[i].name %></option>
+          <% } %>
         </select>
       </div>
+      <input type="hidden" name="state" value="São Paulo">
       <div class="ur-main__password">
         <label for="password">Cria uma senha</label>
         <input type="password" name="password" id="password" class="ur-main__password-input">
       </div>
       <div class="ur-main__confirm-password">
-        <label for="password">Confirme a senha</label>
-        <input type="password" name="password" id="password" class="ur-main__confirm-password-input">
+        <label for="confirm-password">Confirme a senha</label>
+        <input type="password" name="confirm_password" id="confirm-password" class="ur-main__confirm-password-input">
       </div>
       <div class="ur-main__terms-of-service">
-        <input type="checkbox" name="agree-terms-of-service" id="agree-terms-of-service" class="ur-main__terms-of-service-input">
+        <input type="checkbox" name="agree_terms_of_service" id="agree-terms-of-service" class="ur-main__terms-of-service-input">
         <label for="agree-terms-of-service" class="ur-main__terms-of-service-label">Eu li e concordo com os termos de uso</label>
       </div>
       <div class="ur-main__already-an-user">
         <span class="ur-main__already-an-user-content">
           Já tem cadastro? 
-          <a href="#" class="ur-main__already-an-user-content--link">Faça o login</a>
+          <a href="/users/login" class="ur-main__already-an-user-content--link">Faça o login</a>
         </span>
       </div>
       <div class="ur-main__submit">
-        <button type="submit"class="ur-main__submit-button">Cadastrar</button>
+        <button type="submit" class="ur-main__submit-button">Cadastrar</button>
       </div>
     </form>
     <div class="ur-footer">
