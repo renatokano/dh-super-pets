@@ -889,16 +889,23 @@ hr{
   align-self: center;
   padding-bottom: 20px;
 }
+
 .ur-main__submit-button {
   display: block;
   padding: 10px 20px;
   width: 100%;
   color: white;
   background-color: #39b99b;
-  border-color: none;
+  border: none;
   text-transform: uppercase;
   border-radius: 10px;
   cursor:pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.ur-main__submit-button:hover{
+  background-color: #3dc4a4; 
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
