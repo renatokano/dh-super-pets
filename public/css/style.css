@@ -3549,7 +3549,16 @@ hr{
   background-repeat: no-repeat;
   background-color: transparent;
   margin:0 auto;
+  margin-top:25px;
   transform: rotate(55deg);
+}
+
+.ulp-logo__return-home{
+  width:75px;
+  height:75px;
+  outline:none;
+  background-color: transparent;
+  display:inline-block;
 }
 
 .ulp-title {
@@ -3751,6 +3760,14 @@ hr{
   background-color: transparent;
   margin:0 auto;
   transform: rotate(55deg);
+}
+
+.plp-logo__return-home{
+  width:75px;
+  height:75px;
+  outline:none;
+  background-color: transparent;
+  display:inline-block;
 }
 
 .plp-title {
