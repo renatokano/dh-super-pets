@@ -4,7 +4,7 @@ module.exports = (sequelize, Datatypes) => {
           professional_id: {
           type: Datatypes.INTEGER,
           allowNull: false,
-          references: { model:'AvailableSlots', key:'professional_id' }
+          references: { model:'ProfessionalService', key:'professional_id' }
          },
           start_time: {
               type: Datatypes.DATE,
@@ -29,7 +29,7 @@ module.exports = (sequelize, Datatypes) => {
         foreignKey: "professional_id"
     });
 
- AvailableSlots.belongsTo(models.Professionals, {
+ AvailableSlots.belongsTo(models.ProfessionalService, {
       foreignKey: "professional_id"
   });
   
