@@ -36,7 +36,7 @@ module.exports = (sequelize, Datatypes) => {
     Neighborhood.belongsToMany(models.Professional, {
       through: "CoverageArea",
       foreignKey: "neighborhood_id",
-      as: "professionals_list"
+      as: "coverage_areas"
     })
   };
 

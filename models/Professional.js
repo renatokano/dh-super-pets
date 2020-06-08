@@ -21,18 +21,24 @@ module.exports = (sequelize, Datatypes) => {
             },
             zipcode: {
                 type: Datatypes.STRING(9),
-                allowNull: false
+                allowNull: true
             },
             address: {
                 type: Datatypes.STRING(250),
-                allowNull: false
+                allowNull: true
             },
             password: {
                 type: Datatypes.STRING(250),
                 allowNull: false
             },
-            about_me: Datatypes.STRING(200),
-            photo: Datatypes.STRING(200),
+            about_me: {
+                type: Datatypes.STRING(200),
+                defaultValue: "Defina uma frase que melhor defina você!!!"
+            },
+            photo: {
+                type: Datatypes.STRING(200),
+                defaultValue: "250x250.png"
+            },
             created_at: Datatypes.DATE,
             updated_at: Datatypes.DATE,
             neighborhood_id: {
@@ -57,7 +63,7 @@ module.exports = (sequelize, Datatypes) => {
         Professional.belongsToMany(models.Neighborhood, {
             through: 'CoverageArea',
             foreignKey: "professional_id",
-            as: "neighborhoods_list"
+            as: "coverage_areas"
         })
     };
 
