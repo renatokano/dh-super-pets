@@ -51,10 +51,10 @@ module.exports = (sequelize, Datatypes) => {
       foreignKey: "client_id"
   });
 
-  // Descomente depois de criar o modelo
-  //   Appointment.belongsTo(models.AvailableSlots, {
-  //       foreignKey: "professional_id"
-  // });
+  
+   Appointment.belongsTo(models.AvailableSlots, {
+        foreignKey: "professional_id"
+   });
   };
 
   return Appointment;
