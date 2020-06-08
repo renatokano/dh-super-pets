@@ -6,7 +6,7 @@
       <%- include('../includes/header-only') %>
     </div>
     <!-- <div class="pr-main">form</div> -->
-    <form class="pr-main">
+    <form class="pr-main" action="/professionals/create" method="POST">
       <div class="pr-main__dog"></div>
       <div class="pr-main__title">
         Consiga <span class="pr-main__title--highlight">mais clientes</span> e divulgue seu trabalho.
@@ -55,15 +55,11 @@
         <label for="neighborhood">Bairro</label>
         <select class="pr-main__neighborhood-select" name="neighborhood" id="neighborhood">
           <option disabled selected>Selecione os bairros que deseja atender</option>
-          <option value="1">Aclimação</option>
-          <option value="2">Itaim Bibi</option>
-          <option value="3">Moema</option>
-          <option value="4">Morumbi</option>
-          <option value="5">Pinheiros</option>
-          <option value="6">Pompeia</option>
-          <option value="7">Vila Madalena</option>
-          <option value="8">Vila Mariana</option>
-          <option value="9">Vila Olímpia</option>
+          <% for(let i=0; i<cities.length; i++){ %>
+            <% for(let j=0; j<cities[i].Neighborhoods.length; j++){ %>
+              <option value="<%= cities[i].Neighborhoods[j].id %>"><%= cities[i].Neighborhoods[j].name %></option>
+            <% } %>  
+          <% } %>
         </select>
       </div>
       <div class="pr-main__password">
@@ -72,11 +68,11 @@
       </div>
       <div class="pr-main__confirm-password">
         <label for="password">Confirme a sua senha</label>
-        <input class="pr-main__confirm-password-input" type="password" name="password" id="password" placeholder="****************">
+        <input class="pr-main__confirm-password-input" type="password" name="confirm_password" id="confirm_password" placeholder="****************">
       </div>
       <div class="pr-main__terms-of-service">
-        <input class="pr-main__terms-of-service-input" type="checkbox" name="agree-terms-of-service"
-          id="agree-terms-of-service">
+        <input class="pr-main__terms-of-service-input" type="checkbox" name="agree_terms_of_service"
+          id="agree_terms_of_service">
         <label class="pr-main__terms-of-service-label" for="agree-terms-of-service">Eu li e concordo com os termos de
           uso</label>
       </div>
