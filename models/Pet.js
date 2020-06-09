@@ -26,6 +26,33 @@ module.exports = (sequelize, DataTypes) => {
       weight: {
         type: DataTypes.DECIMAL(6,2)
       },
+      breed: {
+        type: DataTypes.STRING(50),
+        allowNull: true
+      },
+      castrated: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      vaccinated: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      notes: {
+        type: DataTypes.TEXT,
+        allowNull: true
+      },
+      birth: {
+        type: DataTypes.DATEONLY,
+        allowNull: true 
+      },
+      photo: {
+        type: DataTypes.STRING(200),
+        allowNull: true,
+        defaultValue: "800x500.png"
+      },
       client_id: {
         type: DataTypes.INTEGER,
         allowNull: false
