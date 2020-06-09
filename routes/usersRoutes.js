@@ -4,7 +4,8 @@ const authController = require('../controllers/authController');
 const petsController = require('../controllers/petsController');
 const router = express.Router();
 const clientAuthentication = require('../middleware/clientAuthentication');
-const upload = require('../middleware/clientsUpload');
+const clientsUpload = require('../middleware/clientsUpload');
+const petsUpload = require('../middleware/petsUpload');
 
 // display a list of all users
 //router.get('/', (req,res)=>{
@@ -22,10 +23,10 @@ router.get('/new', usersController.new);
 router.get('/:id/admin', clientAuthentication, usersController.admin);
 
 // create new pet
-router.post('/:id/pets', clientAuthentication, upload.any(),  petsController.create);
+router.post('/:id/pets', clientAuthentication, petsUpload.any(),  petsController.create);
 
 // get a form for editing an user
-router.put('/:id', clientAuthentication, upload.any(), usersController.put);
+router.put('/:id', clientAuthentication, clientsUpload.any(), usersController.put);
 
 // display a specific user
 router.get('/:id', usersController.show);
