@@ -1,47 +1,66 @@
 <%- include('../includes/head',{title:"Perfil Público Usuário"}) %>
 <body>
-  <div class="upp-grid-container">
-    <div class="upp-header">
-      <%- include('../includes/header', {username:"Isabella A. Nunes", img:"user-img"}) %>
+  <div class="upublicp-grid-container">
+    <!-- Dados do usuário logado -->
+    <div class="upublicp-header">
+      <%- include('../includes/header', {title:"Perfil Administrativo Usuário", username:"Isabella A. Nunes", img:"prof-img"}) %>
     </div>
-      <div class="upp-profile">
-        <div class="upp-username">Isabella A. Nunes</div>
-        <div class="upp-user-img"></div>
-        <div class="upp-quote"><q class="upp-quote__user">Paulista e apaixonada pelo Fred, meu companheiro de quatro patas.</q></div>
-        <div class="upp-rating-stars">
-          <ul class="stars">
-            <li class="star star--1"></li>
-            <li class="star star--2"></li>
-            <li class="star star--3"></li>
-            <li class="star star--4"></li>
-            <li class="star star--5"></li>
-          </ul>
-          <span class="rating-count">(159)</span>
-        </div>
-        <div class="upp-pet-imgs">
-          <div class="img-pet2"></div>
-          <div class="img-pet3"></div>
-          <div class="img-pet4"></div>
-          <div class="img-pet5"></div>
-          <div class="img-pet1"></div>
-        </div>
-        <div class="upp-user-pets"><h1 class="upp-user-pets__title">Meus Pets</h1></div>
-        <div class="upp-img-pet-profile"></div>
-        <div class="upp-pet-infos">
-          <ul class="infos">
-            <li class="info info--name"><span class="info__bold">Nome: </span>Fred</li>
-            <li class="info info--specie"><span class="info__bold">Espécie: </span>Cachorro</li>
-            <li class="info info--breed"><span class="info__bold">Raça: </span>Labrador</li>
-            <li class="info info--size"><span class="info__bold">Porte: </span>Médio</li>
-            <li class="info info--gender"><span class="info__bold">Sexo: </span>Masculino</li>
-            <li class="info info--neutered"><span class="info__bold">Castrado: </span>Sim</li>
-            <li class="info info--allergic"><span class="info__bold">Alérgico: </span>Não</li>
-            <li class="info info--note"><span class="info__bold">Observações: </span>N/A</li>
-          </ul>
-        </div>
+    <!-- Dados do perfil público -->
+    <div class="upublicp__profile">
+      <img class="upublicp__photo" src="/img/clients/<%= user.photo %>" alt="User Photo">
+      <div class="upublicp__custom-message">
+        "<%= user.about_me %>"
       </div>
-      <div class="upp-footer">
-      <%- include('../includes/footer') %>
+      <div class="upublicp__user-name">
+        <%= user.name %>
+      </div>
+      
+      <div class="upublicp__stars">
+        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
+        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
+        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
+        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
+        <i class="fa fa-star-o upublicp__star-o" aria-hidden="true"></i>
+        <span class="upublicp__stars-counter">(159)</span>
+      </div>
+
+      <div class="upublicp__pet-photos">
+        <% if(user.Pets.length > 0){ %>
+          <% for(let i=0; i<user.Pets.length; i++){ %>
+            <div class="upublicp__pet-content">
+              <img class="upublicp__photos-1" src="/img/pets/<%= user.Pets[i].photo %>" alt="Pet Photo">
+              <div class="upublicp__pet-details">
+                <div class="upublicp__pet-details--name"><%= user.Pets[i].name %></div>
+                <div class="upublicp__pet-details--params">Idade: </div>
+                <div class="upublicp__pet-details--answers"><%= user.Pets[i].birth ? `${moment().diff(user.Pets[i].birth, 'years')} anos` : "Não informado"; %></div><br>
+                <div class="upublicp__pet-details--params">Raça: </div>
+                <div class="upublicp__pet-details--answers"><%= user.Pets[i].breed ?  user.Pets[i].breed : "Não informado"%></div><br>
+                <div class="upublicp__pet-details--params">Tipo de Pet: </div>
+                <div class="upublicp__pet-details--answers"><%= user.Pets[i].PetType.name %></div><br>
+                <div class="upublicp__pet-details--params">Vacinado: </div>
+                <div class="upublicp__pet-details--answers"><%= user.Pets[i].vaccinated ? "Sim" : "Não" %></div><br>
+                <div class="upublicp__pet-details--params">Castrado: </div>
+                <div class="upublicp__pet-details--answers"><%= user.Pets[i].castrated ? "Sim" : "Não" %></div><br>
+                <div class="upublicp__pet-details--params">
+                  Observações: </div><br>
+                <div class="upublicp__pet-details--notes"><%= user.Pets[i].notes ? user.Pets[i].notes : "Nenhuma observação informada" %></div>
+              </div>
+            </div>
+          <%}%>    
+        <% } else { %>
+          <div class="upublicp__pet-content">
+              <img class="upublicp__photos-1" src="/img/pets/800x500.png" alt="Service Photos">
+              <div class="upublicp__pet-details">
+                Usuário ainda não possui nenhum pet cadastrado.
+              </div>
+          </div>        
+        <% } %>
+      </div>
+
     </div>
-  </div>
+
+    <div class="upublicp-footer">
+      <%- include('../includes/footer') %> 
+    </div>
+  </div> 
 </body>

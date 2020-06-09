@@ -11,9 +11,26 @@ const { Neighborhood, City, State, Client, Pet, PetType } = require('../models/i
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 
+const  moment = require('moment');
+
 const controller = {
-  show: (req,res) => {
-    res.render('users/show');
+  show: async (req,res) => {
+    const {id: uuid} = req.params;
+    const {id, name} = uuidUnmount(uuid);
+    const user = await Client.findByPk(id,{
+      include: [{
+        model: Pet,
+        require: false,
+        include: {
+          model: PetType,
+          require: true
+        }
+      }]
+    });
+    res.render('users/show', {
+      user,
+      moment
+    });
   },
 
   admin: async (req,res) => {

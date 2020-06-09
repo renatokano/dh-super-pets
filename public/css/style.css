@@ -3767,4 +3767,193 @@ hr{
   }
 }
 
+/* user public profile style */
+/* mobile-first max. 600px) */
 
+.upublicp-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 110px 1fr 200px;
+  gap: 0px 0px;
+  grid-template-areas: "upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header upublicp-header" ". upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile upublicp-profile ." "upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer upublicp-footer";
+  height: 100vh;
+}
+
+.upublicp-header { grid-area: upublicp-header; }
+.upublicp-footer { grid-area: upublicp-footer; }
+.upublicp__profile { 
+  gap: 0rem 0rem;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-template-areas: 
+  "upublicp__photo upublicp__photo upublicp__photo upublicp__photo" 
+  "upublicp__user-name upublicp__user-name upublicp__user-name upublicp__user-name" 
+  "upublicp__custom-message upublicp__custom-message upublicp__custom-message upublicp__custom-message" 
+  "upublicp__stars upublicp__stars upublicp__stars upublicp__stars"
+  "upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos"; 
+  grid-area: upublicp-profile; 
+}
+
+.upublicp__photo {
+  padding-top: 2rem;
+  grid-area: upublicp__photo;
+}
+
+.upublicp__user-name {
+  padding: 2rem 0rem 0.1rem;
+  font-size: 1.8em;
+  color: #555;
+  text-align: center;
+  grid-area: upublicp__user-name;
+}
+
+.upublicp__custom-message {
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  grid-area: upublicp__custom-message;
+}
+
+.upublicp__stars {
+  grid-area: upublicp__stars;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.upublicp__star {
+  color: #45e6c1!important;
+}
+
+.upublicp__star-o, .upublicp__stars-counter {
+  color: #888!important;
+}
+
+.upublicp__stars-counter {
+  font-size: 0.8em;
+}
+
+.upublicp__pet-photos {
+  grid-area: upublicp__pet-photos;
+  margin-bottom: 2rem;
+  align-self: start;
+  align-content: start;
+}
+
+.upublicp__photos-1 {
+  grid-area: upublicp__photos-1;
+  padding-top: 2rem;
+  width: 100%;
+  max-width:1000px;
+  align-self: start;
+  align-content: start;
+}
+
+.upublicp__pet-content {
+  
+}
+
+.upublicp__pet-details--name {
+  font-size: 1.8em;
+  margin-left: 10px;
+  color: #444;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 10px;
+}
+
+.upublicp__pet-details {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #555;
+  display: flexbox;
+}
+
+.upublicp__pet-details--params {
+  margin: 10px 10px 0px;
+  color: #444;
+  display: inline-block;
+}
+
+.upublicp__pet-details--answers {
+  font-style: italic;
+  display: inline-block;
+}
+
+.upublicp__pet-details--notes {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .upublicp__profile { 
+    gap: 0rem 0rem;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    grid-template-areas: "upublicp__photo upublicp__user-name upublicp__user-name upublicp__user-name" 
+    "upublicp__photo upublicp__custom-message upublicp__custom-message upublicp__custom-message" 
+    "upublicp__photo upublicp__stars upublicp__stars upublicp__stars"
+    "upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos";
+    grid-area: upublicp-profile; 
+  }
+
+  .upublicp__user-name {
+    margin-left: 1rem;
+    text-align: left;
+    align-self: end;
+    align-content: end;
+  }
+
+  .upublicp__custom-message {
+    padding: 1rem;
+    text-align: left;
+    align-self: start;
+    align-content: start;
+  }
+
+  .upublicp__stars {
+    padding-top: 1.2rem;
+    display: flex;
+    padding-left: 1rem;
+    align-self: end;
+    align-content: end;
+    /* justify-content: flex-start; */
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .upublicp__profile { 
+    display: grid;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-areas: 
+    "upublicp__photo . upublicp__pet-photos"
+    "upublicp__user-name . upublicp__pet-photos"
+    "upublicp__custom-message . upublicp__pet-photos"
+    "upublicp__stars . upublicp__pet-photos"
+    ". . upublicp__pet-photos";
+    grid-template-rows: min-content;
+    grid-area: upublicp-profile; 
+  }
+
+  .upublicp__user-name {
+    font-size: 1.5em;
+    margin:0;
+    border-bottom: 1px solid #A6ADB4;
+    align-self: flex-start;
+    padding: 0;
+    padding-left: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .upublicp__custom-message {
+    padding-left: 0.8rem;
+  }
+
+  .upublicp__stars {
+    padding-top: 0;
+    border-top: none;
+    margin-top: 0;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
