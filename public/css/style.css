@@ -1597,6 +1597,56 @@ hr{
   padding-bottom: 1rem;
 }
 
+#uap-my-pets--edit__button {
+  border:none;
+  background-color:#44e2be;
+  border-radius:5px;
+  color:#fff;
+  cursor:pointer;
+  padding:10px;
+  width:100px;
+  text-align: center;
+}
+
+#uap-my-pets--edit__button:hover{
+  background-color:#32c4ab;  
+}
+
+.uap-my-pets--edit-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.uap-my-pets--edit-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.uap-my-pets--edit-modal-content__close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.uap-my-pets--edit-modal-content__close:hover,
+.uap-my-pets--edit-modal-content__close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .uap-my-pets--details {
   text-align: left;
   margin-left: 1.5rem !important;
@@ -3846,10 +3896,6 @@ hr{
   max-width:1000px;
   align-self: start;
   align-content: start;
-}
-
-.upublicp__pet-content {
-  
 }
 
 .upublicp__pet-details--name {

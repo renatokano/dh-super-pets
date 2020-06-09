@@ -19,7 +19,8 @@
         <q class="uap-profile__quote">
           <i><%= user.about_me.substring(0, 91) %> </i></q>
         <a class="uap-profile__public tabLinks" style="font-weight: bold;" onclick="openUserTabs(event, 'publicProfile')">Perfil Público</a>
-        <a class="uap-profile__pets tabLinks" onclick="openUserTabs(event, 'myPets')">Meus Pets</a>
+        <a class="uap-profile__pets tabLinks" onclick="openUserTabs(event, 'myPets')">Meus Pets</a><br>
+        <a style="display:none" class="uap-profile__pets tabLinks" onclick="openUserTabs(event, 'editMyPets')">Edite Meus Pets</a>
         <a class="uap-profile__details tabLinks" onclick="openUserTabs(event, 'accountDetails')">Alterar Senha</a>
       </div>
 
@@ -111,12 +112,14 @@
       </form>
 
       <form id="myPets" method="POST" action="/users/<%= user_session.uuid %>/pets" class="uap-form uap-tabs" style="display: none" enctype="multipart/form-data">
+        <% let petId %>
         <% if(user.Pets.length > 0){ %>
           <table class="uap-my-pets--table"> 
             <% for(let i=0; i<user.Pets.length; i++){ %>
               <tr class="uap-my-pets--tr">
                 <td style="width: 120px;vertical-align: top;">
-                  <img src="/img/pets/<%= user.Pets[i].photo %>" alt="<%= user.Pets[i].name %>" class="uap-my-pets--photo">
+                  <img src="/img/pets/<%= user.Pets[i].photo %>" alt="<%= user.Pets[i].name %>" class="uap-my-pets--photo"><br>
+                  <div id="uap-my-pets--edit__button" onclick="openUserTabs(event, 'editMyPets');petCompleteForm(<%= user.Pets[i].id %>,'<%= user_session.uuid %>')">Editar</div>
                 </td>
                 <td>
                   <ul class="uap-my-pets--details">
@@ -137,7 +140,7 @@
                       <span class="uap-my-pets--details__answer"><%= user.Pets[i].PetType.name %></span></li>
                     <li>
                       <span class="uap-my-pets--details__field">Vacinado: </span>
-                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].PetType.vaccinated ? "Sim" : "Não" %></span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].vaccinated ? "Sim" : "Não" %></span>
                     </li>
                     <li>
                       <span class="uap-my-pets--details__field">Castrado: </span>
@@ -200,12 +203,72 @@
         </section>
 
         <section>
-          <label for="photo">Cadastre uma foto do seu pet</label>
-          <input type="file" name="photo" class="uap-form__photo" id="photo" accept="image/png, image/jpeg">
+          <label for="uap-form__photo">Cadastre uma foto do seu pet</label>
+          <input type="file" name="photo" class="uap-form__photo" id="uap-form__photo" accept="image/png, image/jpeg">
         </section>
         
         <section class="uap-btn-create-newpet">
           <input class="uap-btn-create-newpet__input uap-btn-newpet__input--u" type="submit" value="Cadastrar"/>
+        </section>
+      </form>
+      
+      <form id="editMyPets" method="POST" action="/users/<%= user_session.uuid %>/pets?_method=PUT" class="uap-form uap-tabs" style="display: none" enctype="multipart/form-data">
+        <section class="uap-form__mypets">
+          <h1 class="uap-form__mypets--title">Editar Meu Pets</h1>
+        </section>
+
+        <section class="uap-form__petname">
+          <input class="uap-form__petname-input" id="editMyPets__id" type="hidden" name="editMyPets__id"/>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="editMyPets__name">Nome</label><br>
+          <input class="uap-form__petname-input" id="editMyPets__name" type="text" name="editMyPets__name"/>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="editMyPets__birth">Nascimento</label><br>
+          <input class="uap-form__petname-input" type="date" name="editMyPets__birth" id="editMyPets__birth"/>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="editMyPets__breed">Raça</label><br>
+          <input class="uap-form__petname-input" type="text" name="editMyPets__breed" id="editMyPets__breed"/>
+        </section>
+
+        <section class="uap-form__pettype">
+          <label for="editMyPets__pet_type_id">Categoria</label><br>
+          <select class="uap-form__pet-type--select" name="editMyPets__pet_type_id" id="editMyPets__pet_type_id" >
+            <option disabled>Selecione uma categoria</option>
+            
+            <% for(let i=0; i<petTypes.length; i++){ %>
+              <option 
+                value="<%= petTypes[i].id %>"><%= petTypes[i].name %>
+              </option>
+            <% } %>
+          </select>
+        </section>
+
+        <section class="uap-form__pet">
+          <input class="uap-form__pet-checkbox" type="checkbox" name="editMyPets__vaccinated" id="editMyPets__vaccinated"/><label for="editMyPets__vaccinated"> Vacinado</label>
+        </section>
+
+        <section class="uap-form__pet">
+          <input class="uap-form__pet-checkbox" type="checkbox" name="editMyPets__castrated" id="editMyPets__castrated"/><label for="editMyPets__castrated"> Castrado</label>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="editMyPets__notes">Observações</label><br>
+          <textarea name="editMyPets__notes" class="uap-form__about-me" id="editMyPets__notes" rows="3"></textarea>
+        </section>
+
+        <section>
+          <label for="photo">Modifique a foto do seu pet</label>
+          <input type="file" name="editMyPets__photo" class="uap-form__photo" id="editMyPets__photo" accept="image/png, image/jpeg">
+        </section>
+        
+        <section class="uap-btn-create-newpet">
+          <input class="uap-btn-create-newpet__input uap-btn-newpet__input--u" type="submit" value="Atualizar"/>
         </section>
       </form>
 

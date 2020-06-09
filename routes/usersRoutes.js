@@ -22,6 +22,12 @@ router.get('/new', usersController.new);
 // display an admin area 
 router.get('/:id/admin', clientAuthentication, usersController.admin);
 
+// get all pets from an user
+router.get('/:id/pets', clientAuthentication, petsController.show);
+
+// update a specific pet
+router.put('/:id/pets', clientAuthentication, petsUpload.any(),petsController.put);
+
 // create new pet
 router.post('/:id/pets', clientAuthentication, petsUpload.any(),  petsController.create);
 
