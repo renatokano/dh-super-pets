@@ -14,11 +14,12 @@
       <div class="ulp-title">Login Usuário</div>
       <div class="ulp-email">
         <label class="ulp-email__label" for="email">email</label>
-        <input class="ulp-email__input ulp-email__input--icon" type="email" name="email" id="email">
+        <input class="ulp-email__input ulp-email__input--icon" type="email" name="email" id="email" required 
+        >
       </div>
       <div class="ulp-password">
         <label class="ulp-password__label" for="password">senha</label>
-        <input class="ulp-password__input ulp-password__input--icon" type="password" name="password" id="password">
+        <input class="ulp-password__input ulp-password__input--icon" type="password" name="password" id="password" minlength="6" required>
       </div>
       <div class="ulp-buttons">
         <label class="ulp-buttons__label" for="remember"><input class="ulp-buttons__check" type="checkbox" name="remember" id="remember"> Lembrar senha</label>
@@ -36,18 +37,37 @@
     </form>
   </div>
   <script>
+    // validators
+    var password = document.getElementById("password");
+    password.addEventListener('invalid', function(event){
+      if(password.value.length < 6){
+        password.setCustomValidity("Digite uma senha com mais de 6 caracteres.");
+      } else {
+        password.setCustomValidity("");
+      }
+    });
+
+    var email = document.getElementById("email");
+    email.addEventListener('input', function(event){
+      if(email.validity.typeMismatch){
+        email.setCustomValidity("Digite um e-mail válido.");
+      } else {
+        email.setCustomValidity("");
+      }
+    });
+
     document.querySelector(".ulp-recoverlink__reset").style.display="none";
     document.querySelector(".ulp-recoverlink__reset-btn").style.display="none";
 
-    document.querySelector(".ulp-recoverlink__pass").addEventListener('click',()=>  {
-      if(document.querySelector(".ulp-recoverlink__reset").style.display==="block"&&document.querySelector(".ulp-recoverlink__reset-btn").style.display==="block"){
+    document.querySelector(".ulp-recoverlink__pass").addEventListener('click', function() {
+      if(document.querySelector(".ulp-recoverlink__reset").style.display==="block" && document.querySelector(".ulp-recoverlink__reset-btn").style.display==="block") {
         document.querySelector(".ulp-recoverlink__reset").style.display="none";
         document.querySelector(".ulp-recoverlink__reset-btn").style.display="none";
-      }else{
+      } else {
         document.querySelector(".ulp-recoverlink__reset").style.display="block";
         document.querySelector(".ulp-recoverlink__reset-btn").style.display="block";
       }
-
     });
+    
   </script>
 </body>
