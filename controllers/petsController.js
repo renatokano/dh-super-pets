@@ -13,7 +13,8 @@ const controller = {
     const {...data} = req.body;
     const {id: client_id, uuid} = req.session.client;
     data.client_id = client_id;
-
+    let [file] = req.files;
+    console.log(file)
     // duplicate is not permited
     const isDuplicate = await Pet.findOne({
       where: {
@@ -34,7 +35,12 @@ const controller = {
     try {
       const pet = await Pet.create({
         name: data.name,
-        weight: data.weight,
+        birth: data.birth,
+        breed: data.breed,
+        vaccinated: data.vaccinated == "on" ? 1 : 0,
+        castrated: data.castrated == "on" ? 1 : 0,
+        notes: data.notes,
+        photo: file.filename,
         pet_type_id: data.pet_type_id,
         client_id: data.client_id,
         created_at: new Date(),

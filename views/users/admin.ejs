@@ -110,19 +110,45 @@
         </section>
       </form>
 
-      <form id="myPets" method="POST" action="/users/<%= user_session.uuid %>/pets" class="uap-form uap-tabs" style="display: none">
+      <form id="myPets" method="POST" action="/users/<%= user_session.uuid %>/pets" class="uap-form uap-tabs" style="display: none" enctype="multipart/form-data">
         <% if(user.Pets.length > 0){ %>
           <table class="uap-my-pets--table"> 
-            <tr class="uap-my-pets--th">
-                <th>Nome</th>
-                <th>Peso</th> 
-                <th>Categoria</th>
-            </tr>
             <% for(let i=0; i<user.Pets.length; i++){ %>
               <tr class="uap-my-pets--tr">
-                  <td><%= user.Pets[i].name %></td>
-                  <td><%= user.Pets[i].weight %></td> 
-                  <td><%= user.Pets[i].PetType.name %></td>
+                <td style="width: 120px;vertical-align: top;">
+                  <img src="/img/pets/<%= user.Pets[i].photo %>" alt="<%= user.Pets[i].name %>" class="uap-my-pets--photo">
+                </td>
+                <td>
+                  <ul class="uap-my-pets--details">
+                    <li>
+                      <span class="uap-my-pets--details__field">Nome: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].name %></span>
+                    </li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Idade: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].birth ? user.Pets[i].birth : "Não informado" %></span>
+                    </li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Raça: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].breed ? user.Pets[i].breed : "Não informado" %></span>
+                    </li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Tipo de Pet: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].PetType.name %></span></li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Vacinado: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].PetType.vaccinated ? "Sim" : "Não" %></span>
+                    </li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Castrado: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].castrated ? "Sim" : "Não"%></span>
+                    </li>
+                    <li>
+                      <span class="uap-my-pets--details__field">Observações: </span>
+                      <span class="uap-my-pets--details__answer"><%= user.Pets[i].notes ? user.Pets[i].notes : "Nenhuma observação informada" %></span>
+                    </li>
+                  </ul>
+                </td>
               </tr>
             <%}%>
           </table>
@@ -137,9 +163,14 @@
           <input class="uap-form__petname-input" type="text" name="name" id="petname"/>
         </section>
 
-        <section class="uap-form__pet-weight">
-          <label for="pet-weight">Peso</label><br>
-          <input class="uap-form__pet-weight--input" type="number" step="any" name="weight" id="petweight"/>
+        <section class="uap-form__petname">
+          <label for="birth">Nascimento</label><br>
+          <input class="uap-form__petname-input" type="date" name="birth" id="birth"/>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="breed">Raça</label><br>
+          <input class="uap-form__petname-input" type="text" name="breed" id="breed"/>
         </section>
 
         <section class="uap-form__pettype">
@@ -153,6 +184,24 @@
               </option>
             <% } %>
           </select>
+        </section>
+
+        <section class="uap-form__pet">
+          <input class="uap-form__pet-checkbox" type="checkbox" name="vaccinated" id="vaccinated"/><label for="vaccinated"> Vacinado</label>
+        </section>
+
+        <section class="uap-form__pet">
+          <input class="uap-form__pet-checkbox" type="checkbox" name="castrated" id="castrated"/><label for="castrated"> Castrado</label>
+        </section>
+
+        <section class="uap-form__petname">
+          <label for="notes">Observações</label><br>
+          <textarea name="notes" class="uap-form__about-me" id="notes" rows="3"></textarea>
+        </section>
+
+        <section>
+          <label for="photo">Cadastre uma foto do seu pet</label>
+          <input type="file" name="photo" class="uap-form__photo" id="photo" accept="image/png, image/jpeg">
         </section>
         
         <section class="uap-btn-create-newpet">

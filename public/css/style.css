@@ -1580,10 +1580,12 @@ hr{
   padding-top: 25px;
 }
 
+.uap-my-pets--photo {
+  max-width: 150px;
+}
+
 .uap-my-pets--table{
   width:100%; 
-  border:1px solid #eee;
-  text-align: center;
   color:#888;
 }
 
@@ -1591,7 +1593,40 @@ hr{
   font-weight: bold;
 }
 
-.uap-my-pets--tr:nth-child(even) { background-color: rgb(189, 250, 246); opacity: 0.8; }
+.uap-my-pets--tr {
+  padding-bottom: 1rem;
+}
+
+.uap-my-pets--details {
+  text-align: left;
+  margin-left: 1.5rem !important;
+  padding-bottom: 1.5rem!important;
+}
+
+.uap-my-pets--details__field {
+  font-weight: bold;
+}
+
+.uap-my-pets--details__answer {
+  font-style: italic;
+}
+
+.uap-form__pet {
+  display: flex;
+}
+
+.uap-form__pet-checkbox {
+  width: 25px;
+  height: 25px;
+  outline: 2px solid #45e6c1;
+  box-shadow: none;
+  font-size: 2em;
+  margin-right: 1.2rem;
+}
+
+.uap-form__pet-checkbox:checked {
+  filter: invert(100%) hue-rotate(175deg) brightness(1.7);
+}
 
 @media only screen and (max-width: 960px){
   .uap-main-content{
@@ -1646,7 +1681,7 @@ hr{
   gap: 15px 30px;
   grid-auto-rows: auto;
   background-color:#fff;
-  padding:35px 100px 45px 100px;
+  padding: 35px 40px 45px 40px;
 }
 
 .uap-form__title-profile, 
@@ -2093,237 +2128,7 @@ hr{
 
 }
 
-/* user public profile style */
-/* mobile first devices(width:992px and above)*/
-.upp-grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 110px 1fr 200px;
-  gap: 0px 0px;
-  grid-template-areas: "upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header" "upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile" "upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer";
-  height:100%;
-}
-.upp-header { grid-area: upp-header; }
-.upp-footer { grid-area: upp-footer; }
-
-.upp-profile {
-  grid-area:upp-profile;
-  display: grid;
-  grid-template-columns: 10px 1fr 5px 1fr 10px;
-  grid-template-rows: 20px auto 5px auto 5px auto 5px 1fr auto auto 5px;
-  gap: 1px 1px;
-  grid-template-areas: ". . . . ." ". upp-user-img upp-username upp-username ." ". upp-user-img . . ." ". upp-user-img upp-quote upp-quote ." ". upp-user-img . . ." ". upp-user-img upp-rating-stars upp-rating-stars ." ". . . . ." ". upp-pet-imgs upp-pet-imgs upp-pet-imgs ." ". upp-user-pets upp-user-pets upp-user-pets ." ". upp-img-pet-profile . upp-pet-infos .";
-  width:100vw;
-  height:100%;
-  background-color: #f6f8f9;
-  padding-bottom:20px;
-}
-
-.upp-quote { grid-area: upp-quote;color:#888888;
-}
-.upp-rating-stars {grid-area: upp-rating-stars;}
-.upp-username { 
-  grid-area: upp-username;
-  font-size: 1.2em;
-  color:#888;
-  font-weight: 600;
- }
-
- .upp-quote__user,.rating-count{
-  font-size:0.7em;
-  height:100%;
-  line-height:100%;
-  vertical-align: middle;
- }
-
-.upp-user-img { 
-  grid-area: upp-user-img;
-  background-image: url(../img/user-adm-photo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width:110px;
-  height:110px;
-  margin-left:5px;
-}
-.upp-user-pets { grid-area: upp-user-pets; }
-.upp-img-pet-profile { 
-  grid-area: upp-img-pet-profile;
-  background-image: url(../img/dog5.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: right;
-  margin-left: 5px;
-  background-color:#fff;
- }
- 
- .infos{
-   list-style: none;
-   color:#888;
-   font-size:0.8em;
-   border:1px solid #ccc;
- }
-
-.info__bold{
-   font-weight: 600;
- }
-
-.upp-pet-infos { 
-  grid-area: upp-pet-infos;
-  padding:0 10px;
-  background-color:#fff;
-}
-
-.upp-pet-infos>.infos{
-  padding:10px;
-}
-
-.stars,.rating-count{
-  display:inline-block;
-  padding-top:5px;
-}
-
-.star{
-  background-image: url(../img/star-icon.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width:20px;
-  height:20px;
-  display:inline-block;
-}
-
-.upp-user-pets__title{
-  color:#888;
-  font-size:1.2em;
-  font-weight:900;
-  padding:10px 0 5px 5px;
-  border-bottom: 2px solid #ccc;
-  background-color:#fff;
-  margin-bottom: 20px;
-}
-
-.upp-pet-imgs {
-  grid-area: upp-pet-imgs;
-  display: grid;
-  grid-template-columns: 5px 2fr 5px 1fr 5px 1fr 5px;
-  grid-template-rows: 5px 140px 5px 140px 5px;
-  gap: 1px 1px;
-  grid-template-areas: ". . . . . . ." ". upp-img-pet1 . upp-img-pet2 . upp-img-pet3 ." ". upp-img-pet1 . . . . ." ". upp-img-pet1 . upp-img-pet4 . upp-img-pet5 ." ". . . . . . .";
-  background-color:#fff;
-  border-top:2px solid #ccc;
-  padding-top:5px;
-}
-.img-pet1 { 
-  grid-area: upp-img-pet1; 
-  background-image: url(../img/owner2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
- }
-.img-pet2 {
-  grid-area: upp-img-pet2;
-  background-image: url(../img/dog1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-.img-pet3 { 
-  grid-area: upp-img-pet3;
-  background-image: url(../img/dog2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-   }
-.img-pet4 {
-  grid-area: upp-img-pet4;
-  background-image: url(../img/dog3.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-.img-pet5 {
-  grid-area: upp-img-pet5;
-  background-image: url(../img/dog4.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-
-  /* media query for large devices(width:996px and up)*/
-  @media only screen and (min-width: 996px){
-    .upp-grid-container {
-      background-color: #f6f8f9;
-      height:auto;
-    }
-
-    .upp-profile {
-      grid-area:upp-profile;
-      display: grid;
-      grid-template-columns: 5px 1fr 5px 1fr 5px 1fr 5px;
-      grid-template-rows: 25px auto 5px auto 5px auto 5px 1fr auto auto 5px;
-      gap: 1px 1px;
-      grid-template-areas: 
-       ". . . . . . ." 
-       ". . . upp-username . . ."
-       ". . . upp-rating-stars . . ." 
-       ". . . . . . ." 
-       ". upp-user-img . . . . ." 
-       ". upp-quote . . . . ." 
-       ". . . . . . ." 
-       ". . . upp-pet-imgs upp-pet-imgs upp-pet-imgs ." 
-       ". . . upp-user-pets upp-user-pets upp-user-pets ."
-       ". . . upp-img-pet-profile . upp-pet-infos .";
-      width:82vw;
-      margin:20px auto 0;
-      height:auto;
-      padding:10px 50px 20px 20px;
-      background-color: #fff;
-    }
-    .upp-username{
-      font-size:1.5em;
-    }
-    .upp-pet-imgs {
-      grid-area: upp-pet-imgs;
-      display: grid;
-      grid-template-columns: 5px 2fr 5px 1fr 5px 1fr 5px;
-      grid-template-rows: 5px 140px 5px 140px 5px;
-      gap: 1px 1px;
-      grid-template-areas: ". . . . . . ." ". upp-img-pet1 . upp-img-pet2 . upp-img-pet3 ." ". upp-img-pet1 . . . . ." ". upp-img-pet1 . upp-img-pet4 . upp-img-pet5 ." ". . . . . . .";
-    }
-    .upp-username{
-      border-bottom:2px solid #ccc;
-      padding-bottom:5px;
-    }
-    .upp-quote{
-      font-size:1.2em;
-      width:250px;
-      padding:0 10px;
-      margin-left:5px;
-      position:relative;
-      top:250px;
-    }
-    .upp-rating-stars {
-      grid-area: upp-rating-stars;
-      padding-top:10px;
-    }
-    .rating-count{
-      height:26px;
-      padding-top:2px;
-    }
-
-    .upp-user-img{
-      width:250px;
-      height:250px;
-    }
-    .upp-img-pet-profile,.infos{
-      height:250px;
-    }
-    
-  }
- 
-/* media query for large devices(width:996px and up)
-@media only screen and (max-width: 996px){
-  .upp-grid-container {
-    grid-template-rows: 110px  1fr 200px;
-    grid-template-areas: "upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header upp-header" "upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile upp-profile" "upp-info upp-info upp-info upp-info upp-info upp-info upp-info upp-info upp-info upp-info upp-info upp-info" "upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer upp-footer"; 
-  } 
-} */
-
-/*professional public profile style */
+/* professional public profile style */
 /* mobile-first max. 600px) */
 
 .ppp-grid-container {
