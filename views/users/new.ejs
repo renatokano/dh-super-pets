@@ -125,34 +125,44 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    // validators
-
-    var fullname = document.getElementById('name');
-    fullname.addEventListener('invalid', function(event){
-      // set limits
-      let minLength = 6;
-      let maxLength = 150;
-      // verification
-      if(fullname.value === "" || fullname.value.length < minLength || fullname.value.length > maxLength){
-        fullname.setCustomValidity("O nome deve possuir pelo menos 6 caracteres.");
-      } else {
-        fullname.setCustomValidity("");
-      }
-    });
-
-    var confirm_password = document.getElementById("confirm-password");
-    var password = document.getElementById("password");
-
-    var confirmPassword = function(){
-      (confirm_password.value === password.value);
-    };
-
-    // masks
     $(document).ready(function(){
+      // masks
       $('#mobile').mask('(00) 00000-0000');
       $('#zipcode').mask('00000-000');
-    });
 
+      // validators
+      let fullname = document.getElementById('name');
+      fullname.addEventListener('invalid', function(event){
+        // set limits
+        let minLength = 6;
+        let maxLength = 150;
+        // verification
+        if(fullname.value === "" || fullname.value.length < minLength || fullname.value.length > maxLength){
+          fullname.setCustomValidity("O nome deve possuir pelo menos 6 caracteres.");
+        } else {
+          fullname.setCustomValidity("");
+        }
+      });
+
+      // create axios instance
+      let api = axios.create({
+        baseURL: 'http://viacep.com.br/ws/',
+        timeout: 3000
+      });
+
+      // fill out address field based on zipcode
+      let zipcode = document.getElementById('zipcode');
+      let address = document.getElementById('address');
+      
+      zipcode.addEventListener('keyup', function(){
+        if(zipcode.value.length === 9){
+          api.get(`${zipcode.value.replace('-','')}/json`).then(function(res) {
+            address.value = `${res.data.logradouro}, `;
+          });
+        }
+      });
+    });
   </script>
 </body>
