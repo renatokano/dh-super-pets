@@ -2930,6 +2930,7 @@ hr{
 
 .services-content__pet-training--large {
   display: none;
+  width:100%;
 }
 
 .services-pet-training__sub-title {
@@ -3168,6 +3169,7 @@ hr{
   }
   .services-pet-baths--large {
     display: inline;
+    width:100%;
   }
   .services-pet-baths__title {
     bottom:95px;
@@ -3189,6 +3191,7 @@ hr{
   }
   .services-dog-walking--large {
     display: inline;
+    width:100%;
   }
   .services-dog-walking__title {
     bottom:95px;
@@ -3210,6 +3213,7 @@ hr{
   }
   .services-pet-sitting--large {
     display: inline;
+    width:100%;
   }
   .services-pet-sitting__title {
     bottom:95px;
@@ -3231,6 +3235,7 @@ hr{
   }
   .services-pet-grooming--large {
     display: inline;
+    width:100%;
   }
   .services-pet-grooming__title {
     bottom:95px;
