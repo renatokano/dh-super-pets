@@ -2793,6 +2793,7 @@ hr{
 
 .about-us__image {
   display: none;
+  width:100%;
 }
 
 .about-us__slogan {
