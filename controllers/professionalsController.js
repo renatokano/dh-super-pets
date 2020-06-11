@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.json')[env];
 const db = new Sequelize(config);
-const { Professional, Service, ProfessionalService, Neighborhood, City, State } = require('../models/index');
+const { Professional, Service, ProfessionalService, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 
@@ -10,7 +10,6 @@ const controller = {
   show: (req,res)=>{
     res.render('professionals/show');
   },
-
   admin: async (req,res) => {
      const { id: uuid } = req.params;
 
@@ -280,8 +279,11 @@ const controller = {
       console.log(error);
       res.render('home/index');
     }
+  },
+  index: async (req, res) => {
+    
+    res.render('professionals/index');
   }
-   /* fim DATA PROFESSIONAL */
 }
 
 const uuidGenerate = function (professional) {

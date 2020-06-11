@@ -11,6 +11,8 @@ const upload = require('../middleware/professionalsUpload');
 route.get('/login', authProfessionalController.professionalCreate);
 route.post('/login', authProfessionalController.professionalStore);
 
+route.get("/", professionalsController.index)
+
 // get a form for creating a new professional
 route.get('/new', professionalsController.new);
 
