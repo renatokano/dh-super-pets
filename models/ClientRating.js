@@ -14,17 +14,14 @@ module.exports = (sequelize, Datatypes) => {
           client_id: {
               type: Datatypes.INTEGER,
               allowNull: false,
-              references: { model:'Appointments', key:'client_id' }
           },
           professional_id: {
             type: Datatypes.INTEGER,
             allowNull: false,
-            references: { model:'Appointments', key:'professional_id' }
         },
           start_time: {
               type: Datatypes.DATE,
               allowNull: false,
-              references: { model:'Appointments', key:'start_time' }
           },          
           created_at: Datatypes.DATE,
           updated_at: Datatypes.DATE,

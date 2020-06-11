@@ -4,17 +4,17 @@ module.exports = (sequelize, Datatypes) => {
           client_id: {
               type: Datatypes.INTEGER,
               allowNull: false,
-              references: { model:'Appointments', key:'client_id' }
+              primaryKey: true
           },
           professional_id: {
             type: Datatypes.INTEGER,
             allowNull: false,
-            references: { model:'Appointments', key:'professional_id' }
+            primaryKey: true
         },
           start_time: {
               type: Datatypes.DATE,
               allowNull: false,
-              references: { model:'Appointments', key:'start_time' }
+              primaryKey: true
           },
           status:{
             type: Datatypes.STRING,
@@ -36,26 +36,6 @@ module.exports = (sequelize, Datatypes) => {
           tableName: 'appointments'
         }
   );
-
-  // Relationships
- Appointment.associate = (models) => {
-    Appointment.hasOne(models.ClientRating, {
-      foreignKey: "client_id"
-  });
-
-    Appointment.hasOne(models.ProfessionalRating, {
-        foreignKey: "professional_id"
-    });
-
-    Appointment.belongsTo(models.Client, {
-      foreignKey: "client_id"
-  });
-
-  
-   Appointment.belongsTo(models.AvailableSlots, {
-        foreignKey: "professional_id"
-   });
-  };
 
   return Appointment;
 }

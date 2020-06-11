@@ -1,14 +1,15 @@
 module.exports = (sequelize, Datatypes) => {
-  const AvailableSlots = sequelize.define(
-      "AvailableSlots", {
+  const AvailableSlot = sequelize.define(
+      "AvailableSlot", {
           professional_id: {
-          type: Datatypes.INTEGER,
-          allowNull: false,
-          references: { model:'ProfessionalService', key:'professional_id' }
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            primaryKey: true
          },
           start_time: {
-              type: Datatypes.DATE,
-              allowNull: false
+            type: Datatypes.DATE,
+            allowNull: false,
+            primaryKey: true
           },
           status:{
             type: Datatypes.STRING,
@@ -23,17 +24,5 @@ module.exports = (sequelize, Datatypes) => {
         }
   );
 
-  // Relationships
- AvailableSlots.associate = (models) => {
-  AvailableSlots.hasMany(models.Appointment, {
-        foreignKey: "professional_id"
-    });
-
- AvailableSlots.belongsTo(models.ProfessionalService, {
-      foreignKey: "professional_id"
-  });
-  
-  };
-
-  return AvailableSlots;
+  return AvailableSlot;
 }
