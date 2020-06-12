@@ -70,9 +70,11 @@
         let query = `/professionals/search?services=${services}&neighborhood=${neighborhood}&date=${date}`
         const res = await fetch(query);
         const professionals = await res.json();
+
         let professional = '';
         let stars = '';
         content.innerHTML = '';
+        
         for(let i=0; i<professionals.length; i++){
           let fullStar = Math.round(professionals[i].stars);
           for(let j=0; j<5; j++){
