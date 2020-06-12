@@ -14,6 +14,10 @@ const usersRoutes = require('./routes/usersRoutes');
 const professionalsRoutes = require('./routes/professionalsRoutes');
 const servicesRoutes = require('./routes/servicesRoutes');
 const dbtestRoutes = require('./routes/dbtestRoutes');
+const servicesAPIv1Routes = require('./routes/api/v1/servicesRoutes');
+const neighborhoodsAPIv1Routes = require('./routes/api/v1/neighborhoodsRoutes');
+const pettypesAPIv1Routes = require('./routes/api/v1/petTypesRoutes');
+
 
 // Middlewares
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,6 +39,11 @@ app.use(indexRoutes);
 app.use('/users', usersRoutes);
 app.use('/professionals', professionalsRoutes);
 app.use('/services', servicesRoutes);
+
+// API v1
+app.use('/api/v1/services', servicesAPIv1Routes);
+app.use('/api/v1/neighborhoods', neighborhoodsAPIv1Routes);
+app.use('/api/v1/pettypes', pettypesAPIv1Routes);
 
 // Routes for tests
 // Use only in development environment
