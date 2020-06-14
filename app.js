@@ -13,7 +13,11 @@ const indexRoutes = require('./routes/indexRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const professionalsRoutes = require('./routes/professionalsRoutes');
 const servicesRoutes = require('./routes/servicesRoutes');
+const appointmentRoutes = require('./routes/appointmentRoutes');
+
 const dbtestRoutes = require('./routes/dbtestRoutes');
+
+
 const servicesAPIv1Routes = require('./routes/api/v1/servicesRoutes');
 const neighborhoodsAPIv1Routes = require('./routes/api/v1/neighborhoodsRoutes');
 const pettypesAPIv1Routes = require('./routes/api/v1/petTypesRoutes');
@@ -39,6 +43,7 @@ app.use(indexRoutes);
 app.use('/users', usersRoutes);
 app.use('/professionals', professionalsRoutes);
 app.use('/services', servicesRoutes);
+app.use('/appointments', appointmentRoutes);
 
 // API v1
 app.use('/api/v1/services', servicesAPIv1Routes);

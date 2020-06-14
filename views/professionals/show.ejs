@@ -1,4 +1,7 @@
 <%- include('../includes/head',{title:"Perfil Público Profissional"}) %>
+<style>
+
+</style>
 <body>
   <div class="ppp-grid-container">
     <div class="ppp-header">
@@ -6,52 +9,77 @@
     </div>
     <div class="ppp__profile">
 
-      <img class="ppp__photo" src="/img/prof-adm-photo.jpg" alt="User Photo">
+      <img class="ppp__photo" src="/img/professionals/<%= professional.photo ? professional.photo : "250x250.png"%>" alt="User Photo">
       
       <div class="ppp__coverage-area">
         <section>
           <h3 class="ppp__coverage-area-title">Atendimento</h3>
-          <div class="ppp__coverage-area-name">- Aclimação</div>
-          <div class="ppp__coverage-area-name">- Moema</div>
-          <div class="ppp__coverage-area-name">- Morumbi</div>
-          <div class="ppp__coverage-area-name">- Vila Olímpia</div>
+          <% for(let i=0; i<professional.coverage_areas.length; i++){ %>
+            <div class="ppp__coverage-area-name">- <%= professional.coverage_areas[i].name %></div>
+          <% } %>
       </div>
       <div class="ppp__pricelist">
         <section>
           <h3 class="ppp__pricelist-title">Serviços</h3>
-          <span class="ppp__pricelist-name">Pet Sitting</span>
-          <span class="ppp__pricelist-price">R$120</span>
+          <% for(let i=0; i<professional.Services.length; i++){ %>
+            <span class="ppp__pricelist-name"><%= professional.Services[i].name %></span>
+            <span class="ppp__pricelist-price">R$ <%= professional.Services[i].ProfessionalService.price %></span>
           <br/>
-          <span class="ppp__pricelist-name">Pet Walking</span>
-          <span class="ppp__pricelist-price">R$100</span>
+          <% } %>          
         </section>
       </div>
       <div class="ppp__custom-message">
-        "Paulista apaixonada por pets."
+        "<%= professional.about_me %>"
       </div>
       <div class="ppp__user-name">
-        Luana P. Ferreira
+        <%= professional.name %>
       </div>
       <div class="ppp__services">
         <span class="ppp__services-served">
-          Pet Sitting e Pet Walking
+          <% for(let i=0; i<professional.Services.length; i++) { %>
+            <%= professional.Services[i].name %>
+            <%= i < professional.Services.length-1 ? "/ " : ""%>
+          <% } %>
         </span>
       </div>
       <div class="ppp__stars">
-        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
-        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
-        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
-        <i class="fa fa-star ppp__star" aria-hidden="true"></i>
-        <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
-        <span class="ppp__stars-counter">(159)</span>
+        <% for(let i=0; i<Math.round(ratings[0].dataValues.average_rating); i++){ %>
+          <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+        <% } %>
+        <% for(let i=0; i<5-Math.round(ratings[0].dataValues.average_rating); i++){ %>
+          <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
+        <% } %>
+        <span class="ppp__stars-counter"> (<%= ratings[0].dataValues.count_rating %>)</span>
       </div>
       <div class="ppp__scheduling">
-        <a href="#">
-          <button class="ppp__scheduling-button">
-            Agendar
-          </button>
-        </a>
+      
+        
+        <div id="render_schedule">
+          <div>
+            <h2 class="p-calendar__head-title"> <%= moment(tomorrow).format('DD') %> de <%= moment(tomorrow).format('MMMM') %> a <%= moment(lastDay).format('DD') %> de <%= moment(lastDay).format('MMMM') %> de <%= moment(lastDay).format('YYYY') %></h2>
+          </div>
+          <div class="p-calendar__main">
+            <% for(let i=0; i<moment(lastDay).diff(moment(tomorrow), 'days')+1; i++){ %>
+              <div class="p-calendar__col">
+                <div class="p-calendar__col-inner experiment ">
+                  <div class="p-calendar__col-inner-head">
+                    <p class="p-calendar__weekday"><%= moment(tomorrow).add(i, 'days').format('ddd')%></p>
+                    <p class="p-calendar__day"><%= moment(tomorrow).add(i, 'days').format('DD')%></p>
+                  </div>
+                  <div class="p-calendar__col-inner-body">
+                    <% for(let j=0; j<7; j++){ %>
+                      <span class="p-calendar__time <% for(let k=0; k<slots.length; k++){ %>
+                        <%= moment(slots[k].start_time).format('YYYY-MM-DD HH:mm') == moment(tomorrow).add(8+2*j, 'hours').add(i, 'days').format('YYYY-MM-DD HH:mm') ? "p-calendar__time--available" : "" %>
+                      <% } %>" data-time="<%= moment(tomorrow).add(8+2*j, 'hours').add(i, 'days').format('YYYY-MM-DD HH:mm') %>"><%= 8+2*j %>:00</span>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
       </div>
+      
       <div class="ppp__photos-gallery">
         <img class="ppp__photos-1" src="/img/professional-photo-gallery-1.jpg" alt="Service Photos">
         <img class="ppp__photos-2" src="/img/professional-photo-gallery-2.jpg" alt="Service Photos">
@@ -68,10 +96,90 @@
           dos clientes receberam fotos do seu pet durante execução do serviço.
         </span>
       </div>
-
+      
     </div>
     <div class="ppp-footer">
       <%- include('../includes/footer') %> 
     </div>
-  </div> 
+  </div>
+
+  <!-- Appointment Modal -->
+  <div id="confirmAppointment" class="confirmAppointment">
+    <!-- Modal content -->
+    <div class="confirmAppointment__content">
+      <form method="get" id="confirmAppointment__content--form">
+        <label for="confirmAppointment__serviceId">Confirme o Serviço:</label>
+        <select id="confirmAppointment__serviceId" name="serviceId">
+          <% for(let i=0; i<professional.Services.length; i++){ %>
+            <option value="<%= professional.Services[i].id %>"><%= professional.Services[i].name %> - R$ <%= professional.Services[i].ProfessionalService.price %></option>
+            <% } %>
+        </select>
+        <input id="newAppointment" type="button" value="Confirmar Agendamento">
+      </form>
+      
+      <span class="confirmAppointment__close">&times;</span>
+    </div>
+  </div>
+  <script>
+    // When the user clicks anywhere outside of the appointment modal, close it
+    window.onclick = function(event) {
+      if (event.target == confirmAppointment) {
+        confirmAppointment.style.display = "none";
+      }
+    }
+
+    window.onload = function(){
+      // get the element that closes the appointment modal
+      let confirmAppointment__close = document.getElementsByClassName("confirmAppointment__close")[0];
+      // when the user clicks on (x), close the modal
+      confirmAppointment__close.onclick = function() {
+        confirmAppointment.style.display = "none";
+      }
+      // get the appointment modal element
+      let confirmAppointment = document.getElementById("confirmAppointment");
+      // get the professional ID
+      let professionalId = location.pathname.split('/professionals/')[1].split('-')[0];
+      // get the timeSlot that has been selected
+      let timeSlots = document.getElementsByClassName('p-calendar__time--available');
+      // initialize some variables
+      let timeSlotElement = '';      
+      let timeSlot = '';
+      // add an click event to all available timeSlots
+      for(let i=0; i<timeSlots.length; i++){
+        timeSlots[i].addEventListener('click', function(event){
+          // get the timeSlot element (span)
+          timeSlotElement = event.target
+          // get the timeSlot value
+          timeSlot = event.srcElement.attributes['data-time'].nodeValue;
+          // close the appointment modal
+          confirmAppointment.style.display = "block";
+        });
+      }
+
+      // get the submit button of the appointment modal
+      let newAppointment = document.getElementById("newAppointment");
+
+      // add a click event to submit button
+      newAppointment.addEventListener('click', function(event){
+        // get the select input element
+        let serviceId = document.getElementById("confirmAppointment__serviceId");
+        // get this value
+        serviceId = serviceId.options[serviceId.selectedIndex].value;
+        // get brings together all variables needs to generate a new appointment
+        setAppointment(professionalId, timeSlot, serviceId, timeSlotElement);
+        // close the appointment modal
+        confirmAppointment.style.display = "none";
+      });
+    }
+    
+    // API call using a async function to generate a new appointment
+    async function setAppointment(professionalId, timeSlot, serviceId, timeSlotElement){
+      // API call
+      let res = await fetch(`/appointments/${professionalId}/${timeSlot}/${serviceId}`);
+      // get response in a json format
+      let appointment = await res.json();
+      // if the appointment has been created with success, j/ disable the timeSlot
+      if(!appointment.error) timeSlotElement.classList.remove('p-calendar__time--available');
+    }
+  </script>
 </body>

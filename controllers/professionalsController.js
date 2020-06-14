@@ -2,15 +2,93 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.json')[env];
 const db = new Sequelize(config);
-const { PetType, Professional, Service, ProfessionalService, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
+const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
-const  moment = require('moment');
-
+const moment = require('../config/moment');
 
 const controller = {
-  show: (req,res)=>{
-    res.render('professionals/show');
+  show: async (req,res)=>{
+    try {
+      // get the uuid
+      let {id: uuid} = req.params;
+      // uuid -> id
+      let {id} = uuidUnmount(uuid);
+
+      // get more info about the professional
+      const professional = await Professional.findByPk(id,{
+        attributes: [
+          'id', 'name', 'about_me', 'photo', 'created_at',
+        ],
+        include: [{
+          model: Neighborhood,
+          as: "coverage_areas",
+          require: false,
+          attributes: [
+            'name'
+          ]
+        },
+        {
+          model: Service,
+          require: false,
+        }],
+        order: [
+          [Service,'name', 'ASC'],
+        ]
+      });
+
+      // get the average/count rating
+      let ratings = await ProfessionalRating.findAll({
+        where: {
+          professional_id: id
+        },
+        group: ['professional_id'],
+        attributes: [
+          'professional_id', 
+          [sequelize.fn('avg', sequelize.col('rating')), 'average_rating'],
+          [sequelize.fn('count', sequelize.col('id')), 'count_rating']
+        ]
+      });
+
+      // get all comments
+      let comments = await ProfessionalRating.findAll({
+        where: {
+          professional_id: id
+        },
+        attributes: ['comment']
+      });
+
+      // get the available slots
+      let days = 6; // default: 6 days
+      // get the limits
+      let {tomorrow, lastDay} = getDate(days);
+
+
+      // get all slots between tomorrow and lastDay
+      let slots = await AvailableSlot.findAll({
+        where:{
+          professional_id: id,
+          start_time: {
+            [Sequelize.Op.between]: [tomorrow, lastDay]
+          },
+          status: 'A' // get all available slots (note: Just A: Available)
+        }
+      });
+
+      // all is ok, just return the data
+      return res.render('professionals/show', {
+        slots,
+        comments,
+        ratings,
+        professional,
+        tomorrow,
+        lastDay,
+        moment
+      });
+    } catch {
+      // some problem here, redirect to the home
+      return res.redirect('/');
+    }    
   },
   admin: async (req,res) => {
      const { id: uuid } = req.params;
@@ -393,8 +471,39 @@ const controller = {
   }
 }
 
+// returns a literal object containing tomorrow (today+1) and the nth day
+const getDate = function (days=6){
+  let tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0);
+  tomorrow.setMinutes(0);
+  tomorrow.setSeconds(0);
+  tomorrow.setMilliseconds(0);
+
+  let lastDay = new Date();
+  lastDay.setDate(lastDay.getDate() + days);
+  lastDay.setHours(23);
+  lastDay.setMinutes(59);
+  lastDay.setSeconds(59);
+  lastDay.setMilliseconds(999);
+
+  return {
+    tomorrow,
+    lastDay
+  }
+}
+
 const uuidGenerate = function (professional) {
   return `${professional.id}-${professional.name.toLowerCase().replace(/\s+/g, '-')}`
+}
+
+const uuidUnmount = function (uuid){
+  let [id, ...name] = uuid.split("-");
+  name = name.join(" ");
+  return {
+    id,
+    name
+  }
 }
 
 const getAllStates = async function (){
