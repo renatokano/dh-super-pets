@@ -2,13 +2,93 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.json')[env];
 const db = new Sequelize(config);
-const { Professional, Service, ProfessionalService, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
+const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
+const moment = require('../config/moment');
 
 const controller = {
-  show: (req,res)=>{
-    res.render('professionals/show');
+  show: async (req,res)=>{
+    try {
+      // get the uuid
+      let {id: uuid} = req.params;
+      // uuid -> id
+      let {id} = uuidUnmount(uuid);
+
+      // get more info about the professional
+      const professional = await Professional.findByPk(id,{
+        attributes: [
+          'id', 'name', 'about_me', 'photo', 'created_at',
+        ],
+        include: [{
+          model: Neighborhood,
+          as: "coverage_areas",
+          require: false,
+          attributes: [
+            'name'
+          ]
+        },
+        {
+          model: Service,
+          require: false,
+        }],
+        order: [
+          [Service,'name', 'ASC'],
+        ]
+      });
+
+      // get the average/count rating
+      let ratings = await ProfessionalRating.findAll({
+        where: {
+          professional_id: id
+        },
+        group: ['professional_id'],
+        attributes: [
+          'professional_id', 
+          [sequelize.fn('avg', sequelize.col('rating')), 'average_rating'],
+          [sequelize.fn('count', sequelize.col('id')), 'count_rating']
+        ]
+      });
+
+      // get all comments
+      let comments = await ProfessionalRating.findAll({
+        where: {
+          professional_id: id
+        },
+        attributes: ['comment']
+      });
+
+      // get the available slots
+      let days = 6; // default: 6 days
+      // get the limits
+      let {tomorrow, lastDay} = getDate(days);
+
+
+      // get all slots between tomorrow and lastDay
+      let slots = await AvailableSlot.findAll({
+        where:{
+          professional_id: id,
+          start_time: {
+            [Sequelize.Op.between]: [tomorrow, lastDay]
+          },
+          status: 'A' // get all available slots (note: Just A: Available)
+        }
+      });
+
+      // all is ok, just return the data
+      return res.render('professionals/show', {
+        slots,
+        comments,
+        ratings,
+        professional,
+        tomorrow,
+        lastDay,
+        moment
+      });
+    } catch {
+      // some problem here, redirect to the home
+      return res.redirect('/');
+    }    
   },
   admin: async (req,res) => {
      const { id: uuid } = req.params;
@@ -280,14 +360,150 @@ const controller = {
       res.render('home/index');
     }
   },
-  index: async (req, res) => {
+  search: async (req, res) => {
+    let {services: professionalServiceId, neighborhood: neighborhoodId, date: dateToServiceId} = req.query;
+
+    professionalServiceId = professionalServiceId ? professionalServiceId : ''
+    neighborhoodId = neighborhoodId ? neighborhoodId : ''
+    dateToServiceId = dateToServiceId ? dateToServiceId : ''
+
+    // pagination config
+    let perPage = 5;
+    let page = 10;
+
+    // creating some filters based on user input
+    let neighborhoodFilter = neighborhoodId ? `WHERE neighborhoods.id=${neighborhoodId}` : ''
+    let professionalServiceFilter = professionalServiceId ? `WHERE services.id IN (${professionalServiceId})` : ''
+    let dateToServiceFilter = dateToServiceId ? `WHERE start_time BETWEEN '${dateToServiceId} 00:00:00' AND '${dateToServiceId} 23:59:59'` : ''
+
+    // subquery to get all professionals and group by professional.emails
+    let neighborhoodQuery = `SELECT professionals.*, GROUP_CONCAT(neighborhoods.name) as neighborhood_names, GROUP_CONCAT(neighborhoods.id) as neighborhood_ids
+      FROM professionals
+      INNER JOIN coverage_areas ON coverage_areas.professional_id=professionals.id
+      INNER JOIN neighborhoods ON neighborhoods.id=coverage_areas.neighborhood_id
+      ${neighborhoodFilter}
+      GROUP BY professionals.email`
+
+    // subquery to filter professionals by services
+    let professionalServicesQuery = `SELECT professionals.*
+      FROM (${neighborhoodQuery}) AS professionals
+      INNER JOIN professional_services ON professionals.id=professional_services.professional_id
+      INNER JOIN services ON professional_services.service_id=services.id
+      ${professionalServiceFilter}
+      GROUP BY professionals.email`
     
-    res.render('professionals/index');
+    // subquery to get all professionals ratings
+    let professionalRatings = `(SELECT professional_id, AVG(rating) AS stars, COUNT(rating) AS rating_amount
+      FROM professional_ratings
+      GROUP BY professional_id) as ratings`
+
+    // subquery to get all available slots
+    let availableSlots = `(SELECT professional_id, GROUP_CONCAT(start_time) AS slot_times, GROUP_CONCAT(status) AS slot_status
+      FROM available_slots
+      ${dateToServiceFilter}
+      GROUP BY professional_id) as slots`
+
+    // subquery to get all services offered
+    let allServices = `(SELECT professional_id, GROUP_CONCAT(service_id) AS all_services_id, GROUP_CONCAT(name) AS all_services, GROUP_CONCAT(price) AS all_prices
+    FROM professional_services
+    INNER JOIN services
+    ON professional_services.service_id = services.id
+    GROUP BY professional_id) AS allServices`
+
+    // subquery to get the coverage area
+    let coverageArea = `(SELECT professional_id, GROUP_CONCAT(neighborhoods.id) AS neighborhood_ids, GROUP_CONCAT(name) AS all_neighborhoods
+    FROM coverage_areas
+    INNER JOIN neighborhoods
+    ON coverage_areas.neighborhood_id = neighborhoods.id
+    GROUP BY professional_id) AS coverageAreas`
+
+    // query to get all professionals w/ all professional data, coverage area, services offered and professional ratings
+    const professionals = await db.query(`SELECT professionals.*, ratings.*, slots.*, allServices.*, coverageAreas.*
+      FROM (${professionalServicesQuery}) AS professionals
+      LEFT OUTER JOIN ${professionalRatings}
+      ON ratings.professional_id = professionals.id
+      INNER JOIN ${availableSlots}
+      ON slots.professional_id = professionals.id
+      INNER JOIN ${allServices}
+      ON allServices.professional_id = professionals.id
+      INNER JOIN ${coverageArea}
+      ON coverageAreas.professional_id = professionals.id
+      `, {
+      type: Sequelize.QueryTypes.SELECT
+    });
+
+    return res.json(professionals);
+  },
+  index: async (req, res) => {
+    let {services: serviceIdFilter, neighborhood: neighborhoodIdFilter, date: dateFilter} = req.query;
+
+    serviceIdFilter = serviceIdFilter ? serviceIdFilter : ''
+    neighborhoodIdFilter = neighborhoodIdFilter ? neighborhoodIdFilter : ''
+    dateFilter = dateFilter ? dateFilter : ''
+
+    const neighborhoods = await getAllNeighboords();
+    const services = await getAllServices();
+    const petTypes = await getAllPetTypes();
+
+    let currentDate = new Date();
+    let dateRange = [];
+
+    for(let i=0; i<7; i++){
+      currentDate = moment(currentDate).add(1, 'days');
+      dateRange.push([
+        moment(currentDate).format('YYYY-MM-DD').toString(),
+        moment(currentDate).format('DD/MM/YYYY').toString()
+      ]);
+    }
+
+    //return res.send(dateRange);
+
+    return res.render('professionals/index',{
+      neighborhoods,
+      services,
+      petTypes,
+      dateRange,
+      serviceIdFilter,
+      neighborhoodIdFilter,
+      dateFilter,
+      moment
+    });
+  }
+}
+
+// returns a literal object containing tomorrow (today+1) and the nth day
+const getDate = function (days=6){
+  let tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0);
+  tomorrow.setMinutes(0);
+  tomorrow.setSeconds(0);
+  tomorrow.setMilliseconds(0);
+
+  let lastDay = new Date();
+  lastDay.setDate(lastDay.getDate() + days);
+  lastDay.setHours(23);
+  lastDay.setMinutes(59);
+  lastDay.setSeconds(59);
+  lastDay.setMilliseconds(999);
+
+  return {
+    tomorrow,
+    lastDay
   }
 }
 
 const uuidGenerate = function (professional) {
   return `${professional.id}-${professional.name.toLowerCase().replace(/\s+/g, '-')}`
+}
+
+const uuidUnmount = function (uuid){
+  let [id, ...name] = uuid.split("-");
+  name = name.join(" ");
+  return {
+    id,
+    name
+  }
 }
 
 const getAllStates = async function (){
@@ -318,6 +534,16 @@ const getAllServices = async function (){
     {
       order: [
         ['name', 'ASC']
+      ]
+    }
+  );
+}
+
+const getAllPetTypes = async function (){
+  return await PetType.findAll(
+    {
+      order: [
+        ['id', 'ASC']
       ]
     }
   );

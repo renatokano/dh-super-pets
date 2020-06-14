@@ -29,6 +29,8 @@ route.get('/professionals/:id/area/generate', dbtestController.create_new_area);
 // CREATE A NEW PROFESSIONAL SERVICE
 route.get('/professionals/:id/service/generate', dbtestController.create_new_professional_service);
 
+route.get('/professionals/:id1/:id2/appointment/generate', dbtestController.create_new_appointment);
+
 
 /****************************************************************
  *    SELECT W/ JOINS

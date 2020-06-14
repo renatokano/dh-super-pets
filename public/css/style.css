@@ -2335,10 +2335,10 @@ hr{
   grid-template-areas: "ppp__photo ppp__photo ppp__photo ppp__photo" "ppp__user-name ppp__user-name ppp__user-name ppp__user-name" 
   "ppp__custom-message ppp__custom-message ppp__custom-message ppp__custom-message" 
   "ppp__services ppp__services ppp__services ppp__services " "ppp__stars ppp__stars ppp__stars ppp__stars"
+  "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"
   "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
   "ppp__coverage-area ppp__coverage-area ppp__coverage-area ppp__coverage-area" "ppp__pricelist ppp__pricelist ppp__pricelist ppp__pricelist"
-  "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"
-  "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"; 
+  "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"; 
   grid-area: ppp-profile; 
 }
 
@@ -2525,6 +2525,178 @@ hr{
   color: #3accaa!important;
 }
 
+/* Calendar Style */
+#render_schedule {
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: break-word;
+  line-height: 1.57142857;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  margin: 0 -5px;
+  user-select: none;
+  text-align: center;
+  color: #384047;
+  position: relative;
+  grid-area: render_schedule;
+}
+
+.p-calendar__head-title {
+  font-weight: inherit;
+  font-size: 16px;
+  display: inline-block;
+  margin: 20px 10px 15px 0;
+}
+
+.p-calendar__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-calendar__col {
+  width: 16.6666666667%;
+  float: left;
+  min-width: 90px;
+}
+
+.p-calender__col-inner {
+  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: break-word;
+  line-height: 1.57142857;
+  user-select: none;
+  text-align: center;
+  color: #384047;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  /* width: 14.28571429%; */
+  width: 16.6666666667%;
+  float: left;
+}
+
+.experiment {
+  margin: 0 5px;
+  padding: 0 5px;
+  border-top: 4px solid #3bb3bd;
+}
+
+.p-calendar__col-inner-head {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 14px 0;
+}
+
+.p-calendar__col-inner-body {
+  padding-bottom: 14px;
+}
+
+.p-calendar__time {
+  color: #aaa;
+  
+  line-height: 2.14285714;
+  border: 1px solid transparent;
+  display: block;
+  text-decoration: line-through;
+}
+
+.p-calendar__time--available {
+  color: #3bb3bd;
+  font-weight: bold;
+  text-decoration: none!important;
+}
+
+.p-calendar__time--available:hover {
+  color: #3bb3bd;
+  border: 1px solid #3bb3bd;
+}
+
+/* Professional Service Modal */
+.confirmAppointment {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.confirmAppointment__content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 40px 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  border-radius: 8px;
+}
+
+#confirmAppointment__serviceId {
+  border-radius: 5px;
+  height: 45px;
+  padding: 10px 20px;
+  
+}
+
+#confirmAppointment__content--form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#confirmAppointment__serviceId {
+  margin:15px 0px 10px 0px;
+}
+
+.confirmAppointment__close {
+  color: #aaa;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+.confirmAppointment__close:hover,
+.confirmAppointment__close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#newAppointment {
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #45e6c1;
+  margin: 10px;
+}
+
+.newAppointment__button--disabled {
+  pointer-events: none;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .ppp__profile { 
@@ -2534,10 +2706,10 @@ hr{
     grid-template-areas: "ppp__photo ppp__user-name ppp__user-name ppp__user-name" 
     "ppp__photo ppp__custom-message ppp__custom-message ppp__custom-message" 
     "ppp__services ppp__services ppp__stars ppp__stars"
+    "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"
     "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
     "ppp__coverage-area ppp__coverage-area ppp__pricelist ppp__pricelist"
-    "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"
-    "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"; 
+    "ppp__metrics ppp__metrics ppp__metrics ppp__metrics";
     grid-area: ppp-profile; 
   }
 
@@ -2582,17 +2754,20 @@ hr{
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1084px) {
   .ppp__profile { 
     display: grid;
     grid-template-columns: 3fr 1fr 8fr;
-    grid-template-areas: "ppp__photo . ppp__user-name" "ppp__photo . ppp__services" "ppp__photo . ppp__stars"
+    grid-template-areas: 
+    "ppp__photo . ppp__user-name" 
+    "ppp__photo . ppp__services" 
+    "ppp__photo . ppp__stars"
     "ppp__photo . ppp__scheduling"
-    "ppp__photo . ppp__photos-gallery"
-    "ppp__custom-message . ppp__photos-gallery"
-    "ppp__pricelist . ppp__photos-gallery"
+    "ppp__custom-message . ppp__scheduling"
+    "ppp__pricelist . ppp__scheduling"
     "ppp__coverage-area . ppp__photos-gallery"
-    "ppp__metrics . ppp__photos-gallery";
+    "ppp__metrics . ppp__photos-gallery"
+    ". . ppp__photos-gallery";
     grid-area: ppp-profile; 
   }
 

@@ -6,7 +6,7 @@ const config = require(__dirname + '/../config/database.json')[env];
 // create a connection w/ the database
 const db = new Sequelize(config);
 // import some sequelize models
-const { Neighborhood, City, State, Client, PetType, Pet, Professional, ProfessionalService, Service, CoverageArea } = require('../models/index');
+const { Neighborhood, City, State, Client, PetType, Pet, Professional, ProfessionalService, Service, CoverageArea, AvailableSlot, Appointment, ClientRating, ProfessionalRating } = require('../models/index');
 // generate fake data
 const faker = require('faker');
 faker.locale = "pt_BR";
@@ -174,6 +174,56 @@ const controller = {
       return res.send(area);
     }
     res.send('Already registered!');
+  },
+
+  create_new_appointment: async (req, res) => {
+    const {id1: professional_id, id2: client_id} = req.params;
+    let start_time = new Date();
+    let hour = faker.random.number({min:8, max:18});
+    start_time.setHours(hour, 0, 0);
+    let status = "C"
+    let rating1 = faker.random.number({min:2, max:5});
+    let rating2 = faker.random.number({min:2, max:5});
+
+    let service = await ProfessionalService.findOne({
+      where: {
+        professional_id
+      }
+    });
+
+    await AvailableSlot.create({
+      professional_id,
+      start_time,
+      status
+    });
+
+    await Appointment.create({
+      client_id,
+      professional_id,
+      start_time,
+      status,
+      price: service.price,
+      service_id: service.service_id
+    });
+
+    const clientRating = await ClientRating.create({
+      rating: rating1,
+      client_id,
+      start_time,
+      professional_id
+    });
+
+    const professionalRating = await ProfessionalRating.create({
+      rating: rating2,
+      comment: faker.lorem.paragraph(1),
+      client_id,
+      start_time,
+      professional_id
+    });
+
+    res.json({
+      clientRating
+    });
   },
 
   // create_new_professional_service
