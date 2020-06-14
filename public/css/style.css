@@ -50,18 +50,20 @@ body {
 /* header style */
 .header-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 2fr auto;
   grid-template-rows: 110px;
   gap: 0px 0px;
   grid-template-areas: "header-logo header-nav .";
   background-color: #ecf1f1;
   align-items: center;
   width:100%;
+  position: fixed;
+  z-index:9999;
 }
 .header-logo {
   grid-area: header-logo;
   display:grid;
-  grid-template-columns: 40px 37px 20px 160px 0.1fr;
+  grid-template-columns: 40px 37px 20px 160px 5px;
   grid-template-rows: auto;
   gap: 0px 0px;
   grid-template-areas: ". superpets-logo . text-logo . ";
@@ -81,6 +83,7 @@ body {
   grid-area:text-logo;
   color:#676767;
   font-weight: normal;
+  display:none;
 }
 
 .header-nav { 
@@ -92,6 +95,7 @@ body {
   grid-template-areas: " . user-name user-name user-name user-name user-name user-img .";
   align-items: center;
   justify-items: right;
+  position:relative;
  }
 
  .header__link {
@@ -120,6 +124,8 @@ body {
   width:67px;
   height:67px;
   margin-right: 5px;
+  position:relative;
+  top:-12px;
 }
 
 .prof-img{
@@ -137,14 +143,105 @@ body {
   display:none;
 }
 
-@media only screen and (max-width: 560px){
-  .text-logo{
+.nav-mobile{
+  background-color:transparent;
+  color:#676767;
+  position:absolute;
+  top:-100px;
+  width:100%;
+  padding-top:100px;
+  transform:translateX(100%);
+  transition: transform 400ms 100ms linear;
+  -moz-transition: transform 400ms 100ms linear;
+}
+
+.nav-mobile--active{
+  background-color:transparent;
+  color:#676767;
+  position:absolute;
+  top:-100px;
+  width:100%;
+  padding-top:100px;
+  transform:translateX(0);
+  transition: transform 400ms 100ms linear;
+  -moz-transition: transform 400ms 100ms linear; 
+}
+
+.nav-mobile__logo{
+  background-image: url(../img/pawprint.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width:37px;
+  height:37px;
+  position:absolute;
+  top:122px;
+  left:35px;
+  transform: rotate(50deg);
+  background-color:transparent;
+  display:inline-block;
+}
+
+.nav-mobile__homelink{
+  width:36px;
+  height:37px;
+  border:none;
+  display:inline-block;
+  outline:none;
+}
+
+.nav-mobile__item--close-icon{
+  display:inline-block;
+  background-image:url('../img/icon-close-round.svg');
+  cursor:pointer;
+  width:40px;
+  height:40px;
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-size:cover;
+  position:relative;
+  left:-22px;
+  top:10px;
+}
+
+.nav-mobile__item{
+  background-color:rgba(236, 241, 241,0.9);
+  text-transform:uppercase;
+  width:100%;
+  border-bottom: 1px solid #707070;
+  text-align:center;
+}
+
+.nav-mobile__item:first-child{
+  background-color:rgba(236, 241, 241,1);
+  text-align:right;
+  height:80px;
+  opacity:1;
+  padding:10px; 
+}
+
+.nav-mobile__link{
+  text-decoration:none;
+  color:#676767;
+  display:inline-block;
+  width:100%;
+  padding:20px 50px;
+}
+
+@media only screen and (min-width: 1080px){
+  .nav-mobile--active{
     display:none;
   }
 }
 
+@media only screen and (min-width: 560px){
+  .text-logo{
+    display:inline-block;
+  }
+}
 
-@media only screen and (max-width: 768px){
+
+@media only screen and (max-width: 1080px){
   .header-grid-container{
     grid-template-areas: "header-logo header-logo header-logo header-logo header-logo header-logo header-logo header-logo header-logo header-nav header-nav header-nav";  
   } 
@@ -184,6 +281,7 @@ body {
      display:inline-block;
      cursor:pointer;
    }
+
 }
 
 @media only screen and (max-width: 574px){
@@ -196,6 +294,45 @@ body {
   .hamburger-menu{
     transform: scale(1.1);
   }
+}
+
+.header-nav__menu{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items:center;
+  transform:translateX(-40px);
+  position:absolute;
+  width:90%;
+}
+
+.header-nav__link{
+  text-decoration:none;
+  color:#343638;
+  cursor:pointer;
+  font-weight: 500;
+  opacity:0.5;
+  text-transform:uppercase; 
+}
+
+.header-nav__btn{
+  border:none;
+  border-radius:20px;
+  background-color:#676767;
+  height:50px;
+  text-transform:uppercase; 
+}
+
+.header-nav__redirect{
+  text-decoration:none;
+  color:#fff;
+  padding:15px 45px;
+}
+
+@media only screen and (max-width: 1080px){
+.header-nav__menu{
+  display:none;
+}
 }
 
 /* home style */
@@ -2866,7 +3003,7 @@ hr{
   grid-area: services-header; 
 }
 
-.services-header * { 
+.services-header>* { 
   background-color: #fff;
 } 
 

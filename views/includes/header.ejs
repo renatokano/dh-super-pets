@@ -1,11 +1,29 @@
 <div class="header-grid-container">
   <div class="header-logo">
-      <section class="superpets-logo"></section>
+      <section class="superpets-logo"><a class="nav-mobile__homelink" href="/"></a></section>
       <h1 class="text-logo"><a class="header__link" href="/">SuperPets</a></h1>
   </div>
   <div class="header-nav">
+    <% if(locals.user_session!=null||locals.professional_session!=null){%>
     <p class="user-name">Olá, <%-username%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
     <section class="user-img" style="background-image: url('/img/clients/<%-img%>');"></section>
+    <%}else {%>
+      <ul class="header-nav__menu">
+        <li class="header-nav__list-item"><a class="header-nav__link" href="/professionals">profissionais</a></li>
+        <li class="header-nav__list-item"><a <a class="header-nav__link" href="/services">serviços</a></li>
+        <li class="header-nav__list-item"><a <a class="header-nav__link" href="/">avaliações</a></li>
+        <li class="header-nav__list-item"><button class="header-nav__btn"><a class="header-nav__redirect" href="/professionals/new">seja um profissional</a></button></li>
+      </ul>
+    <% } %>
     <section class="hamburger-menu"></section>
+  </div>
+  <div class="nav-mobile">
+    <ul class="nav-mobile__links">
+      <li class="nav-mobile__item"><span class="nav-mobile__logo" src="#" alt="logo"><a class="nav-mobile__homelink" href="/"></a></span><span class="nav-mobile__item--close-icon"></span></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/professionals/new">seja um profissional</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/professionals">nossos profissionais</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/">recomendações</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/faq">perguntas frequentes</a></li>
+    </ul>
   </div>
 </div>

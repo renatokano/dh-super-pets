@@ -50,3 +50,14 @@ async function petCompleteForm(petId, uuid){
   document.getElementById("editMyPets__castrated").checked = pet[0].castrated
   document.getElementById("editMyPets__notes").value = pet[0].notes
 }
+
+
+//show menu mobile
+document.querySelector('.hamburger-menu').addEventListener('click',()=>{
+  document.querySelector('.nav-mobile').className ='nav-mobile--active'; 
+});
+//hide menu mobile
+document.querySelector('.nav-mobile__item--close-icon').addEventListener('click',()=>{
+  document.querySelector('.nav-mobile--active').className ='nav-mobile';
+});
+
