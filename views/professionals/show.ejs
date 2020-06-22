@@ -42,18 +42,21 @@
           <% } %>
         </span>
       </div>
+      
       <div class="ppp__stars">
-        <% for(let i=0; i<Math.round(ratings[0].dataValues.average_rating); i++){ %>
+        <% let nstars = ratings == '' ? 0 : ratings[0].dataValues.average_rating %>
+        <% let nrating = ratings == '' ? 0 : ratings[0].dataValues.count_rating %>
+        
+        <% for(let i=0; i<Math.round(nstars); i++){ %>
           <i class="fa fa-star ppp__star" aria-hidden="true"></i>
         <% } %>
-        <% for(let i=0; i<5-Math.round(ratings[0].dataValues.average_rating); i++){ %>
+        <% for(let i=0; i<5-Math.round(nstars); i++){ %>
           <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
         <% } %>
-        <span class="ppp__stars-counter"> (<%= ratings[0].dataValues.count_rating %>)</span>
+        <span class="ppp__stars-counter"> (<%= nrating %>)</span>
       </div>
+
       <div class="ppp__scheduling">
-      
-        
         <div id="render_schedule">
           <div>
             <h2 class="p-calendar__head-title"> <%= moment(tomorrow).format('DD') %> de <%= moment(tomorrow).format('MMMM') %> a <%= moment(lastDay).format('DD') %> de <%= moment(lastDay).format('MMMM') %> de <%= moment(lastDay).format('YYYY') %></h2>
