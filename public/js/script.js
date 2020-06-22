@@ -61,3 +61,131 @@ document.querySelector('.nav-mobile__item--close-icon').addEventListener('click'
   document.querySelector('.nav-mobile--active').className ='nav-mobile';
 });
 
+
+//home search checkbox custom buttons
+const searchButton1 = () =>{
+  let btn1 = document.getElementById('btn-1');
+  let dogTraining = document.querySelector('.home-dog-training');
+  let dogTrainingBtn = document.querySelector('.dog-training-btn');
+  dogTrainingBtn.style.backgroundImage="url('/img/dog-training.svg')";
+  console.log(btn1.checked);
+  
+  btn1.addEventListener('click',()=>{
+    if(btn1.checked===true){
+      console.log('checked');
+      console.log(btn1.checked);
+      dogTraining.style.border='none';
+      dogTrainingBtn.style.backgroundImage="url('/img/dog-training-checked.svg')";
+      dogTrainingBtn.style.color='#fff';  
+    }else{
+      dogTraining.style.border='1px solid #000';
+      dogTrainingBtn.style.backgroundImage='none';
+      dogTrainingBtn.style.color='#000';
+      console.log('unchecked');
+      console.log(btn1.checked);   
+    }
+  })    
+}
+
+const searchButton2 = () =>{
+  let btn2 = document.getElementById('btn-2');
+  let petShower = document.querySelector('.home-pet-shower');
+  let petShowerBtn = document.querySelector('.pet-shower-btn');
+  petShowerBtn.style.backgroundImage="url('/img/shower-icon.svg')";
+  console.log(btn2.checked);
+  
+  btn2.addEventListener('click',()=>{
+    if(btn2.checked===true){
+      console.log('checked');
+      console.log(btn2.checked);
+      petShower.style.border='none';
+      petShowerBtn.style.backgroundImage="url('/img/shower-icon-checked.svg')";
+      petShowerBtn.style.color='#fff';  
+    }else{
+      petShower.style.border='1px solid #000';
+      petShowerBtn.style.backgroundImage='none';
+      petShowerBtn.style.color='#000';
+      console.log('unchecked');
+      console.log(btn2.checked);   
+    }
+  })    
+}
+
+const searchButton3 = () =>{
+  let btn3 = document.getElementById('btn-3');
+  let dogSitter = document.querySelector('.home-dog-sitter');
+  let dogSitterBtn = document.querySelector('.dog-sitter-btn');
+  dogSitterBtn.style.backgroundImage="url('/img/dog-sitting.svg')";
+  console.log(btn3.checked);
+  
+  btn3.addEventListener('click',()=>{
+    if(btn3.checked===true){
+      console.log('checked');
+      console.log(btn3.checked);
+      dogSitter.style.border='none';
+      dogSitterBtn.style.backgroundImage="url('/img/dog-sitting-checked.svg')";
+      dogSitterBtn.style.color='#fff';  
+    }else{
+      dogSitter.style.border='1px solid #000';
+      dogSitterBtn.style.backgroundImage='none';
+      dogSitterBtn.style.color='#000';
+      console.log('unchecked');
+      console.log(btn3.checked);   
+    }
+  })    
+}
+
+const searchButton4 = () =>{
+  let btn4 = document.getElementById('btn-4');
+  let dogWalk = document.querySelector('.home-dog-walk');
+  let dogWalkBtn = document.querySelector('.dog-walk-btn');
+  dogWalkBtn.style.backgroundImage="url('/img/dog-running.svg')";
+  console.log(btn4.checked);
+  
+  btn4.addEventListener('click',()=>{
+    if(btn4.checked===true){
+      console.log('checked');
+      console.log(btn4.checked);
+      dogWalk.style.border='none';
+      dogWalkBtn.style.backgroundImage="url('/img/dog-running-checked.svg')";
+      dogWalkBtn.style.color='#fff';  
+    }else{
+      dogWalk.style.border='1px solid #000';
+      dogWalkBtn.style.backgroundImage='none';
+      dogWalkBtn.style.color='#000';
+      console.log('unchecked');
+      console.log(btn4.checked);   
+    }
+  })    
+}
+
+const searchButton5 = () =>{
+  let btn5 = document.getElementById('btn-5');
+  let dogGroom = document.querySelector('.home-dog-groom');
+  let dogGroomBtn = document.querySelector('.dog-groom-btn');
+  dogGroomBtn.style.backgroundImage="url('/img/scissor-icon.svg')";
+  console.log(btn5.checked);
+  
+  btn5.addEventListener('click',()=>{
+    if(btn5.checked===true){
+      console.log('checked');
+      console.log(btn5.checked);
+      dogGroom.style.border='none';
+      dogGroomBtn.style.backgroundImage="url('/img/scissor-icon-checked.svg')";
+      dogGroomBtn.style.color='#fff';  
+    }else{
+      dogGroom.style.border='1px solid #000';
+      dogGroomBtn.style.backgroundImage='none';
+      dogGroomBtn.style.color='#000';
+      console.log('unchecked');
+      console.log(btn5.checked);   
+    }
+  })    
+}
+
+searchButton1();
+searchButton2();
+searchButton3();
+searchButton4();
+searchButton5();
+

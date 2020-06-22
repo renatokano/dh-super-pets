@@ -6,16 +6,33 @@
     </div>
     <div class="home-banner"><h1 class="home-banner__slogan">Encontre os <span class="home-banner__slogan--hl">melhores</span> profissionais de <span class="home-banner__slogan--hl">São Paulo</span> para cuidar do seu pet.</h1></div>
     <div class="home-search">
-      <form class="home-search-grid">
-        <div class="home-services"><label class="home-services__title" for="">Serviços</label></div>
-        <div class="home-dog-training"><a class="home-search__link-btn home-search__link-btn-t" href="">Adestramento</a></div>
-        <div class="home-pet-shower"><a class="home-search__link-btn home-search__link-btn-sh"  href="">Banho</a></div>
-        <div class="home-dog-sitter"><a class="home-search__link-btn home-search__link-btn-st" href="">Dog sitting</a></div>
-        <div class="home-dog-walk"><a class="home-search__link-btn home-search__link-btn-dw" href="">Dog Walking</a></div>
-        <div class="home-dog-groom"><a class="home-search__link-btn home-search__link-btn-dg" href="">Tosa</a></div>
+      <form class="home-search-grid" action="/professionals" method="get">
+        <div class="home-services">
+          <label class="home-services__title">Serviços</label>
+        </div>
+        <div class="home-dog-training">
+          <input id="btn-1" type="checkbox" class="home-search__link-btn home-search__link-btn--t">
+          <label class="dog-training-btn" for="btn-1">Adestramento</label>
+        </div>
+        <div class="home-pet-shower">
+          <input id="btn-2" type="checkbox" class="home-search__link-btn home-search__link-btn--sh">
+          <label class="pet-shower-btn" for="btn-2">Banho</label>
+        </div>
+        <div class="home-dog-sitter">
+          <input id="btn-3" type="checkbox" class="home-search__link-btn home-search__link-btn--st">
+          <label class="dog-sitter-btn" for="btn-3">Dog sitting</label>
+        </div>
+        <div class="home-dog-walk">
+          <input id="btn-4" type="checkbox" class="home-search__link-btn home-search__link-btn--dw">
+          <label class="dog-walk-btn" for="btn-4">Dog Walking</label>
+        </div>
+        <div class="home-dog-groom">
+          <input id="btn-5" type="checkbox" class="home-search__link-btn home-search__link-btn--dg">
+          <label class="dog-groom-btn" for="btn-5">Tosa</label>
+        </div>
         <div class="home-neighborhood">
-          <label class="home-city-regions" for="">Bairro</label>
-          <select class="choose-city-region" name="city-region" id="home-city-regions">
+          <label class="home-city-regions" for="home-city-regions">Bairro</label>
+          <select class="choose-city-region" name="city-region" id="home-city-regions" required>
             <option value="" disabled selected>Selecione um bairro</option>
             <option value="Vila Olimpia">Vila Olímpia</option>
             <option value="Moema">Moema</option>
@@ -24,9 +41,9 @@
           </select>
         </div>
         <div class="home-date-time">
-          <label class="home-date" for="date">Data</label>
+          <label class="home-date" for="choose-date">Data</label>
           <select class="choose-date" type="date" name="choose-date" id="choose-date"   required>
-            <option value="" disabled selected>16/03/2020</option>
+            <option value="" disabled selected>Selecione uma data</option>
             <option value="">17/03/2020</option>
             <option value="">18/03/2020</option>
             <option value="">19/03/2020</option>
@@ -34,14 +51,15 @@
         </div>
         <div class="home-my-pet">
           <label class="home-pet" for="pet-weight">Meu Pet</label>
-          <select class="choose-pet-weight" name="" id="">
+          <select class="choose-pet-weight" name="pet-weight" id="pet-weight" required>
+            <option value="" disabled selected>Selecione o peso</option>
             <option value="">Cão até 10kg</option>
             <option value="">Cão de 11 a 20kg</option>
             <option value="">Cão acima de 20kg</option>
           </select>
         </div>
         <div class="home-search-btn">
-          <input class="home-search-btn-input" type="button" value="BUSCAR">
+          <input class="home-search-btn-input" type="submit" value="BUSCAR">
         </div>
       </form>
     </div>
@@ -117,4 +135,5 @@
       <%- include('../includes/footer') %>
     </div>
   </div>
+  <script src="/public/js/script.js"></script>
 </body>

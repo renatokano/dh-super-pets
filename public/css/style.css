@@ -562,24 +562,25 @@ hr{
   grid-area: home-dog-training;
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/dog-training.png);
+  background-image: url(../img/dog-training.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
   display:flex;
+  position:relative;
 }
 .home-pet-shower {
   grid-area: home-pet-shower; 
-  border:1px solid #45e6c1;
+  border:1px solid #000;
   border-radius: 10px;
-  background-color: #45e6c1;
   background-image: url(../img/shower-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
   display:flex;
+  position:relative;
 }
 
 .home-dog-sitter { 
@@ -592,6 +593,7 @@ hr{
   background-position-y: 20px;
   background-size: 24px 24px;
   display:flex;
+  position:relative;
 }
 .home-dog-walk { 
   grid-area: home-dog-walk;
@@ -603,11 +605,11 @@ hr{
   background-position-y: 20px;
   background-size: 24px 24px;
   display:flex;
+  position:relative;
  }
 .home-dog-groom { 
   grid-area: home-dog-groom;
-  border:1px solid #45e6c1;
-  background-color: #45e6c1;
+  border:1px solid #000;
   border-radius: 10px;
   background-image: url(../img/scissor-icon.svg);
   background-repeat: no-repeat;
@@ -615,13 +617,14 @@ hr{
   background-position-y: 20px;
   background-size: 24px 24px;
   display:flex;
- }
+  position:relative;
+}
 
-.home-search__link-btn-dg,.home-search__link-btn-sh{
+.home-search__link-btn--dg,.home-search__link-btn--sh{
   color:#fff;
 }
 
-.home-search__link-btn-t,.home-search__link-btn-dw,.home-search__link-btn-st{
+.home-search__link-btn--t,.home-search__link-btn--dw,.home-search__link-btn--st{
   color:#707070;
 }
 
@@ -634,6 +637,73 @@ hr{
 .home-services__title,.home-city-regions,.home-date,.home-pet{
   color:#888;
   font-weight: 600;
+  text-align:left;
+}
+
+.home-search-grid input{
+  display:none;
+  width:100%;
+}
+
+.home-search-grid label{
+  text-align:left;
+  width:100%;
+}
+
+.home-search-grid input:checked + label,
+.home-search-grid input:checked + label:active{
+  border:1px solid #45e6c1;
+  background-color: #45e6c1;
+  display:inline-block;
+  width:100%;
+  border:none;
+  border-radius:10px;
+}
+
+.home-dog-training>label,.home-pet-shower>label,.home-dog-sitter>label,.home-dog-walk label,.home-dog-groom>label{
+  text-align: center;
+  padding-top:50px;
+  cursor:pointer;
+}
+
+.dog-training-btn{
+  background-image: url(../img/dog-training-checked.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;
+}
+
+.pet-shower-btn{
+  background-image: url(../img/shower-icon-checked.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px; 
+}
+
+.dog-sitter-btn{
+  background-image: url(../img/dog-sitting-checked.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;   
+}
+
+.dog-walk-btn{
+  background-image: url(../img/dog-sitting-checked.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px;   
+}
+
+.dog-groom-btn{
+  background-image: url(../img/dog-sitting-checked.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 20px;
+  background-size: 24px 24px; 
 }
 
 .home-neighborhood,.home-date-time,.home-my-pet{
@@ -663,7 +733,7 @@ hr{
   margin-bottom:5px;
 }
 
-.home-search-btn-input{
+.home-search-btn input{
   width:100%;
   border:none;
   border-radius:20px;
@@ -672,6 +742,7 @@ hr{
   background-color: #45e6c1;
   height:50px;
   padding:auto;
+  display:inline-block;
  }
 
 /* media query for large devices(width:700px and up)*/
