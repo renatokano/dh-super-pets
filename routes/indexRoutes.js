@@ -1,11 +1,12 @@
 const express = require('express');
 const indexController = require('../controllers/indexController');
 const authController = require('../controllers/authController');
+const formDataMiddleware = require('../middleware/formData');
 
 let route = express.Router();
 
 // get home page
-route.get('/', indexController.index);
+route.get('/', formDataMiddleware, indexController.index);
 
 // get about-us page
 route.get('/about-us', indexController.aboutUs);
