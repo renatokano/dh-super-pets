@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 // env ~> our environment (production or development)
 const env = process.env.NODE_ENV || 'development';
 // based on our environment, get the correct db configuration file
-const config = require(__dirname + '/../config/database.json')[env];
+const config = require(__dirname + '/../config/database.js')[env];
 // create a connection w/ the database
 const db = new Sequelize(config);
 // import some sequelize models

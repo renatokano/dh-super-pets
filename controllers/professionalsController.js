@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/database.json')[env];
+const config = require(__dirname + '/../config/database.js')[env];
 const db = new Sequelize(config);
 const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
