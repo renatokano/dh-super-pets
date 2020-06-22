@@ -441,28 +441,10 @@ const controller = {
     neighborhoodIdFilter = neighborhoodIdFilter ? neighborhoodIdFilter : ''
     dateFilter = dateFilter ? dateFilter : ''
 
-    const neighborhoods = await getAllNeighboords();
-    const services = await getAllServices();
     const petTypes = await getAllPetTypes();
 
-    let currentDate = new Date();
-    let dateRange = [];
-
-    for(let i=0; i<7; i++){
-      currentDate = moment(currentDate).add(1, 'days');
-      dateRange.push([
-        moment(currentDate).format('YYYY-MM-DD').toString(),
-        moment(currentDate).format('DD/MM/YYYY').toString()
-      ]);
-    }
-
-    //return res.send(dateRange);
-
     return res.render('professionals/index',{
-      neighborhoods,
-      services,
       petTypes,
-      dateRange,
       serviceIdFilter,
       neighborhoodIdFilter,
       dateFilter,

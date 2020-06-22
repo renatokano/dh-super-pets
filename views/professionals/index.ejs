@@ -11,8 +11,8 @@
           <select class="pet-services" name="services" id="services">
             <option value="" selected>Todos os serviços
             </option>
-            <% for(let i=0; i<services.length; i++){ %>
-              <option value="<%= services[i].id %>"><%= services[i].name %></option>
+            <% for(let i=0; i<input_services.length; i++){ %>
+              <option value="<%= input_services[i].id %>"><%= input_services[i].name %></option>
             <% } %>
           </select>
         </div>
@@ -20,8 +20,8 @@
           <label class="neighborhood-input__title" for="neighborhood">Bairro</label>
           <select class="neighborhood" name="neighborhood" id="neighborhood">
             <option value="" selected>Todos os bairro</option>
-            <% for(let i=0; i<neighborhoods.length; i++){ %>
-              <option value="<%= neighborhoods[i].id %>"><%= neighborhoods[i].name %></option>
+            <% for(let i=0; i<input_neighborhoods.length; i++){ %>
+              <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
             <% } %>
           </select>
         </div>
@@ -29,8 +29,8 @@
           <label class="pickdate-input__title" for="date">Data</label>
           <select class="pickdate" name="date" id="date">
             <option value="" selected>Datas disponíveis</option>
-            <% for(let i=0; i<dateRange.length; i++){ %>
-              <option value="<%= dateRange[i][0] %>"><%= dateRange[i][1] %></option>
+            <% for(let i=0; i<input_date_range.length; i++){ %>
+              <option value="<%= input_date_range[i][0] %>"><%= input_date_range[i][1] %></option>
             <% } %>
           </select>
         </div>
@@ -124,8 +124,8 @@
         }, false);
 
         let queryParams = new URLSearchParams(location.search);
-        let services = queryParams.getAll('services').map(Number);
-        services = services ? services : '';
+        let services = queryParams.get('services');
+        services = services ? services.split(',').map(Number) : '';
         let neighborhood = queryParams.get('neighborhood');
         neighborhood = neighborhood ? neighborhood : '';
         let date = queryParams.get('date');

@@ -5,13 +5,14 @@ const authProfessionalController = require('../controllers/authProfessionalContr
 const professionalServicesController = require('../controllers/professionalServicesController');
 const route = express.Router();
 const professionalAuthentication = require('../middleware/professionalAuthentication');
+const formDataMiddleware = require('../middleware/formData');
 const upload = require('../middleware/professionalsUpload');
 
 
 route.get('/login', authProfessionalController.professionalCreate);
 route.post('/login', authProfessionalController.professionalStore);
 
-route.get("/", professionalsController.index);
+route.get("/", formDataMiddleware, professionalsController.index);
 
 // get a form for creating a new professional
 route.get('/new', professionalsController.new);
