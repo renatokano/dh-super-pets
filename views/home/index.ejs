@@ -12,23 +12,52 @@
           <label class="home-services__title">Serviços</label>
         </div>
         <div class="home-dog-training">
-          <input name='adestramento' id="btn-1" type="checkbox" class="home-search__link-btn home-search__link-btn--t">
+          <input name='adestramento' 
+            serviceid='<% for(let i=0; i<input_services.length; i++) { %>
+                <% if(input_services[i].name == 'Adestramento') { %>
+                  <%= input_services[i].id %>
+                <% } %>
+              <% } %>' 
+              id="btn-1" type="checkbox" class="home-search__link-btn home-search__link-btn--t">
           <label class="dog-training-btn" for="btn-1">Adestramento</label>
         </div>
         <div class="home-pet-shower">
-          <input name='banho' id="btn-2" type="checkbox" class="home-search__link-btn home-search__link-btn--sh">
+          <input name='banho'
+            serviceid='<% for(let i=0; i<input_services.length; i++) { %>
+              <% if(input_services[i].name == 'Banho') { %>
+                <%= input_services[i].id %>
+              <% } %>
+            <% } %>'  id="btn-2" type="checkbox" class="home-search__link-btn home-search__link-btn--sh">
           <label class="pet-shower-btn" for="btn-2">Banho</label>
         </div>
         <div class="home-dog-sitter">
-          <input name='pet_sitting' id="btn-3" type="checkbox" class="home-search__link-btn home-search__link-btn--st">
-          <label class="dog-sitter-btn" for="btn-3">Dog sitting</label>
+          <input name='pet_sitting'
+          serviceid='<% for(let i=0; i<input_services.length; i++) { %>
+            <% if(input_services[i].name == 'Pet Sitting') { %>
+              <%= input_services[i].id %>
+            <% } %>
+            <% } %>' 
+           id="btn-3" type="checkbox" class="home-search__link-btn home-search__link-btn--st">
+          <label class="dog-sitter-btn" for="btn-3">Pet sitting</label>
         </div>
         <div class="home-dog-walk">
-          <input name='dog_walking' id="btn-4" type="checkbox" class="home-search__link-btn home-search__link-btn--dw">
+          <input name='dog_walking'
+            serviceid='<% for(let i=0; i<input_services.length; i++) { %>
+              <% if(input_services[i].name == 'Dog Walking') { %>
+                <%= input_services[i].id %>
+              <% } %>
+            <% } %>'
+            id="btn-4" type="checkbox" class="home-search__link-btn home-search__link-btn--dw">
           <label class="dog-walk-btn" for="btn-4">Dog Walking</label>
         </div>
         <div class="home-dog-groom">
-          <input name='tosa' id="btn-5" type="checkbox" class="home-search__link-btn home-search__link-btn--dg">
+          <input name='tosa'
+            serviceid='<% for(let i=0; i<input_services.length; i++) { %>
+              <% if(input_services[i].name == 'Tosa') { %>
+                <%= input_services[i].id %>
+              <% } %>
+            <% } %>' 
+           id="btn-5" type="checkbox" class="home-search__link-btn home-search__link-btn--dg">
           <label class="dog-groom-btn" for="btn-5">Tosa</label>
         </div>
         <div class="home-neighborhood">
@@ -59,7 +88,7 @@
           </select>
         </div>
         <div class="home-search-btn">
-          <input class="home-search-btn-input" type="submit" value="BUSCAR">
+          <input id='home-search-btn__input' class="home-search-btn-input" type="submit" value="BUSCAR">
         </div>
       </form>
     </div>
@@ -135,5 +164,44 @@
       <%- include('../includes/footer') %>
     </div>
   </div>
+  <script>
+    window.onload = function(){
+      let searchBtn = document.getElementById('home-search-btn__input');
+      searchBtn.addEventListener('click', event => {
+        event.preventDefault();
+        let services=[];
+        
+        // adestramento
+        let adestramento = document.getElementById('btn-1');
+        if (adestramento.checked) services.push(adestramento.getAttribute('serviceid').trim());
+
+        // banho
+        let banho = document.getElementById('btn-2');
+        if (banho.checked) services.push(banho.getAttribute('serviceid').trim());
+
+        // pet_sitting
+        let pet_sitting = document.getElementById('btn-3');
+        if (pet_sitting.checked) services.push(pet_sitting.getAttribute('serviceid').trim());
+
+        // dog_walking
+        let dog_walking = document.getElementById('btn-4');
+        if (dog_walking.checked) services.push(dog_walking.getAttribute('serviceid').trim());
+
+        // tosa
+        let tosa = document.getElementById('btn-5');
+        if (tosa.checked) services.push(tosa.getAttribute('serviceid').trim());
+
+        // neighborhood
+        let neighborhood = document.getElementById('home-city-regions').value;
+
+        // date
+        let date = document.getElementById('choose-date').value;
+
+        // [get] request
+        window.open(`/professionals?services=${services}&neighborhood=${neighborhood}&date=${date}`, '_self');
+
+      });
+    }
+  </script>
   
 </body>
