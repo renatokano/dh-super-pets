@@ -71,7 +71,7 @@ const searchButton1 = () =>{
   console.log(btn1.checked);
   
   btn1.addEventListener('click',()=>{
-    if(btn1.checked===true){
+    if(btn1.checked){
       console.log('checked');
       console.log(btn1.checked);
       dogTraining.style.border='none';
@@ -95,7 +95,7 @@ const searchButton2 = () =>{
   console.log(btn2.checked);
   
   btn2.addEventListener('click',()=>{
-    if(btn2.checked===true){
+    if(btn2.checked){
       console.log('checked');
       console.log(btn2.checked);
       petShower.style.border='none';
@@ -119,7 +119,7 @@ const searchButton3 = () =>{
   console.log(btn3.checked);
   
   btn3.addEventListener('click',()=>{
-    if(btn3.checked===true){
+    if(btn3.checked){
       console.log('checked');
       console.log(btn3.checked);
       dogSitter.style.border='none';
@@ -143,7 +143,7 @@ const searchButton4 = () =>{
   console.log(btn4.checked);
   
   btn4.addEventListener('click',()=>{
-    if(btn4.checked===true){
+    if(btn4.checked){
       console.log('checked');
       console.log(btn4.checked);
       dogWalk.style.border='none';
@@ -167,7 +167,7 @@ const searchButton5 = () =>{
   console.log(btn5.checked);
   
   btn5.addEventListener('click',()=>{
-    if(btn5.checked===true){
+    if(btn5.checked){
       console.log('checked');
       console.log(btn5.checked);
       dogGroom.style.border='none';
