@@ -54,11 +54,14 @@ body {
   grid-template-rows: 110px;
   gap: 0px 0px;
   grid-template-areas: "header-logo header-nav .";
-  background-color: #ecf1f1;
+  background-color: #fff;
   align-items: center;
   width:100%;
   position: fixed;
   z-index:9999;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
 }
 .header-logo {
   grid-area: header-logo;
