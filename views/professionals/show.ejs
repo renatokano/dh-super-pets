@@ -1,7 +1,8 @@
 <%- include('../includes/head',{title:"Perfil Público Profissional"}) %>
 <body>
-  <%- include('../includes/flash_messages') %>
-
+  <div id="flash_messages">
+    <%- include('../includes/flash_messages') %>
+  </div>
   <div class="ppp-grid-container">
     <div class="ppp-header">
       <%- include('../includes/header') %>
@@ -52,7 +53,7 @@
         <% for(let i=0; i<5-Math.round(nstars); i++){ %>
           <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
         <% } %>
-        <span class="ppp__stars-counter"> (<%= nrating %>)</span>
+        <span class="ppp__stars-counter">&nbsp;(<%= nrating %>)</span>
       </div>
 
       <div class="ppp__scheduling">
@@ -181,7 +182,12 @@
       // get response in a json format
       let appointment = await res.json();
       // if the appointment has been created with success, j/ disable the timeSlot
-      if(!appointment.error) timeSlotElement.classList.remove('p-calendar__time--available');
+      if(!appointment.error) {
+        timeSlotElement.classList.remove('p-calendar__time--available');
+        location.reload();
+      } else {
+        location.reload();
+      }
     }
   </script>
 </body>
