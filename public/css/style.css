@@ -736,14 +736,13 @@ hr{
 .home-search-btn input{
   width:100%;
   border:none;
-  border-radius:20px;
+  border-radius:18px;
   color:#fff;
   cursor:pointer;
   background-color: #45e6c1;
   height:50px;
-  padding:auto;
   display:inline-block;
- }
+}
 
 /* media query for large devices(width:700px and up)*/
 @media only screen and (min-width:700px){
@@ -758,9 +757,9 @@ hr{
 /* mobile-first (mobile/tablets, max. 992px) */
 @media only screen and (min-width:992px){
   .home-search-grid {
-    width:80vw;
+    width:1100px;
     display: grid;
-    grid-template-columns: 10px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 10px;
+    grid-template-columns: 50px 150px 60px 150px 60px 150px 60px 150px 60px 150px 50px;
     grid-template-rows: 10px auto 5px 90px 5px auto 5px;
     gap: 1px 1px;
     grid-template-areas: 
@@ -771,27 +770,32 @@ hr{
     ". . . . . . . . . . ." 
     ". home-neighborhood home-neighborhood home-neighborhood  . home-date-time . home-my-pet . home-search-btn ." 
     ". . . . . . . . . . ."; 
-    height:auto;
+    height:300px;
     background-color: #fff;
     border:1px solid #010101;
     border-radius:10px;
     position:absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, 110%);
-    padding:30px;
+    transform: translate(-50%, 16.5vh);
+    padding:30px 0;
+    overflow:hidden;
   }
 
   .home-banner {
-    height:100vh;
+    height:95vh;
+    margin-top:-110px;
+    background-position:0 -16%;
   }
+
   .home-banner__slogan{
     width:30%;
     position:absolute;
-    top:30%;
-    left:7.5%;
-    line-height:1.6em;
-    font-size: 2.5em;
+    top:35%;
+    left:15%;
+    line-height:1.4em;
+    font-size: 2.5vw;
+    margin:0;
   }
 
   .home-pet,.home-date{
