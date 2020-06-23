@@ -3821,7 +3821,6 @@ hr{
 .ulp-logo { 
   grid-area: ulp-logo; 
   background-color: #f4f7f9;
-  margin-top:15px;
   padding:30px 0;
 }
 
@@ -4032,7 +4031,6 @@ hr{
 .plp-logo { 
   grid-area: plp-logo; 
   background-color: #f4f7f9;
-  margin-top:15px;
   padding:30px 0;
 }
 
@@ -4043,6 +4041,7 @@ hr{
   background-repeat: no-repeat;
   background-color: transparent;
   margin:0 auto;
+  margin-top:25px;
   transform: rotate(55deg);
 }
 
