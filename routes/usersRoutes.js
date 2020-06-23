@@ -6,6 +6,7 @@ const router = express.Router();
 const clientAuthentication = require('../middleware/clientAuthentication');
 const clientsUpload = require('../middleware/clientsUpload');
 const petsUpload = require('../middleware/petsUpload');
+const formDataMiddleware = require('../middleware/formData');
 
 // display a list of all users
 //router.get('/', (req,res)=>{
@@ -17,7 +18,7 @@ router.get('/login', authController.userCreate);
 router.post('/login', authController.userStore);
 
 // get a form for creating a new user
-router.get('/new', usersController.new);
+router.get('/new', formDataMiddleware, usersController.new);
 
 // display an admin area 
 router.get('/:id/admin', clientAuthentication, usersController.admin);
