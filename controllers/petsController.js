@@ -10,12 +10,21 @@ const { Pet, PetType, Client } = require('../models/index');
 
 const controller = {
   create: async (req, res) => {
+    // check if user is logged
+    if(!req.session.client) {
+      req.flash('error', 'É necessário que esteja logado para continuar!');
+      return res.redirect(`/users/login`); 
+    }
+
     const {...data} = req.body;
     const {id: client_id, uuid} = req.session.client;
     data.client_id = client_id;
     let [file] = req.files;
 
-    // duplicate is not permited
+    // check if the photo was sent, else set default
+    const photo = file ? file.filename : '800x500.png';
+
+    // duplicate is not allowed
     const isDuplicate = await Pet.findOne({
       where: {
         name: data.name,
@@ -24,7 +33,7 @@ const controller = {
     });
 
     if(isDuplicate) {
-      console.log("Pet já cadastrado.");
+      req.flash('error', 'Pet já cadastrado! Caso tenha outro pet, utilize outro nome.');
       return res.redirect(`/users/${uuid}/admin`);
     }
 
@@ -40,28 +49,26 @@ const controller = {
         vaccinated: data.vaccinated == "on" ? 1 : 0,
         castrated: data.castrated == "on" ? 1 : 0,
         notes: data.notes,
-        photo: file.filename,
+        photo,
         pet_type_id: data.pet_type_id,
         client_id: data.client_id,
         created_at: new Date(),
         updated_at: new Date()
       },{transaction});
       await transaction.commit();
+      // success
+      req.flash('success', `Pet ${data.name} cadastrado com sucesso!`);
       return res.redirect(`/users/${uuid}/admin`);
 
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      req.flash('error', 'Houve um erro no processamento. Tente novamente mais tarde!');
+      return res.redirect('/');
     }
-
-    return res.send(data);
   },
   show: async (req, res) => {
     try{
       const { id } = req.session.client;
-      console.log(`id=${id}`);
       
       const user = await Client.findByPk(id,{
         attributes: ['id', 'name'],
@@ -84,8 +91,10 @@ const controller = {
     const pet = await Pet.findByPk(data.editMyPets__id);
     
     // is the pet owner?
-    if (pet.client_id != id) 
-      return res.render('home/index');
+    if (pet.client_id != id){
+      req.flash('error', 'Acesso negado! Você deve ser dono desse pet para realizar modificações.');
+      return res.redirect('/');
+    }
 
     // have a new image
     if(typeof(file) == 'undefined') {
@@ -115,12 +124,12 @@ const controller = {
         transaction
       });
       await transaction.commit();
+      req.flash('success', `Pet modificado com sucesso!`);
       return res.redirect(`/users/${uuid}/admin`);
     } catch(error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      return res.render('home/index');
+      req.flash('error', 'Houve um erro no processamento. Tente novamente mais tarde!');
+      return res.redirect('/');
     }
   }
 }
