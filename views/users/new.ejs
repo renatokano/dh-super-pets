@@ -58,10 +58,8 @@
         <label for="neighborhood">Bairro</label>
         <select name="neighborhood_id" id="neighborhood" class="ur-main__neighborhood-select" required>
           <option disabled>Selecione o bairro</option>
-          <% for(let i=0; i<cities.length; i++){ %>
-            <% for(let j=0; j<cities[i].Neighborhoods.length; j++){ %>
-              <option value="<%= cities[i].Neighborhoods[j].id %>"><%= cities[i].Neighborhoods[j].name %></option>
-            <% } %>  
+          <% for(let i=0; i<input_neighborhoods.length; i++){ %>
+            <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
           <% } %>
         </select>
       </div>
@@ -69,8 +67,8 @@
         <label for="city">Cidade</label><br/>
         <select name="city_id" id="city" class="ur-main__city-select" required>
           <option disabled>Selecione a cidade</option>
-          <% for(let i=0; i<cities.length; i++){ %>
-            <option value="<%= cities[i].id %>" selected><%= cities[i].name %></option>
+          <% for(let i=0; i<input_cities.length; i++){ %>
+            <option value="<%= input_cities[i].id %>"><%= input_cities[i].name %></option>
           <% } %>
         </select>
       </div>

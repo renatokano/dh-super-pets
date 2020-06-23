@@ -9,7 +9,7 @@
     </div>
     <!-- Dados do perfil público -->
     <div class="upublicp__profile">
-      <img class="upublicp__photo" src="/img/clients/<%= user.photo %>" alt="User Photo">
+      <img class="upublicp__photo" src="/img/clients/<%= user ? user.photo : '250x250.png' %>" alt="User Photo">
       <div class="upublicp__custom-message">
         "<%= user.about_me %>"
       </div>
