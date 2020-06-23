@@ -19,7 +19,7 @@ const controller = {
       where: {
         email
       },
-      attributes: ['id', 'name', 'email', 'password']
+      attributes: ['id', 'name', 'email', 'password', 'photo']
     });
 
     const password_confirmation = user ? await bcrypt.compare(password, user.password) : '';
@@ -38,7 +38,9 @@ const controller = {
       id: user.id,
       name: user.name,
       email: user.email,
-      uuid
+      uuid,
+      username: user.name.toLowerCase().replace(/\s+/g, '-'),
+      photo: user.photo
     }
 
     // create a success flash message
