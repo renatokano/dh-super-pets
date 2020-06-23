@@ -24,13 +24,14 @@ const controller = {
         updated_at: new Date()
       },{transaction});
       await transaction.commit();
+      // create a success flash message
+      req.flash('success', 'Nova área de cobertura adicionada com sucesso!');
       return res.redirect(`/professionals/${uuid}/admin`);
 
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      req.flash('error', 'Houve um erro no processamento! Tente novamente');
+      return res.redirect(`/`); 
     }
   },
 
@@ -51,13 +52,13 @@ const controller = {
       }, {transaction});
 
       await transaction.commit();
+      req.flash('success', 'Área de cobertura removida com sucesso!');
       return res.redirect(`/professionals/${uuid}/admin`);
 
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      req.flash('error', 'Houve um erro no processamento! Tente novamente');
+      return res.redirect(`/`); 
     }
 
   }
