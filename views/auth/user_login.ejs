@@ -1,11 +1,7 @@
 <%- include('../includes/head',{title:"Login de Usuário"}) %>
 <body>
-  <% if (typeof alert !== "undefined") { %>
-    <div class="alert <%= `${alert.type}` %>">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-      <%= alert.msg %>
-    </div>
-  <% } %>
+  <%- include('../includes/flash_messages') %>
+  
   <div class="ulp-main">
     <form action="/users/login" class="ulp-grid-container" method="post">
       <div class="ulp-logo">

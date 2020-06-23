@@ -1,11 +1,6 @@
 <%- include('../includes/head',{title:"Perfil Administrativo"}) %>
 <body>
-  <% if (typeof alert !== "undefined") { %>
-    <div class="alert <%= `${alert.type}` %>">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-      <%= alert.msg %>
-    </div>
-  <% } %>
+  <%- include('../includes/flash_messages') %>
 
   <div class="uap-grid-container">
     <div class="uap-header">

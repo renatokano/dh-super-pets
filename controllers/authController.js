@@ -22,14 +22,13 @@ const controller = {
       attributes: ['id', 'name', 'email', 'password']
     });
 
-    const password_confirmation = await bcrypt.compare(password, user.password);
+    const password_confirmation = user ? await bcrypt.compare(password, user.password) : '';
 
-    if(!user || !password_confirmation) return res.render('auth/user_login', {
-      alert: {
-        msg: "Usuário ou senha inválidos",
-        type: "danger"
-      }
-    });
+    if(!user || !password_confirmation) {
+      // create a error flash message
+      req.flash('error', 'Usuário e/ou senha inválido(s).');
+      return res.render('auth/user_login');
+    }
 
     // generate an uuid
     const uuid = uuid_generate(user);
@@ -42,7 +41,9 @@ const controller = {
       uuid
     }
 
-    return res.redirect(`/users/${uuid}/admin`); 
+    // create a success flash message
+    req.flash('success', 'Usuário logado com sucesso!');
+    return res.redirect(`/users/${uuid}/admin`);
   },
   // GET /logout
   logout: (req, res, next) => {

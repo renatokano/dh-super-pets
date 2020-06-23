@@ -1,11 +1,7 @@
 <%- include('../includes/head',{title:"Cadastro de Usuário"}) %>
 <body>
-  <% if (typeof alert !== "undefined") { %>
-    <div class="alert <%= `${alert.type}` %>">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-      <%= alert.msg %>
-    </div>
-  <% } %>
+  <%- include('../includes/flash_messages') %>
+
   <div class="ur-grid-container">
     <div class="ur-header">
       <%- include('../includes/header') %>
