@@ -1,7 +1,7 @@
 <!-- 'error' flash message -->
 <% let messages = getMessages() %>
   <% if(messages.error) { %>
-    <div class="alert danger" style='display:block; position:relative; z-index:99999'>
+    <div class="alert danger" style='display:block; position:fixed; z-index:99999; width: 100%'>
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <%= messages.error[0] %>
     </div>
@@ -9,7 +9,7 @@
 
   <!-- 'success' flash message -->
   <% if(messages.success) { %>
-    <div class="alert success" style='display:block; position:relative; z-index:99999'>
+    <div class="alert success" style='display:block; position:fixed; z-index:99999; width: 100%'>
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <%= messages.success[0] %>
     </div>
