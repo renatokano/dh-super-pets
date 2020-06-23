@@ -24,14 +24,13 @@ const controller = {
       attributes: ['id', 'name', 'email', 'password']
     });
 
-    const password_confirmation = await bcrypt.compare(password, professional.password);
+    const password_confirmation = professional ? await bcrypt.compare(password, professional.password) : '';
 
-    if(!professional || !password_confirmation) return res.render('auth/professional_login', {
-      alert: {
-        msg: "Usuário ou senha inválidos",
-        type: "danger"
-      }
-    });
+    if(!professional || !password_confirmation){ 
+      // create a error flash message
+      req.flash('error', 'Usuário e/ou senha inválido(s).');
+      return res.render('auth/professional_login');
+    }
 
     const uuid = uuid_generate(professional);
 
@@ -43,6 +42,8 @@ const controller = {
       uuid
     }
 
+    // create a success flash message
+    req.flash('success', 'Usuário logado com sucesso!');
     return res.redirect(`/professionals/${uuid}/admin`); 
   },
   // GET /logout

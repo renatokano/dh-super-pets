@@ -1,11 +1,7 @@
 <%- include('../includes/head',{title:"Login de Profissional"}) %>
 <body>
-  <% if (typeof alert !== "undefined") { %>
-    <div class="alert <%= `${alert.type}` %>">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-      <%= alert.msg %>
-    </div>
-  <% } %>
+  <%- include('../includes/flash_messages') %>
+  
   <div class="plp-main">
     <form action="/professionals/login" class="plp-grid-container" method="post">
       <div class="plp-logo">

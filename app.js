@@ -3,6 +3,7 @@ const methodOverride = require('method-override');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const flash = require('express-flash-messages')
 
 const app = express();
 
@@ -36,7 +37,8 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(flash());
 
 // Routes
 app.use(indexRoutes);
@@ -53,5 +55,12 @@ app.use('/api/v1/pettypes', pettypesAPIv1Routes);
 // Routes for tests
 // Use only in development environment
 app.use('/dbtest', dbtestRoutes);
+
+// 404
+app.get('*', function(req, res){
+  // create a error flash message
+  req.flash('error', 'Página não encontrada! Verifique o endereço e tente novamente.');
+  res.redirect('/');
+});
 
 app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`));
