@@ -67,7 +67,7 @@ const searchButton1 = () =>{
   let btn1 = document.getElementById('btn-1');
   let dogTraining = document.querySelector('.home-dog-training');
   let dogTrainingBtn = document.querySelector('.dog-training-btn');
-  dogTrainingBtn.style.backgroundImage="url('/img/dog-training.svg')";
+  dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training_zexzfu.svg')";
   console.log(btn1.checked);
   
   btn1.addEventListener('click',()=>{
@@ -75,7 +75,7 @@ const searchButton1 = () =>{
       console.log('checked');
       console.log(btn1.checked);
       dogTraining.style.border='none';
-      dogTrainingBtn.style.backgroundImage="url('/img/dog-training-checked.svg')";
+      dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training-checked_kuxzfh.svg')";
       dogTrainingBtn.style.color='#fff';  
     }else{
       dogTraining.style.border='1px solid #000';
@@ -91,7 +91,7 @@ const searchButton2 = () =>{
   let btn2 = document.getElementById('btn-2');
   let petShower = document.querySelector('.home-pet-shower');
   let petShowerBtn = document.querySelector('.pet-shower-btn');
-  petShowerBtn.style.backgroundImage="url('/img/shower-icon.svg')";
+  petShowerBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon_cify1a.svg')";
   console.log(btn2.checked);
   
   btn2.addEventListener('click',()=>{
@@ -99,7 +99,7 @@ const searchButton2 = () =>{
       console.log('checked');
       console.log(btn2.checked);
       petShower.style.border='none';
-      petShowerBtn.style.backgroundImage="url('/img/shower-icon-checked.svg')";
+      petShowerBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon-checked_dfmqag.svg')";
       petShowerBtn.style.color='#fff';  
     }else{
       petShower.style.border='1px solid #000';
@@ -115,7 +115,7 @@ const searchButton3 = () =>{
   let btn3 = document.getElementById('btn-3');
   let dogSitter = document.querySelector('.home-dog-sitter');
   let dogSitterBtn = document.querySelector('.dog-sitter-btn');
-  dogSitterBtn.style.backgroundImage="url('/img/dog-sitting.svg')";
+  dogSitterBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-sitting_u17mws.svg')";
   console.log(btn3.checked);
   
   btn3.addEventListener('click',()=>{
@@ -123,7 +123,7 @@ const searchButton3 = () =>{
       console.log('checked');
       console.log(btn3.checked);
       dogSitter.style.border='none';
-      dogSitterBtn.style.backgroundImage="url('/img/dog-sitting-checked.svg')";
+      dogSitterBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-sitting-checked_bpy3js.svg')";
       dogSitterBtn.style.color='#fff';  
     }else{
       dogSitter.style.border='1px solid #000';
@@ -139,7 +139,7 @@ const searchButton4 = () =>{
   let btn4 = document.getElementById('btn-4');
   let dogWalk = document.querySelector('.home-dog-walk');
   let dogWalkBtn = document.querySelector('.dog-walk-btn');
-  dogWalkBtn.style.backgroundImage="url('/img/dog-running.svg')";
+  dogWalkBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running_wakixw.svg')";
   console.log(btn4.checked);
   
   btn4.addEventListener('click',()=>{
@@ -147,7 +147,7 @@ const searchButton4 = () =>{
       console.log('checked');
       console.log(btn4.checked);
       dogWalk.style.border='none';
-      dogWalkBtn.style.backgroundImage="url('/img/dog-running-checked.svg')";
+      dogWalkBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running-checked_nbdjoe.svg')";
       dogWalkBtn.style.color='#fff';  
     }else{
       dogWalk.style.border='1px solid #000';
@@ -163,7 +163,7 @@ const searchButton5 = () =>{
   let btn5 = document.getElementById('btn-5');
   let dogGroom = document.querySelector('.home-dog-groom');
   let dogGroomBtn = document.querySelector('.dog-groom-btn');
-  dogGroomBtn.style.backgroundImage="url('/img/scissor-icon.svg')";
+  dogGroomBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon_j4glds.svg')";
   console.log(btn5.checked);
   
   btn5.addEventListener('click',()=>{
@@ -171,7 +171,7 @@ const searchButton5 = () =>{
       console.log('checked');
       console.log(btn5.checked);
       dogGroom.style.border='none';
-      dogGroomBtn.style.backgroundImage="url('/img/scissor-icon-checked.svg')";
+      dogGroomBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon-checked_lrgejb.svg')";
       dogGroomBtn.style.color='#fff';  
     }else{
       dogGroom.style.border='1px solid #000';
