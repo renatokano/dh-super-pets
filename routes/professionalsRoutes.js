@@ -3,6 +3,7 @@ const professionalsController = require('../controllers/professionalsController'
 const coverageareasController = require('../controllers/coverageareasController');
 const authProfessionalController = require('../controllers/authProfessionalController');
 const professionalServicesController = require('../controllers/professionalServicesController');
+const slotsController = require('../controllers/slotsController');
 const route = express.Router();
 const professionalAuthentication = require('../middleware/professionalAuthentication');
 const formDataMiddleware = require('../middleware/formData');
@@ -32,6 +33,9 @@ route.get('/:id/:idP/neighborhoods', professionalAuthentication, coverageareasCo
 
 route.post('/:id/services', professionalAuthentication, professionalServicesController.create);
 route.get('/:id/:idS/services', professionalAuthentication, professionalServicesController.delete);
+
+// create new
+route.post('/:id/slots', professionalAuthentication, slotsController.create);
 
 // display a specific professional
 route.get('/:id', professionalsController.show);
