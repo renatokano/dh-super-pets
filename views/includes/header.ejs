@@ -4,10 +4,16 @@
       <h1 class="text-logo"><a class="header__link" href="/">SuperPets</a></h1>
   </div>
   <div class="header-nav">
-    <% if(locals.user_session!=null||locals.professional_session!=null){%>
-    <p class="user-name">Olá, <%-username%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-    <section class="user-img" style="background-image: url('/img/clients/<%-img%>');"></section>
-    <%}else {%>
+    <!-- user profile -->
+    <% if(locals.user_session != null) { %>
+      <p class="user-name">Olá, <%-user_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
+      <section class="user-img" style="background-image: url('/img/clients/<%-user_session.photo%>');"></section>
+    <!-- professional profile -->
+    <% } else if(locals.professional_session!=null) { %>
+      <p class="user-name">Olá, <%-professional_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
+      <section class="user-img" style="background-image: url('/img/professionals/<%-professional_session.photo%>');"></section>
+    <!-- not logged -->
+    <% } else { %>
       <ul class="header-nav__menu">
         <li class="header-nav__list-item"><a class="header-nav__link" href="/professionals">profissionais</a></li>
         <li class="header-nav__list-item"><a class="header-nav__link" href="/services">serviços</a></li>

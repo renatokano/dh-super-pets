@@ -15,6 +15,7 @@ const usersRoutes = require('./routes/usersRoutes');
 const professionalsRoutes = require('./routes/professionalsRoutes');
 const servicesRoutes = require('./routes/servicesRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
+const localSessionMiddleware = require('./middleware/localSession');
 
 const dbtestRoutes = require('./routes/dbtestRoutes');
 
@@ -41,6 +42,7 @@ app.use(cookieParser());
 app.use(flash());
 
 // Routes
+app.use(localSessionMiddleware);
 app.use(indexRoutes);
 app.use('/users', usersRoutes);
 app.use('/professionals', professionalsRoutes);

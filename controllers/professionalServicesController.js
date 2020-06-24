@@ -24,13 +24,14 @@ const controller = {
         updated_at: new Date()
       },{transaction});
       await transaction.commit();
+      // success
+      req.flash('success', 'Novo serviço adicionado com sucesso!');
       return res.redirect(`/professionals/${uuid}/admin`);
-
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      // error
+      req.flash('error', 'Houve um erro no processamento! Tente novamente');
+      return res.redirect(`/`); 
     }
   },
 
@@ -51,13 +52,15 @@ const controller = {
       }, {transaction});
 
       await transaction.commit();
+      // success
+      req.flash('success', 'Serviço removido com sucesso!');
       return res.redirect(`/professionals/${uuid}/admin`);
 
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      // error
+      req.flash('error', 'Houve um erro no processamento! Tente novamente');
+      return res.redirect(`/`); 
     }
 
   }

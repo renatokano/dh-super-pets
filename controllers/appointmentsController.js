@@ -28,10 +28,23 @@ const controller = {
       },transaction);
 
       // check if timeSlot exists
-      if(!availableSlot) throw new Error('Slot não existe!');
+      if(!availableSlot) {
+        // create a error flash message
+        req.flash('error', 'Este horário não está disponível na agenda do profissional!');
+        return res.status(400).json({
+          error: true,
+          msg: "Slot não existe!"
+        });
+      };
       
       // check if the slot is availaible
-      if(availableSlot.status != 'A') throw new Error('Slot não disponível!');
+      if(availableSlot.status != 'A') {
+        req.flash('error', 'Este horário não está mais disponível na agenda do profissional! Selecione outro horario.');
+        return res.status(400).json({
+          error: true,
+          msg: "Status do slot na agenda do profissional como indisponível"
+        });
+      }
       
       // update availableSlot status
       availableSlot.status = 'B'; // [A: Available, B: Booked]
@@ -47,11 +60,19 @@ const controller = {
         }
       }, transaction);
 
+
+      // check if the service is offered by the professional
+      if(!professionalService) {
+        req.flash('error', 'Este serviço não é oferecido por este profissional! Tente outra opção.');
+        return res.status(400).json({
+          error: true,
+          msg: "Serviço não oferecido pelo profissional"
+        });
+      }
+
       // execute the 1st transaction
       await transaction.commit();
       
-      // check if the service is offered by the professional
-      if(!professionalService) throw new Error('Serviço não oferecido por este profissional!');
       // get the price of the service
       let price = professionalService.price;
 
@@ -71,6 +92,8 @@ const controller = {
       // execute the 2nd transaction
       await transaction2.commit();
 
+      // success
+      req.flash('success', 'Parabéns, seu agendamento foi realizado com sucesso!');
       return res.status(201).json({
         error: false, 
         msg: "Agendamento realizado com sucesso!"
@@ -80,8 +103,9 @@ const controller = {
       await transaction.rollback();
       await transaction2.rollback();
       // return the error
+      req.flash('error', 'Houve um erro durante o agendamento! Tente novamente.');
       return res.status(400).json({
-        error,
+        error: true,
         msg: "Houve um erro durante o agendamento"
       });
     }

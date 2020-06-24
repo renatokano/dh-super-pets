@@ -14,12 +14,12 @@ const controller = {
     res.render('auth/user_login');
   },
   userStore: async (req, res) => {
-    const {email, password=''} = req.body;
+    const {email, password='', redirect=''} = req.body;
     const user = await Client.findOne({
       where: {
         email
       },
-      attributes: ['id', 'name', 'email', 'password']
+      attributes: ['id', 'name', 'email', 'password', 'photo']
     });
 
     const password_confirmation = user ? await bcrypt.compare(password, user.password) : '';
@@ -27,7 +27,11 @@ const controller = {
     if(!user || !password_confirmation) {
       // create a error flash message
       req.flash('error', 'Usuário e/ou senha inválido(s).');
-      return res.render('auth/user_login');
+      if(!redirect){
+        return res.render('auth/user_login');
+      } else {
+        return res.redirect(`${redirect}`);
+      }
     }
 
     // generate an uuid
@@ -38,12 +42,18 @@ const controller = {
       id: user.id,
       name: user.name,
       email: user.email,
-      uuid
+      uuid,
+      username: user.name.toLowerCase().replace(/\s+/g, '-'),
+      photo: user.photo
     }
 
     // create a success flash message
     req.flash('success', 'Usuário logado com sucesso!');
-    return res.redirect(`/users/${uuid}/admin`);
+    if(!redirect){
+      return res.redirect(`/users/${uuid}/admin`);
+    } else {
+      return res.redirect(`${redirect}`);
+    }
   },
   // GET /logout
   logout: (req, res, next) => {

@@ -74,7 +74,7 @@ body {
 }
 .superpets-logo{
   grid-area:superpets-logo;
-  background-image: url(../img/pawprint.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952095/pawprint_pjnz4d.svg');
   background-repeat:no-repeat;
   background-size: 100%;
   width:37px;
@@ -133,7 +133,7 @@ body {
 
 .prof-img{
   grid-area:user-img;
-  background-image: url(../img/prof-adm-photo.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952096/prof-adm-photo_dlcbo7.jpg');
   background-repeat:no-repeat;
   background-size: 100%;
   border-radius: 50%;
@@ -171,7 +171,7 @@ body {
 }
 
 .nav-mobile__logo{
-  background-image: url(../img/pawprint.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952095/pawprint_pjnz4d.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -195,7 +195,7 @@ body {
 
 .nav-mobile__item--close-icon{
   display:inline-block;
-  background-image:url('../img/icon-close-round.svg');
+  background-image:url('https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-close-round_uf9m5o.svg');
   cursor:pointer;
   width:40px;
   height:40px;
@@ -255,7 +255,7 @@ body {
 .nav-mobile__link--login{
     display:inline-block;
     height:64px;
-    background-image:url('/img/icon-user-login.svg');
+    background-image:url('https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-user-login_rjogrb.svg');
     background-repeat:no-repeat;
     background-size: 40px;
     background-position: center center;
@@ -306,7 +306,7 @@ body {
    }
 
    .hamburger-menu{
-     background-image: url(../img/hamburger-icon.svg);
+     background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952154/hamburger-icon_u7fvlp.svg');
      background-repeat: no-repeat;
      background-size: cover;
      width: 40px;
@@ -352,7 +352,7 @@ body {
   display:inline-block;
   width:50px;
   height:50px;
-  background-image:url('/img/icon-user-login.svg');
+  background-image:url('https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-user-login_rjogrb.svg');
   background-repeat:no-repeat;
   background-size: cover;
 }
@@ -391,7 +391,7 @@ body {
 .home-header { grid-area: home-header; position:absolute; top:0;width:100vw}
 .home-banner { 
   grid-area: home-banner;
-  background-image: url(../img/main.jpg); 
+  background-image: url("https://res.cloudinary.com/superpets/image/upload/v1592945580/main_pnsjuf.jpg"); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -450,7 +450,7 @@ hr{
 .pro-card4 { grid-area: pro-card4; background-color: #fff;margin-bottom:20px;}
 
 .pro-card1__img{
-  background-image: url(../img/prof-adm-photo.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952096/prof-adm-photo_dlcbo7.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -460,7 +460,7 @@ hr{
 }
 
 .pro-card2__img{
-  background-image: url(../img/profissional1.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952103/profissional1_dky3hy.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -470,7 +470,7 @@ hr{
 }
 
 .pro-card3__img{
-  background-image: url(../img/profissional3.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952103/profissional3_kdl5sg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -480,7 +480,7 @@ hr{
 }
 
 .pro-card4__img{
-  background-image: url(../img/profissional4.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952104/profissional4_lpwbht.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -604,7 +604,7 @@ hr{
   grid-area: home-dog-training;
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/dog-training.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training_zexzfu.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -616,7 +616,7 @@ hr{
   grid-area: home-pet-shower; 
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/shower-icon.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon_cify1a.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -629,7 +629,7 @@ hr{
   grid-area: home-dog-sitter;
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/dog-sitting.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-sitting_u17mws.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -641,7 +641,7 @@ hr{
   grid-area: home-dog-walk;
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/dog-running.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running_wakixw.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -653,7 +653,7 @@ hr{
   grid-area: home-dog-groom;
   border:1px solid #000;
   border-radius: 10px;
-  background-image: url(../img/scissor-icon.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon_j4glds.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -709,7 +709,7 @@ hr{
 }
 
 .dog-training-btn{
-  background-image: url(../img/dog-training-checked.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training-checked_kuxzfh.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -717,7 +717,7 @@ hr{
 }
 
 .pet-shower-btn{
-  background-image: url(../img/shower-icon-checked.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon-checked_dfmqag.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -725,7 +725,7 @@ hr{
 }
 
 .dog-sitter-btn{
-  background-image: url(../img/dog-sitting-checked.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training-checked_kuxzfh.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -733,7 +733,7 @@ hr{
 }
 
 .dog-walk-btn{
-  background-image: url(../img/dog-sitting-checked.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running_wakixw.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -741,7 +741,7 @@ hr{
 }
 
 .dog-groom-btn{
-  background-image: url(../img/dog-sitting-checked.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon-checked_lrgejb.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
@@ -897,7 +897,7 @@ hr{
 }
 .ttmnl-user-image{
   grid-area: ttmnl-user-image;
-  background-image: url(../img/depoimento1.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952147/depoimento1_ojbo4g.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -976,7 +976,7 @@ hr{
 
 .ur-main__dog { 
   grid-area: ur-main__dog; 
-  background-image: url('/img/user-signup.png');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952109/user-signup_rpzgzh.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
@@ -1247,7 +1247,7 @@ hr{
 
 .pr-main__dog { 
   grid-area: pr-main__dog; 
-  background-image: url('/img/professionals-new.png');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952103/professionals-new_wy5ddt.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -1550,7 +1550,7 @@ hr{
 }
 
 .sr-img__pro1{
-  background-image: url(../img/profissional1.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952103/profissional1_dky3hy.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1561,7 +1561,7 @@ hr{
 
 
 .sr-img__pro2{
-  background-image: url(../img/profissional5.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952104/profissional5_vlrgjb.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1572,7 +1572,7 @@ hr{
 
 
 .sr-img__pro3{
-  background-image: url(../img/profissional6.jpg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952105/profissional6_dqxynq.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1586,7 +1586,7 @@ hr{
 }
 
 .sr-stars__star{
-  background-image: url(../img/star-transparent.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952107/star-transparent_uz7inb.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1597,7 +1597,7 @@ hr{
 }
 
 .sr-stars__star--active{
-  background-image: url(../img/star-filled.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952107/star-filled_hauxvu.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1670,7 +1670,7 @@ hr{
 }
 
 .pages__more{
-  background-image: url(../img/dots.svg);
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952154/dots_umgiaj.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -2224,7 +2224,7 @@ hr{
   justify-items: center;
   padding:45px 60px 0 60px;
 }
-.pap-grid-container ::placeholder {
+.pap-grid-container::placeholder {
   font-size: 0.8em;
 }
 
@@ -3900,7 +3900,7 @@ hr{
 .ulp-logo__paw{
   width:75px;
   height:75px;
-  background-image: url('../img/pawprint.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952095/pawprint_pjnz4d.svg');
   background-repeat: no-repeat;
   background-color: transparent;
   margin:0 auto;
@@ -3949,14 +3949,14 @@ hr{
 }
 
 .ulp-email__input--icon,.ulp-recoverlink__reset{
-  background-image: url("../img/icon-envelope.svg");
+  background-image: url("https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-envelope_dn8kqu.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: 10px 10px;
 }
 
 .ulp-password__input--icon{
-  background-image: url("../img/icon-cadeado.svg");
+  background-image: url("https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-cadeado_rtx6ha.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: 10px 10px;
@@ -4047,7 +4047,7 @@ hr{
 @media only screen and (min-width: 500px){
 
   .ulp-main{
-    background-image: url(../img/dog-img-login.png);
+    background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952151/dog-img-login_qgzwqi.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: left bottom; 
@@ -4110,7 +4110,7 @@ hr{
 .plp-logo__paw{
   width:75px;
   height:75px;
-  background-image: url('../img/pawprint.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952095/pawprint_pjnz4d.svg');
   background-repeat: no-repeat;
   background-color: transparent;
   margin:0 auto;
@@ -4159,14 +4159,14 @@ hr{
 }
 
 .plp-email__input--icon,.plp-recoverlink__reset{
-  background-image: url("../img/icon-envelope.svg");
+  background-image: url("https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-envelope_dn8kqu.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: 10px 10px;
 }
 
 .plp-password__input--icon{
-  background-image: url("../img/icon-cadeado.svg");
+  background-image: url("https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-cadeado_rtx6ha.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: 10px 10px;
@@ -4257,7 +4257,7 @@ hr{
 @media only screen and (min-width: 500px){
 
   .plp-main{
-    background-image: url('../img/dog-img-pro-login.png');
+    background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-img-pro-login_krphcf.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: right bottom; 
