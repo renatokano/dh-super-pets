@@ -2,7 +2,7 @@
 
 <body>
   <%- include('../includes/flash_messages') %>
-  
+
   <div class="pap-grid-container">
     <div class="pap-header">
       <%- include('../includes/header', {username: professional.name, img: professional.photo}) %>
@@ -10,55 +10,66 @@
     <main class="pap-main-content">
       <div class="pap-profile">
         <div class="pap-profile__img">
-          <img src="/img/professionals/<%= professional.photo %>" alt="<%= professional.name %>" style="max-width: 250px;max-height:250px">
+          <img src="/img/professionals/<%= professional.photo %>" alt="<%= professional.name %>"
+            style="max-width: 250px;max-height:250px">
         </div>
         <q class="pap-profile__quote"><i><%= professional.about_me.substring(0, 91) %></i></q>
-        <a class="pap-profile__public tabLinks" onclick="openProfessionalsTabs(event, 'publicProfile')">Perfil Público</a>
-        <a class="pap-profile__services tabLinks" onclick="openProfessionalsTabs(event, 'myServices')">Serviços Oferecidos</a>
-        <a class="pap-profile__neighborhoods tabLinks" onclick="openProfessionalsTabs(event, 'myNeighborhoods')">Bairros Atendidos</a>
-        <a class="pap-profile__details tabLinks" onclick="openProfessionalsTabs(event, 'accountDetails')">Alterar Senha</a>
+        <a class="pap-profile__public tabLinks" onclick="openProfessionalsTabs(event, 'publicProfile')">Perfil
+          Público</a>
+        <a class="pap-profile__services tabLinks" onclick="openProfessionalsTabs(event, 'myServices')">Serviços
+          Oferecidos</a>
+        <a class="pap-profile__neighborhoods tabLinks" onclick="openProfessionalsTabs(event, 'myNeighborhoods')">Bairros
+          Atendidos</a>
+        <a class="pap-profile__details tabLinks" onclick="openProfessionalsTabs(event, 'accountDetails')">Alterar
+          Senha</a>
+        <a class="pap-profile__slots tabLinks" onclick="openProfessionalsTabs(event, 'availableSlots')">Cadastrar
+          Slots</a>
       </div>
 
       <!-- PUBLIC PROFILE -->
 
-      <form id="publicProfile" class="pap-form pap-tabs" class="pap-form" method="POST" action="/professionals/<%= professional_session.uuid %>/edit?_method=PUT" enctype="multipart/form-data">
+      <form id="publicProfile" class="pap-form pap-tabs" class="pap-form" method="POST"
+        action="/professionals/<%= professional_session.uuid %>/edit?_method=PUT" enctype="multipart/form-data">
         <section class="pap-form__title">
           <h1 class="pap-form__title-profile">Perfil Público</h1>
         </section>
         <section class="pap-form__name">
           <label class="pap-name__inputs" for="name">Nome</label>
-        <input class="pap-form__name-input" type="text" name="name"id="name" value="<%= professional.name %>"/>
+          <input class="pap-form__name-input" type="text" name="name" id="name" value="<%= professional.name %>" />
         </section>
         <section class="pap-form__email">
           <label class="pap-name__inputs" for="email">Email</label>
-          <input class="pap-form__email-input" type="email" name="email" id="email" value="<%= professional.email %>"/>
+          <input class="pap-form__email-input" type="email" name="email_prof" id="email_prof"
+            value="<%= professional.email %>" />
         </section>
         <section class="pap-form__phone">
           <label class="pap-name__inputs" for="phone">Celular</label>
-          <input class="pap-form__phone-input" type="tel" name="phone" id="phone" value="<%= professional.mobile %>"/>
+          <input class="pap-form__phone-input" type="tel" name="phone" id="phone" value="<%= professional.mobile %>" />
         </section>
         <section class="pap-form__zip-code">
           <label class="pap-name__inputs" for="zip-code">CEP</label>
-          <input class="pap-form__zip-code-input" type="text" name="zipcode" id="zipccode" value="<%= professional.zipcode %>"/>
+          <input class="pap-form__zip-code-input" type="text" name="zipcode" id="zipccode"
+            value="<%= professional.zipcode %>" />
         </section>
         <section class="pap-form__address">
           <label class="pap-name__inputs" for="address">Endereço</label>
-          <input class="pap-form__address-input" type="text" name="address" id="address" value="<%= professional.address %>"/>
+          <input class="pap-form__address-input" type="text" name="address" id="address"
+            value="<%= professional.address %>" />
         </section>
         <section class="pap-form__district">
           <label class="pap-name__inputs" for="district">Bairro</label>
-          <select class="pap-form__district-select pap-form__title-select" name="district" id="district" class="district-dropdown">
+          <select class="pap-form__district-select pap-form__title-select" name="district_home" id="district_home"
+            class="district-dropdown">
             <option disabled selected>Selecione o bairro</option>
             <% for(let i=0; i<states.length; i++){ %>
-              <% for(let j=0; j<states[i].Cities.length; j++){ %>
-                <% for(let k=0; k<states[i].Cities[j].Neighborhoods.length; k++){ %>
-                  <option 
-                    <%= states[i].Cities[j].Neighborhoods[k].id == professional.neighborhood_id ? `selected` : `` %>
-                      value="<%= states[i].Cities[j].Neighborhoods[k].id %>">
-                        <%= states[i].Cities[j].Neighborhoods[k].name %>
-                    </option>
-                <% } %>
-              <% } %>
+            <% for(let j=0; j<states[i].Cities.length; j++){ %>
+            <% for(let k=0; k<states[i].Cities[j].Neighborhoods.length; k++){ %>
+            <option <%= states[i].Cities[j].Neighborhoods[k].id == professional.neighborhood_id ? `selected` : `` %>
+              value="<%= states[i].Cities[j].Neighborhoods[k].id %>">
+              <%= states[i].Cities[j].Neighborhoods[k].name %>
+            </option>
+            <% } %>
+            <% } %>
             <% } %>
           </select>
         </section>
@@ -67,13 +78,12 @@
           <select class="pap-form__city-select pap-form__title-select" name="city" id="city">
             <option disabled selected>Selecione a cidade</option>
             <% for(let i=0; i<states.length; i++){ %>
-              <% for(let j=0; j<states[i].Cities.length; j++){ %>
-                <option 
-                  <%= states[i].Cities[j].id == professional.Neighborhood.city_id ? `selected` : `` %>
-                  value="<%= states[i].Cities[j].id %>">
-                  <%= states[i].Cities[j].name %>
-                </option>
-              <% } %>
+            <% for(let j=0; j<states[i].Cities.length; j++){ %>
+            <option <%= states[i].Cities[j].id == professional.Neighborhood.city_id ? `selected` : `` %>
+              value="<%= states[i].Cities[j].id %>">
+              <%= states[i].Cities[j].name %>
+            </option>
+            <% } %>
             <% } %>
           </select>
         </section>
@@ -82,29 +92,29 @@
           <select class="pap-form__state-select pap-form__title-select" name="state" id="state">
             <option disabled selected>Selecione o estado</option>
             <% for(let i=0; i<states.length; i++){ %>
-              <option 
-                <%= states[i] == professional.Neighborhood.City.state_id ? `selected` : `` %>
-                value="<%= states[i].id %>"><%= states[i].name %>
-              </option>
+            <option <%= states[i] == professional.Neighborhood.City.state_id ? `selected` : `` %>
+              value="<%= states[i].id %>"><%= states[i].name %>
+            </option>
             <% } %>
           </select>
         </section>
         <section class="pap-form__about-me">
-        <label class="pap-name__inputs" for="about-me">Sobre mim</label>
-          <textarea class="pap-form__about-me-input" name="about_me" id="about-me" rows="2"><%= professional.about_me %></textarea>
+          <label class="pap-name__inputs" for="about-me">Sobre mim</label>
+          <textarea class="pap-form__about-me-input" name="about_me" id="about-me"
+            rows="2"><%= professional.about_me %></textarea>
         </section>
         <section class="pap-form__photo">
           <label class="pap-name__inputs" for="photo">Foto do perfil</label>
-          <input class="pap-form__photo-input" type="file" name="photo"  id="photo" accept="image/png, image/jpeg">
+          <input class="pap-form__photo-input" type="file" name="photo" id="photo" accept="image/png, image/jpeg">
         </section>
 
         <section class="pap-btn-update">
-          <input class="pap-btn-update__input pap-btn-update__input--u" type="submit" value="Atualizar"/>
+          <input class="pap-btn-update__input pap-btn-update__input--u" type="submit" value="Atualizar" />
         </section>
 
         <section class="pap-btn-profile">
           <a href="/professionals/<%= professional.id %>"></a>
-          <input class="pap-btn-profile__input pap-btn-profile__input--p" type="submit" value="Visualizar Perfil"/>
+          <input class="pap-btn-profile__input pap-btn-profile__input--p" type="submit" value="Visualizar Perfil" />
         </section>
 
       </form>
@@ -112,8 +122,9 @@
       <!-- fim PUBLIC PROFILE -->
 
       <!-- SERVICES -->
-      <form id="myServices" method="POST" action="/professionals/<%= professional_session.uuid %>/services" class="pap-form pap-tabs" style="display: none">
-        
+      <form id="myServices" method="POST" action="/professionals/<%= professional_session.uuid %>/services"
+        class="pap-form pap-tabs" style="display: none">
+
         <section class="pap-form__title">
           <h1 class="pap-form__title-my-services">Meus Serviços Oferecidos</h1>
         </section>
@@ -128,80 +139,87 @@
           <tr class="pap-form__my-services--tr">
             <td><%= professional.Services[i].name %></td>
             <td>
-              <a href="/professionals/<%= professional_session.uuid %>/<%= professional.Services[i].id%>/services"><img src="/img/trash-adria-atual.png" alt="deletar"
-                style="max-width: 25px;max-height:25px;display:inline-block;">
+              <a href="/professionals/<%= professional_session.uuid %>/<%= professional.Services[i].id%>/services"><img
+                  src="/img/trash-adria-atual.png" alt="deletar"
+                  style="max-width: 25px;max-height:25px;display:inline-block;">
               </a>
             </td>
-          </tr>            
+          </tr>
           <% my_services.push(professional.Services[i].id); %>
           <% } %>
         </table>
-      <% } %>
+        <% } %>
 
-      <section class="pap-form__district">
-        <label class="pap-name__inputs" for="district">Serviços</label>
-        <select class="pap-form__district-select pap-form__title-select" name="services" id="services" class="district-dropdown">
-          <option disabled selected>Selecione o serviço</option>
-              <% for(let i=0; i<services.length; i++){ %>
-                  <% if (my_services.indexOf(services[i].id) === -1) { %>
-                    <option value="<%= services[i].id %>" >
-                      <%= services[i].name %>
-                  </option>
-                  <% } %>
-              <% } %>
-        </select>
-      </section>
+        <section class="pap-form__district">
+          <label class="pap-name__inputs" for="district">Serviços</label>
+          <select class="pap-form__district-select pap-form__title-select" name="services" id="services"
+            class="district-dropdown">
+            <option disabled selected>Selecione o serviço</option>
+            <% for(let i=0; i<services.length; i++){ %>
+            <% if (my_services.indexOf(services[i].id) === -1) { %>
+            <option value="<%= services[i].id %>">
+              <%= services[i].name %>
+            </option>
+            <% } %>
+            <% } %>
+          </select>
+        </section>
 
         <section>
-          <input class="pap-btn-update__input pap-btn-password-update__input--u" type="submit" value="Cadastrar"/>
+          <input class="pap-btn-update__input pap-btn-password-update__input--u" type="submit" value="Cadastrar" />
         </section>
       </form>
 
       <!-- fim SERVICES -->
 
       <!-- NEIGHBORHOOD -->
-      <form id="myNeighborhoods" method="POST" action="/professionals/<%= professional_session.uuid %>/neighborhoods" class="pap-form pap-tabs" style="display: none">
-        
+      <form id="myNeighborhoods" method="POST" action="/professionals/<%= professional_session.uuid %>/neighborhoods"
+        class="pap-form pap-tabs" style="display: none">
+
         <section class="pap-form__title">
           <h1 class="pap-form__title-coverage-areas">Meus Bairros de Atendimento</h1>
         </section>
         <% let coverage_areas = []; %>
         <% if(professional.coverage_areas.length > 0){ %>
-          <table class="pap-form__neighborhood--table"> 
-            <tr class="pap-form__neighborhood--th">
-                <th>Nome</th>
-                <th>Ação</th>
-            </tr>
-            <% for(let i=0; i<professional.coverage_areas.length; i++){ %>
-              <tr class="pap-form__neighborhood--tr">
-                  <td><%= professional.coverage_areas[i].name %></td>
-                  <td>
-                    <a href="/professionals/<%= professional_session.uuid %>/<%= professional.coverage_areas[i].id%>/neighborhoods"><img src="/img/trash-adria-atual.png" alt="deletar"
-                      style="max-width: 25px;max-height:25px;display:inline-block;">
-                    </a>
-                  </td>
-              </tr>
-              <% coverage_areas.push(professional.coverage_areas[i].id); %>
-            <% } %>
-          </table>
+        <table class="pap-form__neighborhood--table">
+          <tr class="pap-form__neighborhood--th">
+            <th>Nome</th>
+            <th>Ação</th>
+          </tr>
+          <% for(let i=0; i<professional.coverage_areas.length; i++){ %>
+          <tr class="pap-form__neighborhood--tr">
+            <td><%= professional.coverage_areas[i].name %></td>
+            <td>
+              <a
+                href="/professionals/<%= professional_session.uuid %>/<%= professional.coverage_areas[i].id%>/neighborhoods"><img
+                  src="/img/trash-adria-atual.png" alt="deletar"
+                  style="max-width: 25px;max-height:25px;display:inline-block;">
+              </a>
+            </td>
+          </tr>
+          <% coverage_areas.push(professional.coverage_areas[i].id); %>
+          <% } %>
+        </table>
         <% } %>
 
         <section class="pap-form__district">
           <label class="pap-name__inputs" for="district">Bairro</label>
-          <select class="pap-form__district-select pap-form__title-select" name="district" id="district" class="district-dropdown">
+          <select class="pap-form__district-select pap-form__title-select" name="district" id="district"
+            class="district-dropdown">
             <option disabled selected>Selecione o bairro</option>
-                <% for(let i=0; i<neighborhoods.length; i++){ %>
-                    <% if (coverage_areas.indexOf(neighborhoods[i].id) === -1) { %>
-                      <option  value="<%= neighborhoods[i].id %>" >
-                        <%= neighborhoods[i].name %>
-                    </option>
-                    <% } %>
-                <% } %>
+            <% for(let i=0; i<neighborhoods.length; i++){ %>
+            <% if (coverage_areas.indexOf(neighborhoods[i].id) === -1) { %>
+            <option value="<%= neighborhoods[i].id %>">
+              <%= neighborhoods[i].name %>
+            </option>
+            <% } %>
+            <% } %>
           </select>
         </section>
 
         <section class="pap-btn-coverage-areas-update">
-          <input class="pap-btn-coverage-areas__input pap-btn-coverage-areas__input--u" type="submit" value="Cadastrar"/>
+          <input class="pap-btn-coverage-areas__input pap-btn-coverage-areas__input--u" type="submit"
+            value="Cadastrar" />
         </section>
 
       </form>
@@ -209,35 +227,123 @@
       <!-- fim NEIGHBORHOOD -->
 
       <!-- PASSWORD -->
-      <form id="accountDetails" class="pap-form pap-tabs" style="display: none" method="POST" action="/professionals/<%= professional_session.uuid %>/edit?_method=PUT" enctype="multipart/form-data">
+      <form id="accountDetails" class="pap-form pap-tabs" style="display: none" method="POST"
+        action="/professionals/<%= professional_session.uuid %>/edit?_method=PUT" enctype="multipart/form-data">
         <section class="pap-form__title">
           <h1 class="pap-form__title-advanced">Alterar Senha</h1>
         </section>
-        
+
         <section class="pap-form__old-password">
           <label class="pap-name__inputs" for="password">Senha atual</label>
-          <input class="pap-form__old-password--input" type="password" name="old_password" id="password"/>
+          <input class="pap-form__old-password--input" type="password" name="old_password" id="password" />
         </section>
 
         <section class="pap-form__new-password">
           <label class="pap-name__inputs" for="new_password">Nova senha</label>
-          <input class="pap-form__new-password--input" type="password" name="new_password" id="new_password"/>
+          <input class="pap-form__new-password--input" type="password" name="new_password" id="new_password" />
         </section>
 
         <section class="pap-form__confirm-new-password">
           <label class="pap-name__inputs" for="confirm_new_password">Confirme senha</label>
-          <input class="pap-form__confirm-new-password-input" type="password" name="confirm_new_password" id="confirm_new_password"/>
+          <input class="pap-form__confirm-new-password-input" type="password" name="confirm_new_password"
+            id="confirm_new_password" />
         </section>
 
         <section class="pap-btn-password-update">
-          <input class="pap-btn-update__input pap-btn-password-update__input--u" type="submit" value="Atualizar"/>
+          <input class="pap-btn-update__input pap-btn-password-update__input--u" type="submit" value="Atualizar" />
         </section>
       </form>
       <!-- fim PASSWORD -->
+
+      <!-- SLOTS -->
+      <form id="availableSlots" method="POST" action="/professionals/<%= professional_session.uuid %>/slots"
+        class="pap-form pap-tabs" style="display: none">
+        <div class="ppp__scheduling">
+          <div id="render_schedule">
+            <div>
+              <h2 class="p-calendar__head-title"> <%= moment(tomorrow).format('DD') %> de
+                <%= moment(tomorrow).format('MMMM') %> a <%= moment(lastDay).format('DD') %> de
+                <%= moment(lastDay).format('MMMM') %> de <%= moment(lastDay).format('YYYY') %></h2>
+            </div>
+            <div class="p-calendar__main">
+              <% for(let i=0; i<moment(lastDay).diff(moment(tomorrow), 'days')+1; i++){ %>
+              <div class="p-calendar__col">
+                <div class="p-calendar__col-inner experiment ">
+                  <div class="p-calendar__col-inner-head">
+                    <p class="p-calendar__weekday"><%= moment(tomorrow).add(i, 'days').format('ddd')%></p>
+                    <p class="p-calendar__day"><%= moment(tomorrow).add(i, 'days').format('DD')%></p>
+                  </div>
+                  <div class="p-calendar__col-inner-body">
+                    <% for(let j=0; j<7; j++){ %>
+                    <span class="pap-calendar__time
+                    <% if (slots.length > 0) {%>
+                    <% for(let k=0; k<slots.length; k++){ %>
+                          <%= moment(slots[k].start_time).format('YYYY-MM-DD HH:mm') == moment(tomorrow).add(8+2*j, 'hours').add(i, 'days').format('YYYY-MM-DD HH:mm') ? "pap-calendar__time--unavailable" : "pap-calendar__time--available" %>
+                        <% } %>
+                          <% } else { %>
+                            pap-calendar__time--available
+                        <% } %>"
+                      data-time="<%= moment(tomorrow).add(8+2*j, 'hours').add(i, 'days').format('YYYY-MM-DD HH:mm') %>"><%= 8+2*j %>:00</span>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+            </div>
+            <input id="newSlots" class="pap-btn-coverage-areas__input pap-btn-coverage-areas__input--u" type="submit"
+              value="Cadastrar Slots">
+          </div>
+        </div>
+        <input hidden name="slots" id="slots">
+      </form>
+
+      <!-- fim SLOTS -->
 
     </main>
     <div class="pap-footer">
       <%- include('../includes/footer') %>
     </div>
   </div>
+  <script>
+    let addSlots = [];
+    let availableSlots = document.getElementById("availableSlots");
+    let timeSlots = document.getElementsByClassName('pap-calendar__time--available');
+    let timeSlotElement = '';
+    let timeSlot = '';
+    // add an click event to all available timeSlots
+    for (let i = 0; i < timeSlots.length; i++) {
+      timeSlots[i].addEventListener('click', function (event) {
+        // get the timeSlot element (span)
+        timeSlotElement = event.target
+        // get the timeSlot value
+        timeSlot = event.srcElement.attributes['data-time'].nodeValue;
+        setSlot(timeSlot, timeSlotElement);
+      });
+    }
+
+    function setSlot(timeSlot, timeSlotElement) {
+
+      if (timeSlotElement.classList.contains("pap-calendar__time--unavailable")) {
+        return;
+      }
+
+      let index = addSlots.indexOf(timeSlot);
+      if (index === -1) {
+        addSlots.push(timeSlot);
+        timeSlotElement.classList.remove('pap-calendar__time--available');
+      } else {
+        addSlots.splice(index, 1);
+        timeSlotElement.classList.add('pap-calendar__time--available');
+      }
+      console.log(addSlots);
+    }
+
+    let newSlots = document.getElementById("newSlots");
+
+    newSlots.addEventListener('click', function (event) {
+      let slots = document.getElementById("slots");
+      slots.value = addSlots;
+    });
+  
+  </script>
 </body>

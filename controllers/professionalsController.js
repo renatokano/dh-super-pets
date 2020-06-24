@@ -137,11 +137,29 @@ const controller = {
       });
     }
 
+     // get the available slots
+     let days = 6; // default: 6 days
+     // get the limits
+     let {tomorrow, lastDay} = getDate(days);
+
+     let slots = await AvailableSlot.findAll({
+      where:{
+        professional_id,
+        start_time: {
+          [Sequelize.Op.between]: [tomorrow, lastDay]
+        },
+      }
+    });
+
     return res.render('professionals/admin', {
       professional,
       states,
       neighborhoods,
-      services
+      services,
+      tomorrow,
+      lastDay,
+      moment,
+      slots
     });
     
   },
@@ -271,7 +289,7 @@ const controller = {
         uuid: uuid
       }
 
-     return res.redirect(`/professionals/${uuid}/admin`); 
+     return res.redirect(`/professionals/${uuid}/admin`, {moment}); 
 
     } catch(err) {
       console.log("Houve um erro ao gerar o registro. Tente novamente!");

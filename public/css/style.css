@@ -2218,7 +2218,8 @@ hr{
   "pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public pap-profile__public"
   "pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services"
   "pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods"
-  "pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details";
+  "pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details"
+  "pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots";
   background-color:#fff;
   justify-items: center;
   padding:45px 60px 0 60px;
@@ -2240,6 +2241,7 @@ hr{
 .pap-profile__services{ grid-area: pap-profile__services;}
 .pap-profile__neighborhoods{grid-area: pap-profile__neighborhoods;}
 .pap-profile__details{ grid-area: pap-profile__details;}
+.pap-profile__slots{grid-area: pap-profile__slots};
 
 .pap-profile__img{
   width:240px;
@@ -2250,16 +2252,48 @@ hr{
 .pap-profile__quote,
 .pap-profile__services,
 .pap-profile__neighborhoods,
-.pap-profile__details {
+.pap-profile__details,
+.pap-profile__slots {
   width:240px; 
   text-decoration:none;
   color:#888;
 }
 
+.pap-calendar__time {
+  color: whitesmoke;
+  border: 1px solid transparent;
+  display: block;
+  font-weight: bold;
+  background-color: #44e2be;
+}
+
+.pap-calendar__time--available {
+  color: #3bb3bd!important;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.pap-calendar__time--available:hover {
+  color: #3bb3bd;
+  border: 1px solid #3bb3bd;
+}
+
+.pap-calendar__time--unavailable {
+  background-color: #fff;
+  color: #aaa!important;
+  line-height: 2.14285714;
+  border: 1px solid transparent;
+  display: block;
+  text-decoration: line-through!important;
+}
+
+
 .pap-profile__public:hover,
 .pap-profile__services:hover,
 .pap-profile__neighborhoods:hover,
-.pap-profile__details:hover {
+.pap-profile__details:hover,
+.pap-profile__slots:hover {
   font-weight:600;
   cursor: pointer;
 }
