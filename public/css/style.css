@@ -2253,6 +2253,18 @@ hr{
   opacity: 0.8;
 }
 
+.pap-title {
+  color: grey;
+  font-size: 18px;
+}
+
+.pap-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
 @media only screen and (max-width: 960px){
   .pap-main-content{
     grid-area:pap-main-content;
@@ -2278,6 +2290,7 @@ hr{
   "pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services pap-profile__services"
   "pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods pap-profile__neighborhoods"
   "pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots pap-profile__slots"
+  "pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments pap-profile__appointments"
   "pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details pap-profile__details";
   background-color:#fff;
   justify-items: center;
@@ -2301,6 +2314,7 @@ hr{
 .pap-profile__neighborhoods{grid-area: pap-profile__neighborhoods;}
 .pap-profile__details{ grid-area: pap-profile__details;}
 .pap-profile__slots{grid-area: pap-profile__slots};
+.pap-profile__appointments{grid-area: pap-profile__appointments};pap-form__neighborhood--table
 
 .pap-profile__img{
   width:240px;
@@ -2312,7 +2326,8 @@ hr{
 .pap-profile__services,
 .pap-profile__neighborhoods,
 .pap-profile__details,
-.pap-profile__slots {
+.pap-profile__slots,
+.pap-profile__appointments {
   width:240px; 
   text-decoration:none;
   color:#888;
@@ -2352,7 +2367,8 @@ hr{
 .pap-profile__services:hover,
 .pap-profile__neighborhoods:hover,
 .pap-profile__details:hover,
-.pap-profile__slots:hover {
+.pap-profile__slots:hover,
+.pap-profile__appointments:hover {
   font-weight:600;
   cursor: pointer;
 }

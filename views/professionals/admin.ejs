@@ -21,6 +21,7 @@
         <a class="pap-profile__neighborhoods tabLinks" onclick="openProfessionalsTabs(event, 'myNeighborhoods')">Bairros
           Atendidos</a>
         <a class="pap-profile__slots tabLinks" onclick="openProfessionalsTabs(event, 'availableSlots')">Definir Agenda</a>
+        <a class="pap-profile__appointments tabLinks" onclick="openProfessionalsTabs(event, 'myAppointments')">Meus agendamentos</a>
         <a class="pap-profile__details tabLinks" onclick="openProfessionalsTabs(event, 'accountDetails')">Alterar
           Senha</a>
       </div>
@@ -251,6 +252,10 @@
       <!-- SLOTS -->
       <form id="availableSlots" method="POST" action="/professionals/<%= professional_session.uuid %>/slots"
         class="pap-form pap-tabs" style="display: none">
+        <section class="pap-form__title">
+          <h1 class="pap-form__title-advanced">Definir Agenda</h1>
+        </section>
+        <section>
         <div class="ppp__scheduling">
           <div id="render_schedule">
             <div>
@@ -261,10 +266,10 @@
             <div class="p-calendar__main">
               <% for(let i=0; i<moment(lastDay).diff(moment(tomorrow), 'days')+1; i++){ %>
               <div class="p-calendar__col">
-                <div class="p-calendar__col-inner experiment ">
+                <div class="p-calendar__col-inner experiment">
                   <div class="p-calendar__col-inner-head">
-                    <p class="p-calendar__weekday"><%= moment(tomorrow).add(i, 'days').format('ddd')%></p>
-                    <p class="p-calendar__day"><%= moment(tomorrow).add(i, 'days').format('DD')%></p>
+                    <p class=""><%= moment(tomorrow).add(i, 'days').format('ddd')%></p>
+                    <p class=""><%= moment(tomorrow).add(i, 'days').format('DD')%></p>
                   </div>
                   <div class="p-calendar__col-inner-body">
                     <% for(let j=0; j<7; j++){ %>
@@ -288,55 +293,85 @@
           </div>
         </div>
         <input hidden name="slots" id="slots">
+      </section>
       </form>
 
       <!-- fim SLOTS -->
 
+      <!-- inicio APPOINTMENTS -->
+      <form id= "myAppointments" class="pap-form pap-tabs" class="pap-form" style="display: none" action="">
+        <section class="pap-form__title">
+          <h1 class="pap-form__title-advanced">Meus Agendamentos</h1>
+        </section>
+        <% if(appointments.length > 0){ %>
+          <% for(let i=0; i<appointments.length; i++){ %>
+              <div class="general__card">
+                <img src="<%= appointments[i].client_photo %>" alt="<%= appointments[i].client_name %>" style="max-width: 250px;max-height:250px">
+                <p class="general__card--name"><%= appointments[i].client_name %></p>
+                <p class="general__card--service"><%= appointments[i].service_name %></p>
+                <p class="general__card--date-hour"><%= moment(appointments[i].slots_start_time).format('DD/MM/YYYY HH:mm') %></p>
+                <p class="general__card--price"><%= appointments[i].price %></p>
+                <p>
+                  <button class="general__card--status">
+                    Agendado
+                  </button>
+                </p>
+              </div>
+              <% } %>
+          <% } %>   
+      </form>
+      <!-- fim APPOINTMENTS -->
     </main>
     <div class="pap-footer">
       <%- include('../includes/footer') %>
     </div>
   </div>
+
+
+
+
   <script>
-    let addSlots = [];
-    let availableSlots = document.getElementById("availableSlots");
-    let timeSlots = document.getElementsByClassName('pap-calendar__time--available');
-    let timeSlotElement = '';
-    let timeSlot = '';
-    // add an click event to all available timeSlots
-    for (let i = 0; i < timeSlots.length; i++) {
-      timeSlots[i].addEventListener('click', function (event) {
-        // get the timeSlot element (span)
-        timeSlotElement = event.target
-        // get the timeSlot value
-        timeSlot = event.srcElement.attributes['data-time'].nodeValue;
-        setSlot(timeSlot, timeSlotElement);
+     window.onload = function(){
+      let addSlots = [];
+      let availableSlots = document.getElementById("availableSlots");
+      let timeSlots = document.getElementsByClassName('pap-calendar__time--available');
+      let timeSlotElement = '';
+      let timeSlot = '';
+      // add an click event to all available timeSlots
+      for (let i = 0; i < timeSlots.length; i++) {
+        timeSlots[i].addEventListener('click', function (event) {
+          // get the timeSlot element (span)
+          timeSlotElement = event.target
+          // get the timeSlot value
+          timeSlot = event.srcElement.attributes['data-time'].nodeValue;
+          setSlot(timeSlot, timeSlotElement);
+        });
+      }
+
+      function setSlot(timeSlot, timeSlotElement) {
+
+        if (timeSlotElement.classList.contains("pap-calendar__time--unavailable")) {
+          return;
+        }
+
+        let index = addSlots.indexOf(timeSlot);
+        if (index === -1) {
+          addSlots.push(timeSlot);
+          timeSlotElement.classList.remove('pap-calendar__time--available');
+        } else {
+          addSlots.splice(index, 1);
+          timeSlotElement.classList.add('pap-calendar__time--available');
+        }
+        console.log(addSlots);
+      }
+
+      let newSlots = document.getElementById("newSlots");
+
+      newSlots.addEventListener('click', function (event) {
+        let slots = document.getElementById("slots");
+        slots.value = addSlots;
       });
     }
-
-    function setSlot(timeSlot, timeSlotElement) {
-
-      if (timeSlotElement.classList.contains("pap-calendar__time--unavailable")) {
-        return;
-      }
-
-      let index = addSlots.indexOf(timeSlot);
-      if (index === -1) {
-        addSlots.push(timeSlot);
-        timeSlotElement.classList.remove('pap-calendar__time--available');
-      } else {
-        addSlots.splice(index, 1);
-        timeSlotElement.classList.add('pap-calendar__time--available');
-      }
-      console.log(addSlots);
-    }
-
-    let newSlots = document.getElementById("newSlots");
-
-    newSlots.addEventListener('click', function (event) {
-      let slots = document.getElementById("slots");
-      slots.value = addSlots;
-    });
   
   </script>
 </body>

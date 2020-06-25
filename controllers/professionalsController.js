@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.js')[env];
 const db = new Sequelize(config);
-const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
+const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, Appointment, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 const moment = require('../config/moment');
@@ -148,6 +148,23 @@ const controller = {
       }
     });
 
+    const appointments = await db.query(
+      `SELECT cli.name as client_name, cli.photo as client_photo,
+      neigh.name as neighborhood, 
+      slots.start_time as slots_start_time,
+      ser.name as service_name, app.price as price
+      FROM appointments as app
+      INNER JOIN clients as cli ON app.client_id = cli.id
+      INNER JOIN neighborhoods as neigh ON cli.neighborhood_id = neigh.id
+      INNER JOIN available_slots as slots ON app.professional_id = slots.professional_id AND app.start_time = slots.start_time
+      INNER JOIN services as ser ON app.service_id = ser.id
+      WHERE app.status = 'B' AND
+      app.professional_id = ${professional_id}`, {
+      type: Sequelize.QueryTypes.SELECT
+    });
+
+    console.log(appointments);
+
     //return res.send(professional);
 
     return res.render('professionals/admin', {
@@ -158,7 +175,8 @@ const controller = {
       tomorrow,
       lastDay,
       moment,
-      slots
+      slots,
+      appointments
     });
     
   },
