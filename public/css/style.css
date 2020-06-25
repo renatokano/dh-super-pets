@@ -1933,17 +1933,48 @@ hr{
   filter: invert(100%) hue-rotate(175deg) brightness(1.7);
 }
 
-@media only screen and (max-width: 960px){
-  .uap-main-content{
-    grid-area:uap-main-content;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    gap: 0px 0px;
-    grid-template-areas: "uap-profile" "uap-form";
-    background-color:#f6f8f9;
-    padding-top: 25px;
-  } 
+.uap-content__appointments {
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.general__card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  min-width: 150px;
+  margin: 1.2rem;
+  text-align: center;
+  color: grey;
+}
+
+.general__card--name {
+  padding-top: 1.2rem;
+  color: grey;
+  font-size: 1.5em;
+}
+
+.general__card--service {
+  font-weight: bold;
+}
+
+.general__card--price {
+  padding-bottom: 1.2rem;
+}
+
+.general__card--status {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #4CAF50;
+  text-align: center;
+  
+  width: 100%;
+  font-size: 18px;
 }
 
 .uap-profile {
@@ -1952,7 +1983,9 @@ hr{
   grid-template-columns: 1fr;
   grid-template-rows: 250px 100px 40px 40px 40px;
   gap: 0px 0px;
-  grid-template-areas: "uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img" "uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote" "uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public" "uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets" "uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details";
+  grid-template-areas: "uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img uap-profile__img" "uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote uap-profile__quote" "uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public uap-profile__public" "uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets uap-profile__pets" 
+  "uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments uap-profile__appointments"
+  "uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details uap-profile__details";
   background-color:#fff;
   justify-items: center;
   padding:45px 60px 0 60px;
@@ -1967,15 +2000,16 @@ hr{
 }
 .uap-profile__public { grid-area: uap-profile__public; }
 .uap-profile__pets{ grid-area: uap-profile__pets;}
+.uap-profile__appointments{ grid-area: uap-profile__appointments;}
 .uap-profile__details{ grid-area: uap-profile__details;}
 
-.uap-profile__quote,.uap-profile__public,.uap-profile__pets,.uap-profile__details{
+.uap-profile__quote,.uap-profile__public,.uap-profile__pets,.uap-profile__details,.uap-profile__appointments{
   width:240px; 
   text-decoration:none;
   color:#888;
 }
 
-.uap-profile__public:hover,.uap-profile__pets:hover,.uap-profile__details:hover{
+.uap-profile__public:hover,.uap-profile__pets:hover,.uap-profile__details:hover,.uap-profile__appointments:hover{
   font-weight:600;
   cursor: pointer;
 }
@@ -1991,7 +2025,8 @@ hr{
 
 .uap-form__title-profile, 
 .uap-form__title-advanced,
-.uap-form__mypets--title {
+.uap-form__mypets--title,
+.uap-appointments--title {
   color:#888;
   border-bottom: 1px solid #aaa;
   padding-bottom: 10px;
@@ -2057,6 +2092,22 @@ hr{
   background-color:#3accaa;
 }
 
+@media only screen and (max-width: 960px){
+  .uap-main-content{
+    grid-area:uap-main-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas: "uap-profile" "uap-form";
+    background-color:#f6f8f9;
+    padding-top: 25px;
+  } 
+  .uap-profile {
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 768px){
  .uap-grid-container {
     display: grid;
@@ -2087,13 +2138,15 @@ hr{
   .uap-profile {
     grid-area: uap-profile;
     display: grid;
-    grid-template-columns: 30% 20% 35%;
+    grid-template-columns: 30% 30% 40%;
     grid-template-rows: 160px 30px;
-    gap:0px 25px;
-    grid-template-areas: "uap-profile__img  uap-profile__quote uap-profile__quote" "uap-profile__public uap-profile__pets uap-profile__details";
+    /* gap:0px 25px; */
+    grid-template-areas: "uap-profile__img  uap-profile__quote uap-profile__quote" "uap-profile__public uap-profile__pets uap-profile__appointments"
+    "uap-profile__details . .";
     justify-items: left;
     padding:0;
     background-color: #f6f8f9;
+    text-align: center;
   }
 
   .uap-profile__img{
@@ -2101,7 +2154,7 @@ hr{
     justify-self:left;
     align-self: center;
     position:relative;
-    right:70px;
+    right: 1.2rem;
   }
 
   .uap-profile__quote{
@@ -2110,13 +2163,13 @@ hr{
     font-size:1rem;
   }
 
-  .uap-profile__public,.uap-profile__pets,.uap-profile__details{
+  .uap-profile__public,.uap-profile__pets,.uap-profile__details,.uap-profile__appointments{
     padding-bottom:10px;
     font-size:0.8em;
     width:100%;
   }
 
-  .uap-profile__public:hover,.uap-profile__pets:hover,.uap-profile__details:hover{
+  .uap-profile__public:hover,.uap-profile__pets:hover,.uap-profile__details:hover,.uap-profile__appointments:hover{
     border-bottom:4px solid #45e6c1;
   }
 
@@ -2136,6 +2189,12 @@ hr{
   }
   .uap-btn-profile__input,.uap-btn-update__input{
     border-radius: 10px;
+  }
+  .uap-content__appointments {
+    justify-content: center;
+  }
+  .general__card{
+    max-width: 80%;
   }
 }
 
