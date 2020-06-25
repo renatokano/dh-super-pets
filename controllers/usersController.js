@@ -11,7 +11,8 @@ const { Neighborhood, City, State, Client, Pet, PetType } = require('../models/i
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 
-const  moment = require('moment');
+const moment = require('moment');
+const cloudinary = require('../config/cloudinary');
 
 const controller = {
   show: async (req,res) => {
@@ -190,12 +191,15 @@ const controller = {
       req.flash('error', 'É necessário que leia e aceite os termos de serviço!');
       return res.redirect('/users/new');
     }
-    // check if passoword == password_confirmation
+    // check if password == password_confirmation
     if (!password_confirmation){
       // create a error flash message
       req.flash('error', 'É necessário que as senhas sejam iguais!');
       return res.redirect('/users/new');
     }
+
+    // set default photo
+    let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592949226/clients/250x250_vyf5fs.png';
 
     // create a transaction
     let transaction = await db.transaction();
@@ -209,6 +213,7 @@ const controller = {
         mobile,
         zipcode,
         address,
+        photo,
         password,
         created_at: new Date(),
         updated_at: new Date(),
@@ -226,7 +231,8 @@ const controller = {
         id: client.id,
         name: client.name,
         email: client.email,
-        uuid: uuid 
+        uuid: uuid,
+        photo
       }
       // success
       req.flash('success', `Seja bem vindo(a) ${name}! Conta criada com sucesso!`);
@@ -287,9 +293,25 @@ const controller = {
 
     // have an image
     if(typeof(file) == 'undefined') {
+      // keep stored photo
       photo = client.photo;
+    // update the image
     } else {
-      photo = file.filename;
+      // upload file to cloudinary
+      const photoFile = await cloudinary.v2.uploader.upload(
+        file.path,
+        {
+          tags: 'clients',
+          folder: 'clients',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 500, height: 500, crop: "limit" }]
+        });
+      if(!photoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/users/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      photo = photoFile.secure_url;
     };
 
     // client data update
@@ -313,6 +335,13 @@ const controller = {
       });
       await transaction.commit();
       // success
+      req.session.client = {
+        id: client.id,
+        name: data.name,
+        email: data.email,
+        uuid,
+        photo
+      }
       req.flash('success', 'Dados atualizados com sucesso!');
       return res.redirect(`/users/${uuid}/admin`);
 

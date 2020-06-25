@@ -57,10 +57,8 @@
         <label for="neighborhood">Bairro</label>
         <select class="pr-main__neighborhood-select" name="neighborhood" id="neighborhood">
           <option disabled selected>Selecione os bairros que deseja atender</option>
-          <% for(let i=0; i<cities.length; i++){ %>
-            <% for(let j=0; j<cities[i].Neighborhoods.length; j++){ %>
-              <option value="<%= cities[i].Neighborhoods[j].id %>"><%= cities[i].Neighborhoods[j].name %></option>
-            <% } %>  
+          <% for(let i=0; i<input_neighborhoods.length; i++){ %>
+            <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
           <% } %>
         </select>
       </div>

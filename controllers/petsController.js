@@ -8,6 +8,8 @@ const db = new Sequelize(config);
 // import some sequelize models
 const { Pet, PetType, Client } = require('../models/index');
 
+const cloudinary = require('../config/cloudinary');
+
 const controller = {
   create: async (req, res) => {
     // check if user is logged
@@ -22,7 +24,27 @@ const controller = {
     let [file] = req.files;
 
     // check if the photo was sent, else set default
-    const photo = file ? file.filename : '800x500.png';
+    if (!file) {
+      photo = 'https://res.cloudinary.com/superpets/image/upload/v1592952182/pets/800x500_c1pdhr.jpg';
+    } else {
+      // upload file to cloudinary
+      const photoFile = await cloudinary.v2.uploader.upload(
+        file.path,
+        {
+          tags: 'pets',
+          folder: 'pets',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
+        }
+      );
+
+      if(!photoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/users/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      photo = photoFile.secure_url;
+    } 
 
     // duplicate is not allowed
     const isDuplicate = await Pet.findOne({
@@ -100,7 +122,21 @@ const controller = {
     if(typeof(file) == 'undefined') {
       photo = pet.photo;
     } else {
-      photo = file.filename;
+      // upload file to cloudinary
+      const photoFile = await cloudinary.v2.uploader.upload(
+        file.path,
+        {
+          tags: 'pets',
+          folder: 'pets',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
+        });
+      if(!photoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/users/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      photo = photoFile.secure_url;
     };
     
     // pet data update
