@@ -351,7 +351,7 @@
               <% for(let i=0; i<appointments.length; i++){ %>
                 <!-- Add appointment -->
                 <div class="general__card">
-                  <img src="https://res.cloudinary.com/superpets/image/upload/v1593067935/clients/ntzn2p6qn5k3clrhe87s.jpg" alt="Renato Kano" style="width:100%">
+                  <img src="<%= appointments[i].professional_photo %>" alt="<%= appointments[i].professional_name %>" style="width:100%">
                   <p class="general__card--name"><%= appointments[i].professional_name %></p>
                   <p class="general__card--service"><%= appointments[i].service_name %></p>
                   <p class="general__card--date-hour"><%= moment(appointments[i].slots_start_time).format('DD') %> de <%= moment(appointments[i].slots_start_time).format('MMMM') %> de <%= moment(appointments[i].slots_start_time).format('YYYY') %> às <%= moment(appointments[i].slots_start_time).format('HH:mm') %></p>
