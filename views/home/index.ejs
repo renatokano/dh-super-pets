@@ -65,7 +65,7 @@
         <div class="home-neighborhood">
           <label class="home-city-regions" for="home-city-regions">Bairro</label>
           <select class="choose-city-region" name="neighborhood" id="home-city-regions">
-            <option value="" selected>Todos os bairro</option>
+            <option value="" selected>Todos os bairros</option>
             <% for(let i=0; i<input_neighborhoods.length; i++){ %>
               <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
             <% } %>
@@ -83,7 +83,7 @@
         <div class="home-my-pet">
           <label class="home-pet" for="pet-weight">Meu Pet</label>
           <select class="choose-pet-weight" name="pet-weight" id="pet-weight">
-            <option value="" selected>Todas as categorias</option>
+            <option value="" selected>Todos os pets</option>
             <% for(let i=0; i<input_pet_types.length; i++){ %>
               <option value="<%= input_pet_types[i].id %>"><%= input_pet_types[i].name %></option>
             <% } %>
@@ -137,8 +137,8 @@
     </div>
     <div class="home-testimonial">
       <div class="home-testimonial-grid">
-        <div class="ttmnl-user"><i class="fa fa-quote-left" style="color:#000;"></i><p class="ttmnl-user__quote"></i><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptates tenetur eius eum iste placeat asperiores ipsa consequuntur. Iste quaerat, adipisci ipsa repellat pariatur natus necessitatibus atque animi fuga in?<br></p><i class="fa fa-quote-right" style="color:#000;width:100%;text-align:right;"></i>
-          <p class="ttmnl-username"><i class="fa fa-user" style="color:#010101;"> </i> Felipe Munhoz e o Thor em 07/03/2020</p>
+        <div class="ttmnl-user"><i class="fa fa-quote-left" style="color:#000;"></i><p class="ttmnl-user__quote"></i><br>Muito prático e fácil de mexer! Consegui encontrar tanto um adestrador para o Thor, que tinha um comportamento bem difícil e também um ótimo lugar para levá-lo para o banho! Super recomendo!<br></p><i class="fa fa-quote-right" style="color:#000;width:100%;text-align:right;"></i>
+          <p class="ttmnl-username"><i class="fa fa-user" style="color:#010101;"> </i> Felipe Castro Melo Neto e o Thor em 26/06/2020</p>
         </div>
         <div class="ttmnl-user-image"></div>
       </div>
@@ -146,19 +146,19 @@
     <div class="home-main-faq">
       <div class="home-faq-grid">
         <div class="home-faq-title">
-          <h2 class="faq-title">FAQ's</h2><hr>
+          <h2 class="faq-title">Perguntas Frequentes</h2><hr>
         </div>
         <div class="home-faq-q1">
-          <p class="faq-question">Posso confiar nos serviços da SuperPets?</p>
-          <p class="faq-answer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem aut ex doloribus possimus? Ex, quam eum! Voluptatum sed maxime pariatur obcaecati fuga, a labore accusamus animi reprehenderit velit, maiores provident!</p>
+          <p class="faq-question">O que é a SuperPets?</p>
+          <p class="faq-answer">A SuperPets é uma plataforma 100% digital que promete unir os melhores profissionais do mercado pet com os donos de pets, permitindo buscar os profissionais mais bem avaliados e realizar agendamentos online de serviços como: adestramento, banho, tosa, hospedagem e passeio. Mais que um agendador, trazemos informação para que o dono do pet tenha tudo que precisa para escolher o prestador de serviço mais adequado para as suas diferentes necessidades.</p>
         </div>
         <div class="home-faq-q2">
-          <p class="faq-question">O que é Dog Sitting?</p>
-          <p class="faq-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi saepe non quidem veniam, iusto dolores molestias alias quas corrupti quos tenetur provident voluptates nesciunt. Modi dolor suscipit iusto placeat quod!</p>
+          <p class="faq-question">Como sei se os profissionais são confiáveis e qualificados?</p>
+          <p class="faq-answer">Todos os profissionais cadastrados na nossa plataforma passam por um rigoroso processo de seleção. A partir do perfil do profissional, é possível verificar todos os seus dados, comentários e avaliações de outros usuários. Além disso, exigimos para alguns tipos de serviço, como o adestramento e tosa, cursos específicos.</p>
         </div>
         <div class="home-faq-q3">
-          <p class="faq-question">Como me tornar Dog Walker?</p>
-          <p class="faq-answer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In quae animi veniam adipisci doloribus soluta quam id, necessitatibus illo placeat amet incidunt aliquam quod autem laboriosam deleniti quia voluptas impedit.</p>
+          <p class="faq-question">Qual a garantia que tenho ao contratar um serviço?</p>
+          <p class="faq-answer">Tomamos todas as medidas possíveis para garantir a satisfação dos nossos clientes, aprimorando sempre nossos processos de seleção dos profissionais e promovendo workshops e eventos que ajudam a nossa comunidade de prestadores de serviço se manterem sempre atualizados e qualificados. Apesar disso tudo, sabemos que nem sempre as coisas ocorrem como deveriam. Nestes casos, contamos com um time de atendentes que te ajudarão a resolver o seu problema.</p>
         </div>
       </div>
     </div>
