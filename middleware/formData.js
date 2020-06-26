@@ -64,7 +64,7 @@ const getAllPetTypes = async function (){
   );
 }
 
-const getDateRange = function(days=7){
+const getDateRange = function(days=6){
   let currentDate = new Date();
   let dateRange = [];
 
