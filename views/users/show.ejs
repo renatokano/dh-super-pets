@@ -9,7 +9,7 @@
     </div>
     <!-- Dados do perfil público -->
     <div class="upublicp__profile">
-      <img class="upublicp__photo" src="/img/clients/<%= user ? user.photo : '250x250.png' %>" alt="User Photo">
+      <img class="upublicp__photo" src="<%= user ? user.photo : '/img/clients/250x250.png' %>" alt="User Photo">
       <div class="upublicp__custom-message">
         "<%= user.about_me %>"
       </div>
@@ -30,7 +30,7 @@
         <% if(user.Pets.length > 0){ %>
           <% for(let i=0; i<user.Pets.length; i++){ %>
             <div class="upublicp__pet-content">
-              <img class="upublicp__photos-1" src="/img/pets/<%= user.Pets[i].photo %>" alt="Pet Photo">
+              <img class="upublicp__photos-1" src="<%= user.Pets[i].photo %>" alt="Pet Photo">
               <div class="upublicp__pet-details">
                 <div class="upublicp__pet-details--name"><%= user.Pets[i].name %></div>
                 <div class="upublicp__pet-details--params">Idade: </div>

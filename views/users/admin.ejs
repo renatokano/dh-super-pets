@@ -9,7 +9,7 @@
     <main class="uap-main-content">
       <div class="uap-profile">
         <div class="uap-profile__img">
-          <img src="/img/clients/<%= user.photo %>" alt="<%= user.name %>" style="max-width: 250px;max-height:250px">
+          <img src="<%= user.photo %>" alt="<%= user.name %>" style="max-width: 250px;max-height:250px">
         </div>
         <q class="uap-profile__quote">
           <i><%= user.about_me.substring(0, 91) %> </i></q>
@@ -147,7 +147,7 @@
             <% for(let i=0; i<user.Pets.length; i++){ %>
               <tr class="uap-my-pets--tr">
                 <td style="width: 120px;vertical-align: top;">
-                  <img src="/img/pets/<%= user.Pets[i].photo %>" alt="<%= user.Pets[i].name %>" class="uap-my-pets--photo"><br>
+                  <img src="<%= user.Pets[i].photo %>" alt="<%= user.Pets[i].name %>" class="uap-my-pets--photo"><br>
                   <div id="uap-my-pets--edit__button" onclick="openUserTabs(event, 'editMyPets');petCompleteForm(<%= user.Pets[i].id %>,'<%= user_session.uuid %>')">Editar</div>
                 </td>
                 <td>

@@ -4,8 +4,7 @@ const authController = require('../controllers/authController');
 const petsController = require('../controllers/petsController');
 const router = express.Router();
 const clientAuthentication = require('../middleware/clientAuthentication');
-const clientsUpload = require('../middleware/clientsUpload');
-const petsUpload = require('../middleware/petsUpload');
+const uploaderMiddleware = require('../middleware/uploader');
 const formDataMiddleware = require('../middleware/formData');
 
 // display a list of all users
@@ -21,19 +20,19 @@ router.post('/login', authController.userStore);
 router.get('/new', formDataMiddleware, usersController.new);
 
 // display an admin area 
-router.get('/:id/admin', clientAuthentication, usersController.admin);
+router.get('/:id/admin', clientAuthentication, formDataMiddleware, usersController.admin);
 
 // get all pets from an user
 router.get('/:id/pets', clientAuthentication, petsController.show);
 
 // update a specific pet
-router.put('/:id/pets', clientAuthentication, petsUpload.any(),petsController.put);
+router.put('/:id/pets', clientAuthentication, uploaderMiddleware.any(),petsController.put);
 
 // create new pet
-router.post('/:id/pets', clientAuthentication, petsUpload.any(),  petsController.create);
+router.post('/:id/pets', clientAuthentication, uploaderMiddleware.any(),  petsController.create);
 
 // get a form for editing an user
-router.put('/:id', clientAuthentication, clientsUpload.any(), usersController.put);
+router.put('/:id', clientAuthentication, uploaderMiddleware.any(), usersController.put);
 
 // display a specific user
 router.get('/:id', usersController.show);

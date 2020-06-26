@@ -7,7 +7,7 @@ const slotsController = require('../controllers/slotsController');
 const route = express.Router();
 const professionalAuthentication = require('../middleware/professionalAuthentication');
 const formDataMiddleware = require('../middleware/formData');
-const upload = require('../middleware/professionalsUpload');
+const uploaderMiddleware = require('../middleware/uploader');
 
 
 route.get('/login', authProfessionalController.professionalCreate);
@@ -16,15 +16,15 @@ route.post('/login', authProfessionalController.professionalStore);
 route.get("/", formDataMiddleware, professionalsController.index);
 
 // get a form for creating a new professional
-route.get('/new', professionalsController.new);
+route.get('/new', formDataMiddleware, professionalsController.new);
 
 route.get('/search', professionalsController.search);
 
 // display an admin area 
-route.get('/:id/admin', professionalAuthentication, professionalsController.admin);
+route.get('/:id/admin', professionalAuthentication, formDataMiddleware, professionalsController.admin);
 
 // get a form for editing a professional
-route.put('/:id/edit', professionalAuthentication, upload.any(), professionalsController.put);
+route.put('/:id/edit', professionalAuthentication, uploaderMiddleware.any(), professionalsController.put);
 
 // create new
 route.post('/:id/neighborhoods', professionalAuthentication, coverageareasController.create);

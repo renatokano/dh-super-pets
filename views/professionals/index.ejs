@@ -84,7 +84,7 @@
               ? `<li class="sr-stars__star sr-stars__star--active"></li>`
               : `<li class="sr-stars__star"></li>`
           }
-          let photo = professionals[i].photo ? professionals[i].photo : "250x250.png"
+          let photo = professionals[i].photo ? professionals[i].photo : "https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png"
           professional += `
             <div class="sr-search-results-grid">
               <div class="sr-name"><h2 class="sr-name__pro3">${professionals[i].name}</h2></div>
@@ -93,7 +93,7 @@
                   ${stars}
                 </ul> 
               </div>
-              <div class="sr-img"><section class="sr-img__pro3"><img src="/img/professionals/${photo}" alt="${professionals[i].name}"></section></div>
+              <div class="sr-img"><section class="sr-img__pro3"><img src="${photo}" alt="${professionals[i].name}"></section></div>
               <div class="sr-pro-info">
                 <section class="sr-pro-info__pro3">
                   <p class="sr-pro-info__pro3-skills">${professionals[i].about_me}</p>

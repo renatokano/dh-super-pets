@@ -49,6 +49,7 @@
   "homepage": "https://github.com/renatokano/dh-super-pets#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "cloudinary": "^1.22.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.2",

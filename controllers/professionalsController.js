@@ -2,10 +2,11 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/database.js')[env];
 const db = new Sequelize(config);
-const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, sequelize } = require('../models/index');
+const { PetType, Professional, Service, ProfessionalService, ProfessionalRating, Neighborhood, City, State, CoverageArea, AvailableSlot, Appointment, sequelize } = require('../models/index');
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 const moment = require('../config/moment');
+const cloudinary = require('../config/cloudinary');
 
 const controller = {
   show: async (req,res)=>{
@@ -125,16 +126,12 @@ const controller = {
         model: Neighborhood,
         as: "coverage_areas",
         require: false
-      },
-    ]
+      }]
     });
     if (!professional || professional_uuid != uuid){
-      return res.render('home/index',{
-        alert: {
-          msg: "Usuário inválido",
-          type: "danger"
-        }
-      });
+      // create a error flash message
+      req.flash('error', 'Acesso negado!');
+      return res.redirect('/');
     }
 
      // get the available slots
@@ -151,6 +148,25 @@ const controller = {
       }
     });
 
+    const appointments = await db.query(
+      `SELECT cli.name as client_name, cli.photo as client_photo,
+      neigh.name as neighborhood, 
+      slots.start_time as slots_start_time,
+      ser.name as service_name, app.price as price
+      FROM appointments as app
+      INNER JOIN clients as cli ON app.client_id = cli.id
+      INNER JOIN neighborhoods as neigh ON cli.neighborhood_id = neigh.id
+      INNER JOIN available_slots as slots ON app.professional_id = slots.professional_id AND app.start_time = slots.start_time
+      INNER JOIN services as ser ON app.service_id = ser.id
+      WHERE app.status = 'B' AND
+      app.professional_id = ${professional_id}`, {
+      type: Sequelize.QueryTypes.SELECT
+    });
+
+    console.log(appointments);
+
+    //return res.send(professional);
+
     return res.render('professionals/admin', {
       professional,
       states,
@@ -159,28 +175,19 @@ const controller = {
       tomorrow,
       lastDay,
       moment,
-      slots
+      slots,
+      appointments
     });
     
   },
   new: async (req,res)=>{
-    const cities = await City.findAll({
-      include: {
-        model: Neighborhood,
-        require: true
-      }
-    });
-    if (!cities) {
-      return res.render('home/index', {
-        alert: {
-          message: "Ocorreu um erro, tente novamente!",
-          type: "danger"
-        }
-      });
+    try {
+      return res.render('professionals/new');
+    } catch {
+      // create a error flash message
+      req.flash('error', 'Houve um erro na solicitação. Tente novamente mais tarde.');
+      return res.redirect('/');
     }
-    return res.render('professionals/new', {
-      cities
-    });
   },
   create: async (req, res) => {
     let { name, email, mobile, neighborhood, password, confirm_password, agree_terms_of_service,
@@ -190,38 +197,50 @@ const controller = {
     password = await bcrypt.hash(password, saltRounds);
     const password_confirmation = await bcrypt.compare(confirm_password, password);
 
-    const cities = await City.findAll({
-      include: {
-        model: Neighborhood,
-        require: true
-      }
-    });
-    if (!cities) {
-      return res.render('home/index', {
-        alert: {
-          msg: "Ocorreu um erro, tente novamente!",
-          type: "danger"
-        }
-      })
-    }
-    if (agree_terms_of_service !== "on"){
-      return res.render('professionals/new', {
-        alert: {
-          msg: "É necessário que leia e aceite os termos de serviço",
-          type: "danger"
-        },
-        cities  
-      })
-    }
+    // check if password == password_confirmation
     if (!password_confirmation){
-      return res.render('professionals/new', {
-        alert: {
-          msg: "Senhas devem ser iguais",
-          type: "danger"
-        },
-        cities  
-      })
+      // create a error flash message
+      req.flash('error', 'É necessário que as senhas sejam iguais!');
+      return res.redirect('/users/new');
     }
+
+    // check if name !== null
+    if(!name){
+      // create a error flash message
+      req.flash('error', 'O campo "nome" é obrigatório!');
+      return res.redirect('/professionals/new');
+    }
+
+    // check if email !== null
+    if(!email){
+      // create a error flash message
+      req.flash('error', 'O campo "e-mail" é obrigatório!');
+      return res.redirect('/professionals/new');
+    }
+
+    // check if mobile !== null
+    if(!mobile){
+      // create a error flash message
+      req.flash('error', 'O campo "celular" é obrigatório!');
+      return res.redirect('/professionals/new');
+    }
+
+    // check if neighborhood !== null
+    if (!neighborhood) {
+      // create a error flash message
+      req.flash('error', 'O campo "bairro" é obrigatório!');
+      return res.redirect('/professionals/new');
+    }
+
+    // check if agree_terms_of_service is checked
+    if (agree_terms_of_service !== "on"){
+      // create a error flash message
+      req.flash('error', 'É necessário que leia e aceite os termos de serviço!');
+      return res.redirect('/professionals/new');
+    }
+
+    // set default photo
+    let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png';
 
     let transaction = await db.transaction();
 
@@ -232,6 +251,7 @@ const controller = {
         email,
         mobile,
         neighborhood_id: neighborhood,
+        photo,
         password,
         created_at: new Date(),
         updated_at: new Date(),
@@ -286,22 +306,17 @@ const controller = {
         id: professional.id,
         name: professional.name,
         email: professional.email,
-        uuid: uuid
+        uuid: uuid,
+        photo
       }
 
-     return res.redirect(`/professionals/${uuid}/admin`, {moment}); 
+      // success
+      req.flash('success', `Seja bem vindo(a) ${name}! Sua conta profissional foi criada com sucesso!`);
+      return res.redirect(`/professionals/${uuid}/admin`, {moment}); 
 
     } catch(err) {
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(err);
-      return res.render('professionals/new', {
-        alert: {
-          msg: "Houve um erro ao gerar o registro. Tente novamente!",
-          type: "danger"
-        },
-        err,
-        cities  
-      })
+      req.flash('error', 'Houve um erro no processamento das informações! Tente novamente mais tarde!');
+      return res.redirect('/professionals/new')
     }
   },
   put: async (req, res)=>{
@@ -319,7 +334,10 @@ const controller = {
       
       const password_confirmation = await bcrypt.compare(data.old_password, professional.password);
       const new_password_confirmation = await bcrypt.compare(data.confirm_new_password, new_password);
-      if(!password_confirmation || !new_password_confirmation) return res.redirect(`/professionals/${uuid}/admin`);
+      if(!password_confirmation || !new_password_confirmation) {
+        req.flash('error', 'As senhas devem ser identicas! Tente novamente');
+        return res.redirect(`/professionals/${uuid}/admin`);
+      }
 
       let newPasswordTransaction = await db.transaction();
       try {
@@ -331,21 +349,39 @@ const controller = {
           newPasswordTransaction
         });
         await newPasswordTransaction.commit();
+
+        // success
+        req.flash('success', 'Senha modificada com sucesso!');
         return res.redirect(`/professionals/${uuid}/admin`);
       } catch (error) {
         await newPasswordTransaction.rollback();
-        console.log("Houve um erro ao gerar o registro. Tente novamente!");
-        console.log(error);
-        res.render('home/index');
+        req.flash('error', 'Houve um erro no processamento! Tente novamente');
+        return res.redirect(`/professionals/${uuid}/admin`);
       }
     }
     /* fim PASSWORD */
 
     /* IMAGE */
     if(typeof(file) == 'undefined') {
+      // keep stored photo
       photo = professional.photo;
+    // update the image
     } else {
-      photo = file.filename;
+      // upload file to cloudinary
+      const photoFile = await cloudinary.v2.uploader.upload(
+        file.path,
+        {
+          tags: 'professionals',
+          folder: 'professionals',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 500, height: 500, crop: "limit" }]
+        });
+      if(!photoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/professionals/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      photo = photoFile.secure_url;
     };
     /** fim IMAGE */
 
@@ -369,13 +405,23 @@ const controller = {
         transaction
       });
       await transaction.commit();
+
+      // update session data
+      req.session.professional = {
+        id: professional.id,
+        name: data.name,
+        email: data.email,
+        uuid,
+        photo
+      }
+
+      req.flash('success', 'Dados atualizados com sucesso!');
       return res.redirect(`/professionals/${uuid}/admin`);
 
     } catch (error) {
       await transaction.rollback();
-      console.log("Houve um erro ao gerar o registro. Tente novamente!");
-      console.log(error);
-      res.render('home/index');
+      req.flash('error', 'Houve um erro no processamento das informações! Tente novamente mais tarde!');
+      return res.redirect('/'); 
     }
   },
   search: async (req, res) => {

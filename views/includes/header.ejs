@@ -7,11 +7,11 @@
     <!-- user profile -->
     <% if(locals.user_session != null) { %>
       <p class="user-name">Olá, <%-user_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('/img/clients/<%-user_session.photo%>');"></section>
+      <section class="user-img" style="background-image: url('<%- user_session.photo ? user_session.photo : "/img/professionals/250x250.png"%>');"></section>
     <!-- professional profile -->
     <% } else if(locals.professional_session!=null) { %>
       <p class="user-name">Olá, <%-professional_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('/img/professionals/<%-professional_session.photo%>');"></section>
+      <section class="user-img" style="background-image: url('<%- professional_session.photo ? professional_session.photo : "/img/professionals/250x250.png" %>');"></section>
     <!-- not logged -->
     <% } else { %>
       <ul class="header-nav__menu">
