@@ -2148,6 +2148,56 @@ hr{
   background-color:#3accaa;
 }
 
+.general__card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  min-width: 150px;
+  margin: 1.2rem;
+  text-align: center;
+  color: grey;
+}
+
+.general__card--name {
+  padding-top: 1.2rem;
+  color: grey;
+  font-size: 1.5em;
+}
+
+.general__card--service {
+  font-weight: bold;
+}
+
+.general__card--price {
+  padding-bottom: 1.2rem;
+}
+
+.general__card--status {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #4CAF50;
+  text-align: center;
+  
+  width: 100%;
+  font-size: 18px;
+}
+
+.general__card--ratings {
+  padding-bottom: 1.2rem;
+}
+
+.general__card--ratings--active {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #32c4ab;
+}
+
+.general__card--concluded {
+  background-color: gray;
+}
+
 @media only screen and (max-width: 960px){
   .uap-main-content{
     grid-area:uap-main-content;
@@ -2911,7 +2961,8 @@ hr{
 }
 
 /* Professional Service Modal */
-.confirmAppointment {
+/* Professional Service Modal */
+.confirmAppointment, .form__modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -2924,7 +2975,7 @@ hr{
   background-color: rgba(0,0,0,0.4); 
 }
 
-.confirmAppointment__content {
+.confirmAppointment__content, .form__modal__content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 40px 20px;
@@ -2935,25 +2986,25 @@ hr{
   border-radius: 8px;
 }
 
-#confirmAppointment__serviceId {
+#confirmAppointment__serviceId, #form__modal__serviceID {
   border-radius: 5px;
   height: 45px;
   padding: 10px 20px;
   
 }
 
-#confirmAppointment__content--form {
+#confirmAppointment__content--form, #form__modal__content--form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-#confirmAppointment__serviceId {
+#confirmAppointment__serviceId, #form__modal__serviceId {
   margin:15px 0px 10px 0px;
 }
 
-.confirmAppointment__close {
+.confirmAppointment__close, .form__modal__close {
   color: #aaa;
   float: right;
   font-size: 20px;
@@ -2964,10 +3015,52 @@ hr{
 }
 
 .confirmAppointment__close:hover,
-.confirmAppointment__close:focus {
+.confirmAppointment__close:focus,
+.form__modal__close:hover,
+.form__modal__close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.rate {
+  float: left;
+  padding: 0 10px;
+  display: flex;
+  align-content: center;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #76e2b4;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #76e2b4;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #76e2b4;
 }
 
 #newAppointment {
@@ -4068,7 +4161,7 @@ hr{
 
 .ulp-password { grid-area: ulp-password; margin-top:5px;}
 
-.ulp-email__label,.ulp-password__label{
+.ulp-email__label,.ulp-password__label, .label__input{
   color:#cdd9d6;
   font-size: 0.8em;
   text-transform: uppercase;
@@ -4082,6 +4175,15 @@ hr{
   border-radius:3px;
   color:#76e2b4;
   padding: 10px 10px 10px 35px;
+}
+
+.textArea__input {
+  width:100%;
+  background-color: #f4f7f9;
+  border:none;
+  border-radius:3px;
+  color:#76e2b4;
+  padding: 10px;
 }
 
 .ulp-email__input--icon,.ulp-recoverlink__reset{

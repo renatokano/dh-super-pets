@@ -6,7 +6,7 @@ const config = require(__dirname + '/../config/database.js')[env];
 // create a connection w/ the database
 const db = new Sequelize(config);
 // import some sequelize models
-const { Neighborhood, City, State, Client, Pet, PetType } = require('../models/index');
+const { Neighborhood, City, State, Client, Pet, PetType, Appointment } = require('../models/index');
 // hash/compare passwords
 const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
@@ -91,11 +91,21 @@ const controller = {
         req.flash('error', 'Acesso negado!');
         return res.redirect('/');
       }
+
+      // get all appointments
+      const appointments = await getAllAppointments(client_id);
+
+      // today date
+      let today = new Date();
+
       // success
       return res.render('users/admin', {
         user,
         states,
-        petTypes
+        petTypes,
+        appointments,
+        today,
+        moment
       });
     } catch {
       // create a error flash message
@@ -382,6 +392,26 @@ const getAllStates = async function (){
         require: true
       }
     }
+  });
+}
+
+const getAllAppointments = async function (id){
+  return await db.query(
+    `SELECT pro.id as professional_id, pro.name as professional_name, pro.email as professional_email, pro.mobile as professional_mobile, pro.address as professional_address, pro.zipcode as professional_zipcode, pro.photo as professional_photo,
+    neigh.name as neighborhood, 
+    slots.start_time as slots_start_time,
+    app.price as price,
+    app.client_id as app_client_id,
+    pro_ratings.id as pro_ratings_id,
+    ser.name as service_name FROM appointments as app
+    INNER JOIN professionals as pro ON app.professional_id = pro.id
+    INNER JOIN neighborhoods as neigh ON pro.neighborhood_id = neigh.id
+    INNER JOIN available_slots as slots ON app.professional_id = slots.professional_id AND app.start_time = slots.start_time
+    INNER JOIN services as ser ON app.service_id = ser.id  
+    LEFT JOIN professional_ratings as pro_ratings ON app.professional_id = pro_ratings.professional_id AND pro_ratings.client_id = app.client_id AND pro_ratings.start_time = slots.start_time
+    WHERE app.status = 'B' AND
+    app.client_id = ${id} ORDER BY slots_start_time DESC`, {
+    type: Sequelize.QueryTypes.SELECT
   });
 }
 
