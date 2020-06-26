@@ -2415,17 +2415,12 @@ hr{
   letter-spacing: 0.018em;
   padding-top:20px;
 }
-.pap-profile__public {grid-area: pap-profile__public; }
+.pap-profile__public {grid-area: pap-profile__public;}
 .pap-profile__services{grid-area: pap-profile__services;}
 .pap-profile__neighborhoods{grid-area: pap-profile__neighborhoods;}
-<<<<<<< HEAD
-.pap-profile__details{grid-area: pap-profile__details;}
-.pap-profile__slots{grid-area: pap-profile__slots;}
-=======
 .pap-profile__details{ grid-area: pap-profile__details;}
-.pap-profile__slots{grid-area: pap-profile__slots};
-.pap-profile__appointments{grid-area: pap-profile__appointments};pap-form__neighborhood--table
->>>>>>> 77528733760562697beb7395591de8d114cbad61
+.pap-profile__slots{grid-area: pap-profile__slots;}
+.pap-profile__appointments{grid-area: pap-profile__appointments;}
 
 .pap-profile__img{
   width:240px;
