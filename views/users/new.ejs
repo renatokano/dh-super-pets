@@ -3,13 +3,12 @@
   <%- include('../includes/flash_messages') %>
 
   <div class="ur-grid-container">
-    <div class="ur-header">
-      <%- include('../includes/header') %>
+    <div class="ur-logo">
+      <span class="ur-logo__link"><a class="ur-logo__link-redirect" href="/"></a></span>
     </div>
     <form class="ur-main" action="/users/create" method="POST">
-      <div class="ur-main__dog"></div>
       <div class="ur-main__title">
-        Encontre os <span class="ur-main__title--highlight">melhores</span> profissionais para o seu grande companheiro
+        <p class="ur-main__title-content">Cadastro</p>
       </div>
       <div class="ur-main__name">
         <label for="name">Nome</label><br/>
@@ -57,7 +56,7 @@
       <div class="ur-main__neighborhood">
         <label for="neighborhood">Bairro</label>
         <select name="neighborhood_id" id="neighborhood" class="ur-main__neighborhood-select" required>
-          <option disabled>Selecione o bairro</option>
+          <option disabled selected>Selecione o bairro</option>
           <% for(let i=0; i<input_neighborhoods.length; i++){ %>
             <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
           <% } %>
@@ -66,7 +65,7 @@
       <div class="ur-main__city">
         <label for="city">Cidade</label><br/>
         <select name="city_id" id="city" class="ur-main__city-select" required>
-          <option disabled>Selecione a cidade</option>
+          <option disabled selected>Selecione a cidade</option>
           <% for(let i=0; i<input_cities.length; i++){ %>
             <option value="<%= input_cities[i].id %>"><%= input_cities[i].name %></option>
           <% } %>
@@ -113,9 +112,7 @@
         <button type="submit" class="ur-main__submit-button">Cadastrar</button>
       </div>
     </form>
-    <div class="ur-footer">
-      <%- include('../includes/footer') %>
-    </div>
+    
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
