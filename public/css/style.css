@@ -2460,6 +2460,7 @@ hr{
   display: block;
   font-weight: bold;
   background-color: #44e2be;
+  line-height: 2.14285714;
 }
 
 .pap-calendar__time--available {
@@ -2467,11 +2468,17 @@ hr{
   font-weight: bold;
   text-decoration: none;
   background-color: #fff;
+  line-height: 2.14285714;
 }
 
 .pap-calendar__time--available:hover {
   color: #3bb3bd;
   border: 1px solid #3bb3bd;
+}
+
+.pap-calendar__time--unavailable:hover {
+  color: #3bb3bd;
+  border: 1px solid transparent;
 }
 
 .pap-calendar__time--unavailable {
@@ -2903,7 +2910,7 @@ hr{
 .p-calendar__main {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
