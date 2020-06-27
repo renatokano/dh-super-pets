@@ -190,6 +190,7 @@ const controller = {
     }
   },
   create: async (req, res) => {
+    
     let { name, email, mobile, neighborhood, password, confirm_password, agree_terms_of_service,
       adestramento, banho, dogsitter, dogwalking, tosa } = req.body;
 
@@ -255,52 +256,11 @@ const controller = {
         password,
         created_at: new Date(),
         updated_at: new Date(),
-      }, {transaction});
+      });
 
       await transaction.commit();
 
       const uuid = uuidGenerate(professional);
- 
-      /* professionals-services */
-      let services = [];
-      
-      if (adestramento === "on") {
-        services.push('Adestramento');
-      }
-
-      if (banho === "on") {
-        services.push('Banho');
-      }
-
-      if (dogsitter === "on") {
-        services.push('Pet Sitting');
-      }
-
-      if (dogwalking === "on") {
-        services.push('Dog Walking');
-      }
-
-      if (tosa === "on") {
-        services.push('Tosa');
-      }
-
-      const Op = Sequelize.Op;
-      const ids = await Service.findAll({
-        attributes: ['id'],
-        where: {
-          name: {
-            [Op.in]: [services]
-          }
-        }
-      });
-
-      for (let i=0; i<ids.length; i++) {
-        let service_id = ids[i].id;
-        await ProfessionalService.create({
-          professional_id: professional.id,
-          service_id
-        });
-      }
 
       req.session.professional = {
         id: professional.id,
@@ -312,7 +272,7 @@ const controller = {
 
       // success
       req.flash('success', `Seja bem vindo(a) ${name}! Sua conta profissional foi criada com sucesso!`);
-      return res.redirect(`/professionals/${uuid}/admin`, {moment}); 
+      return res.redirect(`/professionals/${uuid}/admin`); 
 
     } catch(err) {
       req.flash('error', 'Houve um erro no processamento das informações! Tente novamente mais tarde!');
