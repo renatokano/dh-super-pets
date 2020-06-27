@@ -48,7 +48,7 @@ const controller = {
                 returning: true
             }, transaction);
             await transaction.commit();
-            req.flash('success', 'Slots cadastrados com sucesso!');
+            req.flash('success', 'Agenda atualizada com sucesso!');
             return res.redirect(`/professionals/${uuid}/admin`);
         } catch (error) {
             await transaction.rollback();
