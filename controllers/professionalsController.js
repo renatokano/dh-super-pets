@@ -160,13 +160,11 @@ const controller = {
       INNER JOIN available_slots as slots ON app.professional_id = slots.professional_id AND app.start_time = slots.start_time
       INNER JOIN services as ser ON app.service_id = ser.id
       WHERE app.status = 'B' AND
-      app.professional_id = ${professional_id}`, {
+      app.professional_id = ${professional_id} ORDER BY slots_start_time DESC`, {
       type: Sequelize.QueryTypes.SELECT
     });
 
-    console.log(appointments);
-
-    //return res.send(professional);
+    console.log(professional.Services[0]);
 
     return res.render('professionals/admin', {
       professional,

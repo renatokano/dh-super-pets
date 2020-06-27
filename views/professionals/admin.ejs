@@ -130,11 +130,13 @@
         <table class="pap-form__my-services--table">
           <tr class="pap-form__my-services--th">
             <th>Serviço</th>
+            <th>Preço</th>
             <th>Ação</th>
           </tr>
           <% for(let i=0; i<professional.Services.length; i++){ %>
           <tr class="pap-form__my-services--tr">
-            <td><%= professional.Services[i].name %></td>
+            <td><%= professional.Services[i].name %></td> 
+            <td><%= professional.Services[i].ProfessionalService.price.toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); %></td>
             <td>
               <a href="/professionals/<%= professional_session.uuid %>/<%= professional.Services[i].id%>/services"><img src="https://res.cloudinary.com/superpets/image/upload/v1592952107/trash-adria-atual_vp3qun.png" alt="deletar"
                 style="max-width: 25px;max-height:25px;display:inline-block;">
@@ -147,18 +149,25 @@
         <% } %>
 
         <section class="pap-form__district">
-          <label class="pap-name__inputs" for="district">Serviços</label>
-          <select class="pap-form__district-select pap-form__title-select" name="services" id="services"
-            class="district-dropdown">
-            <option disabled selected>Selecione o serviço</option>
-            <% for(let i=0; i<services.length; i++){ %>
-            <% if (my_services.indexOf(services[i].id) === -1) { %>
-            <option value="<%= services[i].id %>">
-              <%= services[i].name %>
-            </option>
-            <% } %>
-            <% } %>
-          </select>
+          <div class="pap_box_services">
+            <div class="pap-box-service">
+              <label class="pap-name__inputs" for="district">Serviços</label>
+              <select class="pap-form__district-select pap-form__title-select" name="services" id="services" class="district-dropdown">
+                <option disabled selected>Selecione o serviço</option>
+                <% for(let i=0; i<services.length; i++){ %>
+                  <% if (my_services.indexOf(services[i].id) === -1) { %>
+                    <option value="<%= services[i].id %>">
+                      <%= services[i].name %>
+                    </option>
+                  <% } %>
+                <% } %>
+              </select>
+          </div>
+          <div class="pap-box-price">
+            <label class="pap-name__inputs" for="name">Preço</label>
+          <input class="pap-form__services-input" type="text" name="price" id="price" placeholder="Digite o preço" onkeyup="k(this);"/>
+          </div>
+          </div>
         </section>
 
         <section>
@@ -184,7 +193,7 @@
             </tr>
             <% for(let i=0; i<professional.coverage_areas.length; i++){ %>
               <tr class="pap-form__neighborhood--tr">
-                  <td><%= professional.coverage_areas[i].name %></td>
+                  <td style="width: 50vw;"><%= professional.coverage_areas[i].name %></td>
                   <td>
                     <a href="/professionals/<%= professional_session.uuid %>/<%= professional.coverage_areas[i].id%>/neighborhoods"><img src="https://res.cloudinary.com/superpets/image/upload/v1592952107/trash-adria-atual_vp3qun.png" alt="deletar"
                       style="max-width: 25px;max-height:25px;display:inline-block;">
@@ -371,6 +380,15 @@
         let slots = document.getElementById("slots");
         slots.value = addSlots;
       });
+    }
+
+    function k(i) {
+      var v = i.value.replace(/\D/g,'');
+      v = (v/100).toFixed(2) + '';
+      v = v.replace(".", ",");
+      v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+      v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+      i.value = v;
     }
   
   </script>

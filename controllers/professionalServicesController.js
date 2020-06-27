@@ -14,12 +14,25 @@ const controller = {
     const {id: professional_id, uuid} = req.session.professional;
     data.professional_id = professional_id;
 
+    if(!data.services){
+      // create a error flash message
+      req.flash('error', 'O campo "serviços" é obrigatório!');
+      return res.redirect(`/professionals/${uuid}/admin`); 
+    }
+
+    if(!data.price){
+      // create a error flash message
+      req.flash('error', 'O campo "preço" é obrigatório!');
+      return res.redirect(`/professionals/${uuid}/admin`); 
+    }
+
     let transaction = await db.transaction();
 
     try {
       const services = await ProfessionalService.create({
         professional_id: data.professional_id,
         service_id: data.services,
+        price: data.price,
         created_at: new Date(),
         updated_at: new Date()
       },{transaction});
