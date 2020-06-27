@@ -1318,7 +1318,7 @@ hr{
 .pr-main__name { 
   grid-area: pr-main__name;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 .pr-main__name-input {
   width: 100%;
@@ -1333,7 +1333,7 @@ hr{
 .pr-main__email { 
   grid-area: pr-main__email;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 .pr-main__email-input {
   width: 100%;
@@ -1348,7 +1348,7 @@ hr{
 .pr-main__mobile {
   grid-area: pr-main__mobile;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 .pr-main__mobile-input {
   width: 100%;
@@ -1363,7 +1363,7 @@ hr{
 .pr-main__neighborhood {
   grid-area: pr-main__neighborhood;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 
 .pr-main__neighborhood-select {
@@ -1379,7 +1379,7 @@ hr{
 .pr-main__password {
   grid-area: pr-main__password;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 .pr-main__password-input {
   width: 100%;
@@ -1394,7 +1394,7 @@ hr{
 .pr-main__confirm-password {
   grid-area: pr-main__confirm-password;
   color: #a3a3a3;
-  font-weight: bold;
+  font-weight:normal;
 }
 .pr-main__confirm-password-input {
   width: 100%;
@@ -1435,7 +1435,7 @@ hr{
 }
 .pr-main__already-an-user-content--link {
   padding-left: 5px;
-  font-weight: bold;
+  font-weight:normal;
   text-decoration: none;
   color: #3ad994;
 }
