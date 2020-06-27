@@ -931,12 +931,13 @@ hr{
 /* mobile-first (mobile/tablets, max. 992px) */
 .ur-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 10px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 10px;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas: 
-  "ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
+  ". ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
   ;
+  width:100vw;
   height:100vh; 
   background-color: #fff;
 }
@@ -947,24 +948,30 @@ hr{
 
 .ur-main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 10px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 10px;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
   gap: 10px 10px;
-  grid-template-areas: ". ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title"
-  ". ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name  ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name"
-  ". ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email "
-  ". ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile"
-  ". ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode"
-  ". ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address"
-  ". ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood"
-  ". ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city"
-  ". ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password"
-  ". ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password"
-  ". ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service"
-  ". ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user"
-  ". ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit";
+  grid-template-areas: ". ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ur-main__title ."
+  ". ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name  ur-main__name ur-main__name ur-main__name ur-main__name ur-main__name ."
+  ". ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ur-main__email ."
+  ". ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ur-main__mobile ."
+  ". ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ur-main__zipcode ."
+  ". ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ur-main__address ."
+  ". ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ur-main__neighborhood ."
+  ". ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ur-main__city ."
+  ". ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ur-main__password ."
+  ". ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ur-main__confirm-password ."
+  ". ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ur-main__terms-of-service ."
+  ". ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ur-main__already-an-user ."
+  ". ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit ur-main__submit .";
   grid-area: ur-main;
   font-family: Arial, Helvetica, sans-serif;
+  width:100%;
+  height:100vh;
+}
+
+.ur-logo{
+  display:none;
 }
 
 .ur-main__title { 
@@ -1176,10 +1183,10 @@ hr{
     grid-template-rows: 1fr auto 1fr;
     gap: 0px 0px;
     grid-template-areas:
-        "ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo" 
+        ". . . ur-logo ur-logo ur-logo ur-logo ur-logo ur-logo . . ."
         ". . . ur-main ur-main ur-main ur-main ur-main ur-main . . ."
         ". . . . . . . . . . . .";
-    height:100%;
+    height:100vh;
     width:100%;
     background-color:#f4f7f9;
     background-image:url('https://res.cloudinary.com/superpets/image/upload/v1593135516/dog-register-newuser_rdj7ad.png');
@@ -1258,23 +1265,15 @@ hr{
 .pr-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 110px 1fr 200px;
+  grid-template-rows: auto;
   gap: 0px 0px;
-  grid-template-areas: "pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header pr-header"
-  "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main"
-  "pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer pr-footer";
-  height: auto;
-  background-color: #ecf1f1;
+  grid-template-areas: 
+  "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main";
+  height: 100%;
+  background-color: #f4f7f9;
 }
-.pr-header {
-  grid-area: pr-header;
-  background-color: #f6f8f9;
-}
-.pr-footer {
-  grid-area: pr-footer;
-  background-color: #a6adb4;
-}
-.pr-grid-container ::placeholder {
+
+.pr-grid-container::placeholder {
   color: #d9dee0;
   font-size: 0.8em;
 }
@@ -1282,48 +1281,38 @@ hr{
 .pr-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
   gap: 10px 10px;
-  grid-template-areas: ". pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
-  ". pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle"
-  ". pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name  pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
-  ". pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email "
-  ". pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
-  ". pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services"
-  ". pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list"
-  ". pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
-  ". pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password"
-  ". pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
-  ". pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service"
-  ". pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user"
-  ". pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit";
+  grid-template-areas: ". pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title  ."
+  ". pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name  pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name ."
+  ". pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email ."
+  ". pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile ."
+  ". pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood ."
+  ". pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password ."
+  ". pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password ."
+  ". pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service ."
+  ". pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user ."
+  ". pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit .";
   grid-area: pr-main;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
+  height:100vh;
+  background-color:#fff;
 }
 
-.pr-main__dog { 
-  grid-area: pr-main__dog; 
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952103/professionals-new_wy5ddt.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  font-size: 14px;
+.pr-logo__link-redirect{
+  display:inline-block;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+  outline:none;
 }
 
 .pr-main__title { 
   grid-area: pr-main__title; 
   padding: 5% 0 2% 5;
   font-size: 30px;
-  color: #a3a3a3;
-  font-weight: bold;
-}
-.pr-main__title--highlight {
-  color: #39b99b;
-}
-.pr-main__subtitle { 
-  grid-area: pr-main__subtitle; 
-  font-size: 15px;
-  color: #a3a3a3;
+  color: #5c5e5f;
 }
 
 .pr-main__name { 
@@ -1370,42 +1359,6 @@ hr{
   color: #a3a3a3;
   font-weight: normal;
 }
-
-.pr-main__services{
-  grid-area: pr-main__services;
-  align-self: center;
-  justify-self: left;
-  width: 100%;
-  color: #a3a3a3;
-  font-weight: bold;
-}
-.pr-main__services__list {
-  display: grid;
-  grid-area: pr-main__services__list;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 1px 1px;
-  grid-template-areas: "services__item1 services__item3" 
-  "services__item2 services__item5" 
-  "services__item4 .";
-  color: #a3a3a3;
-  font-weight: normal;
-}
-.services__item1{grid-area:services__item1}
-.services__item2{grid-area:services__item2}
-.services__item3{grid-area:services__item3}
-.services__item4{grid-area:services__item4}
-.services__item5{grid-area:services__item5}
-
-.pr-main__services-input {
-  color: #a3a3a3;
-  border: none;
-  transform: scale(1.3);
-}
-.pr-main__services-label {
-  font-size: 0.9em;
-}
-
 
 .pr-main__neighborhood {
   grid-area: pr-main__neighborhood;
@@ -1481,8 +1434,14 @@ hr{
   font-size: 0.9em;
 }
 .pr-main__already-an-user-content--link {
-  /* color: #44e2be; */
-  color: #a3a3a3;
+  padding-left: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #3ad994;
+}
+
+.pr-main__already-an-user-content--link:hover {
+  text-decoration: underline;
 }
 
 .pr-main__submit { 
@@ -1495,48 +1454,102 @@ hr{
   padding: 10px 20px;
   width: 100%;
   color: white;
-  background-color: #39b99b;
+  background-color: #3ad994;
+  transition: background-color 0.3s ease-in-out;
+  transition-duration: 0.3s;
   border-color: none;
   text-transform: uppercase;
+  border:none;
   border-radius: 10px;
+  cursor:pointer;
+}
+
+.pr-main__submit-button:hover{
+  background-color: #12d37d;
+  transition: background-color 0.3s ease-in-out;
+  transition-duration: 0.3s;
+}
+
+.pr-main input,.pr-main__neighborhood-select{
+  background-color:#f4f7f9;
+}
+
+.pr-main input:focus,.pr-main__neighborhood-select:focus{
+  color:#76e2b4;
+}
+
+.pr-main label:not(.pr-main__terms-of-service-label) {
+  color: #cdd9d6;
+  text-transform: uppercase;
+  font-size: 0.8em;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .pr-header { 
-    grid-area: pr-header;
-    background-color: #f0eac2;
-  }
-
-  .pr-footer { 
-    grid-area: pr-footer;
-    background-color: #a6adb4;
-  }
-
   .pr-grid-container {
-    background-color: #ecf1f1;
+    grid-template-columns: auto auto auto 100px 100px 100px 100px 100px 100px auto auto auto;
+    grid-template-areas:
+        "pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo pr-logo"
+        ". . . pr-main pr-main pr-main pr-main pr-main pr-main . . ."
+        ". . . . . . . . . . . .";
+    grid-template-rows: 1fr auto 1fr;
+    background-color: #f4f7f9;
+    width:100%;
+    height:100%;
+    background-image:url('https://res.cloudinary.com/superpets/image/upload/v1593135525/dog-register-form-bg_ndctjk.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom 0px right 0px;
+    /* background-size: 40%; */
   }
 
   .pr-main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    gap: 20px 10px;
     grid-template-areas:
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle pr-main__subtitle"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services pr-main__services"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list pr-main__services__list"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog  pr-main__password pr-main__password pr-main__password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service"
-    "pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog pr-main__dog  pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__submit pr-main__submit pr-main__submit";
+    "pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title pr-main__title"
+    "pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name pr-main__name"
+    "pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email pr-main__email"
+    "pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile pr-main__mobile"
+    "pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood pr-main__neighborhood"
+    "pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password pr-main__password  pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password pr-main__confirm-password"
+    "pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service pr-main__terms-of-service"
+    "pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user pr-main__already-an-user  pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit pr-main__submit";
     grid-area: pr-main;
     font-family: Arial, Helvetica, sans-serif;
-    width: 95%;
+    width: 100%;
+    height:100%;
+    background-color:#fff;
+    border-radius:5px;
+    padding:20px;
+    webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
+    transform: translateY(10%);
   }
+
+  .pr-logo{
+    width:100%;
+    display:inline-block;
+    grid-area: pr-logo;
+    transform:translateY(50%);
+  }
+
+  .pr-logo__link {
+    background-image: url(https://res.cloudinary.com/superpets/image/upload/v1592952095/pawprint_pjnz4d.svg);
+    width: 75px;
+    height: 75px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position-x: center;
+    margin: 0 auto;
+    display: block;
+    transform: rotate(55deg);
+}
+
+
 }
 
 /* search results style */
@@ -2415,9 +2428,11 @@ hr{
   letter-spacing: 0.018em;
   padding-top:20px;
 }
-.pap-profile__public {grid-area: pap-profile__public;}
+.pap-profile__public {grid-area: pap-profile__public; }
 .pap-profile__services{grid-area: pap-profile__services;}
 .pap-profile__neighborhoods{grid-area: pap-profile__neighborhoods;}
+.pap-profile__details{grid-area: pap-profile__details;}
+.pap-profile__slots{grid-area: pap-profile__slots;}
 .pap-profile__details{ grid-area: pap-profile__details;}
 .pap-profile__slots{grid-area: pap-profile__slots;}
 .pap-profile__appointments{grid-area: pap-profile__appointments;}
