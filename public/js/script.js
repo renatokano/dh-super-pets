@@ -67,7 +67,7 @@ const searchButton1 = () =>{
   let btn1 = document.getElementById('btn-1');
   let dogTraining = document.querySelector('.home-dog-training');
   let dogTrainingBtn = document.querySelector('.dog-training-btn');
-  dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-training_pw3jp1.svgg')";
+  dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-training_pw3jp1.svg')";
   console.log(btn1.checked);
   
   btn1.addEventListener('click',()=>{
