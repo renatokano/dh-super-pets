@@ -603,62 +603,67 @@ hr{
 }
 .home-dog-training {
   grid-area: home-dog-training;
-  border:1px solid #000;
+  border:2px solid #ebeded;
   border-radius: 10px;
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training_zexzfu.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-training_pw3jp1.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
+  color:#676767;
   display:flex;
   position:relative;
 }
 .home-pet-shower {
   grid-area: home-pet-shower; 
-  border:1px solid #000;
+  border:2px solid #ebeded;
   border-radius: 10px;
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon_cify1a.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1593329216/shower-icon_ok5b49.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
+  color:#676767;
   display:flex;
   position:relative;
 }
 
 .home-dog-sitter { 
   grid-area: home-dog-sitter;
-  border:1px solid #000;
+  border:2px solid #ebeded;
   border-radius: 10px;
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-sitting_u17mws.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-sitting_isgqic.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
+  color:#676767;
   display:flex;
   position:relative;
 }
 .home-dog-walk { 
   grid-area: home-dog-walk;
-  border:1px solid #000;
+  border:2px solid #ebeded;
   border-radius: 10px;
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running_wakixw.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-running_kpbxdt.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
+  color:#676767;
   display:flex;
   position:relative;
  }
 .home-dog-groom { 
   grid-area: home-dog-groom;
-  border:1px solid #000;
+  border:2px solid #ebeded;
   border-radius: 10px;
-  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon_j4glds.svg');
+  background-image: url('https://res.cloudinary.com/superpets/image/upload/v1593329216/scissor-icon_hbe2m5.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 20px;
   background-size: 24px 24px;
+  color:#676767;
   display:flex;
   position:relative;
 }
@@ -758,6 +763,7 @@ hr{
 .choose-city-region, .choose-date, .choose-pet-weight{
   border:2px solid #ebeded;
   border-radius:5px;
+  color:#676767;
   height:45px;
 }
 
@@ -815,7 +821,6 @@ hr{
     ". . . . . . . . . . ."; 
     height:300px;
     background-color: #fff;
-    border:1px solid #010101;
     border-radius:10px;
     position:absolute;
     left: 50%;
@@ -823,6 +828,10 @@ hr{
     transform: translate(-50%, 16.5vh);
     padding:30px 0;
     overflow:hidden;
+    border: 2px solid rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
   }
 
   .home-banner {
