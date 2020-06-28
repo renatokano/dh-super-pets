@@ -932,14 +932,15 @@ hr{
 .ur-grid-container {
   display: grid;
   grid-template-columns: 10px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 10px;
-  grid-template-rows: 1fr;
+  grid-template-rows: 100%;
   gap: 0px 0px;
   grid-template-areas: 
   ". ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ur-main ." 
   ;
   width:100vw;
-  height:100vh; 
+  height:100%; 
   background-color: #fff;
+  overflow: auto;
 }
 
 .ur-grid-container::placeholder {
@@ -967,7 +968,7 @@ hr{
   grid-area: ur-main;
   font-family: Arial, Helvetica, sans-serif;
   width:100%;
-  height:100vh;
+  height:605px;
 }
 
 .ur-logo{
@@ -1271,6 +1272,7 @@ hr{
   "pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main pr-main";
   height: 100%;
   background-color: #f4f7f9;
+  overflow: auto;
 }
 
 .pr-grid-container::placeholder {
@@ -4100,13 +4102,13 @@ hr{
 
 /* media queries to header and footer heights */
 @media only screen and (max-width: 768px){
-  .ur-grid-container,.pr-grid-container,.sr-grid-container,.uap-grid-container,.pap-grid-container,.upp-grid-container,.ppp-grid-container{
+  .sr-grid-container,.uap-grid-container,.pap-grid-container,.upp-grid-container,.ppp-grid-container{
     grid-template-rows: 110px 1fr auto;
   }
 }
 
 @media only screen and (max-width: 574px){
-  .ur-grid-container,.pr-grid-container,.sr-grid-container,.uap-grid-container,.pap-grid-container,.upp-grid-container,.ppp-grid-container{
+  .sr-grid-container,.uap-grid-container,.pap-grid-container,.upp-grid-container,.ppp-grid-container{
     grid-template-rows: 80px 1fr auto;  
   }
 }
