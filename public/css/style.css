@@ -1678,6 +1678,10 @@ hr{
   list-style:none;
 }
 
+.sr-stars__rating i{
+  margin-right:5px;
+}
+
 .sr-stars__star{
   background-image: url('https://res.cloudinary.com/superpets/image/upload/v1592952107/star-transparent_uz7inb.svg');
   background-repeat: no-repeat;
