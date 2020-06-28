@@ -6,18 +6,16 @@
   <div class="header-nav">
     <!-- user profile -->
     <% if(locals.user_session != null) { %>
-      <ul class="header__user-account">
-        <li class="header__user-account-link"><a class="header__user-account-redirect" href="/users/<%=user_session.uuid%>/admin">Minha Conta</a></li>
-      </ul>
       <p class="user-name">Olá, <%-user_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('<%- user_session.photo ? user_session.photo : "/img/professionals/250x250.png"%>');"></section>
+      <section class="user-img" style="background-image: url('<%- user_session.photo ? user_session.photo : "/img/professionals/250x250.png"%>');">
+        <a class="header__user-account-redirect" href="/users/<%=user_session.uuid%>/admin">Minha Conta</a>
+      </section>
     <!-- professional profile -->
     <% } else if(locals.professional_session!=null) { %>
-      <ul class="header__pro-account">
-        <li class="header__pro-account-link"><a class="header__pro-account-redirect" href="/professionals/<%=professional_session.uuid%>/admin">Minha Conta</a></li>
-      </ul>
       <p class="user-name">Olá, <%-professional_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('<%- professional_session.photo ? professional_session.photo : "/img/professionals/250x250.png" %>');"></section>
+      <section class="user-img" style="background-image: url('<%- professional_session.photo ? professional_session.photo : "/img/professionals/250x250.png" %>');">
+       <a class="header__pro-account-redirect" href="/professionals/<%=professional_session.uuid%>/admin">Minha Conta</a> 
+      </section>
     <!-- not logged -->
     <% } else { %>
       <ul class="header-nav__menu">
