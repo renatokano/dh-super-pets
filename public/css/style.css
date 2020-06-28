@@ -3679,6 +3679,11 @@ hr{
   color: #fff;
 }
 
+.services-pet-training__button:hover {
+  cursor: pointer;
+  background-color: #44e2be;
+}
+
 .services-content__pet-training--large {
   display: none;
   width:100%;
@@ -3722,6 +3727,11 @@ hr{
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
+}
+
+.services-pet-baths__button:hover {
+  cursor: pointer;
+  background-color: #44e2be;
 }
 
 .services-pet-baths--mobile {
@@ -3771,6 +3781,11 @@ hr{
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
+}
+
+.services-dog-walking__button:hover {
+  cursor: pointer;
+  background-color: #44e2be;
 }
 
 .services-dog-walking--mobile {
@@ -3823,6 +3838,11 @@ hr{
   color: #fff;
 }
 
+.services-pet-sitting__button:hover {
+  cursor: pointer;
+  background-color: #44e2be;
+}
+
 .services-pet-sitting--mobile {
   transform: scaleX(-1);
 }
@@ -3870,6 +3890,11 @@ hr{
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
+}
+
+.services-pet-grooming__button:hover {
+  cursor: pointer;
+  background-color: #44e2be;
 }
 
 .services-pet-grooming--mobile {
