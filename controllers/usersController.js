@@ -13,6 +13,9 @@ const { saltRounds } = require('../config/bcrypt');
 
 const moment = require('moment');
 const cloudinary = require('../config/cloudinary');
+const sgMail = require('../config/sendgrid');
+
+
 
 const controller = {
   show: async (req,res) => {
@@ -245,8 +248,9 @@ const controller = {
         photo
       }
       // success
+      generateEmail(client, true); // send a welcome email to the user
       req.flash('success', `Seja bem vindo(a) ${name}! Conta criada com sucesso!`);
-      return res.redirect(`/users/${uuid}/admin`); 
+      return res.redirect(`/users/${uuid}/admin`);       
 
     } catch(err) {
       await transaction.rollback();
@@ -417,6 +421,45 @@ const getAllAppointments = async function (id){
 
 const getAllPetTypes = async function (){
   return await PetType.findAll();
+}
+
+const generateEmail = async function(client, newClient=true){
+  let html = '';
+  let text = '';
+  let subject = '';
+
+  if(newClient){
+    html = `<strong>Seja bem vindo(a) ${client.name} a comunidade SuperPets!</strong>
+      <br>
+      <p>É um prazer tê-lo conosco.</p>
+      <p>Para iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!</p>
+      <br>
+      <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
+      <p>Desejamos a você um ótima e maravilhosa jornada!</p>
+      <br>
+      <p>Equipe SuperPets</p>
+    `;
+
+    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos a você um ótima e maravilhosa jornada!\n\nEquipe SuperPets`;
+
+    subject = `Olá ${client.name}, seja bem vindo(a) a comunidade SuperPets!`;
+  } 
+
+  try {
+    let msg = {
+      to: `${client.email}`,
+      from: 'superpets.sp@gmail.com',
+      subject,
+      text,
+      html
+    }
+    await sgMail.send(msg);
+  } catch(error) {
+    console.error(error);
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  }
 }
 
 module.exports = controller;

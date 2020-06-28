@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const { saltRounds } = require('../config/bcrypt');
 const moment = require('../config/moment');
 const cloudinary = require('../config/cloudinary');
+const sgMail = require('../config/sendgrid');
 
 const controller = {
   show: async (req,res)=>{
@@ -159,13 +160,11 @@ const controller = {
       INNER JOIN available_slots as slots ON app.professional_id = slots.professional_id AND app.start_time = slots.start_time
       INNER JOIN services as ser ON app.service_id = ser.id
       WHERE app.status = 'B' AND
-      app.professional_id = ${professional_id}`, {
+      app.professional_id = ${professional_id} ORDER BY slots_start_time DESC`, {
       type: Sequelize.QueryTypes.SELECT
     });
 
-    console.log(appointments);
-
-    //return res.send(professional);
+    console.log(professional.Services[0]);
 
     return res.render('professionals/admin', {
       professional,
@@ -271,6 +270,7 @@ const controller = {
       }
 
       // success
+      generateEmail(professional, true); // send a welcome email to the professional
       req.flash('success', `Seja bem vindo(a) ${name}! Sua conta profissional foi criada com sucesso!`);
       return res.redirect(`/professionals/${uuid}/admin`); 
 
@@ -553,6 +553,49 @@ const getAllPetTypes = async function (){
       ]
     }
   );
+}
+
+const generateEmail = async function(professional, newProfessional=true){
+  let html = '';
+  let text = '';
+  let subject = '';
+
+  if(newProfessional){
+    html = `<strong>Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!</strong>
+      <br>
+      <p>É um prazer tê-lo conosco.</p>
+      <p>Para iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:</p>
+      <p>1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;</p>
+      <p>2 - Cadastre seus serviços e defina o preço;</p>
+      <p>3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;</p>
+      <p>4 - Mantenha sempre sua agenda atualizada;</p>
+      <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
+      <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
+      <br>
+      <p>Equipe SuperPets</p>
+    `;
+
+    text = `Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!\n\nÉ um prazer tê-lo conosco.\nPara iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:\n\n1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;\n\n2 - Cadastre seus serviços e defina o preço;\n3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;
+    \n4 - Mantenha sempre sua agenda atualizada;\n\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos, a você, ótimos negócios e uma maravilhosa jornada!\n\nEquipe SuperPets`;
+
+    subject = `Olá ${professional.name}, seja bem vindo(a) a comunidade SuperPets Profissional!`;
+  } 
+
+  try {
+    let msg = {
+      to: `${professional.email}`,
+      from: 'superpets.sp@gmail.com',
+      subject,
+      text,
+      html
+    }
+    await sgMail.send(msg);
+  } catch(error) {
+    console.error(error);
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  }
 }
 
 module.exports = controller;
