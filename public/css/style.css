@@ -841,10 +841,9 @@ hr{
     transform: translate(-50%, 16.5vh);
     padding:30px 0;
     overflow:hidden;
-    border: 2px solid rgba(0,0,0,0.4);
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
   }
 
   .home-banner {
