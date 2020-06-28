@@ -2586,6 +2586,22 @@ hr{
   font-weight: bold;
 }
 
+.pap_box_services {
+  display: grid;
+  grid-template-columns: 1fr 10px 150px;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas: "pap-box-service . pap-box-price";
+}
+
+.pap-box-service {
+  grid-area:pap-box-service;
+}
+.pap-box-price{
+  grid-area:pap-box-price;
+}
+
+
 @media only screen and (max-width: 768px){
   .pap-grid-container{
     display: grid;
