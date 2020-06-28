@@ -139,7 +139,7 @@
             <td style="width: 9vw;"><%= professional.Services[i].ProfessionalService.price.toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); %></td>
             <td>
               <a href="/professionals/<%= professional_session.uuid %>/<%= professional.Services[i].id%>/services"><img src="https://res.cloudinary.com/superpets/image/upload/v1593331396/trash_wernmc.svg" alt="deletar"
-                style="max-width: 25px;max-height:25px;display:inline-block;">
+                style="max-width: 25px;max-height:25px;display:inline-block;margin-top:5px;">
               </a>
             </td>
           </tr>
@@ -196,7 +196,7 @@
                   <td style="width: 50vw;"><%= professional.coverage_areas[i].name %></td>
                   <td>
                     <a href="/professionals/<%= professional_session.uuid %>/<%= professional.coverage_areas[i].id%>/neighborhoods"><img src="https://res.cloudinary.com/superpets/image/upload/v1593331396/trash_wernmc.svg" alt="deletar"
-                      style="max-width: 25px;max-height:25px;display:inline-block;">
+                      style="max-width:25px;max-height:25px;display:inline-block;margin-top:5px;">
                     </a>
                   </td>
               </tr>
