@@ -1219,7 +1219,6 @@ hr{
     -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
-    transform:translateY(10%);
   }
 
   .ur-main__title{
@@ -1236,7 +1235,7 @@ hr{
     width:100%;
     display:inline-block;
     grid-area: ur-logo;
-    transform:translateY(50%);
+    padding:20px 0;
   }
 
   .ur-logo__link{
@@ -1529,14 +1528,13 @@ hr{
     webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
-    transform: translateY(10%);
   }
 
   .pr-logo{
     width:100%;
     display:inline-block;
     grid-area: pr-logo;
-    transform:translateY(50%);
+    padding:20px 0;
   }
 
   .pr-logo__link {
