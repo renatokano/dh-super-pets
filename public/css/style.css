@@ -4564,8 +4564,7 @@ hr{
   grid-template-areas: 
   "upublicp__photo upublicp__photo upublicp__photo upublicp__photo" 
   "upublicp__user-name upublicp__user-name upublicp__user-name upublicp__user-name" 
-  "upublicp__custom-message upublicp__custom-message upublicp__custom-message upublicp__custom-message" 
-  "upublicp__stars upublicp__stars upublicp__stars upublicp__stars"
+  "upublicp__custom-message upublicp__custom-message upublicp__custom-message upublicp__custom-message"
   "upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos"; 
   grid-area: upublicp-profile; 
 }
@@ -4573,6 +4572,8 @@ hr{
 .upublicp__photo {
   padding-top: 2rem;
   grid-area: upublicp__photo;
+  display: block;
+  width: 100%;
 }
 
 .upublicp__user-name {
