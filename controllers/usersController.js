@@ -437,9 +437,10 @@ const generateEmail = async function(client, newClient=true){
       <br>
       <p>Desejamos a você uma ótima e maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
+      <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
     `;
 
-    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos a você uma ótima e maravilhosa jornada!\nEquipe SuperPets`;
+    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos a você uma ótima e maravilhosa jornada!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
     subject = `Olá ${client.name}, seja bem vindo(a) a comunidade SuperPets!`;
   } 
