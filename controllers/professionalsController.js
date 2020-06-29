@@ -567,14 +567,15 @@ const generateEmail = async function(professional, newProfessional=true){
     html = `<strong>Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!</strong>
       <br>
       <p>É um prazer tê-lo conosco.</p>
+      <br>
       <p>Para iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:</p>
       <p>1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;</p>
       <p>2 - Cadastre seus serviços e defina o preço;</p>
       <p>3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;</p>
       <p>4 - Mantenha sempre sua agenda atualizada;</p>
       <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
-      <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
       <br>
+      <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
     `;
 
