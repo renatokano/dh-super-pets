@@ -2390,12 +2390,12 @@ hr{
 }
 
 .pap-form__my-services--tr:nth-child(even) {
-  background-color: rgb(189, 250, 246);
+  background-color: #f6f8f9;
   opacity: 0.8;
 }
 
 .pap-form__neighborhood--tr:nth-child(even) {
-  background-color: rgb(189, 250, 246);
+  background-color: #f6f8f9;
   opacity: 0.8;
 }
 
@@ -2586,8 +2586,12 @@ hr{
   cursor:pointer;
 }
 
+.pap-btn-update__input:hover{
+  background-color:#3accaa;
+}
+
 .pap-btn-profile__input--p{
-  background-color: #b7bfc7 ;
+  background-color: #b7bfc7;
 }
 
 .pap-btn-update__input--u, .pap-btn-password-update__input--u
