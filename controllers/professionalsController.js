@@ -20,7 +20,7 @@ const controller = {
       // get more info about the professional
       const professional = await Professional.findByPk(id,{
         attributes: [
-          'id', 'name', 'about_me', 'photo', 'created_at',
+          'id', 'name', 'about_me', 'photo', 'adphoto', 'created_at',
         ],
         include: [{
           model: Neighborhood,
@@ -286,7 +286,25 @@ const controller = {
 
     const {...data} = req.body;
     const {id, uuid} = req.session.professional;
-    let [file] = req.files;
+    let files = req.files;
+
+    let photo = '';
+    let adphoto = '';
+    if(files.length == 2){
+      if(files[0].fieldname == 'photo'){
+        photo = files[0];
+        adphoto = files[1];
+      } else {
+        photo = files[1];
+        adphoto = files[0];
+      }
+    } else if(files.length == 1) {
+      if(files[0].fieldname == 'photo'){
+        photo = files[0];
+      } else {
+        adphoto = files[0];
+      }
+    }
 
     const professional = await Professional.findByPk(id);
 
@@ -324,20 +342,20 @@ const controller = {
     }
     /* fim PASSWORD */
 
-    /* IMAGE */
-    if(typeof(file) == 'undefined') {
+    /* IMAGE - photo profile */
+    if(photo == '') {
       // keep stored photo
       photo = professional.photo;
     // update the image
     } else {
       // upload file to cloudinary
       const photoFile = await cloudinary.v2.uploader.upload(
-        file.path,
+        photo.path,
         {
-          tags: 'professionals',
-          folder: 'professionals',
+          tags: 'gallery',
+          folder: 'gallery',
           allowedFormats: ["jpg", "png", "jpeg", "svg"],
-          transformation: [{ width: 500, height: 500, crop: "limit" }]
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
         });
       if(!photoFile){
         req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
@@ -348,6 +366,30 @@ const controller = {
     };
     /** fim IMAGE */
 
+    /* IMAGE - ad photo profile */
+    if(adphoto == '') {
+      // keep stored adphoto
+      adphoto = professional.adphoto;
+    // update the image
+    } else {
+      // upload file to cloudinary
+      const adPhotoFile = await cloudinary.v2.uploader.upload(
+        adphoto.path,
+        {
+          tags: 'gallery',
+          folder: 'gallery',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
+        });
+      if(!adPhotoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/professionals/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      adphoto = adPhotoFile.secure_url;
+    };
+    /** fim IMAGE */
+  
     /* DATA PROFESSIONAL */
     let transaction = await db.transaction();
     try {
@@ -360,6 +402,7 @@ const controller = {
         neighborhood_id: data.neighborhood_id,
         about_me: data.about_me,
         photo,
+        adphoto,
         updated_at: new Date()
       },{
         where: {
