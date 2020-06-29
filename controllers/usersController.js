@@ -433,14 +433,13 @@ const generateEmail = async function(client, newClient=true){
       <br>
       <p>É um prazer tê-lo conosco.</p>
       <p>Para iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!</p>
-      <br>
       <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
-      <p>Desejamos a você um ótima e maravilhosa jornada!</p>
       <br>
+      <p>Desejamos a você uma ótima e maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
     `;
 
-    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos a você um ótima e maravilhosa jornada!\n\nEquipe SuperPets`;
+    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos a você uma ótima e maravilhosa jornada!\nEquipe SuperPets`;
 
     subject = `Olá ${client.name}, seja bem vindo(a) a comunidade SuperPets!`;
   } 
