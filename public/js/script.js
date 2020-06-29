@@ -189,3 +189,16 @@ searchButton3();
 searchButton4();
 searchButton5();
 
+
+const loginMenu = ()=>{
+  let loginBtn = document.querySelector('.header-nav__link--login');
+  let loginDropdown = document.querySelector('.header-nav__dropdown-login');
+  if(loginBtn){
+  loginBtn.addEventListener('click',()=>{
+    loginDropdown.classList.toggle('header-nav__dropdown-login--active');
+  });
+}
+
+}
+
+loginMenu();

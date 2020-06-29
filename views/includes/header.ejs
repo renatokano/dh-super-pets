@@ -21,7 +21,12 @@
       <ul class="header-nav__menu">
         <li class="header-nav__list-item"><a class="header-nav__link" href="/professionals">profissionais</a></li>
         <li class="header-nav__list-item"><a class="header-nav__link" href="/services">serviços</a></li>
-        <li class="header-nav__list-item"><a class="header-nav__link header-nav__link--login" href="/users/login"></a></li>
+        <li class="header-nav__list-item"><span class="header-nav__link header-nav__link--login">login<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+          <span class="header-nav__dropdown-login">
+            <a class="header-nav__dropdown-login-user" href="/users/login">sou usuário</a>
+            <a class="header-nav__dropdown-login-pro" href="/professionals/login">sou profissional</a>
+          </span>
+        </li>
         <li class="header-nav__list-item"><button class="header-nav__btn"><a class="header-nav__redirect" href="/professionals/new">seja um profissional</a></button></li>
       </ul>
     <% } %>
