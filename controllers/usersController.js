@@ -211,6 +211,17 @@ const controller = {
       return res.redirect('/users/new');
     }
 
+    // avoid duplicate accounts
+    let clientExists = Client.findOne({
+      where: {
+        email
+      }
+    });
+    if(clientExists){
+      req.flash('error', 'Já existe um usuário cadastrado com este e-mail!');
+      return res.redirect('/users/new');
+    }
+
     // set default photo
     let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592949226/clients/250x250_vyf5fs.png';
 

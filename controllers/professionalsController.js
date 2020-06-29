@@ -242,6 +242,17 @@ const controller = {
       return res.redirect('/professionals/new');
     }
 
+    // avoid duplicate accounts
+    let professionalExists = Professional.findOne({
+      where: {
+        email
+      }
+    });
+    if(professionalExists){
+      req.flash('error', 'Já existe um profissional cadastrado com este e-mail!');
+      return res.redirect('/professionals/new');
+    }
+
     // set default photo
     let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png';
 
