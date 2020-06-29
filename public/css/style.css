@@ -4774,7 +4774,7 @@ hr{
     grid-template-columns: 3fr 3fr 3fr 3fr;
     grid-template-areas: "upublicp__photo upublicp__user-name upublicp__user-name upublicp__user-name" 
     "upublicp__photo upublicp__custom-message upublicp__custom-message upublicp__custom-message" 
-    "upublicp__photo upublicp__stars upublicp__stars upublicp__stars"
+    "upublicp__photo . . ."
     "upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos upublicp__pet-photos";
     grid-area: upublicp-profile; 
   }
@@ -4811,7 +4811,6 @@ hr{
     "upublicp__photo . upublicp__pet-photos"
     "upublicp__user-name . upublicp__pet-photos"
     "upublicp__custom-message . upublicp__pet-photos"
-    "upublicp__stars . upublicp__pet-photos"
     ". . upublicp__pet-photos";
     grid-template-rows: min-content;
     grid-area: upublicp-profile; 
