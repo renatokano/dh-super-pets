@@ -52,12 +52,15 @@ const controller = {
         ]
       });
 
-      // get all comments
-      let comments = await ProfessionalRating.findAll({
-        where: {
-          professional_id: id
-        },
-        attributes: ['comment']
+      // get all reviews
+      let review_query = `SELECT pro_ratings.rating as pro_rating, pro_ratings.comment as client_comment, cli.name as client_name, cli.photo as client_photo, pro_ratings.created_at as created_at
+      FROM professional_ratings as pro_ratings
+      INNER JOIN clients as cli ON cli.id = pro_ratings.client_id
+      WHERE pro_ratings.professional_id = ${id}
+      ORDER BY pro_ratings.created_at DESC
+      `
+      let reviews = await db.query(review_query, {
+        type: Sequelize.QueryTypes.SELECT
       });
 
       // get the available slots
@@ -80,7 +83,7 @@ const controller = {
       // all is ok, just return the data
       return res.render('professionals/show', {
         slots,
-        comments,
+        reviews,
         ratings,
         professional,
         tomorrow,

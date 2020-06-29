@@ -2733,8 +2733,46 @@ hr{
   "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"
   "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
   "ppp__coverage-area ppp__coverage-area ppp__coverage-area ppp__coverage-area" "ppp__pricelist ppp__pricelist ppp__pricelist ppp__pricelist"
-  "ppp__metrics ppp__metrics ppp__metrics ppp__metrics"; 
+  "ppp__comments ppp__comments ppp__comments ppp__comments"; 
   grid-area: ppp-profile; 
+}
+
+.ppp__comments {
+  grid-area: ppp__comments;
+  padding: 15px 0;
+  color: #555;
+}
+
+.ppp__comments--no-content {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.ppp__comments--content {
+  padding: 10px;
+}
+
+.ppp__comments--title {
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  color:#3accaa;
+  border-bottom: 1px solid #A6ADB4;
+}
+
+.ppp__user-img {
+  background-repeat:no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+  width:70px;
+  height:70px;
+  margin-right: 5px;
+  position:relative;
+  /* top:-12px; */
+}
+
+.ppp__comments--comment {
+  font-style: italic;
+  padding-bottom: 10px;
 }
 
 .ppp__photo {
@@ -2748,6 +2786,10 @@ hr{
   color: #555;
   text-align: center;
   grid-area: ppp__user-name;
+}
+
+.ppp__comments--date {
+  color: #A6A6A6;
 }
 
 .ppp__custom-message {
@@ -2776,7 +2818,7 @@ hr{
   border: 1px solid #A6ADB4;
   color: #555;
   grid-area: ppp__pricelist;
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
 }
 
 .ppp__pricelist-title {
@@ -2842,8 +2884,7 @@ hr{
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.5rem 0.5rem;
   grid-template: "ppp__photos-title ppp__photos-title ppp__photos-title ppp__photos-title"
-  "ppp__photos-1 ppp__photos-1 ppp__photos-1 ppp__photos-1"
-  "ppp__photos-2 ppp__photos-3 ppp__photos-4 ppp__photos-5";
+  "ppp__photos-1 ppp__photos-1 ppp__photos-1 ppp__photos-1";
   grid-area: ppp__photos-gallery;
   margin-bottom: 2rem;
   align-self: start;
@@ -3147,7 +3188,7 @@ hr{
     "ppp__scheduling ppp__scheduling ppp__scheduling ppp__scheduling"
     "ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery ppp__photos-gallery"
     "ppp__coverage-area ppp__coverage-area ppp__pricelist ppp__pricelist"
-    "ppp__metrics ppp__metrics ppp__metrics ppp__metrics";
+    "ppp__comments ppp__comments ppp__comments ppp__comments";
     grid-area: ppp-profile; 
   }
 
@@ -3168,7 +3209,6 @@ hr{
 
   .ppp__coverage-area {
     margin-right: 0.5rem;
-    margin-bottom: 0;
   }
 
   .ppp__pricelist {
@@ -3204,8 +3244,8 @@ hr{
     "ppp__custom-message . ppp__scheduling"
     "ppp__pricelist . ppp__scheduling"
     "ppp__coverage-area . ppp__photos-gallery"
-    "ppp__metrics . ppp__photos-gallery"
-    ". . ppp__photos-gallery";
+    ". . ppp__photos-gallery"
+    ". . ppp__comments";
     grid-area: ppp-profile; 
   }
 
