@@ -400,15 +400,15 @@ body {
   align-items: center;
   align-content:space-around;
   position:absolute;
-  left:-70px;
+  left:-50px;
   top:67px;
-  width:200px;
+  width:160px;
   transform:translateX(0);
 }
 
 .header-nav__dropdown-login-user{
-  background-color: #676767;
-  border-bottom:1px solid #f1f3f2;
+  background-color: #c1c1c1;
+  border-bottom:1px solid #ebedea;
   color:#fff;
   cursor:pointer;
   text-transform: capitalize;
@@ -418,10 +418,14 @@ body {
   width:100%;
   text-align:center;
   margin:0 auto;
+  -webkit-box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.2);
 }
 
 .header-nav__dropdown-login-pro{
-  background-color: #676767;
+  background-color: #c1c1c1;
+  border-top:1px solid #ebedea;
   cursor:pointer;
   text-transform: capitalize;
   color:#fff;
@@ -436,10 +440,14 @@ body {
 }
 
 .header-nav__dropdown-login-user:hover,.header-nav__dropdown-login-pro:hover{
-  background-color: #45e6c1;
-  color:#fff;
+  background-color: #ebedea;
+  color:#c1c1c1;
+  border:1px solid #c1c1c1;
 }
 
+.header-nav__dropdown-login-user:hover{
+  border-top:none;
+}
 
 .header-nav__btn{
   border:none;
