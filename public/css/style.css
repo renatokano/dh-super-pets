@@ -390,7 +390,6 @@ body {
   top:67px;
   width:200px;
   transform:translateX(400%);
-  transition:transform 0.7s linear !important;
 }
 
 .header-nav__dropdown-login--active{
@@ -405,7 +404,6 @@ body {
   top:67px;
   width:200px;
   transform:translateX(0);
-  transition:transform 0.7s linear !important; 
 }
 
 .header-nav__dropdown-login-user{
