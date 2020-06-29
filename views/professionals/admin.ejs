@@ -105,13 +105,19 @@
           <input class="pap-form__photo-input" type="file" name="photo" id="photo" accept="image/png, image/jpeg">
         </section>
 
+        <section class="pap-form__photo">
+          <label class="pap-name__inputs" for="photo">Foto do anúncio</label>
+          <input class="pap-form__photo-input" type="file" name="ad-photo" id="ad-photo" accept="image/png, image/jpeg">
+        </section>
+
         <section class="pap-btn-update">
           <input class="pap-btn-update__input pap-btn-update__input--u" type="submit" value="Atualizar" />
         </section>
 
         <section class="pap-btn-profile">
-          <a href="/professionals/<%= professional.id %>"></a>
-          <input class="pap-btn-profile__input pap-btn-profile__input--p" type="submit" value="Visualizar Perfil" />
+          <a href="/professionals/<%= professional.id %>">
+            <input class="pap-btn-profile__input pap-btn-profile__input--p" type="button" value="Visualizar Perfil"/>
+          </a> 
         </section>
 
       </form>

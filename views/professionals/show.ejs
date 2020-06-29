@@ -57,6 +57,7 @@
       </div>
 
       <div class="ppp__scheduling">
+        <h2 class="ppp__scheduling--title">Agenda</h2>
         <div id="render_schedule">
           <div>
             <h2 class="p-calendar__head-title"> <%= moment(tomorrow).format('DD') %> de <%= moment(tomorrow).format('MMMM') %> a <%= moment(lastDay).format('DD') %> de <%= moment(lastDay).format('MMMM') %> de <%= moment(lastDay).format('YYYY') %></h2>
@@ -84,7 +85,8 @@
       </div>
       
       <div class="ppp__photos-gallery">
-        <img class="ppp__photos-1" src="https://res.cloudinary.com/superpets/image/upload/v1592952097/professional-photo-gallery-1_ykumhx.jpg" alt="Service Photos">
+        <h2 class="ppp__gallery--title">Galeria</h2>
+        <img class="ppp__photos-1" src="<%- professional.adphoto ? professional.adphoto : "https://res.cloudinary.com/superpets/image/upload/v1592952182/pets/800x500_c1pdhr.jpg"%>" alt="Service Photos">
       </div>
 
       <div class="ppp__comments">

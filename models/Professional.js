@@ -44,7 +44,11 @@ module.exports = (sequelize, Datatypes) => {
             neighborhood_id: {
                 type: Datatypes.INTEGER,
                 allowNull: false
-            }
+            },
+            adphoto: {
+                type: Datatypes.STRING(200),
+                defaultValue: "https://res.cloudinary.com/superpets/image/upload/v1592952182/pets/800x500_c1pdhr.jpg"
+            },
         }, {
             timestamps: false,
             tableName: 'professionals'
