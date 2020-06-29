@@ -152,9 +152,10 @@ const generateEmails = async function(client, professional, appointment){
     <br>
     <p>Desejamos muito sucesso e ótimos negócios!</p>
     <p>Equipe SuperPets</p>
+    <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
   `;
 
-  professional_text = `Olá ${professional.name}, temos uma ótima notícia para te dar!!!\n\nUm agendamento acabou de ser realizado pela SuperPets!!!\nSegue abaixo os dados do seu cliente:\nNome: ${client.name}\nE-mail: ${client.email}\nCelular: ${client.mobile}\nHorário: ${moment(appointment.start_time).format('DD/MM/YYYY HH:mm')}\nUtilize esses dados para se conectar ao seu cliente e combinar como será realizado o serviço.\nLembre-se sempre de manter seus dados atualizados na nossa plataforma.\nEm caso de dúvidas, nos contate por um dos nossos canais de contato.\nDesejamos muito sucesso e ótimos negócios!\n\nEquipe SuperPets`;
+  professional_text = `Olá ${professional.name}, temos uma ótima notícia para te dar!!!\n\nUm agendamento acabou de ser realizado pela SuperPets!!!\nSegue abaixo os dados do seu cliente:\nNome: ${client.name}\nE-mail: ${client.email}\nCelular: ${client.mobile}\nHorário: ${moment(appointment.start_time).format('DD/MM/YYYY HH:mm')}\nUtilize esses dados para se conectar ao seu cliente e combinar como será realizado o serviço.\nLembre-se sempre de manter seus dados atualizados na nossa plataforma.\nEm caso de dúvidas, nos contate por um dos nossos canais de contato.\n\nDesejamos muito sucesso e ótimos negócios!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
   professional_subject = `Olá ${professional.name}, temos uma ótima notícia para te dar!!!`;
 
@@ -179,9 +180,10 @@ const generateEmails = async function(client, professional, appointment){
   <br>
   <p>Desejamos uma maravilhosa experiência!!!</p>
   <p>Equipe SuperPets</p>
+  <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
   `;
 
-  client_text = `Olá ${client.name}, temos uma ótima notícia para te dar!!!\n\nO seu agendamento foi realizado com sucesso e o profissional já foi contatado pela nossa plataforma!!!\nA partir deste momento, aguarde o contato do profissional para que possam combinar a execução do trabalho.\nEnviamos abaixo os dados de contato do profissional escolhido:\nNome: ${professional.name}\nE-mail: ${professional.email}\nCelular: ${professional.mobile}\nHorário: ${moment(appointment.start_time).format('DD/MM/YYYY HH:mm')}\nUtilize esses dados caso precise se comunicar com o profissional.\nLembre-se sempre de manter seus dados atualizados na nossa plataforma.\nEm caso de dúvidas, nos contate por um dos nossos canais de contato.\nDesejamos uma maravilhosa experiência!!!\n\nEquipe SuperPets`;
+  client_text = `Olá ${client.name}, temos uma ótima notícia para te dar!!!\n\nO seu agendamento foi realizado com sucesso e o profissional já foi contatado pela nossa plataforma!!!\nA partir deste momento, aguarde o contato do profissional para que possam combinar a execução do trabalho.\nEnviamos abaixo os dados de contato do profissional escolhido:\nNome: ${professional.name}\nE-mail: ${professional.email}\nCelular: ${professional.mobile}\nHorário: ${moment(appointment.start_time).format('DD/MM/YYYY HH:mm')}\nUtilize esses dados caso precise se comunicar com o profissional.\nLembre-se sempre de manter seus dados atualizados na nossa plataforma.\nEm caso de dúvidas, nos contate por um dos nossos canais de contato.\n\nDesejamos uma maravilhosa experiência!!!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
   client_subject = `Olá ${client.name}, temos uma ótima notícia para te dar!!!`;
 

@@ -242,6 +242,17 @@ const controller = {
       return res.redirect('/professionals/new');
     }
 
+    // avoid duplicate accounts
+    let professionalExists = Professional.findOne({
+      where: {
+        email
+      }
+    });
+    if(professionalExists){
+      req.flash('error', 'Já existe um profissional cadastrado com este e-mail!');
+      return res.redirect('/professionals/new');
+    }
+
     // set default photo
     let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png';
 
@@ -620,10 +631,11 @@ const generateEmail = async function(professional, newProfessional=true){
       <br>
       <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
+      <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
     `;
 
     text = `Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!\n\nÉ um prazer tê-lo conosco.\nPara iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:\n\n1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;\n\n2 - Cadastre seus serviços e defina o preço;\n3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;
-    \n4 - Mantenha sempre sua agenda atualizada;\n\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos, a você, ótimos negócios e uma maravilhosa jornada!\n\nEquipe SuperPets`;
+    \n4 - Mantenha sempre sua agenda atualizada;\n\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos, a você, ótimos negócios e uma maravilhosa jornada!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
     subject = `Olá ${professional.name}, seja bem vindo(a) a comunidade SuperPets Profissional!`;
   } 
