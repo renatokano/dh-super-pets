@@ -51,16 +51,25 @@ async function petCompleteForm(petId, uuid){
   document.getElementById("editMyPets__notes").value = pet[0].notes
 }
 
+const loginMenu = function(){
+  let loginBtn = document.getElementById('header-nav__link--login');
+  let loginDropdown = document.getElementById('header-nav__dropdown-login');
+  if(loginBtn){
+    loginBtn.addEventListener('click', function(){
+      loginDropdown.classList.toggle('header-nav__dropdown-login--active');
+    });
+  }
+}
 
 //show menu mobile
 document.querySelector('.hamburger-menu').addEventListener('click',()=>{
   document.querySelector('.nav-mobile').className ='nav-mobile--active'; 
 });
+
 //hide menu mobile
 document.querySelector('.nav-mobile__item--close-icon').addEventListener('click',()=>{
   document.querySelector('.nav-mobile--active').className ='nav-mobile';
 });
-
 
 //home search checkbox custom buttons
 const searchButton1 = () =>{
@@ -68,12 +77,9 @@ const searchButton1 = () =>{
   let dogTraining = document.querySelector('.home-dog-training');
   let dogTrainingBtn = document.querySelector('.dog-training-btn');
   dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-training_pw3jp1.svg')";
-  console.log(btn1.checked);
   
   btn1.addEventListener('click',()=>{
     if(btn1.checked){
-      console.log('checked');
-      console.log(btn1.checked);
       dogTraining.style.border='none';
       dogTrainingBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-training-checked_kuxzfh.svg')";
       dogTrainingBtn.style.color='#fff';  
@@ -81,8 +87,6 @@ const searchButton1 = () =>{
       dogTraining.style.border='2px solid #ebeded';
       dogTrainingBtn.style.backgroundImage='none';
       dogTrainingBtn.style.color='#676767';
-      console.log('unchecked');
-      console.log(btn1.checked);   
     }
   })    
 }
@@ -92,12 +96,9 @@ const searchButton2 = () =>{
   let petShower = document.querySelector('.home-pet-shower');
   let petShowerBtn = document.querySelector('.pet-shower-btn');
   petShowerBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/shower-icon_ok5b49.svg')";
-  console.log(btn2.checked);
   
   btn2.addEventListener('click',()=>{
     if(btn2.checked){
-      console.log('checked');
-      console.log(btn2.checked);
       petShower.style.border='none';
       petShowerBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952106/shower-icon-checked_dfmqag.svg')";
       petShowerBtn.style.color='#fff';  
@@ -105,8 +106,6 @@ const searchButton2 = () =>{
       petShower.style.border='2px solid #ebeded';
       petShowerBtn.style.backgroundImage='none';
       petShowerBtn.style.color='#676767';
-      console.log('unchecked');
-      console.log(btn2.checked);   
     }
   })    
 }
@@ -116,12 +115,9 @@ const searchButton3 = () =>{
   let dogSitter = document.querySelector('.home-dog-sitter');
   let dogSitterBtn = document.querySelector('.dog-sitter-btn');
   dogSitterBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-sitting_isgqic.svg')";
-  console.log(btn3.checked);
   
   btn3.addEventListener('click',()=>{
     if(btn3.checked){
-      console.log('checked');
-      console.log(btn3.checked);
       dogSitter.style.border='none';
       dogSitterBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952153/dog-sitting-checked_bpy3js.svg')";
       dogSitterBtn.style.color='#fff';  
@@ -129,8 +125,6 @@ const searchButton3 = () =>{
       dogSitter.style.border='2px solid #ebeded';
       dogSitterBtn.style.backgroundImage='none';
       dogSitterBtn.style.color='#676767';
-      console.log('unchecked');
-      console.log(btn3.checked);   
     }
   })    
 }
@@ -140,12 +134,9 @@ const searchButton4 = () =>{
   let dogWalk = document.querySelector('.home-dog-walk');
   let dogWalkBtn = document.querySelector('.dog-walk-btn');
   dogWalkBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/dog-running_kpbxdt.svg')";
-  console.log(btn4.checked);
   
   btn4.addEventListener('click',()=>{
     if(btn4.checked){
-      console.log('checked');
-      console.log(btn4.checked);
       dogWalk.style.border='none';
       dogWalkBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952152/dog-running-checked_nbdjoe.svg')";
       dogWalkBtn.style.color='#fff';  
@@ -153,8 +144,6 @@ const searchButton4 = () =>{
       dogWalk.style.border='2px solid #ebeded';
       dogWalkBtn.style.backgroundImage='none';
       dogWalkBtn.style.color='#676767';
-      console.log('unchecked');
-      console.log(btn4.checked);   
     }
   })    
 }
@@ -164,12 +153,9 @@ const searchButton5 = () =>{
   let dogGroom = document.querySelector('.home-dog-groom');
   let dogGroomBtn = document.querySelector('.dog-groom-btn');
   dogGroomBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1593329216/scissor-icon_hbe2m5.svg')";
-  console.log(btn5.checked);
   
   btn5.addEventListener('click',()=>{
     if(btn5.checked){
-      console.log('checked');
-      console.log(btn5.checked);
       dogGroom.style.border='none';
       dogGroomBtn.style.backgroundImage="url('https://res.cloudinary.com/superpets/image/upload/v1592952105/scissor-icon-checked_lrgejb.svg')";
       dogGroomBtn.style.color='#fff';  
@@ -177,28 +163,13 @@ const searchButton5 = () =>{
       dogGroom.style.border='2px solid #ebeded';
       dogGroomBtn.style.backgroundImage='none';
       dogGroomBtn.style.color='#676767';
-      console.log('unchecked');
-      console.log(btn5.checked);   
     }
   })    
 }
 
+loginMenu();
 searchButton1();
 searchButton2();
 searchButton3();
 searchButton4();
 searchButton5();
-
-
-const loginMenu = ()=>{
-  let loginBtn = document.querySelector('.header-nav__link--login');
-  let loginDropdown = document.querySelector('.header-nav__dropdown-login');
-  if(loginBtn){
-  loginBtn.addEventListener('click',()=>{
-    loginDropdown.classList.toggle('header-nav__dropdown-login--active');
-  });
-}
-
-}
-
-loginMenu();
