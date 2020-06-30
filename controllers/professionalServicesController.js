@@ -54,6 +54,17 @@ const controller = {
     data.professional_id = professional_id;
     const { idS } = req.params;
 
+    const appointments = await db.query(
+      `SELECT count(*) as qtd FROM appointments
+      WHERE professional_id = ${data.professional_id} AND service_id = ${idS}`, {
+        type: Sequelize.QueryTypes.SELECT
+      });
+
+    if (appointments[0].qtd > 0) {
+      req.flash('error', 'O serviço não pode ser excluído!');
+      return res.redirect(`/professionals/${uuid}/admin`); 
+    }
+
     let transaction = await db.transaction();
 
     try {
