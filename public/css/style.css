@@ -2738,38 +2738,54 @@ hr{
   .pap-profile {
     grid-area: pap-profile;
     display: grid;
-    grid-template-columns: 20% 25% 25% 20%;
-    grid-template-rows: 160px 41px;
-    gap:0px 15px;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 140px 41px 41px 41px;
+    gap:15px 0px;
     grid-template-areas:
-    "pap-profile__img pap-profile__quote pap-profile__quote pap-profile__quote "
-    "pap-profile__public pap-profile__services pap-profile__neighborhoods pap-profile__details";
+    "pap-profile__img . ."
+    "pap-profile__quote  pap-profile__quote pap-profile__quote"
+    "pap-profile__public pap-profile__services pap-profile__neighborhoods "
+    "pap-profile__slots pap-profile__appointments pap-profile__details";
     justify-items: left;
     padding:0;
     background-color: #f6f8f9;
+
   }
+
   .pap-profile__img{
-    transform:scale(0.4);
-    justify-self:left;
-    align-self: center;
-    position:relative;
-    right:70px;
+    grid-area:pap-profile__img; 
+  }
+
+  .pap-profile__img img{
+    display:inline-block;
+    margin-top:20px;
+    width:50%;
   }
 
   .pap-profile__quote{
-    justify-self: right; 
-    align-self: center;
-    font-size: 1rem;
+    grid-area:pap-profile__quote;
+    display:flex;
+    font-size:0.9em;
+    width:100%;
+    padding-top:10px;
   }
-  .pap-profile__public,.pap-profile__services, .pap-profile__neighborhoods,.pap-profile__details {
+
+  
+  .pap-profile__public,.pap-profile__services, .pap-profile__neighborhoods,.pap-profile__details,.pap-profile__slots, .pap-profile__appointments {
     padding-bottom:10px;
     font-size:0.8em;
     width:100%;
   }
 
-  .pap-profile__public:hover,.pap-profile__services:hover, .pap-profile__neighborhoods:hover,.pap-profile__details:hover {
-    border-bottom:4px solid #45e6c1;
+  .pap-profile__public:hover,
+  .pap-profile__services:hover,
+  .pap-profile__neighborhoods:hover,
+  .pap-profile__details:hover,
+  .pap-profile__slots:hover,
+  .pap-profile__appointments:hover{
+    font-weight:normal;
   }
+ 
 
   .pap-form{
     grid-area: pap-form;
