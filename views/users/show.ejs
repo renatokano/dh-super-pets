@@ -16,16 +16,6 @@
       <div class="upublicp__user-name">
         <%= user.name %>
       </div>
-      
-      <div class="upublicp__stars">
-        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
-        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
-        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
-        <i class="fa fa-star upublicp__star" aria-hidden="true"></i>
-        <i class="fa fa-star-o upublicp__star-o" aria-hidden="true"></i>
-        <span class="upublicp__stars-counter">(159)</span>
-      </div>
-
       <div class="upublicp__pet-photos">
         <% if(user.Pets.length > 0){ %>
           <% for(let i=0; i<user.Pets.length; i++){ %>

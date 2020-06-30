@@ -211,6 +211,17 @@ const controller = {
       return res.redirect('/users/new');
     }
 
+    // avoid duplicate accounts
+    let clientExists = Client.findOne({
+      where: {
+        email
+      }
+    });
+    if(clientExists){
+      req.flash('error', 'Já existe um usuário cadastrado com este e-mail!');
+      return res.redirect('/users/new');
+    }
+
     // set default photo
     let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592949226/clients/250x250_vyf5fs.png';
 
@@ -433,14 +444,14 @@ const generateEmail = async function(client, newClient=true){
       <br>
       <p>É um prazer tê-lo conosco.</p>
       <p>Para iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!</p>
-      <br>
       <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
-      <p>Desejamos a você um ótima e maravilhosa jornada!</p>
       <br>
+      <p>Desejamos a você uma ótima e maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
+      <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
     `;
 
-    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos a você um ótima e maravilhosa jornada!\n\nEquipe SuperPets`;
+    text = `Seja bem vindo(a) ${client.name} a comunidade SuperPets!\n\nÉ um prazer tê-lo conosco.\n\nPara iniciar sua jornada, retorne à SuperPets e realize o seu primeiro agendamento!\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos a você uma ótima e maravilhosa jornada!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
     subject = `Olá ${client.name}, seja bem vindo(a) a comunidade SuperPets!`;
   } 

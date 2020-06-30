@@ -57,6 +57,7 @@
       </div>
 
       <div class="ppp__scheduling">
+        <h2 class="ppp__scheduling--title">Agenda</h2>
         <div id="render_schedule">
           <div>
             <h2 class="p-calendar__head-title"> <%= moment(tomorrow).format('DD') %> de <%= moment(tomorrow).format('MMMM') %> a <%= moment(lastDay).format('DD') %> de <%= moment(lastDay).format('MMMM') %> de <%= moment(lastDay).format('YYYY') %></h2>
@@ -84,22 +85,47 @@
       </div>
       
       <div class="ppp__photos-gallery">
-        <img class="ppp__photos-1" src="https://res.cloudinary.com/superpets/image/upload/v1592952097/professional-photo-gallery-1_ykumhx.jpg" alt="Service Photos">
-        <img class="ppp__photos-2" src="https://res.cloudinary.com/superpets/image/upload/v1592952099/professional-photo-gallery-2_eln2r5.jpg" alt="Service Photos">
-        <img class="ppp__photos-3" src="https://res.cloudinary.com/superpets/image/upload/v1592952100/professional-photo-gallery-3_bewbxx.jpg" alt="Service Photos">
-        <img class="ppp__photos-4" src="https://res.cloudinary.com/superpets/image/upload/v1592952100/professional-photo-gallery-4_bd4cdt.jpg" alt="Service Photos">
-        <img class="ppp__photos-5" src="https://res.cloudinary.com/superpets/image/upload/v1592952102/professional-photo-gallery-5_uf4p4w.jpg" alt="Service Photos">
+        <h2 class="ppp__gallery--title">Galeria</h2>
+        <img class="ppp__photos-1" src="<%- professional.adphoto ? professional.adphoto : "https://res.cloudinary.com/superpets/image/upload/v1592952182/pets/800x500_c1pdhr.jpg"%>" alt="Service Photos">
       </div>
-      <div class="ppp__metrics">
-        <i class="fa fa-trophy ppp__trophy" aria-hidden="true"></i>
-        <span class="ppp__metrics-value">
-          100%
-        </span>
-        <span class="ppp__metrics-description">
-          dos clientes receberam fotos do seu pet durante execução do serviço.
-        </span>
+
+      <div class="ppp__comments">
+        <h2 class="ppp__comments--title">Avaliações</h2>
+        <% if(reviews.length !== 0){ %>
+          <% for(let i=0; i<reviews.length; i++){ %>
+            <div class="ppp__comments--content">
+              <span class="ppp__comments--user">
+                <div class="ppp__comments--photo">
+                  <section class="ppp__user-img" style="background-image: url('<%- reviews[i].client_photo ? reviews[i].client_photo : "/img/professionals/250x250.png"%>');">
+                </div>
+                <div class="ppp__comments--name">
+                  <%= reviews[i].client_name %>
+                </div>
+                <div class="ppp__comments--date">
+                  <%= moment(reviews[i].created_at).format('DD/MM/YYYY') %>
+                </div>
+              </span>
+              <span class="ppp__comments--rating">
+                <div class="ppp__comments--stars">
+                  <% for(let j=0; j<Math.round(reviews[i].pro_rating); j++){ %>
+                    <i class="fa fa-star ppp__star" aria-hidden="true"></i>
+                  <% } %>
+                  <% for(let j=0; j<5-Math.round(reviews[i].pro_rating); j++){ %>
+                    <i class="fa fa-star-o ppp__star-o" aria-hidden="true"></i>
+                  <% } %>
+                </div>
+                <div class="ppp__comments--comment">
+                  <%= reviews[i].client_comment %>
+                </div>
+              </span>
+            </div>
+          <% } %>
+        <% } else { %>
+          <div class="ppp__comments--no-content">
+            Esse profissional não possui nenhuma avaliação até o momento.
+          </div>
+        <% } %>
       </div>
-      
     </div>
     <div class="ppp-footer">
       <%- include('../includes/footer') %> 
@@ -231,5 +257,7 @@
         location.reload();
       }
     }
+    
   </script>
+  
 </body>

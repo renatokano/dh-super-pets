@@ -53,13 +53,7 @@
     <div id="sr-search-results" class="sr-search-results">
       <div class="sr-results-pages">
         <ul class="pages">
-          <li class="pages__page1">01</li>
-          <li class="pages__page2">02</li>
-          <li class="pages__page3">03</li>
-          <li class="pages__page4">04</li>
-          <li class="pages__page5">05</li>
-          <li class="pages__page6">06</li>
-          <li class="pages__more"></li>
+          
         </ul>
       </div>
     </div>
@@ -81,8 +75,8 @@
           let fullStar = Math.round(professionals[i].stars);
           for(let j=0; j<5; j++){
             stars += j < fullStar 
-              ? `<li class="sr-stars__star sr-stars__star--active"></li>`
-              : `<li class="sr-stars__star"></li>`
+              ? `<i class="fa fa-star ppp__star" aria-hidden="true" style='font-size: 25px;'></i>`
+              : `<i class="fa fa-star-o ppp__star-o" aria-hidden="true" style='font-size: 25px;'></i>`
           }
           let photo = professionals[i].photo ? professionals[i].photo : "https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png"
           professional += `
@@ -134,6 +128,7 @@
         date = date ? date : '';
         getProfessionals(services, neighborhood, date);
       }
+      
     </script>
   </div>
 </body>

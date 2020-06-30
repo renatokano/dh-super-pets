@@ -6,24 +6,27 @@
   <div class="header-nav">
     <!-- user profile -->
     <% if(locals.user_session != null) { %>
-      <ul class="header__user-account">
-        <li class="header__user-account-link"><a class="header__user-account-redirect" href="/users/<%=user_session.uuid%>/admin">Minha Conta</a></li>
-      </ul>
       <p class="user-name">Olá, <%-user_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('<%- user_session.photo ? user_session.photo : "/img/professionals/250x250.png"%>');"></section>
+      <section class="user-img" style="background-image: url('<%- user_session.photo ? user_session.photo : "/img/professionals/250x250.png"%>');">
+        <a class="header__user-account-redirect" href="/users/<%=user_session.uuid%>/admin">Minha Conta</a>
+      </section>
     <!-- professional profile -->
     <% } else if(locals.professional_session!=null) { %>
-      <ul class="header__pro-account">
-        <li class="header__pro-account-link"><a class="header__pro-account-redirect" href="/professionals/<%=professional_session.uuid%>/admin">Minha Conta</a></li>
-      </ul>
       <p class="user-name">Olá, <%-professional_session.name%>! (<a class="user-name__logout" href="/logout">sair</a>)</p>
-      <section class="user-img" style="background-image: url('<%- professional_session.photo ? professional_session.photo : "/img/professionals/250x250.png" %>');"></section>
+      <section class="user-img" style="background-image: url('<%- professional_session.photo ? professional_session.photo : "/img/professionals/250x250.png" %>');">
+       <a class="header__pro-account-redirect" href="/professionals/<%=professional_session.uuid%>/admin">Minha Conta</a> 
+      </section>
     <!-- not logged -->
     <% } else { %>
       <ul class="header-nav__menu">
         <li class="header-nav__list-item"><a class="header-nav__link" href="/professionals">profissionais</a></li>
         <li class="header-nav__list-item"><a class="header-nav__link" href="/services">serviços</a></li>
-        <li class="header-nav__list-item"><a class="header-nav__link header-nav__link--login" href="/users/login"></a></li>
+        <li class="header-nav__list-item"><span id="header-nav__link--login"  class="header-nav__link header-nav__link--login">login<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+          <span id='header-nav__dropdown-login' class="header-nav__dropdown-login">
+            <a class="header-nav__dropdown-login-user" href="/users/login">sou usuário</a>
+            <a class="header-nav__dropdown-login-pro" href="/professionals/login">sou profissional</a>
+          </span>
+        </li>
         <li class="header-nav__list-item"><button class="header-nav__btn"><a class="header-nav__redirect" href="/professionals/new">seja um profissional</a></button></li>
       </ul>
     <% } %>
@@ -34,7 +37,8 @@
       <li class="nav-mobile__item"><span class="nav-mobile__logo" src="#" alt="logo"><a class="nav-mobile__homelink" href="/"></a></span><span class="nav-mobile__item--close-icon"></span></li>
       <li class="nav-mobile__item"><a class="nav-mobile__link-btn" href="/professionals/new">seja um profissional</a></li>
       <li class="nav-mobile__item"><a class="nav-mobile__link" href="/professionals">nossos profissionais</a></li>
-      <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--login" href="/users/login"></a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--login" href="/users/login">login usuario</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--pro-login" href="/professionals/login">login profissional</a></li>
       <li class="nav-mobile__item"><a class="nav-mobile__link" href="/faq">perguntas frequentes</a></li>
     </ul>
   </div>

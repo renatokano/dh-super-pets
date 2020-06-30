@@ -20,7 +20,7 @@ const controller = {
       // get more info about the professional
       const professional = await Professional.findByPk(id,{
         attributes: [
-          'id', 'name', 'about_me', 'photo', 'created_at',
+          'id', 'name', 'about_me', 'photo', 'adphoto', 'created_at',
         ],
         include: [{
           model: Neighborhood,
@@ -52,12 +52,15 @@ const controller = {
         ]
       });
 
-      // get all comments
-      let comments = await ProfessionalRating.findAll({
-        where: {
-          professional_id: id
-        },
-        attributes: ['comment']
+      // get all reviews
+      let review_query = `SELECT pro_ratings.rating as pro_rating, pro_ratings.comment as client_comment, cli.name as client_name, cli.photo as client_photo, pro_ratings.created_at as created_at
+      FROM professional_ratings as pro_ratings
+      INNER JOIN clients as cli ON cli.id = pro_ratings.client_id
+      WHERE pro_ratings.professional_id = ${id}
+      ORDER BY pro_ratings.created_at DESC
+      `
+      let reviews = await db.query(review_query, {
+        type: Sequelize.QueryTypes.SELECT
       });
 
       // get the available slots
@@ -80,7 +83,7 @@ const controller = {
       // all is ok, just return the data
       return res.render('professionals/show', {
         slots,
-        comments,
+        reviews,
         ratings,
         professional,
         tomorrow,
@@ -239,6 +242,17 @@ const controller = {
       return res.redirect('/professionals/new');
     }
 
+    // avoid duplicate accounts
+    let professionalExists = Professional.findOne({
+      where: {
+        email
+      }
+    });
+    if(professionalExists){
+      req.flash('error', 'Já existe um profissional cadastrado com este e-mail!');
+      return res.redirect('/professionals/new');
+    }
+
     // set default photo
     let photo = 'https://res.cloudinary.com/superpets/image/upload/v1592952207/professionals/250x250_th4fpv.png';
 
@@ -283,7 +297,25 @@ const controller = {
 
     const {...data} = req.body;
     const {id, uuid} = req.session.professional;
-    let [file] = req.files;
+    let files = req.files;
+
+    let photo = '';
+    let adphoto = '';
+    if(files.length == 2){
+      if(files[0].fieldname == 'photo'){
+        photo = files[0];
+        adphoto = files[1];
+      } else {
+        photo = files[1];
+        adphoto = files[0];
+      }
+    } else if(files.length == 1) {
+      if(files[0].fieldname == 'photo'){
+        photo = files[0];
+      } else {
+        adphoto = files[0];
+      }
+    }
 
     const professional = await Professional.findByPk(id);
 
@@ -321,20 +353,20 @@ const controller = {
     }
     /* fim PASSWORD */
 
-    /* IMAGE */
-    if(typeof(file) == 'undefined') {
+    /* IMAGE - photo profile */
+    if(photo == '') {
       // keep stored photo
       photo = professional.photo;
     // update the image
     } else {
       // upload file to cloudinary
       const photoFile = await cloudinary.v2.uploader.upload(
-        file.path,
+        photo.path,
         {
-          tags: 'professionals',
-          folder: 'professionals',
+          tags: 'gallery',
+          folder: 'gallery',
           allowedFormats: ["jpg", "png", "jpeg", "svg"],
-          transformation: [{ width: 500, height: 500, crop: "limit" }]
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
         });
       if(!photoFile){
         req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
@@ -345,6 +377,30 @@ const controller = {
     };
     /** fim IMAGE */
 
+    /* IMAGE - ad photo profile */
+    if(adphoto == '') {
+      // keep stored adphoto
+      adphoto = professional.adphoto;
+    // update the image
+    } else {
+      // upload file to cloudinary
+      const adPhotoFile = await cloudinary.v2.uploader.upload(
+        adphoto.path,
+        {
+          tags: 'gallery',
+          folder: 'gallery',
+          allowedFormats: ["jpg", "png", "jpeg", "svg"],
+          transformation: [{ width: 800, height: 500, crop: "limit" }]
+        });
+      if(!adPhotoFile){
+        req.flash('error', 'Houve um erro ao enviar o arquivo! Tente novamente mais tarde.');
+        return res.redirect(`/professionals/${uuid}/admin`); 
+      }
+      // get cloudinary photo url
+      adphoto = adPhotoFile.secure_url;
+    };
+    /** fim IMAGE */
+  
     /* DATA PROFESSIONAL */
     let transaction = await db.transaction();
     try {
@@ -357,6 +413,7 @@ const controller = {
         neighborhood_id: data.neighborhood_id,
         about_me: data.about_me,
         photo,
+        adphoto,
         updated_at: new Date()
       },{
         where: {
@@ -564,19 +621,21 @@ const generateEmail = async function(professional, newProfessional=true){
     html = `<strong>Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!</strong>
       <br>
       <p>É um prazer tê-lo conosco.</p>
+      <br>
       <p>Para iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:</p>
       <p>1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;</p>
       <p>2 - Cadastre seus serviços e defina o preço;</p>
       <p>3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;</p>
       <p>4 - Mantenha sempre sua agenda atualizada;</p>
       <p>Qualquer dúvida, nos contate por um dos nossos meios de contato.</p>
-      <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
       <br>
+      <p>Desejamos, a você, ótimos negócios e uma maravilhosa jornada!</p>
       <p>Equipe SuperPets</p>
+      <p><i>Esta é uma mensagem automática, não é necessário respondê-la.</i></p>
     `;
 
     text = `Seja bem vindo(a) ${professional.name} a comunidade SuperPets Profissional!\n\nÉ um prazer tê-lo conosco.\nPara iniciar sua jornada, retorne à SuperPets, acesse seu painel administrativo e siga os seguintes passos:\n\n1 - Complete seu cadastro adicionando sua foto e contando um pouco de você;\n\n2 - Cadastre seus serviços e defina o preço;\n3 - Destaque as regiões de atendimento, ele será importante para que os clientes possam te encontrar;
-    \n4 - Mantenha sempre sua agenda atualizada;\n\nQualquer dúvida, nos contate por um dos nossos meios de contato.\nDesejamos, a você, ótimos negócios e uma maravilhosa jornada!\n\nEquipe SuperPets`;
+    \n4 - Mantenha sempre sua agenda atualizada;\n\nQualquer dúvida, nos contate por um dos nossos meios de contato.\n\nDesejamos, a você, ótimos negócios e uma maravilhosa jornada!\nEquipe SuperPets\nEsta é uma mensagem automática, não é necessário respondê-la.`;
 
     subject = `Olá ${professional.name}, seja bem vindo(a) a comunidade SuperPets Profissional!`;
   } 
