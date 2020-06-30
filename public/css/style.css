@@ -1673,11 +1673,11 @@ hr{
   grid-template-areas: ". . ." ". services-input ." ". . ." ". neigborhood-input ." ". . ." ". pickdate-input ." ". . ." ". petweight-input ." ". . ." ". search-btn-submit ." ". . .";
   display:none;
 }
-.services-input { grid-area: services-input; }
-.neigborhood-input { grid-area: neigborhood-input; }
-.pickdate-input { grid-area: pickdate-input; }
+.services-input { grid-area: services-input;}
+.neigborhood-input { grid-area: neigborhood-input;}
+.pickdate-input { grid-area: pickdate-input;}
 .petweight-input { grid-area: petweight-input; }
-.search-btn-submit { grid-area: search-btn-submit; }
+.search-btn-submit { grid-area: search-btn-submit;}
 
 .sr-search-results-grid {
   display: grid;
