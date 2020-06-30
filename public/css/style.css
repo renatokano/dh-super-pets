@@ -62,12 +62,13 @@ body {
   -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
   box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+  max-width:1600px;
 }
 
 .header-logo {
   grid-area: header-logo;
   display:grid;
-  grid-template-columns: 40px 37px 20px 160px 5px;
+  grid-template-columns: 32% 37px 20px 160px 5px;
   grid-template-rows: auto;
   gap: 0px 0px;
   grid-template-areas: ". superpets-logo . text-logo . ";
@@ -1010,7 +1011,7 @@ hr{
 }
 
 .home-faq-grid{
-  width:80vw;
+  width:82vw;
   margin:0 auto;
   padding:40px 0;
   font-size:1.2em;
@@ -3415,6 +3416,7 @@ hr{
   "tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer tou-footer";
   background-color: #f6f8f9;
 }
+
 .tou-header { 
   grid-area: tou-header; 
   background-color: #ecf1f1;
@@ -3425,7 +3427,7 @@ hr{
 }
 .tou__terms-of-use { 
   grid-area: tou-terms-of-use; 
-  padding: 5% 0;
+  padding: 5% 2.2%;
 }
 #tou__title {
   text-align: center;
@@ -3630,6 +3632,7 @@ hr{
     grid-template-areas: "faq-questions-and-answers__topics faq-questions-and-answers__topics faq-questions-and-answers__topics . faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers faq-questions-and-answers__answers";
     grid-area: faq-questions-and-answers;
     background-color: #fff;
+    padding-left:2.5%;
   }
 
   .faq-questions-and-answers__topics {
@@ -3639,6 +3642,7 @@ hr{
 
   .faq-banner__message {
     text-align: left;
+    padding-left:5%;
   }
 
   .faq-banner__search {
@@ -3698,7 +3702,7 @@ hr{
   padding-bottom: 2rem;
   text-align: center;
   font-size: 1.4em;
-  padding-top: 2rem;
+  padding: 2rem;
 }
 
 .about-us__subtitle{
@@ -3737,11 +3741,23 @@ hr{
 
 /* Large devices (tablets/laptops/desktops, 768 and up) */
 @media only screen and (min-width: 768px) {
+
+  .about-us{
+    place-items:center;
+  }
+
+  .about-us__content {
+    width:79vw;
+  }
   .about-us__image--mobile {
     display: none;
   }
   .about-us__image {
-    display: inline;
+    display: inline-block;
+    width:100vw;
+  }
+  .about-us__image__slogan{
+    width:100vw;
   }
 }
 
@@ -4187,7 +4203,7 @@ hr{
   background-color: #a6adb4;
   color:#fff;
   align-content: center;
-  padding: 0 8.5%;
+  padding: 0 10.3%;
   font-size: 1.1em;
 }
 .footer-service-links { grid-area: footer-service-links;}
