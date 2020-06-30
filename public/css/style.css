@@ -4579,7 +4579,7 @@ hr{
   grid-template-areas: ". . ." "plp-logo plp-logo plp-logo" ". . ." "plp-title plp-title plp-title" ". . ." ". plp-email ." ". . ." ". plp-password ." ". . ." ". plp-buttons ." ". . ." ". plp-recoverlink ." ". . ." "plp-registerlink plp-registerlink plp-registerlink" ". . .";
   background-color:#fff;
   width:100%;
-  height:700px;
+  height:705px;
   border-radius:5px;
   position: relative;
   top:-30px;
