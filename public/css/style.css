@@ -260,19 +260,15 @@ body {
   color:#fff;
 }
 
-.nav-mobile__item:nth-child(4){
+.nav-mobile__item:nth-child(4),.nav-mobile__item:nth-child(5){
   height:64px;
   background-color:#fff;
   opacity:0.9;
 }
 
-.nav-mobile__link--login{
+.nav-mobile__link--login,.nav-mobile__link--pro-login{
     display:inline-block;
     height:64px;
-    background-image:url('https://res.cloudinary.com/superpets/image/upload/v1592952155/icon-user-login_rjogrb.svg');
-    background-repeat:no-repeat;
-    background-size: 40px;
-    background-position: center center;
 }
 
 @media only screen and (min-width: 1080px){
