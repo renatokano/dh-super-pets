@@ -1703,7 +1703,7 @@ hr{
 }
 .sr-name { grid-area: sr-name;}
 .sr-stars { grid-area: sr-stars; }
-.sr-img { grid-area: sr-img; }
+.sr-img { grid-area: sr-img; height:180px;}
 .sr-pro-info { grid-area: sr-pro-info; }
 .sr-service-area { grid-area: sr-service-area; }
 .sr-btn-book { grid-area: sr-btn-book; }
