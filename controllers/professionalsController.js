@@ -167,7 +167,8 @@ const controller = {
       type: Sequelize.QueryTypes.SELECT
     });
 
-    console.log(professional.Services[0]);
+    // today date
+    let today = new Date();
 
     return res.render('professionals/admin', {
       professional,
@@ -176,6 +177,7 @@ const controller = {
       services,
       tomorrow,
       lastDay,
+      today,
       moment,
       slots,
       appointments

@@ -318,22 +318,32 @@
         <section class="pap-form__title">
           <h1 class="pap-form__title-advanced">Meus Agendamentos</h1>
         </section>
+        <section class="uap-content__appointments">
         <% if(appointments.length > 0){ %>
           <% for(let i=0; i<appointments.length; i++){ %>
               <div class="general__card">
-                <img src="<%= appointments[i].client_photo %>" alt="<%= appointments[i].client_name %>" style="max-width: 250px;max-height:250px">
+                <img src="<%= appointments[i].client_photo %>" alt="<%= appointments[i].client_name %>" style="width:100%">
                 <p class="general__card--name"><%= appointments[i].client_name %></p>
                 <p class="general__card--service"><%= appointments[i].service_name %></p>
                 <p class="general__card--date-hour"><%= moment(appointments[i].slots_start_time).format('DD/MM/YYYY HH:mm') %></p>
-                <p class="general__card--price"><%= appointments[i].price %></p>
+                <p class="general__card--price">R$ <%= appointments[i].price %></p>
                 <p>
-                  <button class="general__card--status">
-                    Agendado
-                  </button>
+                  <% if (moment(appointments[i].slots_start_time).diff(moment(today), 'days') >= 0) { %>
+                    <button class="general__card--status">
+                      Agendado
+                    </button>
+                  <% } else { %>
+                    <button class="general__card--status general__card--concluded">
+                      Serviço Realizado
+                    </button>
+                  <% } %>
                 </p>
               </div>
-              <% } %>
           <% } %>   
+        <% } else { %>
+          Você ainda não possui agendamentos!
+        <% } %>
+        </section>
       </form>
       <!-- fim APPOINTMENTS -->
     </main>
