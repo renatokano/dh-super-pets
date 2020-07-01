@@ -19,8 +19,6 @@ const ratingRoutes = require('./routes/ratingRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const localSessionMiddleware = require('./middleware/localSession');
 
-const dbtestRoutes = require('./routes/dbtestRoutes');
-
 
 const servicesAPIv1Routes = require('./routes/api/v1/servicesRoutes');
 const neighborhoodsAPIv1Routes = require('./routes/api/v1/neighborhoodsRoutes');
@@ -57,10 +55,6 @@ app.use('/newsletter', newsletterRoutes);
 app.use('/api/v1/services', servicesAPIv1Routes);
 app.use('/api/v1/neighborhoods', neighborhoodsAPIv1Routes);
 app.use('/api/v1/pettypes', pettypesAPIv1Routes);
-
-// Routes for tests
-// Use only in development environment
-app.use('/dbtest', dbtestRoutes);
 
 // 404
 app.get('*', function(req, res){
