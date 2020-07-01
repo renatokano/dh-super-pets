@@ -21,7 +21,7 @@
         <div class="neighborhood-input">
           <label class="neighborhood-input__title" for="neighborhood">Bairro</label>
           <select class="neighborhood" name="neighborhood" id="neighborhood">
-            <option value="" selected>Todos os bairro</option>
+            <option value="" selected>Todos os bairros</option>
             <% for(let i=0; i<input_neighborhoods.length; i++){ %>
               <option value="<%= input_neighborhoods[i].id %>"><%= input_neighborhoods[i].name %></option>
             <% } %>
