@@ -16,6 +16,7 @@ const professionalsRoutes = require('./routes/professionalsRoutes');
 const servicesRoutes = require('./routes/servicesRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
 const ratingRoutes = require('./routes/ratingRoutes');
+const newsletterRoutes = require('./routes/newsletterRoutes');
 const localSessionMiddleware = require('./middleware/localSession');
 
 const dbtestRoutes = require('./routes/dbtestRoutes');
@@ -50,6 +51,7 @@ app.use('/professionals', professionalsRoutes);
 app.use('/services', servicesRoutes);
 app.use('/appointments', appointmentRoutes);
 app.use('/ratings', ratingRoutes);
+app.use('/newsletter', newsletterRoutes);
 
 // API v1
 app.use('/api/v1/services', servicesAPIv1Routes);

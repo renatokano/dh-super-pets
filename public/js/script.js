@@ -61,6 +61,22 @@ const loginMenu = function(){
   }
 }
 
+// newsletter API call
+let newsletterSubmit = async function(event){
+  let res = await fetch('/newsletter/'+newsletterEmail.value);
+  location.reload();  
+}
+
+let newsletterEmail = document.getElementById('newsletter__register-email');
+newsletterEmail.addEventListener('keyup', function(event){
+  let key = event.which || event.keyCode;
+  if (key == 13) newsletterSubmit(); // Enter button
+});
+
+let newsletterEmailSubmit = document.getElementById('newsletter__register--submit');
+newsletterEmailSubmit.addEventListener('click', newsletterSubmit);
+
+
 //show menu mobile
 document.querySelector('.hamburger-menu').addEventListener('click',()=>{
   document.querySelector('.nav-mobile').className ='nav-mobile--active'; 
