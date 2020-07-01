@@ -1651,10 +1651,9 @@ hr{
 .sr-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 110px 1fr 200px;
+  grid-template-rows: 110px auto 1fr 200px;
   gap: 0px 0px;
-  grid-template-areas: "sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header" "sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results" "sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer";
-  height:auto;
+  grid-template-areas: "sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header sr-header" "sr-search sr-search sr-search sr-search sr-search sr-search sr-search sr-search sr-search sr-search sr-search sr-search" "sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results sr-search-results" "sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer sr-footer";
 }
 .sr-header { grid-area: sr-header; }
 .sr-footer { grid-area: sr-footer; }
@@ -1663,14 +1662,15 @@ hr{
 
 .sr-search-grid {
   display: grid;
-  grid-template-columns: 5px 1fr 5px;
-  grid-template-rows: 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px;
+  grid-template-columns: 10px 1fr 10px;
+  grid-template-rows: auto auto auto auto;
   gap: 1px 1px;
-  grid-template-areas: ". . ." ". services-input ." ". . ." ". neigborhood-input ." ". . ." ". pickdate-input ." ". . ." ". petweight-input ." ". . ." ". search-btn-submit ." ". . .";
-  display:none;
+  grid-template-areas:  ". services-input ."  ". neighborhood-input ."  ". pickdate-input ."   ". search-btn-submit ." ;
+  background-color:#f3f5f5;
+  padding:20px 0;
 }
 .services-input { grid-area: services-input;}
-.neigborhood-input { grid-area: neigborhood-input;}
+.neighborhood-input { grid-area: neighborhood-input;}
 .pickdate-input { grid-area: pickdate-input;}
 .petweight-input { grid-area: petweight-input; }
 .search-btn-submit { grid-area: search-btn-submit;}
@@ -1909,7 +1909,7 @@ hr{
   grid-template-columns: 5px 1fr 5px;
   grid-template-rows: 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px;
   gap: 1px 1px;
-  grid-template-areas: ". . ." ". services-input ." ". . ." ". neigborhood-input ." ". . ." ". pickdate-input ." ". . ." ". petweight-input ." ". . ." ". search-btn-submit ." ". . .";
+  grid-template-areas: ". . ." ". services-input ." ". . ." ". neighborhood-input ." ". . ." ". pickdate-input ." ". . ." ". petweight-input ." ". . ." ". search-btn-submit ." ". . .";
   display:block;
   background-color: #fff;
   height:100%;
