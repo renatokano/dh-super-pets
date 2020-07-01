@@ -4241,6 +4241,10 @@ hr{
   padding:15px;
 }
 
+.newsletter__input::placeholder {
+  color:#dadada;
+}
+
 .newsletter__text{
   color:#dadada;
   margin-top:15px;
