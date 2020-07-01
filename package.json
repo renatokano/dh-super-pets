@@ -1,7 +1,7 @@
 {
   "name": "dh-super-pets",
-  "version": "0.0.2",
-  "description": "SuperPets - Platform that promises to bring together the best professionals in the pet-market and pet owners.",
+  "version": "1.0.0",
+  "description": "SuperPets - Platform which connects the best professionals in the pet-market and pet owners.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -14,9 +14,9 @@
   "keywords": [
     "nodejs",
     "reactjs",
-    "react-native",
-    "mongodb",
     "javascript",
+    "mysql",
+    "expressjs",
     "marketplace",
     "pet-project"
   ],
@@ -30,11 +30,6 @@
       "name": "Eudes Silva",
       "social": "@EudesJS",
       "url": "https://github.com/EudesJS"
-    },
-    {
-      "name": "Rafael de Cerqueira",
-      "social": "@rafaelcerqueira",
-      "url": "https://github.com/rafaelcerqueira"
     },
     {
       "name": "Renato Kano",
