@@ -3,7 +3,7 @@
 "Os melhores profissionais para o seu *pet* a um clique."
 
 ## Quem Somos
-A SuperPets promete unir os melhores **profissionais do mercado pet** com os **donos de pets**, permitindo buscar os profissionais mais bem avaliados e realizar agendamentos online de serviços como: adestramento, banho, tosa, hospedagem e passeio. 
+A SuperPets conecta os melhores **profissionais do mercado pet** com os **donos de pets**, permitindo buscar os profissionais mais bem avaliados e realizar agendamentos online de serviços como: adestramento, banho, tosa, hospedagem e passeio. 
 
 Mais que um simples buscador/agendador, trazemos informação para que o dono do pet tenha tudo que precisa para escolher o prestador de serviço mais adequado para as suas diferentes necessidades.
 
@@ -39,17 +39,17 @@ Sprint 4 (23/04 - 08/05): Modelagem do Banco de Dados. [[arquivos]](https://gith
 
 Sprint 5 (09/05 - 05/06): Desenvolvimento do Back-end. [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-5.pdf)
 
+Sprint 6 (06/06 - 29/06): Javascript Frontend [[instruções]](https://github.com/renatokano/dh-super-pets/blob/master/instructions/Sprint-6.pdf)
+
 ## Stack
 * [NodeJs](https://nodejs.org/dist/latest-v12.x/docs/api/) - JavaScript runtime built on Chrome's V8 JavaScript engine
 * [ExpressJs](https://expressjs.com/en/4x/api.html) - Web Framework
 * [MySQL](https://dev.mysql.com/downloads/mysql/) - MySQL Community Server
 * [ReactJs](https://reactjs.org/docs/getting-started.html) - A JavaScript library for building user interfaces
-* [ReactNative](https://facebook.github.io/react-native) - A framework for building native apps using React
 
 ## Team
 * **Adria M. de Oliveira** - [[Github]](https://github.com/adriamenezes)
 * **Eudes Silva** - [[Github]](https://github.com/EudesJS)
-* **Rafael de Cerqueira** - [[Github]](https://github.com/rafaelcerqueira)
 * **Renato Kano** - [[Github]](https://github.com/renatokano)
 
 ## Licença
