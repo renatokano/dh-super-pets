@@ -33,6 +33,23 @@
     <section class="hamburger-menu"></section>
   </div>
   <div class="nav-mobile">
+    <% if(locals.user_session != null){ %>
+    <ul class="nav-mobile__links">
+      <li class="nav-mobile__item"><span class="nav-mobile__logo" src="#" alt="logo"><a class="nav-mobile__homelink" href="/"></a></span><span class="nav-mobile__item--close-icon"></span></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link-btn" href="/professionals/new">seja um profissional</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/professionals">nossos profissionais</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--login" href="/logout">sair</a></li>
+      <li class="nav-mobile__item--faq"><a class="nav-mobile__link--faq" href="/faq">perguntas frequentes</a></li>
+    </ul>
+  <% } else if(locals.professional_session != null) { %>
+    <ul class="nav-mobile__links">
+      <li class="nav-mobile__item"><span class="nav-mobile__logo" src="#" alt="logo"><a class="nav-mobile__homelink" href="/"></a></span><span class="nav-mobile__item--close-icon"></span></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link-btn" href="/professionals/new">seja um profissional</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link" href="/professionals">nossos profissionais</a></li>
+      <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--pro-login" href="/logout">sair</a></li>
+      <li class="nav-mobile__item--faq"><a class="nav-mobile__link--faq" href="/faq">perguntas frequentes</a></li>
+    </ul>
+  <% } else { %>
     <ul class="nav-mobile__links">
       <li class="nav-mobile__item"><span class="nav-mobile__logo" src="#" alt="logo"><a class="nav-mobile__homelink" href="/"></a></span><span class="nav-mobile__item--close-icon"></span></li>
       <li class="nav-mobile__item"><a class="nav-mobile__link-btn" href="/professionals/new">seja um profissional</a></li>
@@ -41,5 +58,6 @@
       <li class="nav-mobile__item"><a class="nav-mobile__link nav-mobile__link--pro-login" href="/professionals/login">login profissional</a></li>
       <li class="nav-mobile__item"><a class="nav-mobile__link" href="/faq">perguntas frequentes</a></li>
     </ul>
+  <% } %> 
   </div>
 </div>
