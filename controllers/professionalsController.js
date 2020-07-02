@@ -245,7 +245,7 @@ const controller = {
     }
 
     // avoid duplicate accounts
-    let professionalExists = Professional.findOne({
+    let professionalExists = await Professional.findOne({
       where: {
         email
       }

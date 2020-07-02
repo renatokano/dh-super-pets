@@ -212,7 +212,7 @@ const controller = {
     }
 
     // avoid duplicate accounts
-    let clientExists = Client.findOne({
+    let clientExists = await Client.findOne({
       where: {
         email
       }
